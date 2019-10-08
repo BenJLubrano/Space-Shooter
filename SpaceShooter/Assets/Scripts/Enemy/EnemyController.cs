@@ -9,6 +9,7 @@ public class EnemyController : Ship
     [SerializeField] BaseEnemy enemyType;
     [SerializeField] List<GameObject> targets;
     [SerializeField] Rigidbody2D rb;
+
     Ship currentTarget;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class EnemyController : Ship
 
     void Update()
     {
+        base.Update();
         if(currentTarget == null)
         {
             LookForTargets();
@@ -72,6 +74,16 @@ public class EnemyController : Ship
         {
             transform.up = currentTarget.gameObject.transform.position - transform.position;
             rb.AddForce(transform.up * speed);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            audioSource.clip = shipWeapon.sound;
+            audioSource.Play();
+            collision.gameObject.GetComponent<Ship>().TakeDamage(shipWeapon.damage);
         }
     }
 }

@@ -14,6 +14,9 @@ public class Ship : MonoBehaviour
     [SerializeField] public float brakeStrength;
     [SerializeField] public Weapon shipWeapon;
     [SerializeField] public GameObject projectile;
+    [SerializeField] public AudioSource audioSource;
+
+    bool waitingForDestroy = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +24,12 @@ public class Ship : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-        
+        if(waitingForDestroy && !audioSource.isPlaying)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(float damage)
@@ -31,7 +37,13 @@ public class Ship : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    void Die()
+    {
+        audioSource.Play();
+        waitingForDestroy = true;
     }
 }
