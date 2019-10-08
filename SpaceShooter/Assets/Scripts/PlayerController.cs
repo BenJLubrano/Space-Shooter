@@ -18,6 +18,7 @@ public class PlayerController : Ship
     // Update is called once per frame
     void Update()
     {
+        base.Update();
         weaponCooldown -= Time.deltaTime;
         float verticalMove = Input.GetAxis("Vertical") * speed;
         verticalMove = (verticalMove < 0) ? verticalMove * speedPenalty : verticalMove;

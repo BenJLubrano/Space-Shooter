@@ -18,9 +18,9 @@ public class Projectile : MonoBehaviour
     {
         startPos = transform.position;
         renderer.sprite = weapon.projectileImage;
-        if(weapon.shootSound != null)
+        if(weapon.sound != null)
         {
-            audioSource.clip = weapon.shootSound;
+            audioSource.clip = weapon.sound;
             audioSource.Play();
         }
     }
