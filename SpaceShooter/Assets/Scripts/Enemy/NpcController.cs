@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.Generic;
 
-public class EnemyController : Ship
+//controller for all NPC ships
+public class NpcController : Ship
 {
 
-    [SerializeField] BaseEnemy enemyType;
+    [SerializeField] BaseNpc npcType; //the type of NPC that the ship is (This might be changed)
     [SerializeField] List<GameObject> targets;
     [SerializeField] Rigidbody2D rb;
 
     Ship currentTarget;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
-        base.Update();
+        base.Update(); //call base ship update
         if(currentTarget == null)
         {
             LookForTargets();
@@ -34,6 +30,7 @@ public class EnemyController : Ship
         Move();
     }
 
+    //Logic related to targeting
     void LookForTargets()
     {
         if (targets.Count == 0)
@@ -52,16 +49,19 @@ public class EnemyController : Ship
         currentTarget = tempTarget.GetComponent<Ship>();
     }
 
+    //Used to get target updates from the TargetingController
     public void UpdateTargets(List<GameObject> newTargets)
     {
         targets = newTargets;
     }
 
+    //Whether or not the target is out of range
     bool OutOfRange()
     {
-        return Vector2.Distance(currentTarget.gameObject.transform.position, gameObject.transform.position) > enemyType.aggroRange;
+        return Vector2.Distance(currentTarget.gameObject.transform.position, gameObject.transform.position) > npcType.aggroRange;
     }
 
+    //Called when the npc "loses interest" in a target
     void Deaggro()
     {
         //going to do other stuff here later
@@ -77,6 +77,7 @@ public class EnemyController : Ship
         }
     }
 
+    //This is a temporary function, sort of a cheat to get the melee enemies to work. This will be revised into a more modular attack system
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")

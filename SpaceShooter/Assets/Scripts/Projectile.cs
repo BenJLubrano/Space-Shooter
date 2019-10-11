@@ -5,7 +5,6 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] Weapon weapon;
-
     [SerializeField] BoxCollider2D hitBox;
     [SerializeField] SpriteRenderer renderer;
     [SerializeField] AudioSource audioSource;
@@ -13,6 +12,7 @@ public class Projectile : MonoBehaviour
     Vector3 speedMod = Vector2.zero;
     bool waitingForDestroy = false;
     Vector2 startPos;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -42,6 +42,7 @@ public class Projectile : MonoBehaviour
         
     }
 
+    //called after physics updates
     private void LateUpdate()
     {
         if (Vector2.Distance(transform.position, startPos) >= weapon.range)
@@ -51,13 +52,13 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //deal damage and make a sound, then deactivate
-        if(collision.gameObject.tag == "Asteroid")
+        if(collision.gameObject.tag == "Asteroid") //if the object is an asteroid
         {
             collision.gameObject.GetComponent<Asteroid>().TakeDamage(weapon.damage);
             Deactivate();
         }
 
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy") //if its an enemy
         {
             collision.gameObject.GetComponent<Ship>().TakeDamage(weapon.damage);
             Deactivate();
@@ -71,10 +72,5 @@ public class Projectile : MonoBehaviour
         hitBox.enabled = false;
         renderer.enabled = false;
         waitingForDestroy = true;
-    }
-
-    public void AddVelocity(Vector2 shooterVelocity)
-    {
-        speedMod = shooterVelocity;
     }
 }

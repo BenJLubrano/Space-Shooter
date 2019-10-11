@@ -2,27 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//base ship class that all players and enemies will inherit from
+//Base ship class that all players and enemies will inherit from
+//It will control the functions that all ships share
 public class Ship : MonoBehaviour
 {
-    [SerializeField] public string faction;
-    [SerializeField] public float health;
-    [SerializeField] public float speed;
-    [SerializeField] public float speedPenalty;
-    [SerializeField] public float turnSpeed;
-    [SerializeField] public float defaultDrag;
-    [SerializeField] public float brakeStrength;
-    [SerializeField] public Weapon shipWeapon;
-    [SerializeField] public GameObject projectile;
-    [SerializeField] public AudioSource audioSource;
+    public int shipID;
+    public string faction;
+    public float health;
+    public float speed;
+    public Weapon shipWeapon;
+    public GameObject projectile;
+    public AudioSource audioSource;
+
+    //These variables are used for the player controller, but they exist here in case we want to have the enemy ships move like the player
+    public float speedPenalty;
+    public float turnSpeed;
+    public float defaultDrag;
+    public float brakeStrength;
+
 
     bool waitingForDestroy = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     protected void Update()
     {

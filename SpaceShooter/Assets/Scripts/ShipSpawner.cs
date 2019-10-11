@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script simply spawns ships
+//It works pretty similarly to the Distributor, but it will likely have many different functions in the future
 public class ShipSpawner : MonoBehaviour
 {
     [SerializeField] float spawnRate = 5;
@@ -11,11 +13,6 @@ public class ShipSpawner : MonoBehaviour
 
     float timeSinceLastSpawn = 0f;
     int spawnedShips = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
