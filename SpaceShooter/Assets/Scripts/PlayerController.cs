@@ -62,4 +62,10 @@ public class PlayerController : Ship
             GameObject shot = Instantiate(projectile, transform.up/1.5f + transform.position, transform.rotation); //create the projectile
         }
     }
+
+    protected override void Die()
+    {
+        base.Die();
+        Debug.Log("The player has died!");
+    }
 }

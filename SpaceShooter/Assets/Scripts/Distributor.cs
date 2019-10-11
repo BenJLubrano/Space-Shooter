@@ -46,11 +46,7 @@ public class Distributor : MonoBehaviour
                 {
                     newPos = GeneratePosition();
                 }
-                else //if it can't find a space after the max amount of tries (default is 1000), odds are that none of the other objects will be able to
-                {
-                    maxTries = 0; //so the rest will just take the first generated position
-                    break;
-                }
+                else break;//if it can't find a space after the max amount of tries (default is 1000), go to the next object
                 
             }
             spawnPositions.Add(newPos);

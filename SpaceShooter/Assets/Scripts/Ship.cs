@@ -14,6 +14,10 @@ public class Ship : MonoBehaviour
     public GameObject projectile;
     public AudioSource audioSource;
 
+    //audio clips
+    public AudioClip deathSound;
+    public AudioClip moveSound;
+
     //These variables are used for the player controller, but they exist here in case we want to have the enemy ships move like the player
     public float speedPenalty;
     public float turnSpeed;
@@ -21,18 +25,21 @@ public class Ship : MonoBehaviour
     public float brakeStrength;
 
 
-    bool waitingForDestroy = false;
+    bool isDead = false;
     // Update is called once per frame
     protected void Update()
     {
-        if(waitingForDestroy && !audioSource.isPlaying)
+        if(isDead && !audioSource.isPlaying)
         {
             Destroy(gameObject);
         }
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
+        if (isDead)
+            return;
+        
         health -= damage;
         if(health <= 0)
         {
@@ -40,9 +47,10 @@ public class Ship : MonoBehaviour
         }
     }
 
-    void Die()
+    protected virtual void Die()
     {
+        audioSource.clip = deathSound;
         audioSource.Play();
-        waitingForDestroy = true;
+        isDead = true;
     }
 }

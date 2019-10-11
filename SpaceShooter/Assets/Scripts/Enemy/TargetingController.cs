@@ -6,7 +6,7 @@ using System.Collections.Generic;
 //This script controls the targeting for the NPC ships
 public class TargetingController : MonoBehaviour
 {
-    [SerializeField] EnemyController controller;
+    [SerializeField] NpcController controller;
     [SerializeField] CircleCollider2D targetingZone;
     [SerializeField] float radius;
     [SerializeField] List<string> enemyFactions = new List<string>();

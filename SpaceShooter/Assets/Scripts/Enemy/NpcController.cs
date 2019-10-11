@@ -10,6 +10,8 @@ public class NpcController : Ship
     [SerializeField] BaseNpc npcType; //the type of NPC that the ship is (This might be changed)
     [SerializeField] List<GameObject> targets;
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] Collider2D collider;
+    [SerializeField] SpriteRenderer renderer;
 
     Ship currentTarget;
 
@@ -82,9 +84,17 @@ public class NpcController : Ship
     {
         if(collision.gameObject.tag == "Player")
         {
+            Debug.Log("player");
             audioSource.clip = shipWeapon.sound;
             audioSource.Play();
             collision.gameObject.GetComponent<Ship>().TakeDamage(shipWeapon.damage);
         }
+    }
+
+    protected override void Die()
+    {
+        collider.enabled = false;
+        renderer.enabled = false;
+        base.Die();
     }
 }

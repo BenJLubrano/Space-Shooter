@@ -144,19 +144,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4594c1a66ec7be8488776f142804ca8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipID: 0
   faction: 
   health: 10
   speed: 65
+  shipWeapon: {fileID: 11400000, guid: 4e3f4cc029cf31d43aaa726ee75ae4e9, type: 2}
+  projectile: {fileID: 0}
+  audioSource: {fileID: 2690012981022930434}
+  deathSound: {fileID: 8300000, guid: adc7942800780cf4f9004ea7eb139877, type: 3}
+  moveSound: {fileID: 0}
   speedPenalty: 0
   turnSpeed: 0
   defaultDrag: 0
   brakeStrength: 0
-  shipWeapon: {fileID: 11400000, guid: 4e3f4cc029cf31d43aaa726ee75ae4e9, type: 2}
-  projectile: {fileID: 0}
-  audioSource: {fileID: 2690012981022930434}
-  enemyType: {fileID: 11400000, guid: fb02c7a3e109a2a449c70225ec296a51, type: 2}
+  npcType: {fileID: 11400000, guid: fb02c7a3e109a2a449c70225ec296a51, type: 2}
   targets: []
   rb: {fileID: 863274986575074758}
+  collider: {fileID: 3981507384830257050}
+  renderer: {fileID: 9160826333733911028}
 --- !u!82 &2690012981022930434
 AudioSource:
   m_ObjectHideFlags: 0
