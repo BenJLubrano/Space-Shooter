@@ -18,6 +18,11 @@ public class TargetingController : MonoBehaviour
         enemyFactions.Add("Player");
     }
 
+    public void Initialize(List<string> factions)
+    {
+        enemyFactions = factions;
+    }
+
     //Activates when a collider enters the targeting zone of the ship
     private void OnTriggerEnter2D(Collider2D collision)
     {

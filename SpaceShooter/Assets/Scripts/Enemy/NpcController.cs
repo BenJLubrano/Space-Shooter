@@ -3,17 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.Generic;
 
-//controller for all NPC ships
+//Controller for all NPC ships, this script will act as a driver or central control unit for the ships
+//It will get the variables from NpcShip.cs and will call functions from that script.
 public class NpcController : Ship
 {
 
-    [SerializeField] BaseNpc npcType; //the type of NPC that the ship is (This might be changed)
+    [SerializeField] NpcShip npcType; //the type of NPC that the ship is (This might be changed)
     [SerializeField] List<GameObject> targets;
+    [SerializeField] List<string> enemyFactions;
+
+    [Header("References")]
+    [SerializeField] TargetingController targetingController;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Collider2D collider;
     [SerializeField] SpriteRenderer renderer;
 
-    Ship currentTarget;
+    GameObject currentTarget;
+
+    private void Awake()
+    {
+        //initialize enemyfactions  
+        targetingController.Initialize(enemyFactions);
+        shipId = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().RegisterShip();
+    }
 
     void Update()
     {
@@ -29,6 +41,14 @@ public class NpcController : Ship
                 Deaggro();
             }
         }
+
+        //if the ship has a target
+        if(currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0)
+        {
+            //Turn this into a method in Ship.cs called "Shoot()" that will handle the cooldown setting etc, since it's universal for all ships
+            Shoot(currentTarget, enemyFactions);
+        }
+
         Move();
     }
 
@@ -48,7 +68,7 @@ public class NpcController : Ship
                 closest = tempDist;
             }
         }
-        currentTarget = tempTarget.GetComponent<Ship>();
+        currentTarget = tempTarget;
     }
 
     //Used to get target updates from the TargetingController
@@ -57,16 +77,22 @@ public class NpcController : Ship
         targets = newTargets;
     }
 
-    //Whether or not the target is out of range
+    //Whether or not the target is out of aggro range
     bool OutOfRange()
     {
         return Vector2.Distance(currentTarget.gameObject.transform.position, gameObject.transform.position) > npcType.aggroRange;
     }
 
+    //Whether or not the target is in range to attack. Might do some more complicated calculations here later?
+    bool TargetInAttackRange()
+    {
+        return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.range;
+    }
+
     //Called when the npc "loses interest" in a target
     void Deaggro()
     {
-        //going to do other stuff here later
+        //going to do other stuff here later, like returning to patrol point
         currentTarget = null;
     }
     
@@ -80,7 +106,7 @@ public class NpcController : Ship
     }
 
     //This is a temporary function, sort of a cheat to get the melee enemies to work. This will be revised into a more modular attack system
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
@@ -89,7 +115,7 @@ public class NpcController : Ship
             audioSource.Play();
             collision.gameObject.GetComponent<Ship>().TakeDamage(shipWeapon.damage);
         }
-    }
+    }*/
 
     protected override void Die()
     {

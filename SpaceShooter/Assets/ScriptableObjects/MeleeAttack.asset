@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56dfad2355f8dd74b956bfe524abac64, type: 3}
-  m_Name: Kamikaze
+  m_Name: MeleeAttack
   m_EditorClassIdentifier: 
-  damage: 1
-  fireRate: 5
-  projectileSpeed: 1
+  damage: 5
+  fireRate: 1
+  projectileSpeed: 10
   projectileImage: {fileID: 0}
-  range: 0.5
+  range: 1
   sound: {fileID: 8300000, guid: adc7942800780cf4f9004ea7eb139877, type: 3}
+  projectile: {fileID: 8819101810938153031, guid: 8e52f94d533610746970344ab60294e1,
+    type: 3}
