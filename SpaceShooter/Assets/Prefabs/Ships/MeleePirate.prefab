@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 890496405872206226}
   - component: {fileID: 2690012981022930434}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: MeleePirate
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,10 +150,11 @@ MonoBehaviour:
   health: 10
   speed: 65
   weaponCooldown: 0
-  speedPenalty: 0
-  turnSpeed: 0
-  defaultDrag: 0
-  brakeStrength: 0
+  speedPenalty: 0.25
+  defaultTurnSpeed: 5
+  turnSpeed: 5
+  defaultDrag: 5
+  brakeStrength: 1
   shipWeapon: {fileID: 11400000, guid: 47653cd744adba74caabe5a801c163ce, type: 2}
   audioSource: {fileID: 2690012981022930434}
   shipRb: {fileID: 863274986575074758}

@@ -12,12 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShooterPirate
       objectReference: {fileID: 0}
-    - target: {fileID: 8425060942357847168, guid: bab22a56eb911f24baf863d86f041110,
-        type: 3}
-      propertyPath: shipWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: eb8ec8e4d93618941a35a89f779efb9a,
-        type: 2}
     - target: {fileID: 8415550468204227133, guid: bab22a56eb911f24baf863d86f041110,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,6 +66,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425060942357847168, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: shipWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: eb8ec8e4d93618941a35a89f779efb9a,
+        type: 2}
+    - target: {fileID: 8425060942357847168, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab22a56eb911f24baf863d86f041110, type: 3}

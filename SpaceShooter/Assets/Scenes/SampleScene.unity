@@ -192,6 +192,11 @@ PrefabInstance:
       propertyPath: turnSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: defaultTurnSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05bdc6182e9e4243aec202383b038ba, type: 3}
 --- !u!1001 &1311174814
@@ -270,6 +275,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 97602131344032604, guid: 77ac93834175a1848aadc3da7a5bc89f,
+        type: 3}
+      propertyPath: objectCount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 97602131344032604, guid: 77ac93834175a1848aadc3da7a5bc89f,
+        type: 3}
+      propertyPath: minSpacing
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77ac93834175a1848aadc3da7a5bc89f, type: 3}

@@ -33,11 +33,13 @@ public class PlayerController : Ship
 
         if (Input.GetButton("Brake")) //if the player is braking
         {
+            turnSpeed = defaultTurnSpeed / 2f;
             shipRb.drag = brakeStrength; //up the drag, which causes the player to stop faster
             shipRb.angularVelocity = 0f;
         }
         else
         {
+            turnSpeed = defaultTurnSpeed;
             shipRb.drag = defaultDrag;
         }
 

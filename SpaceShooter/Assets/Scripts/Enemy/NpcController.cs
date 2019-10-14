@@ -49,14 +49,15 @@ public class NpcController : Ship
             }
         }
 
+
+        Move();
+
         //if the ship has a target
         if(currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0)
         {
             //Turn this into a method in Ship.cs called "Shoot()" that will handle the cooldown setting etc, since it's universal for all ships
             Shoot(currentTarget, enemyFactions);
         }
-
-        Move();
     }
 
     //Logic related to targeting
@@ -105,24 +106,29 @@ public class NpcController : Ship
     
     void Move()
     {
-        if(currentTarget != null)
+        if (currentTarget != null)
         {
-            transform.up = currentTarget.gameObject.transform.position - transform.position;
-            rb.AddForce(transform.up * speed);
+            Rotate();
+
+            if (Vector2.Distance(currentTarget.gameObject.transform.position, transform.position) > shipWeapon.range / 2) //if the target is further away than half of the weapons range
+            {
+                rb.AddForce(transform.up * speed);
+            }
         }
     }
 
-    //This is a temporary function, sort of a cheat to get the melee enemies to work. This will be revised into a more modular attack system
-    /*private void OnCollisionEnter2D(Collision2D collision)
+    //this function handles the rotation of the enemy
+    void Rotate()
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            Debug.Log("player");
-            audioSource.clip = shipWeapon.sound;
-            audioSource.Play();
-            collision.gameObject.GetComponent<Ship>().TakeDamage(shipWeapon.damage);
-        }
-    }*/
+        Vector2 direction = currentTarget.transform.position - transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
+
+        //CODE FOR INSTANT ROTATE
+        //transform.up = currentTarget.gameObject.transform.position - transform.position; //change rotation to face target
+    }
 
     protected override void Die()
     {
