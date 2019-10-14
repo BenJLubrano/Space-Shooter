@@ -32,8 +32,11 @@ public class Projectile : MonoBehaviour
     }
 
     //Used to set up some information that the projectile needs
-    public void Initialize(int shooter, GameObject target = null, List<string> factions = null)
+    public void Initialize(Weapon weapon, int shooter, GameObject target = null, List<string> factions = null)
     {
+        this.weapon = weapon;
+        renderer.sprite = weapon.projectileImage;
+        
         shooterId = shooter;
         enemyFactions = factions;
         this.target = target;

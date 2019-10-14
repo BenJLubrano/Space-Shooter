@@ -55,7 +55,7 @@ public class Ship : MonoBehaviour
                 factions.Remove(this.faction);
             }
 
-            shot.GetComponent<Projectile>().Initialize(shipId, target, factions);
+            shot.GetComponent<Projectile>().Initialize(shipWeapon, shipId, target, factions);
         }
     }
 

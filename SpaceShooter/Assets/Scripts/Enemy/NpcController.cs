@@ -24,7 +24,14 @@ public class NpcController : Ship
     {
         //initialize enemyfactions  
         targetingController.Initialize(enemyFactions);
-        shipId = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().RegisterShip();
+        try
+        {
+            shipId = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().RegisterShip();
+        }
+        catch
+        {
+            Debug.LogError("GameManager was not detected in the scene!");
+        }
     }
 
     void Update()
