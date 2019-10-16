@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.Generic;
 
+//This script controls the targeting for the NPC ships
 public class TargetingController : MonoBehaviour
 {
-    [SerializeField] EnemyController controller;
+    [SerializeField] NpcController controller;
     [SerializeField] CircleCollider2D targetingZone;
     [SerializeField] float radius;
-    List<GameObject> targets = new List<GameObject>();
     [SerializeField] List<string> enemyFactions = new List<string>();
+    List<GameObject> targets = new List<GameObject>();
 
     private void Awake()
     {
@@ -17,28 +18,34 @@ public class TargetingController : MonoBehaviour
         enemyFactions.Add("Player");
     }
 
+    public void Initialize(List<string> factions)
+    {
+        enemyFactions = factions;
+    }
+
+    //Activates when a collider enters the targeting zone of the ship
     private void OnTriggerEnter2D(Collider2D collision)
     {
         foreach (string tag in enemyFactions)
         {
-            if (tag == collision.gameObject.tag)
+            if (tag == collision.gameObject.tag) //if the tag is in the list of factions that this ship will attack
             {
-                Debug.Log("Found target");
-                targets.Add(collision.gameObject);
+                targets.Add(collision.gameObject); //add the target to the
                 controller.UpdateTargets(targets);
                 break;
             }
         }
     }
 
+    //Activates when a collider exits the targeting zone of the ship
     private void OnTriggerExit2D(Collider2D collision)
     {
         foreach (GameObject target in targets)
         {
-            if (target == collision.gameObject)
+            if (target == collision.gameObject) //if the gameobject was a target
             {
-                targets.Remove(target);
-                controller.UpdateTargets(targets);
+                targets.Remove(target); //remove it from the targets list
+                controller.UpdateTargets(targets); //update the list of targets on the controller
                 break;
             }
         }
