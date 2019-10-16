@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6310955301383132386, guid: e5f543e096c504a4a8dcf084ad608605,
         type: 3}
       propertyPath: m_Name
-      value: Asteroid
+      value: Asteroid2
       objectReference: {fileID: 0}
     - target: {fileID: 6310955301383132384, guid: e5f543e096c504a4a8dcf084ad608605,
         type: 3}
