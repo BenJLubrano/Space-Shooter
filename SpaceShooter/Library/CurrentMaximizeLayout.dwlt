@@ -23,10 +23,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 917, y: 344}
-  m_MaxSize: {x: 22012, y: 10022}
+  m_MinSize: {x: 907, y: 322}
+  m_MaxSize: {x: 22002, y: 10000}
   vertical: 0
-  controlID: 9661
+  controlID: 161
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -129,10 +129,10 @@ MonoBehaviour:
     y: 0
     width: 842
     height: 947
-  m_MinSize: {x: 202, y: 344}
-  m_MaxSize: {x: 4002, y: 8044}
+  m_MinSize: {x: 202, y: 322}
+  m_MaxSize: {x: 4002, y: 8022}
   vertical: 1
-  controlID: 9662
+  controlID: 54
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -395,7 +395,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 0aefffff0cefffff98efffff42faffff6efaffff94faffffb6faffff6afbffff
+      m_ExpandedIDs: c0faffff6afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -438,8 +438,8 @@ MonoBehaviour:
     y: 0
     width: 465
     height: 947
-  m_MinSize: {x: 234, y: 272}
-  m_MaxSize: {x: 10004, y: 10022}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -484,20 +484,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Images/Main Menu
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Images/Main Menu
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\alexs\Desktop\GitHub\Space-Shooter\SpaceShooter
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7e300000
-    m_LastClickedID: 12414
-    m_ExpandedIDs: 000000008c2d0000fa2d000038300000a0300000c432000000ca9a3b
+    m_SelectedIDs: 3a310000
+    m_LastClickedID: 12602
+    m_ExpandedIDs: 000000008c2d0000fa2d00003a300000a2300000c632000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -525,7 +525,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008c2d0000fa2d000038300000a0300000c432000000ca9a3b
+    m_ExpandedIDs: 000000008c2d0000fa2d00003a300000a2300000c6320000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -550,10 +550,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 98efffff
-    m_LastClickedInstanceID: -4200
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c6230000e03a0000
+    m_SelectedInstanceIDs: ea2f0000
+    m_LastClickedInstanceID: 12266
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c6230000e03a000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -600,8 +600,8 @@ MonoBehaviour:
     y: 0
     width: 349
     height: 947
-  m_MinSize: {x: 277, y: 72}
-  m_MaxSize: {x: 4002, y: 4022}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -643,5 +643,5 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: -4200
+  m_LastInspectedObjectInstanceID: 12266
   m_LastVerticalScrollValue: 0
