@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] Weapon weapon;
 
+    [Header("Targeting")]
+    [SerializeField] int shooterId;
+    [SerializeField] List<string> enemyFactions;
+    [SerializeField] GameObject target;
+
+    [Header("References")]
+    [SerializeField] Weapon weapon;
     [SerializeField] BoxCollider2D hitBox;
     [SerializeField] SpriteRenderer renderer;
     [SerializeField] AudioSource audioSource;
-
     Vector3 speedMod = Vector2.zero;
     bool waitingForDestroy = false;
     Vector2 startPos;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -23,6 +29,17 @@ public class Projectile : MonoBehaviour
             audioSource.clip = weapon.sound;
             audioSource.Play();
         }
+    }
+
+    //Used to set up some information that the projectile needs
+    public void Initialize(Weapon weapon, int shooter, GameObject target = null, List<string> factions = null)
+    {
+        this.weapon = weapon;
+        renderer.sprite = weapon.projectileImage;
+        
+        shooterId = shooter;
+        enemyFactions = factions;
+        this.target = target;
     }
 
     // Update is called once per frame
@@ -42,39 +59,41 @@ public class Projectile : MonoBehaviour
         
     }
 
+    //called after physics updates
     private void LateUpdate()
     {
         if (Vector2.Distance(transform.position, startPos) >= weapon.range)
-            Destroy(gameObject);
+            Deactivate();
     }
 
+    //called when the projectile collides with something
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //deal damage and make a sound, then deactivate
-        if(collision.gameObject.tag == "Asteroid")
+        if (collision.gameObject.tag == "Asteroid") //if it's an asteroid, we know what to do
         {
             collision.gameObject.GetComponent<Asteroid>().TakeDamage(weapon.damage);
             Deactivate();
         }
-
-        if(collision.gameObject.tag == "Enemy")
+        else
         {
-            collision.gameObject.GetComponent<Ship>().TakeDamage(weapon.damage);
-            Deactivate();
+            Ship colliderShip = collision.gameObject.GetComponent<Ship>(); //first make sure that what we're colliding with is indeed a ship
+            if (colliderShip != null) //if it got a ship script, it must be a ship
+            {
+                string colliderFaction = colliderShip.GetFaction(); //get the faction of the colliding ship
+                if (enemyFactions.Contains(colliderFaction)) //if it's in the list of enemy factions (factions that the projectile can hit)
+                {
+                    collision.gameObject.GetComponent<Ship>().TakeDamage(weapon.damage);
+                    Deactivate();
+                }
+            }
         }
-        
     }
 
-    //now nothing can interact with it, but we need to wait for the sound to stop playing
+    //Called when it is time for the projectile to die. Makes it so nothing can interact with it, but sets waitingForDestroy to true so we can finish hearing the sound
     void Deactivate()
     {
         hitBox.enabled = false;
         renderer.enabled = false;
         waitingForDestroy = true;
-    }
-
-    public void AddVelocity(Vector2 shooterVelocity)
-    {
-        speedMod = shooterVelocity;
     }
 }

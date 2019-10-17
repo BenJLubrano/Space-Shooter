@@ -10,11 +10,6 @@ public class Asteroid : MonoBehaviour
     [SerializeField] SpriteRenderer renderer;
 
     bool waitingForDestroy = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -36,7 +31,7 @@ public class Asteroid : MonoBehaviour
             hitBox.enabled = false;
             renderer.enabled = false;
             destroySound.Play();
-            waitingForDestroy = true;
+            waitingForDestroy = true; //make sure that the gameobject doesn't destroy itself before the sound is done playing
         }
     }
 }
