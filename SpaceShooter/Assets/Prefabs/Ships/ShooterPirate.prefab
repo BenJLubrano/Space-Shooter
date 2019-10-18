@@ -78,5 +78,10 @@ PrefabInstance:
       propertyPath: turnSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 863274986575074758, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab22a56eb911f24baf863d86f041110, type: 3}
