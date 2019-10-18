@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1670886136389112696}
   - component: {fileID: 1670886136389112697}
   - component: {fileID: 1670886136389112698}
-  - component: {fileID: 1670886136389112693}
   - component: {fileID: 401094372879541271}
+  - component: {fileID: 1878275455641261840}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1670886136389112702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.041, y: 0.025, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1670886137031074189}
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: e1fa370650b946c4bb2b68890b601b3a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4f90edda3205e84890c594882283c1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,38 +133,6 @@ MonoBehaviour:
   shipRb: {fileID: 1670886136389112697}
   deathSound: {fileID: 0}
   moveSound: {fileID: 0}
---- !u!60 &1670886136389112693
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670886136389112702}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.08028742, y: 0.025860593}
-      - {x: 0.01068158, y: 0.078575544}
-      - {x: -0.0004051, y: 0.07866606}
-      - {x: -0.010488734, y: 0.07870642}
-      - {x: -0.07879742, y: 0.02095428}
-      - {x: -0.07999998, y: -0.07980218}
-      - {x: 0.08178223, y: -0.0791089}
 --- !u!82 &401094372879541271
 AudioSource:
   m_ObjectHideFlags: 0
@@ -261,6 +229,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &1878275455641261840
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670886136389112702}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8888889, y: 0.8888889}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.73, y: 0.9}
+  m_EdgeRadius: 0
 --- !u!1 &1670886137031074161
 GameObject:
   m_ObjectHideFlags: 0

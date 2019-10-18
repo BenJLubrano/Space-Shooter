@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747924160988361171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 2.45, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -118,9 +118,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.05, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 1.6
 --- !u!82 &172301673891010342
 AudioSource:
   m_ObjectHideFlags: 0
@@ -230,8 +230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 15
-  destroySound: {fileID: 6393124375138343020, guid: e5f543e096c504a4a8dcf084ad608605,
-    type: 3}
-  hitBox: {fileID: 6310955301383132385, guid: e5f543e096c504a4a8dcf084ad608605, type: 3}
-  renderer: {fileID: 6310955301383132390, guid: e5f543e096c504a4a8dcf084ad608605,
-    type: 3}
+  destroySound: {fileID: 172301673891010342}
+  hitBox: {fileID: 1964646364946060129}
+  renderer: {fileID: 1079478410982374848}
