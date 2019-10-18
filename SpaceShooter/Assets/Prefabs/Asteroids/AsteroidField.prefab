@@ -45,11 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zone: {fileID: 7737564965572797687}
-  asteroidsCount: 10
+  objectCount: 10
   minSpacing: 2
+  maxTries: 1000
   prefabs:
-  - {fileID: 6310955301383132386, guid: e5f543e096c504a4a8dcf084ad608605, type: 3}
-  - {fileID: 8179406919632826275, guid: 6102c54aa35686344aaff491d3a1141b, type: 3}
+  - {fileID: 4722032132074069572, guid: 72118f681bedcec4dbcd09bc5a8a902c, type: 3}
+  - {fileID: 1747924160988361171, guid: d6c970206538fba4c87f83dc44be25a7, type: 3}
+  - {fileID: 3644617958947718163, guid: 17ce3b284cc2f3a4eb45b02f273cfb1e, type: 3}
 --- !u!61 &7737564965572797687
 BoxCollider2D:
   m_ObjectHideFlags: 0
