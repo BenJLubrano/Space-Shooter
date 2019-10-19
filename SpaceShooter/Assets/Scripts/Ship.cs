@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Base ship class that all players and enemies will inherit from
 //It will control the functions that all ships share
@@ -9,6 +10,7 @@ public class Ship : MonoBehaviour
     [Header("Ship Stats")]
     [SerializeField] protected int shipId;
     [SerializeField] protected string faction;
+    [SerializeField] protected float maxHealth;
     [SerializeField] protected float health;
     [SerializeField] protected float speed;
     [SerializeField] protected float weaponCooldown = 0f;
@@ -27,6 +29,7 @@ public class Ship : MonoBehaviour
     [SerializeField] protected Rigidbody2D shipRb;
     [SerializeField] protected AudioClip deathSound;
     [SerializeField] protected AudioClip moveSound;
+    [SerializeField] protected Image healthBar;
 
     bool isDead = false;
 
@@ -69,10 +72,16 @@ public class Ship : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
+            health = 0;
             Die();
         }
+        UpdateHealthBar();
     }
 
+    void UpdateHealthBar()
+    {
+        healthBar.fillAmount = health / maxHealth;
+    }
     //simply returns the faction of the ship
     public string GetFaction()
     {
