@@ -1,5 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: f6b74eb7aa83e34479b34259a6af1cab
 TextureImporter:
   internalIDToNameTable:
@@ -21,11 +20,6 @@ TextureImporter:
   - first:
       213: -5036922101755311317
     second: boss_component_sprite_sheet_5
-=======
-guid: 0a04da58f2f36c74eb7c9caf4b27a1e5
-TextureImporter:
-  internalIDToNameTable: []
->>>>>>> master
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -64,13 +58,8 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
   spriteMode: 2
   spriteExtrude: 6
-=======
-  spriteMode: 1
-  spriteExtrude: 1
->>>>>>> master
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -99,7 +88,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -241,11 +229,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-=======
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
->>>>>>> master
     outline: []
     physicsShape: []
     bones: []
