@@ -15,9 +15,4 @@ public class NpcShip : MonoBehaviour
 
     }
 
-    //Attacks using the weapon passed by the npc controller
-    public void Shoot(Weapon weapon, GameObject target, Ship shipController)
-    {
-        //Instantiate(weapon.projectile, transform.up / 1.5f + transform.position, transform.rotation);
-    }
 }
