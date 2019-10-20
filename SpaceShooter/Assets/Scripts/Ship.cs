@@ -14,6 +14,7 @@ public class Ship : MonoBehaviour
     [SerializeField] protected float health;
     [SerializeField] protected float maxShield;
     [SerializeField] protected float shield;
+    [SerializeField] protected float shieldRegenRate = 0f;
     [SerializeField] protected float speed;
     [SerializeField] protected float weaponCooldown = 0f;
 
@@ -34,11 +35,26 @@ public class Ship : MonoBehaviour
     [SerializeField] protected Image healthBar;
     [SerializeField] protected Image shieldBar;
 
-    bool isDead = false;
-
+    protected bool isDead = false;
+    protected float lastDamaged = 0f;
+    protected void Awake()
+    {
+        if (maxShield <= 0 && shieldBar != null)
+        {
+            shieldBar.fillAmount = 0;
+        }
+    }
     protected void Update()
     {
         weaponCooldown -= Time.deltaTime;
+        lastDamaged += Time.deltaTime;
+        if (lastDamaged >= 15) //regenerate shields if damage has not been taken in the last 5 seconds
+        {
+            shield += shieldRegenRate * Time.deltaTime;
+            if (shield > maxShield)
+                shield = maxShield;
+            UpdateBars();
+        }
         if (isDead && !audioSource.isPlaying)
         {
             Destroy(gameObject);
@@ -71,7 +87,7 @@ public class Ship : MonoBehaviour
     {
         if (isDead)
             return;
-
+        lastDamaged = 0f;
         if (shield >= damage)
         {
             shield -= damage;
@@ -92,7 +108,7 @@ public class Ship : MonoBehaviour
 
     void UpdateBars()
     {
-        if(shieldBar != null) //has a shield
+        if(maxShield > 0 && shieldBar != null) //has a shield
         {
             shieldBar.fillAmount = shield / maxShield;
         }

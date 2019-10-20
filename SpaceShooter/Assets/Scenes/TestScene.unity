@@ -1117,13 +1117,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
-      propertyPath: maxShield
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: shield
-      value: 100
+      propertyPath: shieldRegenRate
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05bdc6182e9e4243aec202383b038ba, type: 3}
@@ -1394,7 +1389,7 @@ PrefabInstance:
     - target: {fileID: 97602131344032604, guid: 77ac93834175a1848aadc3da7a5bc89f,
         type: 3}
       propertyPath: objectCount
-      value: 50
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 97602131344032604, guid: 77ac93834175a1848aadc3da7a5bc89f,
         type: 3}
