@@ -12,6 +12,8 @@ public class Ship : MonoBehaviour
     [SerializeField] protected string faction;
     [SerializeField] protected float maxHealth;
     [SerializeField] protected float health;
+    [SerializeField] protected float maxShield;
+    [SerializeField] protected float shield;
     [SerializeField] protected float speed;
     [SerializeField] protected float weaponCooldown = 0f;
 
@@ -30,6 +32,7 @@ public class Ship : MonoBehaviour
     [SerializeField] protected AudioClip deathSound;
     [SerializeField] protected AudioClip moveSound;
     [SerializeField] protected Image healthBar;
+    [SerializeField] protected Image shieldBar;
 
     bool isDead = false;
 
@@ -68,18 +71,31 @@ public class Ship : MonoBehaviour
     {
         if (isDead)
             return;
-        
-        health -= damage;
+
+        if (shield >= damage)
+        {
+            shield -= damage;
+        }
+        else
+        {
+            damage -= shield;
+            shield = 0;
+            health -= damage;
+        }
         if(health <= 0)
         {
             health = 0;
             Die();
         }
-        UpdateHealthBar();
+        UpdateBars();
     }
 
-    void UpdateHealthBar()
+    void UpdateBars()
     {
+        if(shieldBar != null) //has a shield
+        {
+            shieldBar.fillAmount = shield / maxShield;
+        }
         healthBar.fillAmount = health / maxHealth;
     }
     //simply returns the faction of the ship
