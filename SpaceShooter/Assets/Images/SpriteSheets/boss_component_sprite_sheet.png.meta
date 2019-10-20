@@ -1,5 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: f6b74eb7aa83e34479b34259a6af1cab
 TextureImporter:
   internalIDToNameTable:
@@ -21,11 +20,6 @@ TextureImporter:
   - first:
       213: -5036922101755311317
     second: boss_component_sprite_sheet_5
-=======
-guid: 0a04da58f2f36c74eb7c9caf4b27a1e5
-TextureImporter:
-  internalIDToNameTable: []
->>>>>>> master
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -60,17 +54,12 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
   spriteMode: 2
-  spriteExtrude: 6
-=======
-  spriteMode: 1
   spriteExtrude: 1
->>>>>>> master
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -99,7 +88,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -119,18 +107,18 @@ TextureImporter:
       name: boss_component_sprite_sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 17
+        y: 22
+        width: 37
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0e3957c893f1464dab4dd5a40367160
+      spriteID: 95e7594378d032e438003741494f53cd
       internalID: -7973389932233663961
       vertices: []
       indices: 
@@ -140,18 +128,18 @@ TextureImporter:
       name: boss_component_sprite_sheet_1
       rect:
         serializedVersion: 2
-        x: 74
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 91
+        y: 22
+        width: 37
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea15d2e97a1bef247b00644f5eb67919
+      spriteID: 6ada962080fc15746a09b253cf00f10e
       internalID: 5641125796168403030
       vertices: []
       indices: 
@@ -161,18 +149,18 @@ TextureImporter:
       name: boss_component_sprite_sheet_2
       rect:
         serializedVersion: 2
-        x: 148
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 162
+        y: 22
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3339e2873a84e49448ceab4afba7d58e
+      spriteID: a9ada052c07fea541a122f5ce1db878a
       internalID: -7509475849597745779
       vertices: []
       indices: 
@@ -182,18 +170,18 @@ TextureImporter:
       name: boss_component_sprite_sheet_3
       rect:
         serializedVersion: 2
-        x: 222
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 233
+        y: 22
+        width: 49
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c72689afdcb35b6439a21d5c3e0600e1
+      spriteID: 3d6d71d2b56c35f4592e31c8271cfa93
       internalID: 282965857000544260
       vertices: []
       indices: 
@@ -203,18 +191,18 @@ TextureImporter:
       name: boss_component_sprite_sheet_4
       rect:
         serializedVersion: 2
-        x: 296
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 310
+        y: 22
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffe0e3d03a8a44547a332b7cd0e26a59
+      spriteID: 73a63b4f2f007ce4cacce03ed5a954d3
       internalID: 656124498773799983
       vertices: []
       indices: 
@@ -224,28 +212,23 @@ TextureImporter:
       name: boss_component_sprite_sheet_5
       rect:
         serializedVersion: 2
-        x: 370
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 387
+        y: 22
+        width: 37
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9b429a286ea808419dc8bf0731e3656
+      spriteID: baf1849b285b88a4888d20fac28d4439
       internalID: -5036922101755311317
       vertices: []
       indices: 
       edges: []
       weights: []
-=======
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
->>>>>>> master
     outline: []
     physicsShape: []
     bones: []
