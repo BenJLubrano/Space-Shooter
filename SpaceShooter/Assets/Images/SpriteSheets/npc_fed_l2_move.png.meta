@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: f6b74eb7aa83e34479b34259a6af1cab
+guid: 7ad86e87479d5d244b9f7b7d2eb8d636
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7973389932233663961
-    second: boss_component_sprite_sheet_0
+      213: -1564354497632032057
+    second: fed_l2_idle_00
   - first:
-      213: 5641125796168403030
-    second: boss_component_sprite_sheet_1
+      213: 3145778672437505526
+    second: fed_l2_mv_00
   - first:
-      213: -7509475849597745779
-    second: boss_component_sprite_sheet_2
+      213: 2259494254142996369
+    second: fed_l2_mv_01
   - first:
-      213: 282965857000544260
-    second: boss_component_sprite_sheet_3
-  - first:
-      213: 656124498773799983
-    second: boss_component_sprite_sheet_4
-  - first:
-      213: -5036922101755311317
-    second: boss_component_sprite_sheet_5
-=======
-guid: 0a04da58f2f36c74eb7c9caf4b27a1e5
-TextureImporter:
-  internalIDToNameTable: []
->>>>>>> master
+      213: 6255251011261554677
+    second: fed_l2_mv_02
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -55,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -64,13 +52,8 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
   spriteMode: 2
-  spriteExtrude: 6
-=======
-  spriteMode: 1
   spriteExtrude: 1
->>>>>>> master
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -89,23 +72,22 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -116,136 +98,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss_component_sprite_sheet_0
+      name: fed_l2_idle_00
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 15
+        y: 61
+        width: 58
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0e3957c893f1464dab4dd5a40367160
-      internalID: -7973389932233663961
+      spriteID: 39fb0c495fe400f4d831385c4a601724
+      internalID: -1564354497632032057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_component_sprite_sheet_1
+      name: fed_l2_mv_00
       rect:
         serializedVersion: 2
-        x: 74
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 15
+        y: 14
+        width: 58
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea15d2e97a1bef247b00644f5eb67919
-      internalID: 5641125796168403030
+      spriteID: e598f264cb01eaf418a2a3515f8c5aca
+      internalID: 3145778672437505526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_component_sprite_sheet_2
+      name: fed_l2_mv_01
       rect:
         serializedVersion: 2
-        x: 148
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 85
+        y: 14
+        width: 58
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3339e2873a84e49448ceab4afba7d58e
-      internalID: -7509475849597745779
+      spriteID: 71d6a76ac5c869e459d038a6d124e0b1
+      internalID: 2259494254142996369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_component_sprite_sheet_3
+      name: fed_l2_mv_02
       rect:
         serializedVersion: 2
-        x: 222
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 156
+        y: 14
+        width: 58
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c72689afdcb35b6439a21d5c3e0600e1
-      internalID: 282965857000544260
+      spriteID: d8dd30589a3002a44ac12be5ffb4d303
+      internalID: 6255251011261554677
       vertices: []
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: boss_component_sprite_sheet_4
-      rect:
-        serializedVersion: 2
-        x: 296
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffe0e3d03a8a44547a332b7cd0e26a59
-      internalID: 656124498773799983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss_component_sprite_sheet_5
-      rect:
-        serializedVersion: 2
-        x: 370
-        y: 0
-        width: 74
-        height: 74
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9b429a286ea808419dc8bf0731e3656
-      internalID: -5036922101755311317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-=======
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
->>>>>>> master
     outline: []
     physicsShape: []
     bones: []

@@ -1,7 +1,31 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ed6f70fbff4fc1846980a548c733bba0
 TextureImporter:
   internalIDToNameTable: []
+=======
+guid: 70cf60e5de1ee774e8289cb83a608850
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4178859438473453459
+    second: player_00_mv_00
+  - first:
+      213: -6375244364339149418
+    second: player_00_mv_01
+  - first:
+      213: -4800865313903429161
+    second: player_00_mv_02
+  - first:
+      213: 9171547870214495746
+    second: player_00_mv_03
+  - first:
+      213: 7481312941800570826
+    second: player_00_mv_04
+  - first:
+      213: -9125463290354396095
+    second: player_00_mv_05
+>>>>>>> master
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +55,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: -1
+=======
+    filterMode: 0
+>>>>>>> master
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +68,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 1
+=======
+  spriteMode: 2
+>>>>>>> master
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -60,10 +92,29 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
+<<<<<<< HEAD
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+=======
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+>>>>>>> master
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -72,7 +123,137 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD
     sprites: []
+=======
+    sprites:
+    - serializedVersion: 2
+      name: player_00_mv_00
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 4
+        width: 59
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26eef2a36d2813f4d845c2091178bb10
+      internalID: 4178859438473453459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_00_mv_01
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 4
+        width: 59
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c64c18df0b39d4eb8cbb6b4c6e3bd7
+      internalID: -6375244364339149418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_00_mv_02
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 3
+        width: 59
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3682e1c7114bc1644a19b1653f8d1804
+      internalID: -4800865313903429161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_00_mv_03
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 2
+        width: 59
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ccfc2045a14c94788908d5ee6d0815
+      internalID: 9171547870214495746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_00_mv_04
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 3
+        width: 59
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37107433a84dc2549a37264cd10fbc13
+      internalID: 7481312941800570826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_00_mv_05
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 4
+        width: 59
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb2bd510cf6451147a315a0abdddaf57
+      internalID: -9125463290354396095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+>>>>>>> master
     outline: []
     physicsShape: []
     bones: []
