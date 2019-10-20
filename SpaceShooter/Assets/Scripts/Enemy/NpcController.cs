@@ -22,7 +22,6 @@ public class NpcController : Ship
 
     private void Awake()
     {
-        base.Awake();
         //initialize enemyfactions  
         targetingController.Initialize(enemyFactions);
         try
@@ -54,7 +53,7 @@ public class NpcController : Ship
         Move();
 
         //if the ship has a target
-        if(currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead)
+        if(currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0)
         {
             //Turn this into a method in Ship.cs called "Shoot()" that will handle the cooldown setting etc, since it's universal for all ships
             Shoot(currentTarget, enemyFactions);

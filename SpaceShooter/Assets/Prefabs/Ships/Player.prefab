@@ -296,8 +296,6 @@ MonoBehaviour:
   faction: Player
   maxHealth: 100
   health: 100
-  maxShield: 100
-  shield: 100
   speed: 150
   weaponCooldown: 0
   speedPenalty: 0.25
@@ -311,7 +309,6 @@ MonoBehaviour:
   deathSound: {fileID: 0}
   moveSound: {fileID: 0}
   healthBar: {fileID: 328025652}
-  shieldBar: {fileID: 4321287086970203227}
 --- !u!82 &401094372879541271
 AudioSource:
   m_ObjectHideFlags: 0
