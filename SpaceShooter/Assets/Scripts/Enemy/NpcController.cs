@@ -14,9 +14,6 @@ public class NpcController : Ship
 
     [Header("References")]
     [SerializeField] TargetingController targetingController;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] Collider2D collider;
-    [SerializeField] SpriteRenderer renderer;
 
     GameObject currentTarget;
 
@@ -113,7 +110,7 @@ public class NpcController : Ship
 
             if (Vector2.Distance(currentTarget.gameObject.transform.position, transform.position) > shipWeapon.range / 2) //if the target is further away than half of the weapons range
             {
-                rb.AddForce(transform.up * speed);
+                shipRb.AddForce(transform.up * speed);
             }
         }
     }
@@ -129,12 +126,5 @@ public class NpcController : Ship
 
         //CODE FOR INSTANT ROTATE
         //transform.up = currentTarget.gameObject.transform.position - transform.position; //change rotation to face target
-    }
-
-    protected override void Die()
-    {
-        collider.enabled = false;
-        renderer.enabled = false;
-        base.Die();
     }
 }

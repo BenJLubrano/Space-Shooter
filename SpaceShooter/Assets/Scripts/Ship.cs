@@ -28,8 +28,10 @@ public class Ship : MonoBehaviour
 
     [Header("References")]
     [SerializeField] protected Weapon shipWeapon;
-    [SerializeField] protected AudioSource audioSource;
     [SerializeField] protected Rigidbody2D shipRb;
+    [SerializeField] protected Collider2D shipCollider;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
+    [SerializeField] protected AudioSource audioSource;
     [SerializeField] protected AudioClip deathSound;
     [SerializeField] protected AudioClip moveSound;
     [SerializeField] protected Image healthBar;
@@ -58,6 +60,7 @@ public class Ship : MonoBehaviour
         if (isDead && !audioSource.isPlaying)
         {
             Destroy(gameObject);
+            //Die();
         }
     }
 
@@ -101,7 +104,7 @@ public class Ship : MonoBehaviour
         if(health <= 0)
         {
             health = 0;
-            Die();
+            PrepareForDeath();
         }
         UpdateBars();
     }
@@ -121,11 +124,18 @@ public class Ship : MonoBehaviour
     }
 
     //called when the ship dies
-    protected virtual void Die()
+    protected virtual void PrepareForDeath()
     {
         audioSource.clip = deathSound;
         audioSource.Play();
+        shipCollider.enabled = false;
+        spriteRenderer.enabled = false;
         isDead = true;
+    }
+
+    protected virtual void Die()
+    {
+        Destroy(gameObject);
     }
 
 }
