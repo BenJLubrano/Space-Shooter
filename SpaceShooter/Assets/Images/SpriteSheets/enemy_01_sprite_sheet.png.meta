@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 77817f5452bb67949840a651bc3a3486
+guid: 82e69fd8feb1c3d4c964d68d21a4ccb2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6555560504756137786
-    second: npc_pirate_01_mv_00
+      213: 4358779977521164881
+    second: enemy_01_sprite_sheet_0
   - first:
-      213: 6800067302573279519
-    second: npc_pirate_01_mv_01
+      213: 6767919029580591355
+    second: enemy_01_sprite_sheet_1
   - first:
-      213: 9129598341174478721
-    second: npc_pirate_01_mv_02
+      213: 2212842370339016813
+    second: enemy_01_sprite_sheet_2
   - first:
-      213: -6329808518129625772
-    second: npc_pirate_01_mv_03
+      213: 2348784583680080191
+    second: enemy_01_sprite_sheet_3
   - first:
-      213: 2299202614895655257
-    second: npc_pirate_01_mv_04
+      213: -866860767156945674
+    second: enemy_01_sprite_sheet_4
   - first:
-      213: 2358601463841828044
-    second: npc_pirate_01_mv_05
+      213: -8729309914123411136
+    second: enemy_01_sprite_sheet_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -49,12 +49,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -78,10 +78,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -90,10 +90,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: npc_pirate_01_mv_00
+      name: enemy_01_sprite_sheet_0
       rect:
         serializedVersion: 2
         x: 8
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2481b8b909c4654408461362d9fb8dcc
-      internalID: -6555560504756137786
+      spriteID: 820714d8c339c98498a876862b32ab47
+      internalID: 4358779977521164881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_pirate_01_mv_01
+      name: enemy_01_sprite_sheet_1
       rect:
         serializedVersion: 2
         x: 72
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c821ddd70052a54c8b7bad8c01d7949
-      internalID: 6800067302573279519
+      spriteID: e7da7f41fbd91394990e3e357fd29d27
+      internalID: 6767919029580591355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_pirate_01_mv_02
+      name: enemy_01_sprite_sheet_2
       rect:
         serializedVersion: 2
         x: 136
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a83b40f5242f0a44c9df7139a66a052a
-      internalID: 9129598341174478721
+      spriteID: f4826ea8ddd703a4783cbbcefc57d9ea
+      internalID: 2212842370339016813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_pirate_01_mv_03
+      name: enemy_01_sprite_sheet_3
       rect:
         serializedVersion: 2
         x: 200
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59ace1acf8e96b74199ced226d7fce3f
-      internalID: -6329808518129625772
+      spriteID: a30da4dd284552a478153ba2af1629da
+      internalID: 2348784583680080191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_pirate_01_mv_04
+      name: enemy_01_sprite_sheet_4
       rect:
         serializedVersion: 2
         x: 264
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 222cffc1baf17fe4686c370a1a4e00b8
-      internalID: 2299202614895655257
+      spriteID: 5d8962dfb8fc8684d941577c7ca28380
+      internalID: -866860767156945674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_pirate_01_mv_05
+      name: enemy_01_sprite_sheet_5
       rect:
         serializedVersion: 2
         x: 328
@@ -223,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f60a6081c7f695242b31f4f26bd87119
-      internalID: 2358601463841828044
+      spriteID: ada4ebe37fb2e6a4195acacd49706af6
+      internalID: -8729309914123411136
       vertices: []
       indices: 
       edges: []

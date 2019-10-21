@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Base ship class that all players and enemies will inherit from
 //It will control the functions that all ships share
@@ -9,7 +10,11 @@ public class Ship : MonoBehaviour
     [Header("Ship Stats")]
     [SerializeField] protected int shipId;
     [SerializeField] protected string faction;
+    [SerializeField] protected float maxHealth;
     [SerializeField] protected float health;
+    [SerializeField] protected float maxShield;
+    [SerializeField] protected float shield;
+    [SerializeField] protected float shieldRegenRate = 0f;
     [SerializeField] protected float speed;
     [SerializeField] protected float weaponCooldown = 0f;
 
@@ -27,12 +32,29 @@ public class Ship : MonoBehaviour
     [SerializeField] protected Rigidbody2D shipRb;
     [SerializeField] protected AudioClip deathSound;
     [SerializeField] protected AudioClip moveSound;
+    [SerializeField] protected Image healthBar;
+    [SerializeField] protected Image shieldBar;
 
-    bool isDead = false;
-
+    protected bool isDead = false;
+    protected float lastDamaged = 0f;
+    protected void Awake()
+    {
+        if (maxShield <= 0 && shieldBar != null)
+        {
+            shieldBar.fillAmount = 0;
+        }
+    }
     protected void Update()
     {
         weaponCooldown -= Time.deltaTime;
+        lastDamaged += Time.deltaTime;
+        if (lastDamaged >= 15) //regenerate shields if damage has not been taken in the last 5 seconds
+        {
+            shield += shieldRegenRate * Time.deltaTime;
+            if (shield > maxShield)
+                shield = maxShield;
+            UpdateBars();
+        }
         if (isDead && !audioSource.isPlaying)
         {
             Destroy(gameObject);
@@ -65,14 +87,33 @@ public class Ship : MonoBehaviour
     {
         if (isDead)
             return;
-        
-        health -= damage;
+        lastDamaged = 0f;
+        if (shield >= damage)
+        {
+            shield -= damage;
+        }
+        else
+        {
+            damage -= shield;
+            shield = 0;
+            health -= damage;
+        }
         if(health <= 0)
         {
+            health = 0;
             Die();
         }
+        UpdateBars();
     }
 
+    void UpdateBars()
+    {
+        if(maxShield > 0 && shieldBar != null) //has a shield
+        {
+            shieldBar.fillAmount = shield / maxShield;
+        }
+        healthBar.fillAmount = health / maxHealth;
+    }
     //simply returns the faction of the ship
     public string GetFaction()
     {
