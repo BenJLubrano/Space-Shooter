@@ -404,6 +404,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41577966}
   m_CullTransparentMesh: 0
+--- !u!1 &76290789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76290790}
+  m_Layer: 0
+  m_Name: PlayerSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &76290790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76290789}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &149036424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,29 +1152,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
-      propertyPath: animator
+      propertyPath: spawnPoint
       value: 
-      objectReference: {fileID: 1498106183}
-    - target: {fileID: 1670886136389112696, guid: d05bdc6182e9e4243aec202383b038ba,
+      objectReference: {fileID: 76290790}
+    - target: {fileID: 401094372879541271, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -2497278491602939282, guid: 6cf1f512dec65774091d6570536509af,
-        type: 3}
-    - target: {fileID: 1670886136389112696, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1670886136389112696, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 1670886136389112696, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.64
+      propertyPath: Loop
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05bdc6182e9e4243aec202383b038ba, type: 3}

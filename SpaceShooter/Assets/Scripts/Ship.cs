@@ -28,8 +28,10 @@ public class Ship : MonoBehaviour
 
     [Header("References")]
     [SerializeField] protected Weapon shipWeapon;
-    [SerializeField] protected AudioSource audioSource;
     [SerializeField] protected Rigidbody2D shipRb;
+    [SerializeField] protected Collider2D shipCollider;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
+    [SerializeField] protected AudioSource audioSource;
     [SerializeField] protected AudioClip deathSound;
     [SerializeField] protected AudioClip moveSound;
     [SerializeField] protected Image healthBar;
@@ -38,6 +40,7 @@ public class Ship : MonoBehaviour
 
     protected bool isDead = false;
     protected float lastDamaged = 0f;
+
     protected void Awake()
     {
         if (maxShield <= 0 && shieldBar != null)
@@ -47,18 +50,21 @@ public class Ship : MonoBehaviour
     }
     protected void Update()
     {
-        weaponCooldown -= Time.deltaTime;
-        lastDamaged += Time.deltaTime;
-        if (lastDamaged >= 15) //regenerate shields if damage has not been taken in the last 5 seconds
-        {
-            shield += shieldRegenRate * Time.deltaTime;
-            if (shield > maxShield)
-                shield = maxShield;
-            UpdateBars();
-        }
         if (isDead && !audioSource.isPlaying)
         {
-            Destroy(gameObject);
+            Die();
+        }
+        else if(!isDead)
+        {
+            weaponCooldown -= Time.deltaTime;
+            lastDamaged += Time.deltaTime;
+            if (lastDamaged >= 15) //regenerate shields if damage has not been taken in the last 5 seconds
+            {
+                shield += shieldRegenRate * Time.deltaTime;
+                if (shield > maxShield)
+                    shield = maxShield;
+                UpdateBars();
+            }
         }
     }
 
@@ -102,12 +108,12 @@ public class Ship : MonoBehaviour
         if(health <= 0)
         {
             health = 0;
-            Die();
+            PrepareForDeath();
         }
         UpdateBars();
     }
 
-    void UpdateBars()
+    protected void UpdateBars()
     {
         if(maxShield > 0 && shieldBar != null) //has a shield
         {
@@ -115,6 +121,7 @@ public class Ship : MonoBehaviour
         }
         healthBar.fillAmount = health / maxHealth;
     }
+
     //simply returns the faction of the ship
     public string GetFaction()
     {
@@ -122,11 +129,23 @@ public class Ship : MonoBehaviour
     }
 
     //called when the ship dies
-    protected virtual void Die()
+    protected virtual void PrepareForDeath()
     {
         audioSource.clip = deathSound;
         audioSource.Play();
+        shipCollider.enabled = false;
+        spriteRenderer.enabled = false;
         isDead = true;
     }
 
+    //Base Die() simply destroys the ship
+    protected virtual void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
+    }
 }

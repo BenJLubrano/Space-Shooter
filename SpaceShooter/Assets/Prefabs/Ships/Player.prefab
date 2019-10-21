@@ -298,6 +298,7 @@ MonoBehaviour:
   health: 100
   maxShield: 100
   shield: 100
+  shieldRegenRate: 5
   speed: 150
   weaponCooldown: 0
   speedPenalty: 0.25
@@ -306,9 +307,11 @@ MonoBehaviour:
   defaultDrag: 1
   brakeStrength: 5
   shipWeapon: {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
-  audioSource: {fileID: 401094372879541271}
   shipRb: {fileID: 1670886136389112697}
-  deathSound: {fileID: 0}
+  shipCollider: {fileID: 1878275455641261840}
+  spriteRenderer: {fileID: 1670886136389112696}
+  audioSource: {fileID: 401094372879541271}
+  deathSound: {fileID: 8300000, guid: 875e9a39939771c4185f185e231363cf, type: 3}
   moveSound: {fileID: 0}
   healthBar: {fileID: 328025652}
   shieldBar: {fileID: 4321287086970203227}
