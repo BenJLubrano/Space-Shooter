@@ -1160,22 +1160,6 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1498106183}
-    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: shield
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: explosion
-      value: 
-      objectReference: {fileID: 3240464879747466509, guid: 86cf3b7e0ffe1e94eb4de3098e0023b6,
-        type: 3}
     - target: {fileID: 401094372879541271, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: Loop

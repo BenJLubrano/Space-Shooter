@@ -36,6 +36,7 @@ public class Ship : MonoBehaviour
     [SerializeField] protected AudioClip moveSound;
     [SerializeField] protected Image healthBar;
     [SerializeField] protected Image shieldBar;
+    
 
     protected bool isDead = false;
     protected float lastDamaged = 0f;
