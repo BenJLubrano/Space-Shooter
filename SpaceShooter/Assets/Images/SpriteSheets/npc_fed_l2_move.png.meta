@@ -3,17 +3,35 @@ guid: 7ad86e87479d5d244b9f7b7d2eb8d636
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1564354497632032057
-    second: fed_l2_idle_00
+      213: -3733425480354455615
+    second: npc_fed_l2_idle_00
   - first:
-      213: 3145778672437505526
-    second: fed_l2_mv_00
+      213: -1409255197246885409
+    second: npc_fed_l2_acel_00
   - first:
-      213: 2259494254142996369
-    second: fed_l2_mv_01
+      213: 8157894052511918923
+    second: npc_fed_l2_acel_01
   - first:
-      213: 6255251011261554677
-    second: fed_l2_mv_02
+      213: -1886921724632639217
+    second: npc_fed_l2_acel_02
+  - first:
+      213: 7220674272999267603
+    second: npc_fed_l2_decel_00
+  - first:
+      213: 7991933898539142000
+    second: npc_fed_l2_decel_01
+  - first:
+      213: -5909173119217459267
+    second: npc_fed_l2_decel_02
+  - first:
+      213: 735973743286762303
+    second: npc_fed_l2_max_00
+  - first:
+      213: 8781486773471352957
+    second: npc_fed_l2_max_01
+  - first:
+      213: -6517722272631358441
+    second: npc_fed_l2_max_02
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -98,85 +116,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fed_l2_idle_00
+      name: npc_fed_l2_idle_00
       rect:
         serializedVersion: 2
-        x: 15
-        y: 61
+        x: 30
+        y: 175
         width: 58
         height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39fb0c495fe400f4d831385c4a601724
-      internalID: -1564354497632032057
+      spriteID: c1699ec07b8cab84a9f66ce7f8828139
+      internalID: -3733425480354455615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fed_l2_mv_00
+      name: npc_fed_l2_acel_00
       rect:
         serializedVersion: 2
-        x: 15
-        y: 14
+        x: 30
+        y: 128
         width: 58
         height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e598f264cb01eaf418a2a3515f8c5aca
-      internalID: 3145778672437505526
+      spriteID: 0480f8097c2db50469bf52a6c1f1175c
+      internalID: -1409255197246885409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fed_l2_mv_01
+      name: npc_fed_l2_acel_01
       rect:
         serializedVersion: 2
-        x: 85
-        y: 14
+        x: 100
+        y: 128
         width: 58
         height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71d6a76ac5c869e459d038a6d124e0b1
-      internalID: 2259494254142996369
+      spriteID: dc7950df913c7264eb1b0acb05bd7b94
+      internalID: 8157894052511918923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fed_l2_mv_02
+      name: npc_fed_l2_acel_02
       rect:
         serializedVersion: 2
-        x: 156
-        y: 14
+        x: 171
+        y: 128
         width: 58
         height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8dd30589a3002a44ac12be5ffb4d303
-      internalID: 6255251011261554677
+      spriteID: 0781bcf70152e7240bf1b06604acfa3f
+      internalID: -1886921724632639217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_fed_l2_decel_00
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 81
+        width: 58
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7547ba231418c74c99d6224613542ee
+      internalID: 7220674272999267603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_fed_l2_decel_01
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 81
+        width: 58
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9043fd71239fa64b85935bdd51edcfd
+      internalID: 7991933898539142000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_fed_l2_decel_02
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 81
+        width: 58
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f8a1e5f1bf35b645a403ef9ab641750
+      internalID: -5909173119217459267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_fed_l2_max_00
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 27
+        width: 58
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e1e1238d07454a45a56d27b197d60cb
+      internalID: 735973743286762303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_fed_l2_max_01
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 27
+        width: 58
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba5ea77129661c44b46919554a0ff78
+      internalID: 8781486773471352957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_fed_l2_max_02
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 27
+        width: 58
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b52678c7b3c92104fabe436771194cfb
+      internalID: -6517722272631358441
       vertices: []
       indices: 
       edges: []
