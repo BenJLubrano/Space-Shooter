@@ -5,6 +5,7 @@ using UnityEngine;
 //This script controls the player, both movement and ingame functions
 public class PlayerController : Ship
 {
+    public Animator animator;
     [SerializeField] Transform spawnPoint;
     private void Awake()
     {
@@ -29,6 +30,15 @@ public class PlayerController : Ship
         {
             animator.SetFloat("AnimatorSpeed", Mathf.Abs(verticalMove));
             shipRb.angularVelocity = 0f; //set angular velocity to zero, which stops the player from rotating due to outside forces
+        }
+
+        if(Input.GetButtonDown("Vertical"))
+        {
+            animator.SetBool("IsAccelerating", true);
+        }
+        else
+        {
+            animator.SetBool("IsAccelerating", false);
         }
 
         Vector2 force = new Vector2(horizontalMove, verticalMove);

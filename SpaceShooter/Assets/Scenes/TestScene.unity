@@ -1155,6 +1155,11 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 76290790}
+    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1498106183}
     - target: {fileID: 401094372879541271, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: Loop
@@ -1574,7 +1579,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2024012129
 GameObject:
