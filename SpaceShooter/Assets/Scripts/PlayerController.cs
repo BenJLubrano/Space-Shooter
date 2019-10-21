@@ -61,10 +61,11 @@ public class PlayerController : Ship
     //since we don't want the player to be destroyed on death, we should override the default Die()
     protected override void Die()
     {
+        //eventually will do more stuff here
         Respawn();
-        Debug.Log("I'm respawning!");
     }
 
+    //Simple method to respawn the player
     void Respawn()
     {
         transform.position = spawnPoint.position;
