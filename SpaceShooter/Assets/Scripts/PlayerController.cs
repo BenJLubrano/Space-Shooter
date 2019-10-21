@@ -23,6 +23,7 @@ public class PlayerController : Ship
 
         if(rotationMove + verticalMove + horizontalMove != 0f) //if the player is moving in a certain direction or rotating
         {
+            animator.SetFloat("AnimatorSpeed", Mathf.Abs(verticalMove));
             shipRb.angularVelocity = 0f; //set angular velocity to zero, which stops the player from rotating due to outside forces
         }
 
