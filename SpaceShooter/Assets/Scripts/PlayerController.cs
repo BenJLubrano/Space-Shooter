@@ -5,6 +5,7 @@ using UnityEngine;
 //This script controls the player, both movement and ingame functions
 public class PlayerController : Ship
 {
+    [SerializeField] Transform spawnPoint;
     private void Awake()
     {
         shipId = 0; //make sure the player is always ID 0
@@ -13,9 +14,12 @@ public class PlayerController : Ship
     void Update()
     {
         base.Update(); //call the base ship update to perform generic functions
-        
-        //player movement stuff
 
+        //do nothing if the player is dead
+        if (isDead)
+            return;
+
+        //player movement stuff
         float verticalMove = Input.GetAxis("Vertical") * speed;
         verticalMove = (verticalMove < 0) ? verticalMove * speedPenalty : verticalMove;
         float horizontalMove = Input.GetAxis("Horizontal") * speed * speedPenalty;
@@ -49,18 +53,27 @@ public class PlayerController : Ship
         }
     }
 
-    /*void Shoot()
+    public void SetSpawn(Transform point)
     {
-        if(weaponCooldown <= 0f)
-        {
-            weaponCooldown = 1 / shipWeapon.fireRate;
-            GameObject shot = Instantiate(shipWeapon.projectile, transform.up/1.5f + transform.position, transform.rotation); //create the projectile
-        }
-    }*/
+        spawnPoint = point;
+    }
 
+    //since we don't want the player to be destroyed on death, we should override the default Die()
     protected override void Die()
     {
-        base.Die();
-        Debug.Log("The player has died!");
+        Respawn();
+        Debug.Log("I'm respawning!");
+    }
+
+    void Respawn()
+    {
+        transform.position = spawnPoint.position;
+        shipCollider.enabled = true;
+        spriteRenderer.enabled = true;
+
+        shield = maxShield;
+        health = maxHealth;
+        UpdateBars();
+        isDead = false;
     }
 }

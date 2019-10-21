@@ -41,7 +41,7 @@ public class NpcController : Ship
         }
         else
         {
-            if(OutOfRange())
+            if(OutOfRange() || currentTarget.GetComponent<Ship>().IsDead())
             {
                 Deaggro();
             }
