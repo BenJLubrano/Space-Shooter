@@ -4,11 +4,11 @@
 #
 Library/
 Temp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+Obj/
+Build/
+Builds/
+Bogs/
+MemoryCaptures/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
