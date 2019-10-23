@@ -26,9 +26,20 @@ public class TargetingController : MonoBehaviour
     //Activates when a collider enters the targeting zone of the ship
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        string collisionFaction;
+
+        try
+        {
+            collisionFaction = collision.gameObject.GetComponent<Ship>().GetFaction();
+        }
+        catch //we can't target it, so just exit.
+        {
+            return;
+        }
+
         foreach (string tag in enemyFactions)
         {
-            if (tag == collision.gameObject.tag) //if the tag is in the list of factions that this ship will attack
+            if (tag == collisionFaction) //if the tag is in the list of factions that this ship will attack
             {
                 targets.Add(collision.gameObject); //add the target to the
                 controller.UpdateTargets(targets);

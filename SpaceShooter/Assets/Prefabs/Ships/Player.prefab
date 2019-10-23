@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 1670886136389112698}
   - component: {fileID: 401094372879541271}
   - component: {fileID: 1878275455641261840}
+  - component: {fileID: 7597223330855079829}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -315,6 +316,8 @@ MonoBehaviour:
   moveSound: {fileID: 0}
   healthBar: {fileID: 328025652}
   shieldBar: {fileID: 4321287086970203227}
+  animator: {fileID: 7597223330855079829}
+  spawnPoint: {fileID: 0}
 --- !u!82 &401094372879541271
 AudioSource:
   m_ObjectHideFlags: 0
@@ -437,6 +440,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.73, y: 0.9}
   m_EdgeRadius: 0
+--- !u!95 &7597223330855079829
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670886136389112702}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a436b33df115f8146920a92a3d124d57, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1670886137031074161
 GameObject:
   m_ObjectHideFlags: 0

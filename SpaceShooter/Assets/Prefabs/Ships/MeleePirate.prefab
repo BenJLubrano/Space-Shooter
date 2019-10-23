@@ -317,7 +317,8 @@ MonoBehaviour:
   shieldBar: {fileID: 8483244676230986393}
   npcType: {fileID: 890496405872206226}
   targets: []
-  enemyFactions: []
+  enemyFactions:
+  - Player
   targetingController: {fileID: 3278985424437328009}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
