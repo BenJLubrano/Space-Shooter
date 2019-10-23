@@ -7,6 +7,7 @@ public class PlayerController : Ship
 {
     public Animator animator;
     public GameObject explosion;
+    public GameObject shieldActive, shieldBreak;
     [SerializeField] Transform spawnPoint;
     private void Awake()
     {
@@ -62,6 +63,16 @@ public class PlayerController : Ship
         if (Input.GetButton("Shoot"))
         {
             Shoot();
+        }
+
+        if(shield >= 1)
+        {
+            animator.SetBool("hasShield", true);
+            //Instantiate(shieldActive, transform.position, transform.rotation);
+        }
+        else if(shield < 1)
+        {
+            animator.SetBool("hasShield", false);
         }
     }
 
