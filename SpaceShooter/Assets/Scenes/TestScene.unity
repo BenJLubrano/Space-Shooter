@@ -1093,12 +1093,12 @@ PrefabInstance:
     - target: {fileID: 1670886136389112699, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.768
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1670886136389112699, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.106
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1670886136389112699, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
@@ -1160,6 +1160,11 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1498106183}
+    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: speed
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 401094372879541271, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: Loop
@@ -1711,7 +1716,7 @@ PrefabInstance:
     - target: {fileID: 3263073796823621415, guid: d7bba0b2ab06ae24e8ce8452814d5c8e,
         type: 3}
       propertyPath: maxShips
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3263073796823621415, guid: d7bba0b2ab06ae24e8ce8452814d5c8e,
         type: 3}
