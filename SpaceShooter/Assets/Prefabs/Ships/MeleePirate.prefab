@@ -317,7 +317,8 @@ MonoBehaviour:
   shieldBar: {fileID: 8483244676230986393}
   npcType: {fileID: 890496405872206226}
   targets: []
-  enemyFactions: []
+  enemyFactions:
+  - Player
   targetingController: {fileID: 3278985424437328009}
 --- !u!114 &890496405872206226
 MonoBehaviour:
