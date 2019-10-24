@@ -8,7 +8,7 @@ public class TargetingController : MonoBehaviour
 {
     [SerializeField] NpcController controller;
     [SerializeField] CircleCollider2D targetingZone;
-    [SerializeField] float radius;
+    [SerializeField] public float radius;
     [SerializeField] List<string> enemyFactions = new List<string>();
     List<GameObject> targets = new List<GameObject>();
 
@@ -61,6 +61,5 @@ public class TargetingController : MonoBehaviour
             }
         }
     }
-
 
 }

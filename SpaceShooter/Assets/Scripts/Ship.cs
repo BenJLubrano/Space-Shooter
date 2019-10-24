@@ -48,6 +48,7 @@ public class Ship : MonoBehaviour
             shieldBar.fillAmount = 0;
         }
     }
+
     protected void Update()
     {
         if (isDead && !audioSource.isPlaying)
@@ -55,6 +56,26 @@ public class Ship : MonoBehaviour
             Die();
         }
         else if(!isDead)
+        {
+            weaponCooldown -= Time.deltaTime;
+            lastDamaged += Time.deltaTime;
+            if (lastDamaged >= 15) //regenerate shields if damage has not been taken in the last 5 seconds
+            {
+                shield += shieldRegenRate * Time.deltaTime;
+                if (shield > maxShield)
+                    shield = maxShield;
+                UpdateBars();
+            }
+        }
+    }
+
+    protected void DoUpdateChecks()
+    {
+        if (isDead && !audioSource.isPlaying)
+        {
+            Die();
+        }
+        else if (!isDead)
         {
             weaponCooldown -= Time.deltaTime;
             lastDamaged += Time.deltaTime;
@@ -110,7 +131,14 @@ public class Ship : MonoBehaviour
             health = 0;
             PrepareForDeath();
         }
-        UpdateBars();
+        try
+        {
+            UpdateBars();
+        }
+        catch
+        {
+            Debug.LogWarning(gameObject.name + " does not have a health bar");
+        }
     }
 
     protected void UpdateBars()

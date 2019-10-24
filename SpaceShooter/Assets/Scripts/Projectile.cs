@@ -40,6 +40,12 @@ public class Projectile : MonoBehaviour
         shooterId = shooter;
         enemyFactions = factions;
         this.target = target;
+
+        if (weapon.sound != null)
+        {
+            audioSource.clip = weapon.sound;
+            audioSource.Play();
+        }
     }
 
     // Update is called once per frame
@@ -79,6 +85,7 @@ public class Projectile : MonoBehaviour
             Ship colliderShip = collision.gameObject.GetComponent<Ship>(); //first make sure that what we're colliding with is indeed a ship
             if (colliderShip != null) //if it got a ship script, it must be a ship
             {
+                Debug.Log("Found ship on " + collision.gameObject.name);
                 string colliderFaction = colliderShip.GetFaction(); //get the faction of the colliding ship
                 if (enemyFactions.Contains(colliderFaction)) //if it's in the list of enemy factions (factions that the projectile can hit)
                 {

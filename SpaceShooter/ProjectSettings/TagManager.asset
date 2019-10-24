@@ -19,7 +19,7 @@ TagManager:
   - Projectiles
   - Asteroids
   - Player
-  - 
+  - NoProjectiles
   - 
   - 
   - 
@@ -41,8 +41,8 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: BottomLayer
+    uniqueID: 2011536443
     locked: 0
   - name: Projectiles
     uniqueID: 195804275
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: NPC Ships
     uniqueID: 3595061799
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
