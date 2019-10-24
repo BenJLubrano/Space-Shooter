@@ -129,12 +129,12 @@ public class NpcController : Ship
         //transform.up = currentTarget.gameObject.transform.position - transform.position; //change rotation to face target
     }
 
-    //protected override void Die()
-    //{
-    //    //eventually will do more stuff here
-    //    StartCoroutine("Explosion");
-    //    Destroy(gameObject);
-    //}
+    protected override void Die()
+    {
+        //eventually will do more stuff here
+        StartCoroutine("Explosion");
+        Destroy(gameObject);
+    }
 
     IEnumerator Explosion()
     {
