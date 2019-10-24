@@ -40,7 +40,7 @@ public class Ship : MonoBehaviour
 
     protected bool isDead = false;
     protected float lastDamaged = 0f;
-    public Animator anim;
+    //public Animator anim;
 
     protected void Awake()
     {
