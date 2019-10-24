@@ -40,6 +40,7 @@ public class Ship : MonoBehaviour
 
     protected bool isDead = false;
     protected float lastDamaged = 0f;
+    public Animator anim;
 
     protected void Awake()
     {
@@ -134,14 +135,24 @@ public class Ship : MonoBehaviour
         audioSource.clip = deathSound;
         audioSource.Play();
         shipCollider.enabled = false;
-        spriteRenderer.enabled = false;
+        //spriteRenderer.enabled = false;
         isDead = true;
     }
 
     //Base Die() simply destroys the ship
     protected virtual void Die()
     {
+        StartCoroutine("Explosion");
         Destroy(gameObject);
+    }
+
+    IEnumerator Explosion()
+    {
+        anim.SetTrigger("isDead");
+        yield return new WaitForSeconds(1.0f);
+        isDead = false;
+        //Destroy(gameObject);
+        yield return null;
     }
 
     public bool IsDead()

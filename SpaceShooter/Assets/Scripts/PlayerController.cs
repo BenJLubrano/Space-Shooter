@@ -86,25 +86,34 @@ public class PlayerController : Ship
     {
         //eventually will do more stuff here
         StartCoroutine("Explosion");
-        Respawn();
+        //Respawn();
     }
 
     //Simple method to respawn the player
     void Respawn()
     {
+        //isDead = false;
         transform.position = spawnPoint.position;
         shipCollider.enabled = true;
-        spriteRenderer.enabled = true;
+        //spriteRenderer.enabled = true;
 
         shield = maxShield;
         health = maxHealth;
         UpdateBars();
-        isDead = false;
     }
+
+    //IEnumerator Explosion()
+    //{
+    //    Instantiate(explosion, transform.position, transform.rotation);
+    //    yield return null;
+    //}
 
     IEnumerator Explosion()
     {
-        Instantiate(explosion, transform.position, transform.rotation);
+        anim.SetTrigger("isDead");
+        //yield return new WaitForSeconds(1.0f);
+        isDead = false;
+        Respawn();
         yield return null;
     }
 }
