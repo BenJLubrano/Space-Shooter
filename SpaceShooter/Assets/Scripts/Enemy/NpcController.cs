@@ -112,17 +112,9 @@ public class NpcController : Ship
     }
 
     //this function handles the rotation of the enemy
-    protected void Rotate(float minAngle = -360, float maxAngle = 360, float defaultRot = 0)
+    protected void Rotate()
     {
         float angle = AngleToTarget();
-        Debug.Log(angle);
-        //angle = angle < minAngle ? defaultRot : angle;
-        //angle = angle > maxAngle ? defaultRot : angle;
-        if(angle > maxAngle || angle < minAngle) //TODO: It would be good to set the rotation back to whatever it was supposed to be after it's done rotating back, but also it might just be better to add an enclosing gameobject
-        {
-            angle = defaultRot;
-            turnSpeed = 1f;
-        }
         Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
         //CODE FOR INSTANT ROTATE
@@ -133,7 +125,8 @@ public class NpcController : Ship
     {
         Vector2 direction = currentTarget.transform.position - transform.position;
         direction.Normalize();
-        return Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        return angle < 0 ? angle + 360 : angle;
     }
 
 }

@@ -147,7 +147,10 @@ public class Ship : MonoBehaviour
         {
             shieldBar.fillAmount = shield / maxShield;
         }
-        healthBar.fillAmount = health / maxHealth;
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = health / maxHealth;
+        }
     }
 
     //simply returns the faction of the ship

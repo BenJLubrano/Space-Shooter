@@ -75,6 +75,7 @@ public class Projectile : MonoBehaviour
     //called when the projectile collides with something
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.name);
         if (collision.gameObject.tag == "Asteroid") //if it's an asteroid, we know what to do
         {
             collision.gameObject.GetComponent<Asteroid>().TakeDamage(weapon.damage);
