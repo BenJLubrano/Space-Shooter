@@ -30,22 +30,13 @@ public class PlayerController : Ship
 
         if(rotationMove + verticalMove + horizontalMove != 0f) //if the player is moving in a certain direction or rotating
         {
-            animator.SetFloat("AnimatorSpeed", Mathf.Abs(verticalMove));
             shipRb.angularVelocity = 0f; //set angular velocity to zero, which stops the player from rotating due to outside forces
         }
 
-        if(Input.GetButtonDown("Vertical"))
-        {
-            animator.SetBool("IsAccelerating", true);
-        }
-        else
-        {
-            animator.SetBool("IsAccelerating", false);
-        }
+        HandleAnimation(Mathf.Abs(verticalMove));
 
         Vector2 force = new Vector2(horizontalMove, verticalMove);
         shipRb.MoveRotation(shipRb.rotation + rotationMove);
-
         shipRb.AddForce(transform.TransformDirection(force));
 
         if (Input.GetButton("Brake")) //if the player is braking
@@ -74,6 +65,19 @@ public class PlayerController : Ship
         {
             animator.SetBool("hasShield", false);
         }
+    }
+
+    void HandleAnimation(float speed)
+    {
+        if (Input.GetButton("Vertical"))
+        {
+            animator.SetBool("IsAccelerating", true);
+        }
+        else
+        {
+            animator.SetBool("IsAccelerating", false);
+        }
+        animator.SetFloat("AnimatorSpeed", speed);
     }
 
     public void SetSpawn(Transform point)
