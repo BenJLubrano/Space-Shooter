@@ -92,7 +92,8 @@ public class PlayerController : Ship
     protected override void Die()
     {
         //eventually will do more stuff here
-        StartCoroutine("Explosion");
+        //StartCoroutine("Explosion");
+        Instantiate(explosion, transform.position, transform.rotation);
         Respawn();
     }
 
