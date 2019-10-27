@@ -16,6 +16,7 @@ public class NpcController : Ship
     [SerializeField] TargetingController targetingController;
 
     GameObject currentTarget;
+    public GameObject explosion;
 
     private void Awake()
     {
@@ -126,5 +127,18 @@ public class NpcController : Ship
 
         //CODE FOR INSTANT ROTATE
         //transform.up = currentTarget.gameObject.transform.position - transform.position; //change rotation to face target
+    }
+
+    protected override void Die()
+    {
+        //eventually will do more stuff here
+        StartCoroutine("Explosion");
+        Destroy(gameObject);
+    }
+
+    IEnumerator Explosion()
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
+        yield return null;
     }
 }

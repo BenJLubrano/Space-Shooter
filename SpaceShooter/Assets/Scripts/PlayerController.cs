@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerController : Ship
 {
     public Animator animator;
+    public GameObject explosion;
+    public GameObject shieldActive, shieldBreak;
     [SerializeField] Transform spawnPoint;
     private void Awake()
     {
@@ -53,6 +55,16 @@ public class PlayerController : Ship
         {
             Shoot();
         }
+
+        if(shield >= 1)
+        {
+            animator.SetBool("hasShield", true);
+            //Instantiate(shieldActive, transform.position, transform.rotation);
+        }
+        else if(shield < 1)
+        {
+            animator.SetBool("hasShield", false);
+        }
     }
 
     void HandleAnimation(float speed)
@@ -77,6 +89,7 @@ public class PlayerController : Ship
     protected override void Die()
     {
         //eventually will do more stuff here
+        StartCoroutine("Explosion");
         Respawn();
     }
 
@@ -91,5 +104,11 @@ public class PlayerController : Ship
         health = maxHealth;
         UpdateBars();
         isDead = false;
+    }
+
+    IEnumerator Explosion()
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
+        yield return null;
     }
 }
