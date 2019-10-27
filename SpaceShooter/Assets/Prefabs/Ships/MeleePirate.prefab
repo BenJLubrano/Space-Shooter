@@ -320,6 +320,8 @@ MonoBehaviour:
   enemyFactions:
   - Player
   targetingController: {fileID: 3278985424437328009}
+  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
+    type: 3}
 --- !u!114 &890496405872206226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +346,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 40871ae62b5af4a49a6c89f9d9b2e4e0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
