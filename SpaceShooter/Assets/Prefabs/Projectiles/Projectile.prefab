@@ -53,8 +53,6 @@ MonoBehaviour:
   hitBox: {fileID: 1345088327068953904}
   renderer: {fileID: 6673826620940139229}
   audioSource: {fileID: 384443149582037041}
-  onHitExplosion: {fileID: 5217176716700027351, guid: 442dc0a80eb16464e887eafeac11d9ed,
-    type: 3}
 --- !u!61 &1345088327068953904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +115,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 195804275
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7f96843276a49e44d9991d321935ffd7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

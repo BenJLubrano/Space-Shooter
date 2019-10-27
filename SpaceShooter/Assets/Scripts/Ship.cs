@@ -155,11 +155,6 @@ public class Ship : MonoBehaviour
     //    yield return null;
     //}
 
-    public virtual float getShield()
-    {
-        return shield;
-    }
-
     public bool IsDead()
     {
         return isDead;
