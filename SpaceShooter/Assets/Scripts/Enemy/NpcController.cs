@@ -12,8 +12,9 @@ public class NpcController : Ship
     [SerializeField] protected TargetingController targetingController;
 
     protected GameObject currentTarget;
+    public GameObject explosion;
 
-    protected void Awake()
+    private void Awake()
     {
         base.Awake();
         //initialize enemyfactions  
@@ -131,4 +132,16 @@ public class NpcController : Ship
         return angle < 0 ? angle + 360 : angle;
     }
 
+    protected override void Die()
+    {
+        //eventually will do more stuff here
+        StartCoroutine("Explosion");
+        Destroy(gameObject);
+    }
+
+    IEnumerator Explosion()
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
+        yield return null;
+    }
 }

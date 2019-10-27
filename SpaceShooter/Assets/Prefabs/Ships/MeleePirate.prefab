@@ -172,6 +172,22 @@ MonoBehaviour:
   enemyFactions:
   - Player
   targetingController: {fileID: 3278985424437328009}
+  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
+    type: 3}
+--- !u!114 &890496405872206226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5765514119680980127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05434b8fbfc62a24b9e65017341f257e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  aggroRange: 10
 --- !u!82 &2690012981022930434
 AudioSource:
   m_ObjectHideFlags: 0
