@@ -12,7 +12,6 @@ public class NpcController : Ship
     [SerializeField] protected TargetingController targetingController;
 
     protected GameObject currentTarget;
-    public GameObject explosion;
 
     private void Awake()
     {
@@ -135,13 +134,7 @@ public class NpcController : Ship
     protected override void Die()
     {
         //eventually will do more stuff here
-        StartCoroutine("Explosion");
         Destroy(gameObject);
     }
 
-    IEnumerator Explosion()
-    {
-        Instantiate(explosion, transform.position, transform.rotation);
-        yield return null;
-    }
 }

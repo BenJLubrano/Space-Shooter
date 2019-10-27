@@ -5,9 +5,8 @@ using UnityEngine;
 //This script controls the player, both movement and ingame functions
 public class PlayerController : Ship
 {
-    public Animator animator;
-    public GameObject explosion;
-    public GameObject shieldActive, shieldBreak;
+    [SerializeField] Animator animator;
+    [SerializeField] GameObject shieldActive, shieldBreak;
     [SerializeField] Transform spawnPoint;
     private void Awake()
     {
@@ -89,12 +88,11 @@ public class PlayerController : Ship
     protected override void Die()
     {
         //eventually will do more stuff here
-        StartCoroutine("Explosion");
-        Respawn();
+        StartCoroutine("Respawn");
     }
 
     //Simple method to respawn the player
-    void Respawn()
+    IEnumerator Respawn()
     {
         transform.position = spawnPoint.position;
         shipCollider.enabled = true;
@@ -104,11 +102,7 @@ public class PlayerController : Ship
         health = maxHealth;
         UpdateBars();
         isDead = false;
+        yield return new WaitForSeconds(5);
     }
 
-    IEnumerator Explosion()
-    {
-        Instantiate(explosion, transform.position, transform.rotation);
-        yield return null;
-    }
 }

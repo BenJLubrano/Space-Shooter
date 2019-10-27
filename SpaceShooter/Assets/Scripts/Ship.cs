@@ -36,7 +36,8 @@ public class Ship : MonoBehaviour
     [SerializeField] protected AudioClip moveSound;
     [SerializeField] protected Image healthBar;
     [SerializeField] protected Image shieldBar;
-    
+    [SerializeField] GameObject explosion;
+
 
     protected bool isDead = false;
     protected float lastDamaged = 0f;
@@ -153,11 +154,23 @@ public class Ship : MonoBehaviour
     //called when the ship dies
     protected virtual void PrepareForDeath()
     {
+        StartCoroutine("Explosion");
         audioSource.clip = deathSound;
         audioSource.Play();
         shipCollider.enabled = false;
         spriteRenderer.enabled = false;
         isDead = true;
+    }
+
+    IEnumerator Explosion()
+    {
+        if (explosion != null)
+        {
+            GameObject expl = Instantiate(explosion, transform.position, transform.rotation);
+            expl.transform.localScale = transform.localScale;
+        }
+        
+        yield return null;
     }
 
     //Not used for most ships, but is used for WeakPoints

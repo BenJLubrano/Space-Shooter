@@ -19,6 +19,6 @@ MonoBehaviour:
     type: 3}
   range: 15
   sound: {fileID: 0}
-  volume: 1
+  volume: 0.25
   projectile: {fileID: 8819101810938153031, guid: 6323de503592567488e5b8378c8a0393,
     type: 3}

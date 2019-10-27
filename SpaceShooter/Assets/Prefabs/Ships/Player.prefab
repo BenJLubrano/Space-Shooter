@@ -247,7 +247,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 588918663
-  m_SortingLayer: 2
+  m_SortingLayer: -2
   m_SortingOrder: 5
   m_Sprite: {fileID: -2497278491602939282, guid: 6cf1f512dec65774091d6570536509af,
     type: 3}
@@ -318,6 +318,10 @@ MonoBehaviour:
   healthBar: {fileID: 328025652}
   shieldBar: {fileID: 4321287086970203227}
   animator: {fileID: 7597223330855079829}
+  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
+    type: 3}
+  shieldActive: {fileID: 0}
+  shieldBreak: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!82 &401094372879541271
 AudioSource:

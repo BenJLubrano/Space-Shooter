@@ -19,6 +19,6 @@ MonoBehaviour:
     type: 3}
   range: 10
   sound: {fileID: 8300000, guid: cbfd5650c63cd0f44a93713894d87390, type: 3}
-  volume: 100
+  volume: 0.15
   projectile: {fileID: 8819101810938153031, guid: 6323de503592567488e5b8378c8a0393,
     type: 3}

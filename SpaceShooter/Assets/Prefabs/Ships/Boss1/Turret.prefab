@@ -361,6 +361,8 @@ MonoBehaviour:
   enemyFactions:
   - Player
   targetingController: {fileID: 8342353759947340897}
+  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
+    type: 3}
   boss: {fileID: 0}
   angleClamp: {x: -360, y: 360}
   defaultRotation: 90
