@@ -51,22 +51,7 @@ public class Ship : MonoBehaviour
 
     protected void Update()
     {
-        if (isDead && !audioSource.isPlaying)
-        {
-            Die();
-        }
-        else if(!isDead)
-        {
-            weaponCooldown -= Time.deltaTime;
-            lastDamaged += Time.deltaTime;
-            if (lastDamaged >= 15) //regenerate shields if damage has not been taken in the last 5 seconds
-            {
-                shield += shieldRegenRate * Time.deltaTime;
-                if (shield > maxShield)
-                    shield = maxShield;
-                UpdateBars();
-            }
-        }
+        DoUpdateChecks();
     }
 
     protected void DoUpdateChecks()
@@ -159,6 +144,12 @@ public class Ship : MonoBehaviour
         return faction;
     }
 
+    //returns the ID of the ship
+    public int GetId()
+    {
+        return shipId;
+    }
+
     //called when the ship dies
     protected virtual void PrepareForDeath()
     {
@@ -167,6 +158,12 @@ public class Ship : MonoBehaviour
         shipCollider.enabled = false;
         spriteRenderer.enabled = false;
         isDead = true;
+    }
+
+    //Not used for most ships, but is used for WeakPoints
+    public virtual bool CanBeHitBy(int id)
+    {
+        return true;
     }
 
     //Base Die() simply destroys the ship

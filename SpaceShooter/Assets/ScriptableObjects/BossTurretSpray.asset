@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56dfad2355f8dd74b956bfe524abac64, type: 3}
-  m_Name: BossTurret
+  m_Name: BossTurretSpray
   m_EditorClassIdentifier: 
   damage: 1
   fireRate: 1
   projectileSpeed: 1
-  projectileImage: {fileID: 21300000, guid: 6c0c8be64eec36f449376e955120e923, type: 3}
+  projectileImage: {fileID: 0}
   range: 25
-  sound: {fileID: 8300000, guid: b7c90d50a23b4a541bcb9b0a7f8d1c8e, type: 3}
-  projectile: {fileID: 8819101810938153031, guid: 6323de503592567488e5b8378c8a0393,
-    type: 3}
+  sound: {fileID: 0}
+  projectile: {fileID: 0}

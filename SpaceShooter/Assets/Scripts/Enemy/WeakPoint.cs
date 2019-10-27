@@ -6,6 +6,8 @@ public class WeakPoint : Ship
 {
 
     [SerializeField] Ship owner;
+    [SerializeField] WeakPointZone zone;
+    [SerializeField] float damageToOwner;
 
     // Start is called before the first frame update
     private void Awake()
@@ -20,11 +22,17 @@ public class WeakPoint : Ship
     // Update is called once per frame
     void Update()
     {
-        
+        DoUpdateChecks();
     }
 
-    void Die()
+    public override bool CanBeHitBy(int id)
     {
-        owner.TakeDamage(1000);
+        return zone.IsInZone(id);
+    }
+
+    protected override void PrepareForDeath()
+    {
+        base.PrepareForDeath();
+        owner.TakeDamage(damageToOwner);
     }
 }

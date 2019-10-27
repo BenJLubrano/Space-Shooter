@@ -48,6 +48,12 @@ public class TargetingController : MonoBehaviour
         }
     }
 
+    public void ManualRemoveTarget(GameObject target)
+    {
+        if (targets.Contains(target))
+            targets.Remove(target);
+    }
+
     //Activates when a collider exits the targeting zone of the ship
     private void OnTriggerExit2D(Collider2D collision)
     {

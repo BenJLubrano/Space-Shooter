@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public class NpcController : Ship
 {
     [SerializeField] protected List<GameObject> targets;
-    [SerializeField] protected List<string> enemyFactions;
+    [SerializeField] public List<string> enemyFactions;
     [SerializeField] protected TargetingController targetingController;
 
     protected GameObject currentTarget;
@@ -55,7 +55,7 @@ public class NpcController : Ship
     }
 
     //Logic related to targeting
-    protected void LookForTargets()
+    protected virtual void LookForTargets()
     {
         if (targets.Count == 0)
             return;
@@ -74,7 +74,7 @@ public class NpcController : Ship
     }
 
     //Used to get target updates from the TargetingController
-    public void UpdateTargets(List<GameObject> newTargets)
+    public virtual void UpdateTargets(List<GameObject> newTargets)
     {
         targets = newTargets;
     }
@@ -114,6 +114,8 @@ public class NpcController : Ship
     //this function handles the rotation of the enemy
     protected void Rotate()
     {
+        if (currentTarget == null)
+            return;
         float angle = AngleToTarget();
         Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);

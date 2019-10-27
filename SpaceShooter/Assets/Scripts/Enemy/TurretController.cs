@@ -24,48 +24,54 @@ public class TurretController : NpcController
         }
         else
         {
-            if (OutOfRange() || currentTarget.GetComponent<Ship>().IsDead())
+            if (OutOfRange() || !TargetInAttackRange() || !IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset()) || currentTarget.GetComponent<Ship>().IsDead())
             {
                 Deaggro();
             }
         }
 
         //if the ship has a target
-        if (currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead && AngleToTargetOffset() > angleClamp.x && AngleToTargetOffset() < angleClamp.y)
+        if (currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset()))//AngleToTargetOffset() > angleClamp.x && AngleToTargetOffset() < angleClamp.y)
         {
             //Turn this into a method in Ship.cs called "Shoot()" that will handle the cooldown setting etc, since it's universal for all ships
             Shoot(currentTarget, enemyFactions);
         }
 
-        //Debug.Log(Vector2.SignedAngle(transform.up, currentTarget.transform.position - transform.position));
-        //Rotate(angleClamp.x, angleClamp.y, defaultRotation);
         TurretRotate();
-        //AngleToBoss();
     }
 
     void TurretRotate()
     {
-        float angle = AngleToTarget();
-        float offsetAngle = AngleToTargetOffset();
-        Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
-        if (offsetAngle > angleClamp.y || offsetAngle < angleClamp.x) //TODO: It would be good to set the rotation back to whatever it was supposed to be after it's done rotating back, but also it might just be better to add an enclosing gameobject
+        if (currentTarget == null || !TargetInAttackRange())
         {
-            angle = defaultRotation;
-            rotation = transform.parent.rotation * Quaternion.Euler(0, 0, defaultRotation);
+            ResetRotation();
+            return;
         }
+        
+        float angle = AngleToTarget();
+        Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        if(!IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset()))
+        {
+            ResetRotation();
+        }
+        else
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
+        }
+        
+    }
+
+    void ResetRotation()
+    {
+        Quaternion rotation = transform.parent.rotation * Quaternion.Euler(0, 0, defaultRotation - 90);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
     }
 
-    //May not need this
-    float AngleToBoss()
+    float AngleToPoint(Vector3 point)
     {
-        Vector2 direction = currentTarget.transform.position - boss.transform.position;
+        Vector2 direction = point - transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //float offset = boss.transform.eulerAngles.z;
-        //offset = offset < 0 ? offset + 360 : offset;
-        //angle -= offset;
-        angle = angle < 0 ? angle + 360 : angle;
         return angle < 0 ? angle + 360 : angle;
     }
 
@@ -81,7 +87,22 @@ public class TurretController : NpcController
         return angle < 0 ? angle + 360 : angle;
     }
 
-    //This problem appears to be fixed... don't know how.. More testing required.
-    //The problem with the rotation has to do with the turrets being placed at an offset on the boss ship.
-    //What needs to happen is, we have to somehow calculate the angle of the player from the middle of the ship. This could possibly be done by simply getting the angle to target of the the boss to the player
+    bool IsBetween(float min, float max, float angle)
+    {
+        if(min > max)
+        {
+            if(angle < min && angle > max)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if(angle < min || angle > max)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

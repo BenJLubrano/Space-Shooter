@@ -16,6 +16,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] SpriteRenderer renderer;
     [SerializeField] AudioSource audioSource;
     Vector3 speedMod = Vector2.zero;
+
+    protected float damage;
     bool waitingForDestroy = false;
     Vector2 startPos;
 
@@ -23,18 +25,18 @@ public class Projectile : MonoBehaviour
     void Awake()
     {
         startPos = transform.position;
-        renderer.sprite = weapon.projectileImage;
-        if(weapon.sound != null)
+        /*if(weapon.sound != null)
         {
             audioSource.clip = weapon.sound;
             audioSource.Play();
-        }
+        }*/
     }
 
     //Used to set up some information that the projectile needs
-    public void Initialize(Weapon weapon, int shooter, GameObject target = null, List<string> factions = null)
+    public virtual void Initialize(Weapon weapon, int shooter, GameObject target = null, List<string> factions = null)
     {
         this.weapon = weapon;
+        damage = weapon.damage;
         renderer.sprite = weapon.projectileImage;
         
         shooterId = shooter;
@@ -44,12 +46,13 @@ public class Projectile : MonoBehaviour
         if (weapon.sound != null)
         {
             audioSource.clip = weapon.sound;
+            audioSource.volume = weapon.volume;
             audioSource.Play();
         }
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if(waitingForDestroy)
         {
@@ -78,7 +81,7 @@ public class Projectile : MonoBehaviour
         Debug.Log(collision.name);
         if (collision.gameObject.tag == "Asteroid") //if it's an asteroid, we know what to do
         {
-            collision.gameObject.GetComponent<Asteroid>().TakeDamage(weapon.damage);
+            collision.gameObject.GetComponent<Asteroid>().TakeDamage(damage);
             Deactivate();
         }
         else
@@ -90,8 +93,12 @@ public class Projectile : MonoBehaviour
                 string colliderFaction = colliderShip.GetFaction(); //get the faction of the colliding ship
                 if (enemyFactions.Contains(colliderFaction)) //if it's in the list of enemy factions (factions that the projectile can hit)
                 {
-                    collision.gameObject.GetComponent<Ship>().TakeDamage(weapon.damage);
-                    Deactivate();
+                    if (colliderShip.CanBeHitBy(shooterId))
+                    {
+                        colliderShip.TakeDamage(damage);
+                        Deactivate();
+                    }
+                    
                 }
             }
         }
