@@ -1297,6 +1297,12 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: onHitExplosion
+      value: 
+      objectReference: {fileID: 4265490741943177347, guid: efc312c3e056e044cbdd8491e2d0f7b3,
+        type: 3}
     - target: {fileID: 401094372879541271, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: Loop

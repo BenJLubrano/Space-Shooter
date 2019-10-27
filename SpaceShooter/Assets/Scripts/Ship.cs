@@ -40,6 +40,7 @@ public class Ship : MonoBehaviour
 
     protected bool isDead = false;
     protected float lastDamaged = 0f;
+
     //public Animator anim;
 
     protected void Awake()
@@ -155,6 +156,10 @@ public class Ship : MonoBehaviour
     //    yield return null;
     //}
 
+    public virtual float getShield()
+    {
+        return shield;
+    }
     public bool IsDead()
     {
         return isDead;
