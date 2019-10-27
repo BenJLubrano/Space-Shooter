@@ -42,7 +42,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1931363619039436873}
-  - component: {fileID: 1931363619039436872}
   - component: {fileID: 7859233120537421824}
   m_Layer: 0
   m_Name: BossLaserZone
@@ -65,19 +64,6 @@ Transform:
   m_Father: {fileID: 6982602914826401012}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1931363619039436872
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931363619039436918}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.25, y: 6, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7859233120537421824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +181,7 @@ MonoBehaviour:
   moveSound: {fileID: 0}
   healthBar: {fileID: 5130439848073601674}
   shieldBar: {fileID: 0}
+  explosion: {fileID: 0}
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1931363620560078290}
   damageToOwner: 1000
@@ -519,6 +506,7 @@ MonoBehaviour:
   moveSound: {fileID: 0}
   healthBar: {fileID: 1931363620425780082}
   shieldBar: {fileID: 0}
+  explosion: {fileID: 0}
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1931363620560078290}
   damageToOwner: 1000
@@ -1348,12 +1336,12 @@ MonoBehaviour:
   moveSound: {fileID: 0}
   healthBar: {fileID: 6273122776267446923}
   shieldBar: {fileID: 7032283806430291024}
+  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
+    type: 3}
   targets: []
   enemyFactions:
   - Player
   targetingController: {fileID: 4155820894792443456}
-  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
-    type: 3}
   turrets: []
   hitZone: {fileID: 7859233120537421824}
   canShoot: 0

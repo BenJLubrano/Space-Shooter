@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class TurretController : NpcController
 {
-    [SerializeField] GameObject boss;
+    [SerializeField] BossController boss;
     [SerializeField] Vector2 angleClamp;
     [SerializeField] float defaultRotation;
 
+    float timeOutOfRange = 0f;
     private void Awake()
     {
         base.Awake();
@@ -24,7 +25,7 @@ public class TurretController : NpcController
         }
         else
         {
-            if (OutOfRange() || !TargetInAttackRange() || !IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset()) || currentTarget.GetComponent<Ship>().IsDead())
+            if (OutOfRange() || currentTarget.GetComponent<Ship>().IsDead())
             {
                 Deaggro();
             }
@@ -42,17 +43,47 @@ public class TurretController : NpcController
 
     void TurretRotate()
     {
-        if (currentTarget == null || !TargetInAttackRange())
+        if (currentTarget == null)
         {
             ResetRotation();
             return;
+        }
+
+        if (!TargetInAttackRange())
+        {
+            if (boss.IsMoving())
+            {
+                timeOutOfRange += Time.deltaTime;
+                if (timeOutOfRange > 1f)
+                {
+                    ResetRotation();
+                    timeOutOfRange = 0f;
+                    return;
+                }
+            }
+            else
+            {
+                ResetRotation();
+            }
         }
         
         float angle = AngleToTarget();
         Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
         if(!IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset()))
         {
-            ResetRotation();
+            if (boss.IsMoving())
+            {
+                timeOutOfRange += Time.deltaTime;
+                if (timeOutOfRange > 1f)
+                {
+                    ResetRotation();
+                    timeOutOfRange = 0f;
+                }
+            }
+            else
+            {
+                ResetRotation();
+            }
         }
         else
         {
@@ -104,5 +135,10 @@ public class TurretController : NpcController
             }
         }
         return true;
+    }
+
+    public void SetBoss(BossController boss)
+    {
+        this.boss = boss;
     }
 }

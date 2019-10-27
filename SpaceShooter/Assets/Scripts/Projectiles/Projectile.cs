@@ -33,13 +33,13 @@ public class Projectile : MonoBehaviour
     }
 
     //Used to set up some information that the projectile needs
-    public virtual void Initialize(Weapon weapon, int shooter, GameObject target = null, List<string> factions = null)
+    public virtual void Initialize(Weapon weapon, Ship shooter, GameObject target = null, List<string> factions = null)
     {
         this.weapon = weapon;
         damage = weapon.damage;
         renderer.sprite = weapon.projectileImage;
         
-        shooterId = shooter;
+        shooterId = shooter.GetId();
         enemyFactions = factions;
         this.target = target;
 
@@ -78,7 +78,6 @@ public class Projectile : MonoBehaviour
     //called when the projectile collides with something
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
         if (collision.gameObject.tag == "Asteroid") //if it's an asteroid, we know what to do
         {
             collision.gameObject.GetComponent<Asteroid>().TakeDamage(damage);
@@ -89,7 +88,6 @@ public class Projectile : MonoBehaviour
             Ship colliderShip = collision.gameObject.GetComponent<Ship>(); //first make sure that what we're colliding with is indeed a ship
             if (colliderShip != null) //if it got a ship script, it must be a ship
             {
-                Debug.Log("Found ship on " + collision.gameObject.name);
                 string colliderFaction = colliderShip.GetFaction(); //get the faction of the colliding ship
                 if (enemyFactions.Contains(colliderFaction)) //if it's in the list of enemy factions (factions that the projectile can hit)
                 {

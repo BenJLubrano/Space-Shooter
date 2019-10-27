@@ -10,7 +10,7 @@ public class GrowingProjectile : Projectile
     float endDamage;
     float damageGrowthSpeed;
 
-    public override void Initialize(Weapon weapon, int shooter, GameObject target = null, List<string> factions = null)
+    public override void Initialize(Weapon weapon, Ship shooter, GameObject target = null, List<string> factions = null)
     {
         base.Initialize(weapon, shooter, target, factions);
         GrowingWeapon grWeapon = (GrowingWeapon)weapon;

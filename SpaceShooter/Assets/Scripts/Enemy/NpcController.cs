@@ -28,7 +28,7 @@ public class NpcController : Ship
         }
     }
 
-    void Update()
+    protected override void Update()
     {
         base.Update(); //call base ship update
         if(currentTarget == null)
@@ -77,12 +77,16 @@ public class NpcController : Ship
     public virtual void UpdateTargets(List<GameObject> newTargets)
     {
         targets = newTargets;
+        if(!targets.Contains(currentTarget))
+        {
+            currentTarget = null;
+        }
     }
 
     //Whether or not the target is out of aggro range
     protected bool OutOfRange()
     {
-        return Vector2.Distance(currentTarget.gameObject.transform.position, gameObject.transform.position) > targetingController.radius;
+        return Vector2.Distance(currentTarget.gameObject.transform.position, gameObject.transform.position) > targetingController.radius * transform.localScale.magnitude;
     }
 
     //Whether or not the target is in range to attack. Might do some more complicated calculations here later?
@@ -98,7 +102,7 @@ public class NpcController : Ship
         currentTarget = null;
     }
     
-    void Move()
+    protected virtual void Move()
     {
         if (currentTarget != null)
         {

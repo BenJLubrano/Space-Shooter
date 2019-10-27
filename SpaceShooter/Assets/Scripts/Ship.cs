@@ -50,7 +50,7 @@ public class Ship : MonoBehaviour
         }
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         DoUpdateChecks();
     }
@@ -92,7 +92,7 @@ public class Ship : MonoBehaviour
                 factions.Remove(this.faction);
             }
 
-            shot.GetComponent<Projectile>().Initialize(shipWeapon, shipId, target, factions);
+            shot.GetComponent<Projectile>().Initialize(shipWeapon, this, target, factions);
         }
     }
 
