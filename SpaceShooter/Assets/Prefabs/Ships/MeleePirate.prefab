@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3981507384830257050}
   - component: {fileID: 8425060942357847168}
   - component: {fileID: 2690012981022930434}
+  - component: {fileID: 890496405872206226}
   m_Layer: 0
   m_Name: MeleePirate
   m_TagString: Enemy
@@ -164,30 +165,16 @@ MonoBehaviour:
   shipCollider: {fileID: 3981507384830257050}
   spriteRenderer: {fileID: 9160826333733911028}
   audioSource: {fileID: 2690012981022930434}
-  deathSound: {fileID: 8300000, guid: adc7942800780cf4f9004ea7eb139877, type: 3}
+  deathSound: {fileID: 8300000, guid: e13fd771655c5e649b487b2486f8365a, type: 3}
   moveSound: {fileID: 0}
   healthBar: {fileID: 4837887611600077890}
   shieldBar: {fileID: 8483244676230986393}
+  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
+    type: 3}
   targets: []
   enemyFactions:
   - Player
   targetingController: {fileID: 3278985424437328009}
-  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
-    type: 3}
---- !u!114 &890496405872206226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5765514119680980127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05434b8fbfc62a24b9e65017341f257e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
-  aggroRange: 10
 --- !u!82 &2690012981022930434
 AudioSource:
   m_ObjectHideFlags: 0
@@ -200,7 +187,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -284,6 +271,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &890496405872206226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5765514119680980127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05434b8fbfc62a24b9e65017341f257e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  aggroRange: 10
 --- !u!1 &9178458347146297905
 GameObject:
   m_ObjectHideFlags: 0

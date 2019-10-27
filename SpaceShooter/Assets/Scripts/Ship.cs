@@ -14,6 +14,7 @@ public class Ship : MonoBehaviour
     [SerializeField] protected float health;
     [SerializeField] protected float maxShield;
     [SerializeField] protected float shield;
+    [SerializeField] protected float shieldRegenTime = 15f;
     [SerializeField] protected float shieldRegenRate = 0f;
     [SerializeField] protected float speed;
     [SerializeField] protected float weaponCooldown = 0f;
@@ -65,7 +66,7 @@ public class Ship : MonoBehaviour
         {
             weaponCooldown -= Time.deltaTime;
             lastDamaged += Time.deltaTime;
-            if (lastDamaged >= 15) //regenerate shields if damage has not been taken in the last 5 seconds
+            if (lastDamaged >= shieldRegenTime) //regenerate shields if damage has not been taken in the last 5 seconds
             {
                 shield += shieldRegenRate * Time.deltaTime;
                 if (shield > maxShield)
@@ -168,6 +169,7 @@ public class Ship : MonoBehaviour
         {
             GameObject expl = Instantiate(explosion, transform.position, transform.rotation);
             expl.transform.localScale = transform.localScale;
+            expl.transform.parent = transform.parent;
         }
         
         yield return null;
@@ -188,5 +190,15 @@ public class Ship : MonoBehaviour
     public bool IsDead()
     {
         return isDead;
+    }
+
+    public void ReduceSpeed(float reduction)
+    {
+        speed -= reduction;
+    }
+
+    public void ReduceTurnSpeed(float reduction)
+    {
+        defaultTurnSpeed -= reduction;
     }
 }

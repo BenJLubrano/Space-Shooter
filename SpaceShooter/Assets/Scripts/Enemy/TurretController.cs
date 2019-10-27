@@ -43,7 +43,7 @@ public class TurretController : NpcController
 
     void TurretRotate()
     {
-        if (currentTarget == null)
+        if (currentTarget == null || OutOfRange())
         {
             ResetRotation();
             return;

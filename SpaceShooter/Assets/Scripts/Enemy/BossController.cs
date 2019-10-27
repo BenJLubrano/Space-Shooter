@@ -43,6 +43,10 @@ public class BossController : NpcController
     protected override void Update()
     {
         DoUpdateChecks();
+        if(shield <= 0)
+        {
+            gameObject.layer = 0;
+        }
         if(currentTarget == null)
             LookForTargets();
 
@@ -78,12 +82,12 @@ public class BossController : NpcController
         {
             if (canMove)
             {
-                turnSpeed = .2f;
+                turnSpeed = defaultTurnSpeed * .1f;
                 Move();
             }
             else if (canRotate)
             {
-                turnSpeed = 2f;
+                turnSpeed = defaultTurnSpeed;
                 Rotate();
             }
         }
@@ -113,9 +117,9 @@ public class BossController : NpcController
     protected override void PrepareForDeath()
     {
         base.PrepareForDeath();
-        foreach(TurretController turret in turrets) //disable all turrets
+        foreach(Transform child in transform)
         {
-            turret.gameObject.SetActive(false);
+            child.gameObject.SetActive(false);
         }
     }
 
