@@ -43,6 +43,8 @@ public class Ship : MonoBehaviour
     protected bool isDead = false;
     protected float lastDamaged = 0f;
 
+    //public Animator anim;
+
     protected void Awake()
     {
         if (maxShield <= 0 && shieldBar != null)
@@ -184,9 +186,23 @@ public class Ship : MonoBehaviour
     //Base Die() simply destroys the ship
     protected virtual void Die()
     {
+        //StartCoroutine("Explosion");
         Destroy(gameObject);
     }
 
+    //IEnumerator Explosion()
+    //{
+    //    anim.SetTrigger("isDead");
+    //    yield return new WaitForSeconds(1.0f);
+    //    isDead = false;
+    //    //Destroy(gameObject);
+    //    yield return null;
+    //}
+
+    public virtual float getShield()
+    {
+        return shield;
+    }
     public bool IsDead()
     {
         return isDead;

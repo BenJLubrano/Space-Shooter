@@ -53,6 +53,8 @@ MonoBehaviour:
   hitBox: {fileID: 1345088327068953904}
   renderer: {fileID: 6673826620940139229}
   audioSource: {fileID: 384443149582037041}
+  onHitExplosion: {fileID: 4265490741943177347, guid: efc312c3e056e044cbdd8491e2d0f7b3,
+    type: 3}
 --- !u!61 &1345088327068953904
 BoxCollider2D:
   m_ObjectHideFlags: 0
