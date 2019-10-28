@@ -6,14 +6,11 @@ using UnityEngine;
 public class PlayerController : Ship
 {
     public Animator animator;
-    public GameObject explosion;
-    public GameObject energyShield;
-    private Animator shieldAnim;
+    [SerializeField] Animator shieldAnim;
     [SerializeField] Transform spawnPoint;
     private void Awake()
     {
         shipId = 0; //make sure the player is always ID 0
-        shieldAnim = energyShield.GetComponent<Animator>();
     }
 
     void Update()
@@ -57,17 +54,6 @@ public class PlayerController : Ship
         {
             Shoot();
         }
-
-        if(shield >= 1)
-        {
-            shieldAnim.SetBool("hasShield", true);
-            energyShield.transform.position = transform.position;
-        }
-        else if(shield < 1)
-        {
-            shieldAnim.SetBool("hasShield", false);
-            energyShield.transform.position = transform.position;
-        }
     }
 
     void HandleAnimation(float speed)
@@ -80,7 +66,17 @@ public class PlayerController : Ship
         {
             animator.SetBool("IsAccelerating", false);
         }
+
         animator.SetFloat("AnimatorSpeed", speed);
+
+        if (shield >= 1)
+        {
+            shieldAnim.SetBool("hasShield", true);
+        }
+        else if (shield < 1)
+        {
+            shieldAnim.SetBool("hasShield", false);
+        }
     }
 
     public void SetSpawn(Transform point)
@@ -92,13 +88,19 @@ public class PlayerController : Ship
     protected override void Die()
     {
         //eventually will do more stuff here
-        StartCoroutine("Explosion");
-        Respawn();
+        StartCoroutine("Respawn");
+    }
+
+    protected override void PrepareForDeath()
+    {
+        base.PrepareForDeath();
+        shieldAnim.gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     //Simple method to respawn the player
-    void Respawn()
+    IEnumerator Respawn()
     {
+        yield return new WaitForSeconds(5);
         transform.position = spawnPoint.position;
         shipCollider.enabled = true;
         spriteRenderer.enabled = true;
@@ -106,22 +108,9 @@ public class PlayerController : Ship
         shield = maxShield;
         health = maxHealth;
         UpdateBars();
+        shieldAnim.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         shieldAnim.SetBool("hasShield", true);
         isDead = false;
+        
     }
-
-    IEnumerator Explosion()
-    {
-        Instantiate(explosion, transform.position, transform.rotation);
-        yield return null;
-    }
-
-    //IEnumerator Explosion()
-    //{
-    //    anim.SetTrigger("isDead");
-    //    //yield return new WaitForSeconds(1.0f);
-    //    isDead = false;
-    //    Respawn();
-    //    yield return null;
-    //}
 }

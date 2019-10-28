@@ -14,6 +14,7 @@ public class Ship : MonoBehaviour
     [SerializeField] protected float health;
     [SerializeField] protected float maxShield;
     [SerializeField] protected float shield;
+    [SerializeField] protected float shieldRegenTime = 15f;
     [SerializeField] protected float shieldRegenRate = 0f;
     [SerializeField] protected float speed;
     [SerializeField] protected float weaponCooldown = 0f;
@@ -36,7 +37,9 @@ public class Ship : MonoBehaviour
     [SerializeField] protected AudioClip moveSound;
     [SerializeField] protected Image healthBar;
     [SerializeField] protected Image shieldBar;
-    
+    [SerializeField] protected GameObject explosion;
+    [SerializeField] protected float explosionScale = 1;
+
 
     protected bool isDead = false;
     protected float lastDamaged = 0f;
@@ -50,17 +53,23 @@ public class Ship : MonoBehaviour
             shieldBar.fillAmount = 0;
         }
     }
-    protected void Update()
+
+    protected virtual void Update()
+    {
+        DoUpdateChecks();
+    }
+
+    protected void DoUpdateChecks()
     {
         if (isDead && !audioSource.isPlaying)
         {
             Die();
         }
-        else if(!isDead)
+        else if (!isDead)
         {
             weaponCooldown -= Time.deltaTime;
             lastDamaged += Time.deltaTime;
-            if (lastDamaged >= 15) //regenerate shields if damage has not been taken in the last 5 seconds
+            if (lastDamaged >= shieldRegenTime) //regenerate shields if damage has not been taken in the last 5 seconds
             {
                 shield += shieldRegenRate * Time.deltaTime;
                 if (shield > maxShield)
@@ -87,7 +96,7 @@ public class Ship : MonoBehaviour
                 factions.Remove(this.faction);
             }
 
-            shot.GetComponent<Projectile>().Initialize(shipWeapon, shipId, target, factions);
+            shot.GetComponent<Projectile>().Initialize(shipWeapon, this, target, factions);
         }
     }
 
@@ -112,7 +121,14 @@ public class Ship : MonoBehaviour
             health = 0;
             PrepareForDeath();
         }
-        UpdateBars();
+        try
+        {
+            UpdateBars();
+        }
+        catch
+        {
+            Debug.LogWarning(gameObject.name + " does not have a health bar");
+        }
     }
 
     protected void UpdateBars()
@@ -121,7 +137,10 @@ public class Ship : MonoBehaviour
         {
             shieldBar.fillAmount = shield / maxShield;
         }
-        healthBar.fillAmount = health / maxHealth;
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = health / maxHealth;
+        }
     }
 
     //simply returns the faction of the ship
@@ -130,9 +149,16 @@ public class Ship : MonoBehaviour
         return faction;
     }
 
+    //returns the ID of the ship
+    public int GetId()
+    {
+        return shipId;
+    }
+
     //called when the ship dies
     protected virtual void PrepareForDeath()
     {
+        CreateExplosion();
         audioSource.clip = deathSound;
         audioSource.Play();
         shipCollider.enabled = false;
@@ -140,21 +166,28 @@ public class Ship : MonoBehaviour
         isDead = true;
     }
 
+    protected void CreateExplosion()
+    {
+        if (explosion != null)
+        {
+            GameObject expl = Instantiate(explosion, transform.position, transform.rotation);
+            expl.transform.localScale *= explosionScale;
+            expl.transform.parent = transform.parent;
+        }
+    }
+
+    //Not used for most ships, but is used for WeakPoints
+    public virtual bool CanBeHitBy(int id)
+    {
+        return true;
+    }
+
     //Base Die() simply destroys the ship
     protected virtual void Die()
     {
-        //StartCoroutine("Explosion");
+
         Destroy(gameObject);
     }
-
-    //IEnumerator Explosion()
-    //{
-    //    anim.SetTrigger("isDead");
-    //    yield return new WaitForSeconds(1.0f);
-    //    isDead = false;
-    //    //Destroy(gameObject);
-    //    yield return null;
-    //}
 
     public virtual float getShield()
     {
@@ -163,5 +196,15 @@ public class Ship : MonoBehaviour
     public bool IsDead()
     {
         return isDead;
+    }
+
+    public void ReduceSpeed(float reduction)
+    {
+        speed -= reduction;
+    }
+
+    public void ReduceTurnSpeed(float reduction)
+    {
+        defaultTurnSpeed -= reduction;
     }
 }

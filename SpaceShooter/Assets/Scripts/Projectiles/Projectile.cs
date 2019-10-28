@@ -12,40 +12,45 @@ public class Projectile : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Weapon weapon;
-    [SerializeField] BoxCollider2D hitBox;
-    [SerializeField] SpriteRenderer renderer;
+    [SerializeField] protected BoxCollider2D hitBox;
+    [SerializeField] protected SpriteRenderer renderer;
     [SerializeField] AudioSource audioSource;
     Vector3 speedMod = Vector2.zero;
-    bool waitingForDestroy = false;
-    Vector2 startPos;
 
-    public GameObject onHitExplosion;
+    protected float damage;
+    bool waitingForDestroy = false;
+    protected Vector2 startPos;
+
+    [SerializeField] GameObject onHitExplosion;
 
     // Start is called before the first frame update
     void Awake()
     {
         startPos = transform.position;
-        renderer.sprite = weapon.projectileImage;
-        if(weapon.sound != null)
-        {
-            audioSource.clip = weapon.sound;
-            audioSource.Play();
-        }
     }
 
     //Used to set up some information that the projectile needs
-    public void Initialize(Weapon weapon, int shooter, GameObject target = null, List<string> factions = null)
+    public virtual void Initialize(Weapon weapon, Ship shooter, GameObject target = null, List<string> factions = null)
     {
         this.weapon = weapon;
+        damage = weapon.damage;
         renderer.sprite = weapon.projectileImage;
         
-        shooterId = shooter;
+        shooterId = shooter.GetId();
         enemyFactions = factions;
         this.target = target;
+
+        if (weapon.sound != null)
+        {
+            audioSource.clip = weapon.sound;
+            audioSource.volume = weapon.volume;
+            audioSource.Play();
+        }
+        hitBox.size *= weapon.scale;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if(waitingForDestroy)
         {
@@ -73,7 +78,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Asteroid") //if it's an asteroid, we know what to do
         {
-            collision.gameObject.GetComponent<Asteroid>().TakeDamage(weapon.damage);
+            collision.gameObject.GetComponent<Asteroid>().TakeDamage(damage);
             Deactivate();
         }
         else
@@ -84,12 +89,15 @@ public class Projectile : MonoBehaviour
                 string colliderFaction = colliderShip.GetFaction(); //get the faction of the colliding ship
                 if (enemyFactions.Contains(colliderFaction)) //if it's in the list of enemy factions (factions that the projectile can hit)
                 {
-                    if (collision.gameObject.GetComponent<Ship>().getShield() < 1)
+                    if (colliderShip.CanBeHitBy(shooterId))
                     {
-                        StartCoroutine("OnHit");
+                        colliderShip.TakeDamage(damage);
+                        Deactivate();
+                        if (collision.gameObject.GetComponent<Ship>().getShield() < 1)
+                        {
+                            OnHit();
+                        }
                     }
-                    collision.gameObject.GetComponent<Ship>().TakeDamage(weapon.damage);
-                    Deactivate();
                 }
             }
         }
@@ -103,9 +111,8 @@ public class Projectile : MonoBehaviour
         waitingForDestroy = true;
     }
 
-    IEnumerator OnHit()
+    void OnHit()
     {
         Instantiate(onHitExplosion, transform.position, transform.rotation);
-        yield return null;
     }
 }

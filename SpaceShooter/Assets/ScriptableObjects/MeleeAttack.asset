@@ -18,5 +18,6 @@ MonoBehaviour:
   projectileImage: {fileID: 0}
   range: 1
   sound: {fileID: 8300000, guid: adc7942800780cf4f9004ea7eb139877, type: 3}
+  volume: 0.15
   projectile: {fileID: 8819101810938153031, guid: 8e52f94d533610746970344ab60294e1,
     type: 3}
