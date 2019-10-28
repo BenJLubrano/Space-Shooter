@@ -53,11 +53,10 @@ public class BossController : NpcController
         internalClock += Time.deltaTime;
         if (hitZone.ShipsInZone().Count > 0 && weaponCooldown <= 0)
         {
-            Debug.Log("shooting");
-
             canRotate = false;
             canMove = false;
             Shoot(null, enemyFactions);
+            shipRb.velocity = Vector2.zero;
             isWaiting = true;
             nextActionTime += 10f;
             return; //Don't do anything else if the boss is shooting
@@ -99,9 +98,17 @@ public class BossController : NpcController
         nextActionTime = lastActionTime + actionDuration + waitTime;
     }
 
+
+    protected override bool TargetInAttackRange()
+    {
+        return TurretsInRange();
+    }
+
     void PerformAction()
     {
-        float choice = Random.Range(0, 2);
+        bool turretInRange = TurretsInRange();
+
+        int choice = turretInRange ? Random.Range(0, 2) : 1;
         if(choice == 0)
         {
             canRotate = true;
@@ -116,9 +123,27 @@ public class BossController : NpcController
             actionDuration = Random.Range(moveTime.x, moveTime.y);
             waitTime = 10;
         }
+
+        if(!turretInRange)
+        {
+            Debug.Log("No turret was in range!");
+            waitTime = 0;
+        }
+
         canPerformAction = false;
     }
 
+    bool TurretsInRange()
+    {
+        foreach (TurretController turret in turrets)
+        {
+            if (turret.CanHitTarget())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     protected override void PrepareForDeath()
     {
         base.PrepareForDeath();

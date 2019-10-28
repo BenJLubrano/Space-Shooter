@@ -96,6 +96,7 @@ public class PlayerController : Ship
         base.PrepareForDeath();
         shieldAnim.gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
+
     //Simple method to respawn the player
     IEnumerator Respawn()
     {
@@ -112,19 +113,4 @@ public class PlayerController : Ship
         isDead = false;
         
     }
-
-    IEnumerator Explosion()
-    {
-        Instantiate(explosion, transform.position, transform.rotation);
-        yield return null;
-    }
-
-    //IEnumerator Explosion()
-    //{
-    //    anim.SetTrigger("isDead");
-    //    //yield return new WaitForSeconds(1.0f);
-    //    isDead = false;
-    //    Respawn();
-    //    yield return null;
-    //}
 }

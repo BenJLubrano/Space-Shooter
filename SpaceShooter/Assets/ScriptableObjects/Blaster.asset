@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Blaster
   m_EditorClassIdentifier: 
   damage: 5
-  fireRate: 3
+  fireRate: 15
   projectileSpeed: 15
   projectileImage: {fileID: 21300000, guid: 7f96843276a49e44d9991d321935ffd7, type: 3}
   range: 25
@@ -21,3 +21,4 @@ MonoBehaviour:
   volume: 0.5
   projectile: {fileID: 8819101810938153031, guid: 6323de503592567488e5b8378c8a0393,
     type: 3}
+  scale: {x: 1, y: 1}

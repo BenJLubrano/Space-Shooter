@@ -93,14 +93,11 @@ public class Projectile : MonoBehaviour
                     {
                         colliderShip.TakeDamage(damage);
                         Deactivate();
+                        if (collision.gameObject.GetComponent<Ship>().getShield() < 1)
+                        {
+                            OnHit();
+                        }
                     }
-                    
-                    if (collision.gameObject.GetComponent<Ship>().getShield() < 1)
-                    {
-                        StartCoroutine("OnHit");
-                    }
-                    collision.gameObject.GetComponent<Ship>().TakeDamage(weapon.damage);
-                    Deactivate();
                 }
             }
         }
@@ -114,9 +111,8 @@ public class Projectile : MonoBehaviour
         waitingForDestroy = true;
     }
 
-    IEnumerator OnHit()
+    void OnHit()
     {
         Instantiate(onHitExplosion, transform.position, transform.rotation);
-        yield return null;
     }
 }

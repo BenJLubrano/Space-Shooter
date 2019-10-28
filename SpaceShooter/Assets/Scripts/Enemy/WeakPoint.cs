@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class WeakPoint : Ship
 {
-    [Header("Weak Point Effects")]
-    [SerializeField] BossController owner;
-    [SerializeField] WeakPointZone zone;
-    [SerializeField] float damageToOwner;
-    [SerializeField] bool reducesSpeed = false;
-    [SerializeField] float speedReduction;
-    [SerializeField] float turnSpeedReduction;
+    [Header("Weak Point")]
+    [SerializeField] protected BossController owner;
+    [SerializeField] protected WeakPointZone zone;
+    [SerializeField] protected float damageToOwner;
+    [SerializeField] protected Sprite damagedVersion;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -34,12 +33,14 @@ public class WeakPoint : Ship
 
     protected override void PrepareForDeath()
     {
-        base.PrepareForDeath();
+        CreateExplosion();
+        spriteRenderer.sprite = damagedVersion;
+        shipCollider.enabled = false;
         owner.TakeDamage(damageToOwner);
-        if(reducesSpeed)
-        {
-            owner.ReduceSpeed(speedReduction);
-            owner.ReduceTurnSpeed(turnSpeedReduction);
-        }
+    }
+
+    protected override void Die()
+    {
+        //do nothing
     }
 }

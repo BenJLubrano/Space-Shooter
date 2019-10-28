@@ -90,7 +90,7 @@ public class NpcController : Ship
     }
 
     //Whether or not the target is in range to attack. Might do some more complicated calculations here later?
-    protected bool TargetInAttackRange()
+    protected virtual bool TargetInAttackRange()
     {
         return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.range;
     }
@@ -108,7 +108,7 @@ public class NpcController : Ship
         {
             Rotate();
 
-            if (Vector2.Distance(currentTarget.gameObject.transform.position, transform.position) > shipWeapon.range / 2) //if the target is further away than half of the weapons range
+            if (!TargetInAttackRange()) //if the target is further away than half of the weapons range
             {
                 shipRb.AddForce(transform.up * speed);
             }
