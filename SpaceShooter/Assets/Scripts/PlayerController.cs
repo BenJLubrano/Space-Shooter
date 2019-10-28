@@ -6,13 +6,11 @@ using UnityEngine;
 public class PlayerController : Ship
 {
     public Animator animator;
-    public GameObject energyShield;
-    private Animator shieldAnim;
+    [SerializeField] Animator shieldAnim;
     [SerializeField] Transform spawnPoint;
     private void Awake()
     {
         shipId = 0; //make sure the player is always ID 0
-        shieldAnim = energyShield.GetComponent<Animator>();
     }
 
     void Update()
@@ -56,17 +54,6 @@ public class PlayerController : Ship
         {
             Shoot();
         }
-
-        if(shield >= 1)
-        {
-            shieldAnim.SetBool("hasShield", true);
-            energyShield.transform.position = transform.position;
-        }
-        else if(shield < 1)
-        {
-            shieldAnim.SetBool("hasShield", false);
-            energyShield.transform.position = transform.position;
-        }
     }
 
     void HandleAnimation(float speed)
@@ -79,7 +66,17 @@ public class PlayerController : Ship
         {
             animator.SetBool("IsAccelerating", false);
         }
+
         animator.SetFloat("AnimatorSpeed", speed);
+
+        if (shield >= 1)
+        {
+            shieldAnim.SetBool("hasShield", true);
+        }
+        else if (shield < 1)
+        {
+            shieldAnim.SetBool("hasShield", false);
+        }
     }
 
     public void SetSpawn(Transform point)
@@ -94,6 +91,11 @@ public class PlayerController : Ship
         StartCoroutine("Respawn");
     }
 
+    protected override void PrepareForDeath()
+    {
+        base.PrepareForDeath();
+        shieldAnim.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+    }
     //Simple method to respawn the player
     IEnumerator Respawn()
     {
@@ -105,6 +107,7 @@ public class PlayerController : Ship
         shield = maxShield;
         health = maxHealth;
         UpdateBars();
+        shieldAnim.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         shieldAnim.SetBool("hasShield", true);
         isDead = false;
         

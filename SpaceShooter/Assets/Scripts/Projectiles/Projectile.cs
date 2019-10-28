@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
     bool waitingForDestroy = false;
     protected Vector2 startPos;
 
-    public GameObject onHitExplosion;
+    [SerializeField] GameObject onHitExplosion;
 
     // Start is called before the first frame update
     void Awake()
