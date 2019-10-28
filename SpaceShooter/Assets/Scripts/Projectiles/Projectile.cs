@@ -113,6 +113,7 @@ public class Projectile : MonoBehaviour
 
     void OnHit()
     {
-        Instantiate(onHitExplosion, transform.position, transform.rotation);
+        if(onHitExplosion != null)
+            Instantiate(onHitExplosion, transform.position, transform.rotation);
     }
 }

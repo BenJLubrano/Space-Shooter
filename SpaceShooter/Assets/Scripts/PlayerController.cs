@@ -88,7 +88,8 @@ public class PlayerController : Ship
     protected override void Die()
     {
         //eventually will do more stuff here
-        StartCoroutine("Respawn");
+        //StartCoroutine("Respawn") For some reason this causes the player to get stuck.
+        RespawnFunc();
     }
 
     protected override void PrepareForDeath()
@@ -100,17 +101,24 @@ public class PlayerController : Ship
     //Simple method to respawn the player
     IEnumerator Respawn()
     {
+        Debug.Log("Waiting for respawn");
         yield return new WaitForSeconds(5);
+        RespawnFunc();
+        
+    }
+
+    void RespawnFunc()
+    {
         transform.position = spawnPoint.position;
         shipCollider.enabled = true;
         spriteRenderer.enabled = true;
-
+        shipRb.velocity = Vector2.zero;
+        shipRb.angularVelocity = 0;
         shield = maxShield;
         health = maxHealth;
         UpdateBars();
         shieldAnim.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         shieldAnim.SetBool("hasShield", true);
         isDead = false;
-        
     }
 }

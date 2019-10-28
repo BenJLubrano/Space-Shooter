@@ -144,6 +144,6 @@ public class TurretController : NpcController
 
     public bool CanHitTarget()
     {
-        return currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset());
+        return currentTarget != null && TargetInAttackRange() && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset());
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56dfad2355f8dd74b956bfe524abac64, type: 3}
   m_Name: MeleeAttack
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 15
   fireRate: 1
   projectileSpeed: 10
   projectileImage: {fileID: 0}
@@ -21,3 +21,4 @@ MonoBehaviour:
   volume: 0.15
   projectile: {fileID: 8819101810938153031, guid: 8e52f94d533610746970344ab60294e1,
     type: 3}
+  scale: {x: 1, y: 1}

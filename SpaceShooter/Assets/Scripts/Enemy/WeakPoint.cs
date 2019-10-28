@@ -37,6 +37,8 @@ public class WeakPoint : Ship
         spriteRenderer.sprite = damagedVersion;
         shipCollider.enabled = false;
         owner.TakeDamage(damageToOwner);
+        audioSource.clip = deathSound;
+        audioSource.Play();
     }
 
     protected override void Die()

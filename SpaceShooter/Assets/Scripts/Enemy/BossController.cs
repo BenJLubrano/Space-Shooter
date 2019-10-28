@@ -126,7 +126,6 @@ public class BossController : NpcController
 
         if(!turretInRange)
         {
-            Debug.Log("No turret was in range!");
             waitTime = 0;
         }
 
