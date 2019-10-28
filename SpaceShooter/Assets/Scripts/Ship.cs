@@ -37,7 +37,7 @@ public class Ship : MonoBehaviour
     [SerializeField] protected AudioClip moveSound;
     [SerializeField] protected Image healthBar;
     [SerializeField] protected Image shieldBar;
-    [SerializeField] GameObject explosion;
+    [SerializeField] protected GameObject explosion;
 
 
     protected bool isDead = false;

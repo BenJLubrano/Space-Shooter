@@ -152,6 +152,7 @@ MonoBehaviour:
   health: 10
   maxShield: 0
   shield: 0
+  shieldRegenTime: 15
   shieldRegenRate: 0
   speed: 65
   weaponCooldown: 0
@@ -165,7 +166,7 @@ MonoBehaviour:
   shipCollider: {fileID: 3981507384830257050}
   spriteRenderer: {fileID: 9160826333733911028}
   audioSource: {fileID: 2690012981022930434}
-  deathSound: {fileID: 8300000, guid: e13fd771655c5e649b487b2486f8365a, type: 3}
+  deathSound: {fileID: 8300000, guid: f2282d5801127b246908dc5748fc618f, type: 3}
   moveSound: {fileID: 0}
   healthBar: {fileID: 4837887611600077890}
   shieldBar: {fileID: 8483244676230986393}

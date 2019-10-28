@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerController : Ship
 {
     public Animator animator;
-    public GameObject explosion;
     public GameObject energyShield;
     private Animator shieldAnim;
     [SerializeField] Transform spawnPoint;
@@ -98,6 +97,7 @@ public class PlayerController : Ship
     //Simple method to respawn the player
     IEnumerator Respawn()
     {
+        yield return new WaitForSeconds(5);
         transform.position = spawnPoint.position;
         shipCollider.enabled = true;
         spriteRenderer.enabled = true;
@@ -107,7 +107,7 @@ public class PlayerController : Ship
         UpdateBars();
         shieldAnim.SetBool("hasShield", true);
         isDead = false;
-        yield return new WaitForSeconds(5);
+        
     }
 
     IEnumerator Explosion()
