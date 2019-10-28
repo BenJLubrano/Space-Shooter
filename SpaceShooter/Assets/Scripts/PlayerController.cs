@@ -7,11 +7,13 @@ public class PlayerController : Ship
 {
     public Animator animator;
     public GameObject explosion;
-    public GameObject shieldActive, shieldBreak;
+    public GameObject energyShield;
+    private Animator shieldAnim;
     [SerializeField] Transform spawnPoint;
     private void Awake()
     {
         shipId = 0; //make sure the player is always ID 0
+        shieldAnim = energyShield.GetComponent<Animator>();
     }
 
     void Update()
@@ -58,12 +60,13 @@ public class PlayerController : Ship
 
         if(shield >= 1)
         {
-            animator.SetBool("hasShield", true);
-            //Instantiate(shieldActive, transform.position, transform.rotation);
+            shieldAnim.SetBool("hasShield", true);
+            energyShield.transform.position = transform.position;
         }
         else if(shield < 1)
         {
-            animator.SetBool("hasShield", false);
+            shieldAnim.SetBool("hasShield", false);
+            energyShield.transform.position = transform.position;
         }
     }
 
@@ -103,6 +106,7 @@ public class PlayerController : Ship
         shield = maxShield;
         health = maxHealth;
         UpdateBars();
+        shieldAnim.SetBool("hasShield", true);
         isDead = false;
     }
 
@@ -111,4 +115,13 @@ public class PlayerController : Ship
         Instantiate(explosion, transform.position, transform.rotation);
         yield return null;
     }
+
+    //IEnumerator Explosion()
+    //{
+    //    anim.SetTrigger("isDead");
+    //    //yield return new WaitForSeconds(1.0f);
+    //    isDead = false;
+    //    Respawn();
+    //    yield return null;
+    //}
 }
