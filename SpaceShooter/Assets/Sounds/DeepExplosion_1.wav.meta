@@ -1,8 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: e8ecfb12d21cc324ab82dd9c2df96e0f
-=======
-guid: bbe3b130953a49442af0b2bf33a99626
+guid: da453c6f1c738084e9a7f57389308ac1
 >>>>>>> master
 AudioImporter:
   externalObjects: {}
@@ -21,6 +18,6 @@ AudioImporter:
   loadInBackground: 0
   ambisonic: 0
   3D: 1
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:

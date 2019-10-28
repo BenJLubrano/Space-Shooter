@@ -29,6 +29,9 @@ TextureImporter:
   - first:
       213: 3698782510215441163
     second: shield break_8
+  - first:
+      213: -7942452990290410003
+    second: shield break_9
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -297,6 +300,27 @@ TextureImporter:
       bones: []
       spriteID: 54fc971e293021949bc37b98e67f57bf
       internalID: 3698782510215441163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield break_9
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 30
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6980675467c86e346bf14c180e19d6a8
+      internalID: -7942452990290410003
       vertices: []
       indices: 
       edges: []
