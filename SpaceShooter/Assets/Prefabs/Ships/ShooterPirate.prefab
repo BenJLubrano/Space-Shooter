@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 863274986575074758, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8425060942357847168, guid: bab22a56eb911f24baf863d86f041110,
         type: 3}
       propertyPath: shipWeapon
@@ -93,11 +98,12 @@ PrefabInstance:
       propertyPath: shield
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 863274986575074758, guid: bab22a56eb911f24baf863d86f041110,
+    - target: {fileID: 8425060942357847168, guid: bab22a56eb911f24baf863d86f041110,
         type: 3}
-      propertyPath: m_AngularDrag
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: onHitExplosion
+      value: 
+      objectReference: {fileID: 4265490741943177347, guid: efc312c3e056e044cbdd8491e2d0f7b3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab22a56eb911f24baf863d86f041110, type: 3}
 --- !u!114 &1645535332007198171 stripped

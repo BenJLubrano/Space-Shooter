@@ -19,6 +19,8 @@ public class Projectile : MonoBehaviour
     bool waitingForDestroy = false;
     Vector2 startPos;
 
+    public GameObject onHitExplosion;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -82,6 +84,10 @@ public class Projectile : MonoBehaviour
                 string colliderFaction = colliderShip.GetFaction(); //get the faction of the colliding ship
                 if (enemyFactions.Contains(colliderFaction)) //if it's in the list of enemy factions (factions that the projectile can hit)
                 {
+                    if (collision.gameObject.GetComponent<Ship>().getShield() < 1)
+                    {
+                        StartCoroutine("OnHit");
+                    }
                     collision.gameObject.GetComponent<Ship>().TakeDamage(weapon.damage);
                     Deactivate();
                 }
@@ -95,5 +101,11 @@ public class Projectile : MonoBehaviour
         hitBox.enabled = false;
         renderer.enabled = false;
         waitingForDestroy = true;
+    }
+
+    IEnumerator OnHit()
+    {
+        Instantiate(onHitExplosion, transform.position, transform.rotation);
+        yield return null;
     }
 }
