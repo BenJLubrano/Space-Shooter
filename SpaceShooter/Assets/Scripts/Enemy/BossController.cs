@@ -51,10 +51,15 @@ public class BossController : NpcController
             LookForTargets();
 
         internalClock += Time.deltaTime;
-        if (hitZone.shipsInHitZone.Count > 0 && weaponCooldown <= 0)
+        if (hitZone.ShipsInZone().Count > 0 && weaponCooldown <= 0)
         {
             Debug.Log("shooting");
+
+            canRotate = false;
+            canMove = false;
             Shoot(null, enemyFactions);
+            isWaiting = true;
+            nextActionTime += 10f;
             return; //Don't do anything else if the boss is shooting
         }
 

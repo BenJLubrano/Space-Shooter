@@ -8,5 +8,7 @@ public class LaserWeapon : Weapon
     [SerializeField] public float startLength;
     [SerializeField] public float maxLength;
     [SerializeField] public float growSpeed;
-
+    [SerializeField] public float widthGrowth;
+    [SerializeField] public float lengthGrowth;
+    [SerializeField] public float offsetDistance = .05f;
 }

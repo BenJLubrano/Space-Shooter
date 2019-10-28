@@ -12,24 +12,19 @@ public class Projectile : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Weapon weapon;
-    [SerializeField] BoxCollider2D hitBox;
-    [SerializeField] SpriteRenderer renderer;
+    [SerializeField] protected BoxCollider2D hitBox;
+    [SerializeField] protected SpriteRenderer renderer;
     [SerializeField] AudioSource audioSource;
     Vector3 speedMod = Vector2.zero;
 
     protected float damage;
     bool waitingForDestroy = false;
-    Vector2 startPos;
+    protected Vector2 startPos;
 
     // Start is called before the first frame update
     void Awake()
     {
         startPos = transform.position;
-        /*if(weapon.sound != null)
-        {
-            audioSource.clip = weapon.sound;
-            audioSource.Play();
-        }*/
     }
 
     //Used to set up some information that the projectile needs
@@ -49,6 +44,7 @@ public class Projectile : MonoBehaviour
             audioSource.volume = weapon.volume;
             audioSource.Play();
         }
+        hitBox.size *= weapon.scale;
     }
 
     // Update is called once per frame

@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class LaserProjectile : Projectile
 {
+    float offsetDistance;
     float startLength;
     float maxLength;
     float growSpeed;
+    float widthGrowth;
+    float lengthGrowth;
+
+    Vector3 defaultSize;
+    float size;
+    private void Awake()
+    {
+        startPos = transform.position;
+    }
 
     public override void Initialize(Weapon weapon, Ship shooter, GameObject target = null, List<string> factions = null)
     {
@@ -15,13 +25,32 @@ public class LaserProjectile : Projectile
         startLength = laserWeapon.startLength;
         maxLength = laserWeapon.maxLength;
         growSpeed = laserWeapon.growSpeed;
-        transform.parent = shooter.gameObject.transform;
+        widthGrowth = laserWeapon.widthGrowth;
+        lengthGrowth = laserWeapon.lengthGrowth;
+        offsetDistance = laserWeapon.offsetDistance;
+        transform.SetParent(shooter.gameObject.transform);
+
+        defaultSize = new Vector3(1, startLength, 1);
     }
 
     protected override void Update()
     {
         base.Update();
-        float size = growSpeed * Time.deltaTime;
-        transform.localScale += new Vector3(size, size, 0f);
+    }
+    /*protected override void Update()
+    {
+        base.Update();
+        size += growSpeed * Time.deltaTime;
+        if (size > maxLength)
+            size = maxLength;
+        transform.localScale = new Vector3(5, size, 0);
+        //hitBox.size. = Vector2.Distance(renderer.bounds.min, renderer.bounds.max);
+        transform.localPosition = new Vector3(0, offsetDistance + Vector2.Distance(renderer.bounds.min, renderer.bounds.max) / 2, 0f);
+        renderer.enabled = true;
+    }*/
+
+    private void LateUpdate()
+    {
+        
     }
 }
