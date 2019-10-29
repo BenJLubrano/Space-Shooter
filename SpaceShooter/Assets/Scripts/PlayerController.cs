@@ -19,15 +19,23 @@ public class PlayerController : Ship
 
         //do nothing if the player is dead
         if (isDead)
-            return;
+            return;  
+    }
 
+    private void FixedUpdate()
+    {
+        HandleMovement();
+    }
+
+    void HandleMovement()
+    {
         //player movement stuff
-        float verticalMove = Input.GetAxis("Vertical") * speed;
+        float verticalMove = Input.GetAxis("Vertical") * speed * speedConst * Time.deltaTime;
         verticalMove = (verticalMove < 0) ? verticalMove * speedPenalty : verticalMove;
-        float horizontalMove = Input.GetAxis("Horizontal") * speed * speedPenalty;
+        float horizontalMove = Input.GetAxis("Horizontal") * speed * speedConst * speedPenalty * Time.deltaTime;
         float rotationMove = Input.GetAxis("Rotation") * turnSpeed;
 
-        if(rotationMove + verticalMove + horizontalMove != 0f) //if the player is moving in a certain direction or rotating
+        if (rotationMove + verticalMove + horizontalMove != 0f) //if the player is moving in a certain direction or rotating
         {
             shipRb.angularVelocity = 0f; //set angular velocity to zero, which stops the player from rotating due to outside forces
         }

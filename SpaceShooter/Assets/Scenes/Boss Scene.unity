@@ -1379,19 +1379,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipId: 0
   faction: Player
-  maxHealth: 100
-  health: 100
-  maxShield: 100
-  shield: 100
-  shieldRegenTime: 15
-  shieldRegenRate: 5
-  speed: 150
+  maxHealth: 150
+  health: 150
+  maxShield: 150
+  shield: 150
+  shieldRegenTime: 10
+  shieldRegenRate: 10
+  speed: 10
   weaponCooldown: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 1
   brakeStrength: 5
+  speedConst: 1000
   shipWeapon: {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
   shipRb: {fileID: 1670886136433585851}
   shipCollider: {fileID: 1878275455685208786}
@@ -1588,7 +1589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 1670886137074949296}
-  scrollSpeed: 100
+  scrollSpeed: 150
   minSize: 1
   maxSize: 15
 --- !u!81 &1670886137074949298
@@ -1710,6 +1711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912866718557121109, guid: 86381bf992f3bce409823264aaa2c365,
+        type: 3}
+      propertyPath: speed
+      value: 4250
       objectReference: {fileID: 0}
     - target: {fileID: 1407191419, guid: 86381bf992f3bce409823264aaa2c365, type: 3}
       propertyPath: m_Size.x
