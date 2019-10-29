@@ -130,7 +130,7 @@ public class NpcController : Ship
         Vector2 direction = currentTarget.transform.position - transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        return angle < 0 ? angle + 360 : angle;
+        return angwdle < 0 ? angle + 360 : angle;
     }
 
     protected override void Die()

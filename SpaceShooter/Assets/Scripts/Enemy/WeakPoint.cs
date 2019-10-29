@@ -34,6 +34,8 @@ public class WeakPoint : Ship
     protected override void PrepareForDeath()
     {
         CreateExplosion();
+        maxShield = 0f;
+        shieldRegenRate = 0f;
         spriteRenderer.sprite = damagedVersion;
         shipCollider.enabled = false;
         owner.TakeDamage(damageToOwner);
