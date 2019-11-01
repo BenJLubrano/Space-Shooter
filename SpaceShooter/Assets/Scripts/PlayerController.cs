@@ -19,15 +19,23 @@ public class PlayerController : Ship
 
         //do nothing if the player is dead
         if (isDead)
-            return;
+            return;  
+    }
 
+    private void FixedUpdate()
+    {
+        HandleMovement();
+    }
+
+    void HandleMovement()
+    {
         //player movement stuff
-        float verticalMove = Input.GetAxis("Vertical") * speed;
+        float verticalMove = (Input.GetAxis("Vertical") * speed * (speedConst * shipRb.mass) * Time.deltaTime);
         verticalMove = (verticalMove < 0) ? verticalMove * speedPenalty : verticalMove;
-        float horizontalMove = Input.GetAxis("Horizontal") * speed * speedPenalty;
+        float horizontalMove = Input.GetAxis("Horizontal") * speed * (speedConst * shipRb.mass) * speedPenalty * Time.deltaTime;
         float rotationMove = Input.GetAxis("Rotation") * turnSpeed;
 
-        if(rotationMove + verticalMove + horizontalMove != 0f) //if the player is moving in a certain direction or rotating
+        if (rotationMove + verticalMove + horizontalMove != 0f) //if the player is moving in a certain direction or rotating
         {
             shipRb.angularVelocity = 0f; //set angular velocity to zero, which stops the player from rotating due to outside forces
         }
@@ -37,7 +45,7 @@ public class PlayerController : Ship
         Vector2 force = new Vector2(horizontalMove, verticalMove);
         shipRb.MoveRotation(shipRb.rotation + rotationMove);
         shipRb.AddForce(transform.TransformDirection(force));
-
+        Debug.Log("player: " + shipRb.velocity.magnitude);
         if (Input.GetButton("Brake")) //if the player is braking
         {
             turnSpeed = defaultTurnSpeed / 2f;
@@ -56,7 +64,7 @@ public class PlayerController : Ship
         }
     }
 
-    void HandleAnimation(float speed)
+    void HandleAnimation(float currentSpeed)
     {
         if (Input.GetButton("Vertical"))
         {
@@ -67,7 +75,8 @@ public class PlayerController : Ship
             animator.SetBool("IsAccelerating", false);
         }
 
-        animator.SetFloat("AnimatorSpeed", speed);
+        
+        animator.SetFloat("AnimatorSpeed", currentSpeed*50 / (this.speed*shipRb.mass));
 
         if (shield >= 1)
         {

@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] float maxSize = 5f;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         playerCam.orthographicSize -= scroll * scrollSpeed * Time.deltaTime; //scroll the camera

@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4b50f623200f4a24393e1e9bd99b13ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,8 +99,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
-  m_LinearDrag: 1
+  m_Mass: 45
+  m_LinearDrag: 5
   m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -154,13 +154,14 @@ MonoBehaviour:
   shield: 0
   shieldRegenTime: 15
   shieldRegenRate: 0
-  speed: 65
+  speed: 3
   weaponCooldown: 0
   speedPenalty: 0.25
-  defaultTurnSpeed: 5
-  turnSpeed: 5
+  defaultTurnSpeed: 10
+  turnSpeed: 10
   defaultDrag: 5
   brakeStrength: 1
+  speedConst: 100
   shipWeapon: {fileID: 11400000, guid: 47653cd744adba74caabe5a801c163ce, type: 2}
   shipRb: {fileID: 863274986575074758}
   shipCollider: {fileID: 3981507384830257050}
@@ -172,6 +173,7 @@ MonoBehaviour:
   shieldBar: {fileID: 8483244676230986393}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
+  explosionScale: 1
   targets: []
   enemyFactions:
   - Player

@@ -26,6 +26,7 @@ public class Ship : MonoBehaviour
     [SerializeField] protected float turnSpeed = 5;
     [SerializeField] protected float defaultDrag = 5;
     [SerializeField] protected float brakeStrength = 1;
+    [SerializeField] protected float speedConst = 100;
 
     [Header("References")]
     [SerializeField] protected Weapon shipWeapon;
@@ -39,7 +40,6 @@ public class Ship : MonoBehaviour
     [SerializeField] protected Image shieldBar;
     [SerializeField] protected GameObject explosion;
     [SerializeField] protected float explosionScale = 1;
-
 
     protected bool isDead = false;
     protected float lastDamaged = 0f;

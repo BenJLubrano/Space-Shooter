@@ -72,6 +72,11 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 863274986575074758, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8425060942357847168, guid: bab22a56eb911f24baf863d86f041110,
         type: 3}
       propertyPath: shipWeapon
@@ -104,6 +109,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4265490741943177347, guid: efc312c3e056e044cbdd8491e2d0f7b3,
         type: 3}
+    - target: {fileID: 8425060942357847168, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425060942357847168, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: defaultTurnSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab22a56eb911f24baf863d86f041110, type: 3}
 --- !u!114 &1645535332007198171 stripped

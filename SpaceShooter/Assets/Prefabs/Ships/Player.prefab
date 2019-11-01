@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15, y: -35}
-  m_SizeDelta: {x: 200, y: 4}
+  m_AnchoredPosition: {x: 15, y: -51}
+  m_SizeDelta: {x: 400, y: 8}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &328025653
 CanvasRenderer:
@@ -304,13 +304,14 @@ MonoBehaviour:
   shield: 100
   shieldRegenTime: 15
   shieldRegenRate: 5
-  speed: 150
+  speed: 5
   weaponCooldown: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 1
   brakeStrength: 5
+  speedConst: 100
   shipWeapon: {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
   shipRb: {fileID: 1670886136389112697}
   shipCollider: {fileID: 1878275455641261840}
@@ -603,7 +604,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 15, y: -17}
-  m_SizeDelta: {x: 200, y: 4}
+  m_SizeDelta: {x: 400, y: 8}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &6274323844750526723
 CanvasRenderer:
@@ -667,7 +668,7 @@ PrefabInstance:
     - target: {fileID: 1838343172377452681, guid: 6104e84c87e16a042b516bd502c76f39,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 50.54
       objectReference: {fileID: 0}
     - target: {fileID: 1838343172377452681, guid: 6104e84c87e16a042b516bd502c76f39,
         type: 3}
@@ -709,16 +710,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1838343172613552360, guid: 6104e84c87e16a042b516bd502c76f39,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 1838343172613552363, guid: 6104e84c87e16a042b516bd502c76f39,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0d07b7df756a8364186f9c5a20e5261a, type: 2}
+    - target: {fileID: 1838343172613552360, guid: 6104e84c87e16a042b516bd502c76f39,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 1838343172674185135, guid: 6104e84c87e16a042b516bd502c76f39,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

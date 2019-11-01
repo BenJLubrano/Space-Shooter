@@ -98,6 +98,55 @@ public class BossController : NpcController
         nextActionTime = lastActionTime + actionDuration + waitTime;
     }
 
+    protected override void FixedUpdate()
+    {
+        internalClock += Time.deltaTime;
+        if (hitZone.ShipsInZone().Count > 0 && weaponCooldown <= 0)
+        {
+            canRotate = false;
+            canMove = false;
+            Shoot(null, enemyFactions);
+            shipRb.velocity = Vector2.zero;
+            isWaiting = true;
+            nextActionTime += 10f;
+            return; //Don't do anything else if the boss is shooting
+        }
+
+
+        if (canPerformAction) //if it is time to perform an action
+        {
+            lastActionTime = internalClock;
+            PerformAction();
+        }
+        if (internalClock >= lastActionTime + actionDuration) //if it is time to wait after performing an action
+        {
+            canMove = false;
+            canRotate = false;
+            isWaiting = true;
+        }
+        if (isWaiting)
+        {
+            if (internalClock >= lastActionTime + actionDuration + waitTime)
+            {
+                isWaiting = false;
+                canPerformAction = true;
+            }
+        }
+        else
+        {
+            if (canMove)
+            {
+                turnSpeed = defaultTurnSpeed * .1f;
+                Move();
+            }
+            else if (canRotate)
+            {
+                turnSpeed = defaultTurnSpeed;
+                Rotate();
+            }
+        }
+        nextActionTime = lastActionTime + actionDuration + waitTime;
+    }
 
     protected override bool TargetInAttackRange()
     {

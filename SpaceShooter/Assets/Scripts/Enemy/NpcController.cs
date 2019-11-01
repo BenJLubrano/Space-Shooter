@@ -26,6 +26,7 @@ public class NpcController : Ship
         {
             Debug.LogError("GameManager was not detected in the scene!");
         }
+        speed = (speed * shipRb.drag);
     }
 
     protected override void Update()
@@ -43,15 +44,17 @@ public class NpcController : Ship
             }
         }
 
-
-        Move();
-
         //if the ship has a target
-        if(currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead)
+        if (currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead)
         {
             //Turn this into a method in Ship.cs called "Shoot()" that will handle the cooldown setting etc, since it's universal for all ships
             Shoot(currentTarget, enemyFactions);
         }
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        Move();
     }
 
     //Logic related to targeting
@@ -110,7 +113,8 @@ public class NpcController : Ship
 
             if (!TargetInAttackRange()) //if the target is further away than half of the weapons range
             {
-                shipRb.AddForce(transform.up * speed);
+                shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime);
+                Debug.Log("enemy: " + shipRb.velocity.magnitude);
             }
         }
     }
