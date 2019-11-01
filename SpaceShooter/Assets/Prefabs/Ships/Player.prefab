@@ -304,7 +304,7 @@ MonoBehaviour:
   shield: 100
   shieldRegenTime: 15
   shieldRegenRate: 5
-  speed: 10
+  speed: 5
   weaponCooldown: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 5
