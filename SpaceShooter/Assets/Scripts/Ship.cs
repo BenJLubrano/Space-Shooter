@@ -26,7 +26,7 @@ public class Ship : MonoBehaviour
     [SerializeField] protected float turnSpeed = 5;
     [SerializeField] protected float defaultDrag = 5;
     [SerializeField] protected float brakeStrength = 1;
-    [SerializeField] protected float speedConst = 1000;
+    [SerializeField] protected float speedConst = 100;
 
     [Header("References")]
     [SerializeField] protected Weapon shipWeapon;

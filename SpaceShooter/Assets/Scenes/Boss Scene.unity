@@ -1392,7 +1392,7 @@ MonoBehaviour:
   turnSpeed: 5
   defaultDrag: 1
   brakeStrength: 5
-  speedConst: 1000
+  speedConst: 100
   shipWeapon: {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
   shipRb: {fileID: 1670886136433585851}
   shipCollider: {fileID: 1878275455685208786}
@@ -1487,7 +1487,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 15
+  m_Mass: 45
   m_LinearDrag: 1
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -1715,7 +1715,7 @@ PrefabInstance:
     - target: {fileID: 4912866718557121109, guid: 86381bf992f3bce409823264aaa2c365,
         type: 3}
       propertyPath: speed
-      value: 750
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4912866718557121109, guid: 86381bf992f3bce409823264aaa2c365,
         type: 3}
@@ -1731,6 +1731,11 @@ PrefabInstance:
         type: 3}
       propertyPath: explosionScale
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912866718557121109, guid: 86381bf992f3bce409823264aaa2c365,
+        type: 3}
+      propertyPath: speedConst
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1362851961, guid: 86381bf992f3bce409823264aaa2c365, type: 3}
       propertyPath: speedReduction
@@ -1760,6 +1765,10 @@ PrefabInstance:
     - target: {fileID: 249867127, guid: 86381bf992f3bce409823264aaa2c365, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 249867127, guid: 86381bf992f3bce409823264aaa2c365, type: 3}
+      propertyPath: DopplerLevel
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1931363619818352021, guid: 86381bf992f3bce409823264aaa2c365,
         type: 3}

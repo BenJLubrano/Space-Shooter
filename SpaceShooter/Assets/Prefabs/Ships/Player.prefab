@@ -304,14 +304,14 @@ MonoBehaviour:
   shield: 100
   shieldRegenTime: 15
   shieldRegenRate: 5
-  speed: 7.5
+  speed: 10
   weaponCooldown: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 1
   brakeStrength: 5
-  speedConst: 1000
+  speedConst: 100
   shipWeapon: {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
   shipRb: {fileID: 1670886136389112697}
   shipCollider: {fileID: 1878275455641261840}

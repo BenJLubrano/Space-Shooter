@@ -30,9 +30,9 @@ public class PlayerController : Ship
     void HandleMovement()
     {
         //player movement stuff
-        float verticalMove = Input.GetAxis("Vertical") * speed * speedConst * Time.deltaTime;
+        float verticalMove = (Input.GetAxis("Vertical") * speed * (speedConst * shipRb.mass) * Time.deltaTime);
         verticalMove = (verticalMove < 0) ? verticalMove * speedPenalty : verticalMove;
-        float horizontalMove = Input.GetAxis("Horizontal") * speed * speedConst * speedPenalty * Time.deltaTime;
+        float horizontalMove = Input.GetAxis("Horizontal") * speed * (speedConst * shipRb.mass) * speedPenalty * Time.deltaTime;
         float rotationMove = Input.GetAxis("Rotation") * turnSpeed;
 
         if (rotationMove + verticalMove + horizontalMove != 0f) //if the player is moving in a certain direction or rotating
@@ -45,7 +45,7 @@ public class PlayerController : Ship
         Vector2 force = new Vector2(horizontalMove, verticalMove);
         shipRb.MoveRotation(shipRb.rotation + rotationMove);
         shipRb.AddForce(transform.TransformDirection(force));
-
+        Debug.Log("player: " + shipRb.velocity.magnitude);
         if (Input.GetButton("Brake")) //if the player is braking
         {
             turnSpeed = defaultTurnSpeed / 2f;
@@ -64,7 +64,7 @@ public class PlayerController : Ship
         }
     }
 
-    void HandleAnimation(float speed)
+    void HandleAnimation(float currentSpeed)
     {
         if (Input.GetButton("Vertical"))
         {
@@ -75,7 +75,8 @@ public class PlayerController : Ship
             animator.SetBool("IsAccelerating", false);
         }
 
-        animator.SetFloat("AnimatorSpeed", speed);
+        
+        animator.SetFloat("AnimatorSpeed", currentSpeed*50 / (this.speed*shipRb.mass));
 
         if (shield >= 1)
         {
