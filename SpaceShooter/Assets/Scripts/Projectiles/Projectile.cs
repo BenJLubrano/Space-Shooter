@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
     }
 
     //Used to set up some information that the projectile needs
-    public virtual void Initialize(Weapon weapon, Ship shooter, GameObject target = null, List<string> factions = null)
+    public virtual void Initialize(Weapon weapon, ShipController shooter, GameObject target = null, List<string> factions = null)
     {
         this.weapon = weapon;
         damage = weapon.damage;
@@ -83,8 +83,8 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            Ship colliderShip = collision.gameObject.GetComponent<Ship>(); //first make sure that what we're colliding with is indeed a ship
-            if (colliderShip != null) //if it got a ship script, it must be a ship
+           ShipController colliderShip = collision.gameObject.GetComponent<ShipController>(); //first make sure that what we're colliding with is indeed a ship
+            if (colliderShip != null) //if it got aShipControllerscript, it must be a ship
             {
                 string colliderFaction = colliderShip.GetFaction(); //get the faction of the colliding ship
                 if (enemyFactions.Contains(colliderFaction)) //if it's in the list of enemy factions (factions that the projectile can hit)
@@ -93,7 +93,7 @@ public class Projectile : MonoBehaviour
                     {
                         colliderShip.TakeDamage(damage);
                         Deactivate();
-                        if (collision.gameObject.GetComponent<Ship>().getShield() < 1)
+                        if (collision.gameObject.GetComponent<ShipController>().getShield() < 1)
                         {
                             OnHit();
                         }

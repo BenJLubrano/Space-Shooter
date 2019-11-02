@@ -30,7 +30,7 @@ public class TargetingController : MonoBehaviour
 
         try
         {
-            collisionFaction = collision.gameObject.GetComponent<Ship>().GetFaction();
+            collisionFaction = collision.gameObject.GetComponent<ShipController>().GetFaction();
         }
         catch //we can't target it, so just exit.
         {
@@ -39,7 +39,7 @@ public class TargetingController : MonoBehaviour
 
         foreach (string tag in enemyFactions)
         {
-            if (tag == collisionFaction) //if the tag is in the list of factions that this ship will attack
+            if (tag == collisionFaction) //if the tag is in the list of factions that thisShipControllerwill attack
             {
                 targets.Add(collision.gameObject); //add the target to the
                 controller.UpdateTargets(targets);

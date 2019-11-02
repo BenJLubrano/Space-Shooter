@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Base ship class that all players and enemies will inherit from
+//Base ShipController class that all players and enemies will inherit from
 //It will control the functions that all ships share
-public class Ship : MonoBehaviour
+public class ShipController : MonoBehaviour
 {
     [Header("Ship Stats")]
     [SerializeField] protected int shipId;
@@ -155,7 +155,7 @@ public class Ship : MonoBehaviour
         return shipId;
     }
 
-    //called when the ship dies
+    //called when the ShipController dies
     protected virtual void PrepareForDeath()
     {
         CreateExplosion();

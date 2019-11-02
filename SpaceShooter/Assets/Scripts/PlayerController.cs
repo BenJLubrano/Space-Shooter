@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //This script controls the player, both movement and ingame functions
-public class PlayerController : Ship
+public class PlayerController : ShipController
 {
     public Animator animator;
     [SerializeField] Animator shieldAnim;
@@ -15,7 +15,7 @@ public class PlayerController : Ship
 
     void Update()
     {
-        base.Update(); //call the base ship update to perform generic functions
+        base.Update(); //call the base ShipController update to perform generic functions
 
         //do nothing if the player is dead
         if (isDead)

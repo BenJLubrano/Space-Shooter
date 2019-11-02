@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 //Controller for all NPC ships, this script will act as a driver or central control unit for the ships
 //It will get the variables from NpcShip.cs and will call functions from that script.
-public class NpcController : Ship
+public class NpcController : ShipController
 {
     [SerializeField] protected List<GameObject> targets;
     [SerializeField] public List<string> enemyFactions;
@@ -31,20 +31,20 @@ public class NpcController : Ship
 
     protected override void Update()
     {
-        base.Update(); //call base ship update
+        base.Update(); //call base ShipController update
         if(currentTarget == null)
         {
             LookForTargets();
         }
         else
         {
-            if(OutOfRange() || currentTarget.GetComponent<Ship>().IsDead())
+            if(OutOfRange() || currentTarget.GetComponent<ShipController>().IsDead())
             {
                 Deaggro();
             }
         }
 
-        //if the ship has a target
+        //if the ShipController has a target
         if (currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead)
         {
             //Turn this into a method in Ship.cs called "Shoot()" that will handle the cooldown setting etc, since it's universal for all ships
