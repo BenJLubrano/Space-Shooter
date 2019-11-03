@@ -57,6 +57,17 @@ public class NpcController : ShipController
         Move();
     }
 
+    void InitializeFactions()
+    {
+        if (stats.reputation > 10)
+            enemyFactions.Add("Pirate");
+        else if (stats.reputation < 0)
+        {
+            enemyFactions.Add("Federation");
+            enemyFactions.Add("Neutral");
+        }
+
+    }
     //Logic related to targeting
     protected virtual void LookForTargets()
     {

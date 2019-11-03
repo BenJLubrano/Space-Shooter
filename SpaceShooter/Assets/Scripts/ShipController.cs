@@ -7,21 +7,20 @@ using UnityEngine.UI;
 //It will control the functions that all ships share
 public class ShipController : MonoBehaviour
 {
-    [Header("Ship Stats")]
-    [SerializeField] protected int shipId;
-    [SerializeField] protected string faction;
+    [Header("Derived from Ship Stats")]
+    [SerializeField] protected ShipStats stats;
+    [SerializeField] protected float speed;
     [SerializeField] protected float maxHealth;
     [SerializeField] protected float health;
     [SerializeField] protected float maxShield;
     [SerializeField] protected float shield;
-    [SerializeField] protected float shieldRegenTime = 15f;
-    [SerializeField] protected float shieldRegenRate = 0f;
-    [SerializeField] protected float speed;
-    [SerializeField] protected float weaponCooldown = 0f;
+    [SerializeField] protected float shieldRegenTime;
+    [SerializeField] protected float shieldRegenRate;
+    [SerializeField] protected float weaponCooldown;
 
     [Header("Player Movement Variables")]
     //These variables are used for the player controller, but they exist here in case we want to have the enemy ships move like the player
-    [SerializeField] protected float speedPenalty;
+    [SerializeField] protected float speedPenalty = .25f;
     [SerializeField] protected float defaultTurnSpeed = 5;
     [SerializeField] protected float turnSpeed = 5;
     [SerializeField] protected float defaultDrag = 5;
@@ -29,6 +28,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] protected float speedConst = 100;
 
     [Header("References")]
+    [SerializeField] protected Animator shipAnimator;
     [SerializeField] protected Weapon shipWeapon;
     [SerializeField] protected Rigidbody2D shipRb;
     [SerializeField] protected Collider2D shipCollider;
@@ -52,6 +52,29 @@ public class ShipController : MonoBehaviour
         {
             shieldBar.fillAmount = 0;
         }
+    }
+
+    //Set variables from Ship
+    public void Initialize(ShipStats stats)
+    {
+        //basic stats
+        maxHealth = stats.maxHealth;
+        health = maxHealth;
+        maxShield = stats.maxShield;
+        shield = maxShield;
+        speed = stats.speed;
+        shieldRegenRate = stats.shieldRegenRate;
+        shieldRegenTime = stats.shieldRegenTime;
+
+        //setup weapon
+        shipWeapon = stats.GetWeapon(0);
+
+        //Movement variables
+        shipRb.mass = stats.ship.mass;
+        shipRb.drag = stats.ship.drag;
+        defaultTurnSpeed = stats.ship.turnSpeed;
+        turnSpeed = defaultTurnSpeed;
+
     }
 
     protected virtual void Update()

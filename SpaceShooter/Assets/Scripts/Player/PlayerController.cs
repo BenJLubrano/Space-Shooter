@@ -8,18 +8,10 @@ public class PlayerController : ShipController
     public Animator animator;
     [SerializeField] Animator shieldAnim;
     [SerializeField] Transform spawnPoint;
-    private void Awake()
-    {
-        shipId = 0; //make sure the player is always ID 0
-    }
 
     void Update()
     {
         base.Update(); //call the base ShipController update to perform generic functions
-
-        //do nothing if the player is dead
-        if (isDead)
-            return;  
     }
 
     private void FixedUpdate()
