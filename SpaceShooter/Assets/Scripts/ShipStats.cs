@@ -5,8 +5,9 @@ using UnityEngine;
 //This class acts as a container for all of the player-related variables, such as name, reputation, and currency.
 public class ShipStats : MonoBehaviour
 {
+    [Header("Basic Stats", order = 0)]
     [SerializeField] public int shipId;
-    [SerializeField] public string shipName;
+    [SerializeField] public string shipName = "Unnamed Ship";
     [SerializeField] public int level;
     [SerializeField] public string faction;
     [SerializeField] public float reputation;
@@ -16,15 +17,15 @@ public class ShipStats : MonoBehaviour
     [SerializeField] public float shieldRegenRate;
     [SerializeField] public float shieldRegenTime;
 
-    [Header("Weapons")]
+    [Header("Weapons", order = 2)]
     [SerializeField] public List<Weapon> weapons;
     [SerializeField] public int currentWeapon;
 
-    [Header("References")]
+    [Header("References", order = 3)]
     [SerializeField] public Ship ship;
     [SerializeField] public ShipController shipController;
 
-    private void Awake()
+    protected  void Awake()
     {
         Initialize();
     }
@@ -45,7 +46,14 @@ public class ShipStats : MonoBehaviour
             faction = "Pirate";
         }
 
-        shipId = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().RegisterShip();
+        try
+        {
+            shipId = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().RegisterShip();
+        }
+        catch
+        {
+            Debug.LogError("GameManager was not found in the scene!");
+        }
 
         maxHealth = ship.health;
         maxShield = ship.shield;
@@ -55,9 +63,7 @@ public class ShipStats : MonoBehaviour
 
         //Create a function like this when it is time to start changing stats based on level (player will need one to decide based on upgrades)
         //ModifyStats();
-    }
-    void InitializeController()
-    {
+
         shipController.Initialize(this);
     }
 

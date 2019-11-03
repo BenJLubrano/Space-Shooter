@@ -18,14 +18,6 @@ public class NpcController : ShipController
         base.Awake();
         //initialize enemyfactions  
         targetingController.Initialize(enemyFactions);
-        try
-        {
-            shipId = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().RegisterShip();
-        }
-        catch
-        {
-            Debug.LogError("GameManager was not detected in the scene!");
-        }
         speed = (speed * shipRb.drag);
     }
 
@@ -125,7 +117,6 @@ public class NpcController : ShipController
             if (!TargetInAttackRange()) //if the target is further away than half of the weapons range
             {
                 shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime);
-                Debug.Log("enemy: " + shipRb.velocity.magnitude);
             }
         }
     }

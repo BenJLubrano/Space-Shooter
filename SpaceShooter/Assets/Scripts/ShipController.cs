@@ -55,9 +55,10 @@ public class ShipController : MonoBehaviour
     }
 
     //Set variables from Ship
-    public void Initialize(ShipStats stats)
+    public void Initialize(ShipStats newStats)
     {
         //basic stats
+        stats = newStats;
         maxHealth = stats.maxHealth;
         health = maxHealth;
         maxShield = stats.maxShield;
@@ -71,7 +72,7 @@ public class ShipController : MonoBehaviour
 
         //Movement variables
         shipRb.mass = stats.ship.mass;
-        shipRb.drag = stats.ship.drag;
+        defaultDrag = stats.ship.drag;
         defaultTurnSpeed = stats.ship.turnSpeed;
         turnSpeed = defaultTurnSpeed;
 
@@ -116,7 +117,7 @@ public class ShipController : MonoBehaviour
                 factions.Add("Federation");
                 factions.Add("Pirate");
                 factions.Add("Neutral");
-                factions.Remove(this.faction);
+                factions.Remove(this.stats.faction);
             }
 
             shot.GetComponent<Projectile>().Initialize(shipWeapon, this, target, factions);
@@ -169,13 +170,13 @@ public class ShipController : MonoBehaviour
     //simply returns the faction of the ship
     public string GetFaction()
     {
-        return faction;
+        return stats.faction;
     }
 
     //returns the ID of the ship
     public int GetId()
     {
-        return shipId;
+        return stats.shipId;
     }
 
     //called when the ShipController dies

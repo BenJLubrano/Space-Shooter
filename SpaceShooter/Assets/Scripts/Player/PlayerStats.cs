@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class PlayerStats : ShipStats
 { 
+    [Header("Player Specific", order = 1)]
     [SerializeField] int experience;
     [SerializeField] int units;
+
+    private void Awake()
+    {
+        base.Awake();
+        shipId = 0;
+    }
 
     public void AddExperience(int exp)
     {

@@ -37,11 +37,10 @@ public class PlayerController : ShipController
         Vector2 force = new Vector2(horizontalMove, verticalMove);
         shipRb.MoveRotation(shipRb.rotation + rotationMove);
         shipRb.AddForce(transform.TransformDirection(force));
-        Debug.Log("player: " + shipRb.velocity.magnitude);
         if (Input.GetButton("Brake")) //if the player is braking
         {
             turnSpeed = defaultTurnSpeed / 2f;
-            shipRb.drag = brakeStrength; //up the drag, which causes the player to stop faster
+            shipRb.drag = defaultDrag * 5; //up the drag, which causes the player to stop faster
             shipRb.angularVelocity = 0f;
         }
         else
