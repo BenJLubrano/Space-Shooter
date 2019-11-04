@@ -21,10 +21,10 @@ public class BossController : NpcController
     [SerializeField] bool isWaiting = false;
 
     //intervalClock keeps track of the time of the boss.
-    //moveTime is how long the ship gets to move for
-    //rotateTime is how long the ship gets to rotate for
+    //moveTime is how long the ShipController gets to move for
+    //rotateTime is how long the ShipController gets to rotate for
     //actionDuration is the duration of whatever action was done (move or rotate)
-    //lastActionTime is the time that the last action was completed. This + actionDuration is the time when the ship has to "cooldown"
+    //lastActionTime is the time that the last action was completed. This + actionDuration is the time when the ShipController has to "cooldown"
     //nextActionTime is the time when the next action can be started. This has to be set
     bool canMove, canRotate;
     private void Awake()

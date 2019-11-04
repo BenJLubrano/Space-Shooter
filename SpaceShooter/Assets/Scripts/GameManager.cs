@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     int shipId = 0;
 
-    //called whenever a ship is added. The ship will get a new ID
+    //called whenever a ShipController is added. The ShipController will get a new ID
     public int RegisterShip()
     {
         shipId += 1;

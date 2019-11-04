@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 9160826333733911028}
   - component: {fileID: 863274986575074758}
   - component: {fileID: 3981507384830257050}
+  - component: {fileID: -7216906252397335947}
   - component: {fileID: 8425060942357847168}
   - component: {fileID: 2690012981022930434}
-  - component: {fileID: 890496405872206226}
+  - component: {fileID: -6121423870878757738}
   m_Layer: 0
-  m_Name: MeleePirate
+  m_Name: MeleeFederation
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,6 +135,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.83, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &-7216906252397335947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5765514119680980127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a458a7a93ce1479eabb7fb3817b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Federation Interceptor
+  level: 1
+  faction: 
+  reputation: 100
+  speed: 3.5
+  maxHealth: 25
+  maxShield: 10
+  shieldRegenRate: 5
+  shieldRegenTime: 10
+  weapons: []
+  currentWeapon: 0
+  ship: {fileID: 11400000, guid: 0a7626b8a0ebf664a9ba37668ed4fc03, type: 2}
+  shipController: {fileID: 8425060942357847168}
 --- !u!114 &8425060942357847168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,15 +173,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4594c1a66ec7be8488776f142804ca8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Pirate
+  stats: {fileID: 0}
+  speed: 3
   maxHealth: 10
   health: 10
   maxShield: 0
   shield: 0
   shieldRegenTime: 15
   shieldRegenRate: 0
-  speed: 3
   weaponCooldown: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
@@ -162,6 +188,7 @@ MonoBehaviour:
   defaultDrag: 5
   brakeStrength: 1
   speedConst: 100
+  shipAnimator: {fileID: -6121423870878757738}
   shipWeapon: {fileID: 11400000, guid: 47653cd744adba74caabe5a801c163ce, type: 2}
   shipRb: {fileID: 863274986575074758}
   shipCollider: {fileID: 3981507384830257050}
@@ -175,8 +202,7 @@ MonoBehaviour:
     type: 3}
   explosionScale: 1
   targets: []
-  enemyFactions:
-  - Player
+  enemyFactions: []
   targetingController: {fileID: 3278985424437328009}
 --- !u!82 &2690012981022930434
 AudioSource:
@@ -274,20 +300,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &890496405872206226
-MonoBehaviour:
+--- !u!95 &-6121423870878757738
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5765514119680980127}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05434b8fbfc62a24b9e65017341f257e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
-  aggroRange: 10
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9178458347146297905
 GameObject:
   m_ObjectHideFlags: 0

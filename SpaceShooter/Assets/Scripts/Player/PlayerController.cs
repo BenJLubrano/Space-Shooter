@@ -3,23 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //This script controls the player, both movement and ingame functions
-public class PlayerController : Ship
+public class PlayerController : ShipController
 {
-    public Animator animator;
     [SerializeField] Animator shieldAnim;
     [SerializeField] Transform spawnPoint;
-    private void Awake()
-    {
-        shipId = 0; //make sure the player is always ID 0
-    }
 
     void Update()
     {
-        base.Update(); //call the base ship update to perform generic functions
-
-        //do nothing if the player is dead
-        if (isDead)
-            return;  
+        base.Update(); //call the base ShipController update to perform generic functions
     }
 
     private void FixedUpdate()
@@ -30,7 +21,24 @@ public class PlayerController : Ship
     void HandleMovement()
     {
         //player movement stuff
-        float verticalMove = (Input.GetAxis("Vertical") * speed * (speedConst * shipRb.mass) * Time.deltaTime);
+        if(Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0)
+        {
+            if (Input.GetAxisRaw("Vertical") > 0 && thrusterPower < 0) //If the player was going backwards and now wants to go forwards, don't make them have to wait for double the time
+                thrusterPower = 0;
+            thrusterPower = thrusterPower + Input.GetAxisRaw("Vertical") * acceleration * Time.deltaTime;
+            if (thrusterPower < -1)
+                thrusterPower = -1;
+            if (thrusterPower > 1)
+                thrusterPower = 1;
+        }
+        else
+        {
+            if (thrusterPower < 0)
+                thrusterPower += 1 * Time.deltaTime;
+            else if (thrusterPower > 0)
+                thrusterPower -= 1 * Time.deltaTime;
+        }
+        float verticalMove = thrusterPower * speed * (speedConst * shipRb.mass) * Time.deltaTime;
         verticalMove = (verticalMove < 0) ? verticalMove * speedPenalty : verticalMove;
         float horizontalMove = Input.GetAxis("Horizontal") * speed * (speedConst * shipRb.mass) * speedPenalty * Time.deltaTime;
         float rotationMove = Input.GetAxis("Rotation") * turnSpeed;
@@ -45,11 +53,10 @@ public class PlayerController : Ship
         Vector2 force = new Vector2(horizontalMove, verticalMove);
         shipRb.MoveRotation(shipRb.rotation + rotationMove);
         shipRb.AddForce(transform.TransformDirection(force));
-        Debug.Log("player: " + shipRb.velocity.magnitude);
         if (Input.GetButton("Brake")) //if the player is braking
         {
             turnSpeed = defaultTurnSpeed / 2f;
-            shipRb.drag = brakeStrength; //up the drag, which causes the player to stop faster
+            shipRb.drag = defaultDrag * 5; //up the drag, which causes the player to stop faster
             shipRb.angularVelocity = 0f;
         }
         else
@@ -66,17 +73,17 @@ public class PlayerController : Ship
 
     void HandleAnimation(float currentSpeed)
     {
-        if (Input.GetButton("Vertical"))
+        if (Input.GetAxisRaw("Vertical") > 0)
         {
-            animator.SetBool("IsAccelerating", true);
+            shipAnimator.SetBool("IsAccelerating", true);
         }
         else
         {
-            animator.SetBool("IsAccelerating", false);
+            shipAnimator.SetBool("IsAccelerating", false);
         }
 
-        
-        animator.SetFloat("AnimatorSpeed", currentSpeed*50 / (this.speed*shipRb.mass));
+
+        shipAnimator.SetFloat("ThrusterPower", thrusterPower);
 
         if (shield >= 1)
         {

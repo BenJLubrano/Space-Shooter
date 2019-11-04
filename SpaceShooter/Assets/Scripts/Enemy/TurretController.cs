@@ -25,7 +25,7 @@ public class TurretController : NpcController
         }
         else
         {
-            if (OutOfRange() || currentTarget.GetComponent<Ship>().IsDead())
+            if (OutOfRange() || currentTarget.GetComponent<ShipController>().IsDead())
             {
                 Deaggro();
             }
@@ -35,7 +35,7 @@ public class TurretController : NpcController
 
     protected override void FixedUpdate()
     {
-        //if the ship has a target
+        //if the ShipController has a target
         if (currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset()))//AngleToTargetOffset() > angleClamp.x && AngleToTargetOffset() < angleClamp.y)
         {
             //Turn this into a method in Ship.cs called "Shoot()" that will handle the cooldown setting etc, since it's universal for all ships

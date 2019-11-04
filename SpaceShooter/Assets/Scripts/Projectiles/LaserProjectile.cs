@@ -18,7 +18,7 @@ public class LaserProjectile : Projectile
         startPos = transform.position;
     }
 
-    public override void Initialize(Weapon weapon, Ship shooter, GameObject target = null, List<string> factions = null)
+    public override void Initialize(Weapon weapon, ShipController shooter, GameObject target = null, List<string> factions = null)
     {
         base.Initialize(weapon, shooter, target, factions);
         LaserWeapon laserWeapon = (LaserWeapon)weapon;

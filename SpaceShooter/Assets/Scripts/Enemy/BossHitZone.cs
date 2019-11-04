@@ -6,10 +6,10 @@ public class BossHitZone : MonoBehaviour
 {
     [SerializeField] BossController boss;
 
-    [SerializeField] List<Ship> shipsInHitZone = new List<Ship>();
+    [SerializeField] List<ShipController> shipsInHitZone = new List<ShipController>();
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Ship ship = collision.GetComponent<Ship>();
+       ShipController ship = collision.GetComponent<ShipController>();
         if(ship != null)
         {
             if(boss.enemyFactions.Contains(ship.GetFaction()))
@@ -21,13 +21,13 @@ public class BossHitZone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Ship ship = collision.GetComponent<Ship>();
+       ShipController ship = collision.GetComponent<ShipController>();
         if(ship != null && shipsInHitZone.Contains(ship))
             shipsInHitZone.Remove(ship);
     }
 
 
-    public List<Ship> ShipsInZone()
+    public List<ShipController> ShipsInZone()
     {
         return shipsInHitZone;
     }

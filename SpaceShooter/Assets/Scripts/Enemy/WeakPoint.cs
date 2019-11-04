@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeakPoint : Ship
+public class WeakPoint : ShipController
 {
     [Header("Weak Point")]
     [SerializeField] protected BossController owner;

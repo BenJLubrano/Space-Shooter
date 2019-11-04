@@ -5,46 +5,31 @@ using System.Collections.Generic;
 
 //Controller for all NPC ships, this script will act as a driver or central control unit for the ships
 //It will get the variables from NpcShip.cs and will call functions from that script.
-public class NpcController : Ship
+public class NpcController : ShipController
 {
     [SerializeField] protected List<GameObject> targets;
     [SerializeField] public List<string> enemyFactions;
     [SerializeField] protected TargetingController targetingController;
 
+    float lastFrameVelocity;
     protected GameObject currentTarget;
-
-    private void Awake()
-    {
-        base.Awake();
-        //initialize enemyfactions  
-        targetingController.Initialize(enemyFactions);
-        try
-        {
-            shipId = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().RegisterShip();
-        }
-        catch
-        {
-            Debug.LogError("GameManager was not detected in the scene!");
-        }
-        speed = (speed * shipRb.drag);
-    }
 
     protected override void Update()
     {
-        base.Update(); //call base ship update
+        base.Update(); //call base ShipController update
         if(currentTarget == null)
         {
             LookForTargets();
         }
         else
         {
-            if(OutOfRange() || currentTarget.GetComponent<Ship>().IsDead())
+            if(OutOfRange() || currentTarget.GetComponent<ShipController>().IsDead())
             {
                 Deaggro();
             }
         }
 
-        //if the ship has a target
+        //if the ShipController has a target
         if (currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead)
         {
             //Turn this into a method in Ship.cs called "Shoot()" that will handle the cooldown setting etc, since it's universal for all ships
@@ -55,6 +40,33 @@ public class NpcController : Ship
     protected virtual void FixedUpdate()
     {
         Move();
+    }
+
+    public override void Initialize(ShipStats newStats)
+    {
+        base.Initialize(newStats);
+        InitializeFactions();
+
+        targetingController.Initialize(enemyFactions);
+        speed = (speed * shipRb.drag);
+    }
+
+    void InitializeFactions()
+    {
+        if (stats.reputation > 10)
+            enemyFactions.Add("Pirate");
+        else if (stats.reputation < 0)
+        {
+            enemyFactions.Add("Federation");
+            enemyFactions.Add("Neutral");
+        }
+        enemyFactions.Remove(stats.faction);
+
+    }
+
+    void HandleAnimation()
+    {
+        //animations for npcs go here
     }
 
     //Logic related to targeting
@@ -113,9 +125,11 @@ public class NpcController : Ship
 
             if (!TargetInAttackRange()) //if the target is further away than half of the weapons range
             {
-                shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime);
-                Debug.Log("enemy: " + shipRb.velocity.magnitude);
+                thrusterPower = thrusterPower > 1 ? 1 : thrusterPower + acceleration * Time.deltaTime;
+                shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime * thrusterPower);
             }
+            else
+                thrusterPower = thrusterPower < 0 ? 0 : thrusterPower - acceleration * Time.deltaTime;
         }
     }
 

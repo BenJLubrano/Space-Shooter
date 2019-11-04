@@ -7,10 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7216906252397335947, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7216906252397335947, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -7216906252397335947, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 11400000, guid: f027313982275fa4fb39f6a17dcce414,
+        type: 2}
     - target: {fileID: 5765514119680980127, guid: bab22a56eb911f24baf863d86f041110,
         type: 3}
       propertyPath: m_Name
-      value: ShooterPirate
+      value: ShooterFederation
       objectReference: {fileID: 0}
     - target: {fileID: 8415550468204227133, guid: bab22a56eb911f24baf863d86f041110,
         type: 3}

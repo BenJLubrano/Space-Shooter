@@ -21,7 +21,7 @@ public class WeakPointZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Ship ship = collision.GetComponent<Ship>();
+       ShipController ship = collision.GetComponent<ShipController>();
         if(ship != null)
         {
             canHitZones.Add(ship.GetId());
@@ -30,7 +30,7 @@ public class WeakPointZone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Ship ship = collision.GetComponent<Ship>();
+       ShipController ship = collision.GetComponent<ShipController>();
         if(ship != null)
         {
             canHitZones.Remove(ship.GetId());

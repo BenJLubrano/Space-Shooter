@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 1670886136389112699}
   - component: {fileID: 1670886136389112696}
   - component: {fileID: 1670886136389112697}
+  - component: {fileID: 6519390988356707977}
   - component: {fileID: 1670886136389112698}
   - component: {fileID: 401094372879541271}
   - component: {fileID: 1878275455641261840}
@@ -284,6 +285,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6519390988356707977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670886136389112702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c529f23703a8a854a9fe7a0133f90f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Player
+  level: 1
+  faction: 
+  reputation: -10
+  speed: 0
+  maxHealth: 0
+  maxShield: 0
+  shieldRegenRate: 0
+  shieldRegenTime: 0
+  weapons: []
+  currentWeapon: 0
+  ship: {fileID: 11400000, guid: 2a45f5a52485a8f45a0f806e21727d93, type: 2}
+  shipController: {fileID: 1670886136389112698}
+  experience: 0
+  units: 0
 --- !u!114 &1670886136389112698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,15 +325,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36b6f6dbd1e7594da8ec3c045dc4084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Player
+  stats: {fileID: 0}
+  speed: 5
   maxHealth: 100
   health: 100
   maxShield: 100
   shield: 100
   shieldRegenTime: 15
   shieldRegenRate: 5
-  speed: 5
   weaponCooldown: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 5
@@ -312,6 +340,7 @@ MonoBehaviour:
   defaultDrag: 1
   brakeStrength: 5
   speedConst: 100
+  shipAnimator: {fileID: 1498106183}
   shipWeapon: {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
   shipRb: {fileID: 1670886136389112697}
   shipCollider: {fileID: 1878275455641261840}
@@ -710,16 +739,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1838343172613552363, guid: 6104e84c87e16a042b516bd502c76f39,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0d07b7df756a8364186f9c5a20e5261a, type: 2}
     - target: {fileID: 1838343172613552360, guid: 6104e84c87e16a042b516bd502c76f39,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 1838343172613552363, guid: 6104e84c87e16a042b516bd502c76f39,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0d07b7df756a8364186f9c5a20e5261a, type: 2}
     - target: {fileID: 1838343172674185135, guid: 6104e84c87e16a042b516bd502c76f39,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
