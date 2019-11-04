@@ -64,7 +64,6 @@ public class ShipController : MonoBehaviour
         health = maxHealth;
         maxShield = stats.maxShield;
         shield = maxShield;
-        speed = stats.speed;
         shieldRegenRate = stats.shieldRegenRate;
         shieldRegenTime = stats.shieldRegenTime;
 
@@ -72,15 +71,26 @@ public class ShipController : MonoBehaviour
         shipWeapon = stats.GetWeapon(0);
 
         //Movement variables
-        shipRb.mass = stats.ship.mass;
+        if(shipRb != null)
+            shipRb.mass = stats.ship.mass;
         defaultDrag = stats.ship.drag;
+        speed = stats.speed;
+        acceleration = stats.acceleration;
         defaultTurnSpeed = stats.ship.turnSpeed;
         turnSpeed = defaultTurnSpeed;
 
         spriteRenderer.sprite = stats.ship.baseSprite == null ? spriteRenderer.sprite : stats.ship.baseSprite;
-        shipAnimator.runtimeAnimatorController = stats.ship.animatorController;
+        if (shipAnimator != null && stats.ship.animatorController != null)
+            shipAnimator.runtimeAnimatorController = stats.ship.animatorController;
+        else
+            Debug.LogWarning(stats.ship.name + " does not have an animator or is missing an animator controller.");
         UpdateBars();
+    }
 
+    //just used for when shipstats has no other variables
+    public virtual void SetStats(ShipStats shipStats)
+    {
+        stats = shipStats;
     }
 
     protected virtual void Update()

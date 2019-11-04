@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 4613792189799741497}
   - component: {fileID: 605619051407484503}
   - component: {fileID: 1905699955972208591}
+  - component: {fileID: 3927366763248336157}
   - component: {fileID: 8008957071299556691}
   m_Layer: 0
   m_Name: BossTurret
@@ -397,7 +398,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -7973389932233663961, guid: f6b74eb7aa83e34479b34259a6af1cab,
     type: 3}
@@ -533,6 +534,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3927366763248336157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8008957071299556690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a458a7a93ce1479eabb7fb3817b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Unnamed Ship
+  level: 0
+  faction: 
+  reputation: 0
+  speed: 0
+  acceleration: 0
+  maxHealth: 0
+  maxShield: 0
+  shieldRegenRate: 0
+  shieldRegenTime: 0
+  weapons: []
+  currentWeapon: 0
+  ship: {fileID: 0}
+  shipController: {fileID: 0}
 --- !u!114 &8008957071299556691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,20 +573,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47df402bb9892594b98844cf5dc5bade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Pirate
+  stats: {fileID: 0}
+  speed: 0
   maxHealth: 15
   health: 15
   maxShield: 5
   shield: 5
+  shieldRegenTime: 0
   shieldRegenRate: 0
-  speed: 0
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 5
   brakeStrength: 1
+  speedConst: 100
+  shipAnimator: {fileID: 0}
   shipWeapon: {fileID: 11400000, guid: eb8ec8e4d93618941a35a89f779efb9a, type: 2}
   shipRb: {fileID: 0}
   shipCollider: {fileID: 605619051407484503}
@@ -568,9 +599,12 @@ MonoBehaviour:
   moveSound: {fileID: 0}
   healthBar: {fileID: 8936568449301431695}
   shieldBar: {fileID: 5376236482606693204}
+  explosion: {fileID: 0}
+  explosionScale: 1
   targets: []
   enemyFactions:
   - Player
   targetingController: {fileID: 1344319336763488580}
+  boss: {fileID: 0}
   angleClamp: {x: 0, y: 0}
   defaultRotation: 0

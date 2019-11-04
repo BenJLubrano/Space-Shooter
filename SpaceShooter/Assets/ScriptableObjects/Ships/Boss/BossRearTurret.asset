@@ -10,19 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3210549f35f84f448fbec235ca29c4e, type: 3}
-  m_Name: RangedFederation
+  m_Name: BossRearTurret
   m_EditorClassIdentifier: 
-  baseSprite: {fileID: 1631311430100315378, guid: 65239e30c411027459bff9d80b044f01,
+  baseSprite: {fileID: -7973389932233663961, guid: f6b74eb7aa83e34479b34259a6af1cab,
     type: 3}
-  animatorController: {fileID: 9100000, guid: 8b3b27daf82fbc24aa36064fd50fd327, type: 2}
-  explosion: {fileID: 0}
-  health: 15
-  shield: 15
-  speed: 5
+  animatorController: {fileID: 0}
+  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
+    type: 3}
+  health: 350
+  shield: 150
   shieldRegenRate: 15
   shieldRegenTime: 15
   weapons:
-  - {fileID: 11400000, guid: eb8ec8e4d93618941a35a89f779efb9a, type: 2}
-  mass: 20
-  drag: 2
-  turnSpeed: 4
+  - {fileID: 11400000, guid: 44092069c8469744e8d3eef5e92be63d, type: 2}
+  speed: 0
+  acceleration: 0
+  mass: 0
+  drag: 0
+  turnSpeed: 5

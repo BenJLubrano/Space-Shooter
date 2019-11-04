@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 196986224}
   - component: {fileID: 196986223}
   - component: {fileID: 196986222}
+  - component: {fileID: 6837293123025065358}
   - component: {fileID: 196986225}
   m_Layer: 0
   m_Name: MainThruster_M
@@ -285,6 +286,33 @@ PolygonCollider2D:
       - {x: -0.08188188, y: -0.18710661}
       - {x: 0.25632685, y: -0.18682289}
       - {x: 0.35909766, y: 0.14852953}
+--- !u!114 &6837293123025065358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196986220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a458a7a93ce1479eabb7fb3817b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Thruster
+  level: 1
+  faction: 
+  reputation: -100
+  speed: 0
+  acceleration: 0
+  maxHealth: 250
+  maxShield: 0
+  shieldRegenRate: 0
+  shieldRegenTime: 0
+  weapons: []
+  currentWeapon: 0
+  ship: {fileID: 0}
+  shipController: {fileID: 196986225}
 --- !u!114 &196986225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,21 +325,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be931be2f1265504d90be5d24b1b03fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Pirate
-  maxHealth: 75
-  health: 75
+  stats: {fileID: 0}
+  speed: 0
+  maxHealth: 250
+  health: 250
   maxShield: 0
   shield: 0
   shieldRegenTime: 0
   shieldRegenRate: 0
-  speed: 0
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0
   defaultTurnSpeed: 0
   turnSpeed: 0
   defaultDrag: 0
   brakeStrength: 0
+  speedConst: 100
+  shipAnimator: {fileID: 0}
   shipWeapon: {fileID: 0}
   shipRb: {fileID: 0}
   shipCollider: {fileID: 196986222}
@@ -330,7 +360,7 @@ MonoBehaviour:
   damagedVersion: {fileID: 4765989746980537666, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 3100
+  speedReduction: 250
   turnSpeedReduction: 0
   thrusterEffect: {fileID: 1774144532}
 --- !u!1 &208895599
@@ -456,7 +486,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -990,6 +1020,7 @@ GameObject:
   - component: {fileID: 1055383586}
   - component: {fileID: 1055383585}
   - component: {fileID: 1055383584}
+  - component: {fileID: 2908482291786693788}
   - component: {fileID: 1055383587}
   m_Layer: 0
   m_Name: TurnThruster_R
@@ -1190,6 +1221,33 @@ PolygonCollider2D:
       - {x: -0.08188188, y: -0.18710661}
       - {x: 0.25632685, y: -0.18682289}
       - {x: 0.35909766, y: 0.14852953}
+--- !u!114 &2908482291786693788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055383582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a458a7a93ce1479eabb7fb3817b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Thruster
+  level: 1
+  faction: 
+  reputation: -100
+  speed: 0
+  acceleration: 0
+  maxHealth: 250
+  maxShield: 0
+  shieldRegenRate: 0
+  shieldRegenTime: 0
+  weapons: []
+  currentWeapon: 0
+  ship: {fileID: 0}
+  shipController: {fileID: 1055383587}
 --- !u!114 &1055383587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,21 +1260,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be931be2f1265504d90be5d24b1b03fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Pirate
-  maxHealth: 75
-  health: 75
+  stats: {fileID: 0}
+  speed: 0
+  maxHealth: 250
+  health: 250
   maxShield: 0
   shield: 0
   shieldRegenTime: 0
   shieldRegenRate: 0
-  speed: 0
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0
   defaultTurnSpeed: 0
   turnSpeed: 0
   defaultDrag: 0
   brakeStrength: 0
+  speedConst: 100
+  shipAnimator: {fileID: 0}
   shipWeapon: {fileID: 0}
   shipRb: {fileID: 0}
   shipCollider: {fileID: 1055383584}
@@ -1235,7 +1295,7 @@ MonoBehaviour:
   damagedVersion: {fileID: -1217656455536297705, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 700
+  speedReduction: 100
   turnSpeedReduction: 0.65
   thrusterEffect: {fileID: 278960073}
 --- !u!1 &1191524499
@@ -1449,6 +1509,7 @@ GameObject:
   - component: {fileID: 1362851960}
   - component: {fileID: 1362851959}
   - component: {fileID: 1362851958}
+  - component: {fileID: 5046580873942144273}
   - component: {fileID: 1362851961}
   m_Layer: 0
   m_Name: TurnThruster_L
@@ -1649,6 +1710,33 @@ PolygonCollider2D:
       - {x: -0.08188188, y: -0.18710661}
       - {x: 0.25632685, y: -0.18682289}
       - {x: 0.35909766, y: 0.14852953}
+--- !u!114 &5046580873942144273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362851956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a458a7a93ce1479eabb7fb3817b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Thruster
+  level: 1
+  faction: 
+  reputation: -100
+  speed: 0
+  acceleration: 0
+  maxHealth: 250
+  maxShield: 0
+  shieldRegenRate: 0
+  shieldRegenTime: 0
+  weapons: []
+  currentWeapon: 0
+  ship: {fileID: 0}
+  shipController: {fileID: 1362851961}
 --- !u!114 &1362851961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1661,21 +1749,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be931be2f1265504d90be5d24b1b03fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Pirate
-  maxHealth: 75
-  health: 75
+  stats: {fileID: 0}
+  speed: 0
+  maxHealth: 250
+  health: 250
   maxShield: 0
   shield: 0
   shieldRegenTime: 0
   shieldRegenRate: 0
-  speed: 0
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0
   defaultTurnSpeed: 0
   turnSpeed: 0
   defaultDrag: 0
   brakeStrength: 0
+  speedConst: 100
+  shipAnimator: {fileID: 0}
   shipWeapon: {fileID: 0}
   shipRb: {fileID: 0}
   shipCollider: {fileID: 1362851958}
@@ -1694,7 +1784,7 @@ MonoBehaviour:
   damagedVersion: {fileID: 3369694504406030392, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 700
+  speedReduction: 100
   turnSpeedReduction: 0.65
   thrusterEffect: {fileID: 1979400537}
 --- !u!1 &1407191417
@@ -1772,7 +1862,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 25, y: 15}
+  m_Size: {x: 35, y: 15}
   m_EdgeRadius: 0
 --- !u!1 &1469808078
 GameObject:
@@ -1859,6 +1949,7 @@ GameObject:
   - component: {fileID: 1526708480}
   - component: {fileID: 1526708479}
   - component: {fileID: 1526708478}
+  - component: {fileID: 4158995614513262796}
   - component: {fileID: 1526708481}
   m_Layer: 0
   m_Name: MainThruster_R
@@ -2059,6 +2150,33 @@ PolygonCollider2D:
       - {x: -0.08188188, y: -0.18710661}
       - {x: 0.25632685, y: -0.18682289}
       - {x: 0.35909766, y: 0.14852953}
+--- !u!114 &4158995614513262796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526708476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a458a7a93ce1479eabb7fb3817b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Thruster
+  level: 1
+  faction: 
+  reputation: -100
+  speed: 0
+  acceleration: 0
+  maxHealth: 250
+  maxShield: 0
+  shieldRegenRate: 0
+  shieldRegenTime: 0
+  weapons: []
+  currentWeapon: 0
+  ship: {fileID: 0}
+  shipController: {fileID: 1526708481}
 --- !u!114 &1526708481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2071,21 +2189,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be931be2f1265504d90be5d24b1b03fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Pirate
-  maxHealth: 75
-  health: 75
+  stats: {fileID: 0}
+  speed: 0
+  maxHealth: 250
+  health: 250
   maxShield: 0
   shield: 0
   shieldRegenTime: 0
   shieldRegenRate: 0
-  speed: 0
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0
   defaultTurnSpeed: 0
   turnSpeed: 0
   defaultDrag: 0
   brakeStrength: 0
+  speedConst: 100
+  shipAnimator: {fileID: 0}
   shipWeapon: {fileID: 0}
   shipRb: {fileID: 0}
   shipCollider: {fileID: 1526708478}
@@ -2104,7 +2224,7 @@ MonoBehaviour:
   damagedVersion: {fileID: 2677399852934806715, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 2000
+  speedReduction: 150
   turnSpeedReduction: 0.35
   thrusterEffect: {fileID: 1244849643}
 --- !u!1 &1574227805
@@ -2317,6 +2437,7 @@ GameObject:
   - component: {fileID: 1715600078}
   - component: {fileID: 1715600077}
   - component: {fileID: 1715600076}
+  - component: {fileID: 1117772779942383819}
   - component: {fileID: 1715600079}
   m_Layer: 0
   m_Name: MainThruster_L
@@ -2517,6 +2638,33 @@ PolygonCollider2D:
       - {x: -0.08188188, y: -0.18710661}
       - {x: 0.25632685, y: -0.18682289}
       - {x: 0.35909766, y: 0.14852953}
+--- !u!114 &1117772779942383819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715600074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a458a7a93ce1479eabb7fb3817b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Thruster
+  level: 1
+  faction: 
+  reputation: -100
+  speed: 0
+  acceleration: 0
+  maxHealth: 250
+  maxShield: 0
+  shieldRegenRate: 0
+  shieldRegenTime: 0
+  weapons: []
+  currentWeapon: 0
+  ship: {fileID: 0}
+  shipController: {fileID: 1715600079}
 --- !u!114 &1715600079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2529,21 +2677,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be931be2f1265504d90be5d24b1b03fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Pirate
-  maxHealth: 75
-  health: 75
+  stats: {fileID: 0}
+  speed: 0
+  maxHealth: 250
+  health: 250
   maxShield: 0
   shield: 0
   shieldRegenTime: 0
   shieldRegenRate: 0
-  speed: 0
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0
   defaultTurnSpeed: 0
   turnSpeed: 0
   defaultDrag: 0
   brakeStrength: 0
+  speedConst: 100
+  shipAnimator: {fileID: 0}
   shipWeapon: {fileID: 0}
   shipRb: {fileID: 0}
   shipCollider: {fileID: 1715600076}
@@ -2562,7 +2712,7 @@ MonoBehaviour:
   damagedVersion: {fileID: -6892615318314010125, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 2000
+  speedReduction: 150
   turnSpeedReduction: 0.35
   thrusterEffect: {fileID: 881224140}
 --- !u!1 &1774144529
@@ -3131,6 +3281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1931363620170092311}
   - component: {fileID: 1931363620170092308}
+  - component: {fileID: 1613759431129798437}
   - component: {fileID: 1931363620170092309}
   - component: {fileID: 1931363620170092306}
   - component: {fileID: 1931363620170092307}
@@ -3181,14 +3332,41 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.0063060224, y: 0.28144497}
-      - {x: 0.015373439, y: -0.40987545}
-      - {x: 0.039619, y: -0.46242833}
+    - - {x: -0.19102338, y: 0.36740997}
+      - {x: -0.093928844, y: -0.44379684}
+      - {x: -0.008893967, y: -0.5812073}
       - {x: 0.08520928, y: -0.5023415}
       - {x: 0.08552012, y: -0.4527749}
       - {x: 0.081572086, y: 0.32291234}
       - {x: 0.02805391, y: 0.39916623}
-      - {x: -0.041332275, y: 0.4913789}
+      - {x: -0.05305484, y: 0.49528664}
+--- !u!114 &1613759431129798437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931363620170092310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a458a7a93ce1479eabb7fb3817b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Weak Point
+  level: 1
+  faction: 
+  reputation: -100
+  speed: 0
+  acceleration: 0
+  maxHealth: 250
+  maxShield: 50
+  shieldRegenRate: 10
+  shieldRegenTime: 5
+  weapons: []
+  currentWeapon: 0
+  ship: {fileID: 0}
+  shipController: {fileID: 1931363620170092309}
 --- !u!114 &1931363620170092309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3201,21 +3379,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42157d223b78b9e47adfe521834e70b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Pirate
+  stats: {fileID: 0}
+  speed: 0
   maxHealth: 75
   health: 75
   maxShield: 75
   shield: 75
   shieldRegenTime: 15
   shieldRegenRate: 15
-  speed: 0
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 5
   brakeStrength: 1
+  speedConst: 100
+  shipAnimator: {fileID: 0}
   shipWeapon: {fileID: 0}
   shipRb: {fileID: 0}
   shipCollider: {fileID: 1931363620170092308}
@@ -3461,6 +3641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1931363620464240525}
   - component: {fileID: 1931363620464240521}
+  - component: {fileID: 452343641366214175}
   - component: {fileID: 1931363620464240520}
   - component: {fileID: 1931363620464240523}
   - component: {fileID: 1931363620464240522}
@@ -3511,14 +3692,41 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.0063060224, y: 0.28144497}
-      - {x: 0.015373439, y: -0.40987545}
-      - {x: 0.039619, y: -0.46242833}
+    - - {x: -0.21642211, y: 0.2892599}
+      - {x: -0.12529698, y: -0.48607194}
+      - {x: -0.02714488, y: -0.62991375}
       - {x: 0.08520928, y: -0.5023415}
       - {x: 0.08552012, y: -0.4527749}
       - {x: 0.081572086, y: 0.32291234}
       - {x: 0.02805391, y: 0.39916623}
       - {x: -0.041332275, y: 0.4913789}
+--- !u!114 &452343641366214175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931363620464240524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a458a7a93ce1479eabb7fb3817b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Weak Point
+  level: 1
+  faction: 
+  reputation: -100
+  speed: 0
+  acceleration: 0
+  maxHealth: 250
+  maxShield: 50
+  shieldRegenRate: 10
+  shieldRegenTime: 5
+  weapons: []
+  currentWeapon: 0
+  ship: {fileID: 0}
+  shipController: {fileID: 1931363620464240520}
 --- !u!114 &1931363620464240520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3531,21 +3739,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42157d223b78b9e47adfe521834e70b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Pirate
+  stats: {fileID: 0}
+  speed: 0
   maxHealth: 75
   health: 75
   maxShield: 75
   shield: 75
   shieldRegenTime: 15
   shieldRegenRate: 15
-  speed: 0
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 5
   brakeStrength: 1
+  speedConst: 100
+  shipAnimator: {fileID: 0}
   shipWeapon: {fileID: 0}
   shipRb: {fileID: 0}
   shipCollider: {fileID: 1931363620464240521}
@@ -3732,16 +3942,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931363620491017350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.013, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7573860935923163088}
-  - {fileID: 7573860936456091474}
-  - {fileID: 7573860937008495532}
-  - {fileID: 7573860936133785723}
-  - {fileID: 1931363619818352023}
-  - {fileID: 7573860936390090465}
-  - {fileID: 7573860937212723872}
+  - {fileID: 6605491215127839094}
+  - {fileID: 8354027359744371330}
+  - {fileID: 6570767769876329839}
+  - {fileID: 3279409437907421676}
+  - {fileID: 8605291581879815144}
+  - {fileID: 2036145475691472258}
+  - {fileID: 7845231085383703636}
   m_Father: {fileID: 6982602914826401012}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3803,9 +4013,9 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 1.9157891, y: 1.7483143}
-      - {x: 3.1383376, y: 4.8609877}
-      - {x: 0.023042476, y: 5.5407906}
-      - {x: -2.9765205, y: 4.9040995}
+      - {x: 4.0639973, y: 7.8382626}
+      - {x: 0.105903335, y: 9.118971}
+      - {x: -3.8619237, y: 7.945772}
       - {x: -1.9184194, y: 1.7604132}
       - {x: -1.6116023, y: 1.7301314}
       - {x: -1.6021097, y: -0.8932328}
@@ -4163,6 +4373,7 @@ GameObject:
   - component: {fileID: 7713806105494300477}
   - component: {fileID: 2294516725073529615}
   - component: {fileID: 3565129374350272715}
+  - component: {fileID: 3168742515802982911}
   - component: {fileID: 4912866718557121109}
   - component: {fileID: 8988184937699154969}
   m_Layer: 11
@@ -4359,6 +4570,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3168742515802982911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4912866718557121110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a458a7a93ce1479eabb7fb3817b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Boss 1
+  level: 10
+  faction: Pirate
+  reputation: -100
+  speed: 2
+  acceleration: 1
+  maxHealth: 350
+  maxShield: 2000
+  shieldRegenRate: 0
+  shieldRegenTime: 0
+  weapons:
+  - {fileID: 11400000, guid: 26a04a7330f4d8c45b302e1a18b9e15c, type: 2}
+  currentWeapon: 0
+  ship: {fileID: 11400000, guid: 55d537bed615c7a4882aeadc66fe7016, type: 2}
+  shipController: {fileID: 4912866718557121109}
 --- !u!114 &4912866718557121109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4371,21 +4610,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea2e2d3c559ee04085dca7c5a22c0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Pirate
+  stats: {fileID: 0}
+  speed: 11
   maxHealth: 350
   health: 350
   maxShield: 2000
   shield: 2000
   shieldRegenTime: 0
   shieldRegenRate: 0
-  speed: 8500
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0
   defaultTurnSpeed: 2
   turnSpeed: 0.05
   defaultDrag: 5
   brakeStrength: 1
+  speedConst: 100
+  shipAnimator: {fileID: 0}
   shipWeapon: {fileID: 11400000, guid: 26a04a7330f4d8c45b302e1a18b9e15c, type: 2}
   shipRb: {fileID: 2294516725073529615}
   shipCollider: {fileID: 8988184937699154969}
@@ -4397,10 +4638,9 @@ MonoBehaviour:
   shieldBar: {fileID: 7032283806430291024}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 5
+  explosionScale: 12
   targets: []
-  enemyFactions:
-  - Player
+  enemyFactions: []
   targetingController: {fileID: 4155820894792443456}
   turrets: []
   hitZone: {fileID: 7859233120537421824}
@@ -4792,7 +5032,7 @@ MonoBehaviour:
   targetingZone: {fileID: 6658138853980105161}
   radius: 30
   enemyFactions: []
---- !u!1001 &1931363619155455943
+--- !u!1001 &16080362136842775
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4859,21 +5099,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -4889,51 +5114,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
       objectReference: {fileID: 0}
-    - target: {fileID: 8867708443658859242, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: m_Volume
-      value: 0.15
+      propertyPath: m_LocalRotation.y
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: maxHealth
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: health
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: maxShield
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shield
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shieldRegenRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shipWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: a8c0bc5b5fd40d149b610907ebfe0267,
-        type: 2}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f2282d5801127b246908dc5748fc618f, type: 3}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: explosionScale
-      value: 3
+      propertyPath: defaultRotation
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
@@ -4945,40 +5134,21 @@ PrefabInstance:
       propertyPath: angleClamp.y
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: defaultRotation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388273850481952473, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589763644928046056, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342353759947340897, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: radius
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b71aa381a213c546ad4811664ec0d37,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
---- !u!4 &7573860936456091474 stripped
+--- !u!4 &8354027359744371330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
     type: 3}
-  m_PrefabInstance: {fileID: 1931363619155455943}
+  m_PrefabInstance: {fileID: 16080362136842775}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1931363619221440116
+--- !u!1001 &340713946697208701
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5028,7 +5198,7 @@ PrefabInstance:
     - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
@@ -5057,16 +5227,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.976296
       objectReference: {fileID: 0}
@@ -5080,61 +5240,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 155
       objectReference: {fileID: 0}
-    - target: {fileID: 8867708443658859242, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: maxHealth
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: health
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: maxShield
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shield
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shieldRegenRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: defaultTurnSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: turnSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shipWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: e7319b74543544941844d4b0e4e1c054,
-        type: 2}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f2282d5801127b246908dc5748fc618f, type: 3}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: explosionScale
-      value: 3
+      propertyPath: defaultRotation
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
@@ -5146,40 +5255,21 @@ PrefabInstance:
       propertyPath: angleClamp.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: defaultRotation
-      value: 225
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388273850481952473, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589763644928046056, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342353759947340897, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: radius
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 11400000, guid: e4525855b77076c49a07a19f79c71b72,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
---- !u!4 &7573860936390090465 stripped
+--- !u!4 &8605291581879815144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
     type: 3}
-  m_PrefabInstance: {fileID: 1931363619221440116}
+  m_PrefabInstance: {fileID: 340713946697208701}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1931363619370834485
+--- !u!1001 &2236470995635815617
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5258,79 +5348,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.953717
+      value: 0.9238796
       objectReference: {fileID: 0}
     - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.30070576
+      value: -0.38268325
       objectReference: {fileID: 0}
     - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 215
+      value: 225
       objectReference: {fileID: 0}
-    - target: {fileID: 8867708443658859242, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: m_Volume
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: maxHealth
-      value: 50
+      propertyPath: m_LocalRotation.y
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: health
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: maxShield
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shield
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shieldRegenRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: defaultTurnSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: turnSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shipWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: e7319b74543544941844d4b0e4e1c054,
-        type: 2}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f2282d5801127b246908dc5748fc618f, type: 3}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: explosionScale
-      value: 3
+      propertyPath: defaultRotation
+      value: 315
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
@@ -5342,40 +5381,117 @@ PrefabInstance:
       propertyPath: angleClamp.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: defaultRotation
-      value: 315
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388273850481952473, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589763644928046056, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342353759947340897, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: radius
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 11400000, guid: e4525855b77076c49a07a19f79c71b72,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
---- !u!4 &7573860937212723872 stripped
+--- !u!4 &7845231085383703636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
     type: 3}
-  m_PrefabInstance: {fileID: 1931363619370834485}
+  m_PrefabInstance: {fileID: 2236470995635815617}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1931363619844039481
+--- !u!1001 &2917556153285810659
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1931363620491017351}
+    m_Modifications:
+    - target: {fileID: 8346954197399476375, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_Name
+      value: Mid_Turret_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b71aa381a213c546ad4811664ec0d37,
+        type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
+--- !u!4 &6605491215127839094 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2917556153285810659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2947140757424958970
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5452,121 +5568,36 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.65
       objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
+      propertyPath: defaultRotation
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8867708443658859242, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8867708443658859242, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: Priority
-      value: 67
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: maxShield
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shield
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shieldRegenRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shipWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 0d1ea7b5cc3ce6d4fb47d27c9799b266,
-        type: 2}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f2282d5801127b246908dc5748fc618f, type: 3}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: explosionScale
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: angleClamp.x
-      value: 270
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: angleClamp.y
       value: 225
       objectReference: {fileID: 0}
-    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388273850481952473, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589763644928046056, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342353759947340897, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: radius
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 11400000, guid: 2bbab3a26d4eb374c8c2afa22a066da5,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
---- !u!4 &7573860937008495532 stripped
+--- !u!4 &6570767769876329839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
     type: 3}
-  m_PrefabInstance: {fileID: 1931363619844039481}
+  m_PrefabInstance: {fileID: 2947140757424958970}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1931363620433010926
+--- !u!1001 &6797228284049002873
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5643,307 +5674,36 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.65
       objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 8867708443658859242, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8867708443658859242, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: Priority
-      value: 67
+      propertyPath: defaultRotation
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: maxHealth
-      value: 100
+      propertyPath: angleClamp.y
+      value: 240
       objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: maxShield
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shield
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shieldRegenRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shipWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 0d1ea7b5cc3ce6d4fb47d27c9799b266,
-        type: 2}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f2282d5801127b246908dc5748fc618f, type: 3}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: angleClamp.x
       value: 315
       objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: angleClamp.y
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388273850481952473, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589763644928046056, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342353759947340897, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: radius
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
---- !u!4 &7573860936133785723 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1931363620433010926}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1931363620761618245
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1931363620491017351}
-    m_Modifications:
-    - target: {fileID: 8346954197399476375, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Name
-      value: Mid_Turret_L
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8867708443658859242, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: maxHealth
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: health
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: maxShield
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shield
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shieldRegenRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shipWeapon
+      propertyPath: ship
       value: 
-      objectReference: {fileID: 11400000, guid: a8c0bc5b5fd40d149b610907ebfe0267,
+      objectReference: {fileID: 11400000, guid: 2bbab3a26d4eb374c8c2afa22a066da5,
         type: 2}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f2282d5801127b246908dc5748fc618f, type: 3}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: explosionScale
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: boss
-      value: 
-      objectReference: {fileID: 4912866718557121109}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: angleClamp.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: angleClamp.y
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: defaultRotation
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388273850481952473, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589763644928046056, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342353759947340897, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: radius
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
---- !u!4 &7573860935923163088 stripped
+--- !u!4 &3279409437907421676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
     type: 3}
-  m_PrefabInstance: {fileID: 1931363620761618245}
+  m_PrefabInstance: {fileID: 6797228284049002873}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &7573860937117021442
+--- !u!1001 &8041037616850173207
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5953,7 +5713,7 @@ PrefabInstance:
     - target: {fileID: 8346954197399476375, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: m_Name
-      value: Rear_Turret_Mid
+      value: Rear_Turret_M
       objectReference: {fileID: 0}
     - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
@@ -5993,7 +5753,7 @@ PrefabInstance:
     - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
@@ -6008,26 +5768,6 @@ PrefabInstance:
     - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
@@ -6045,51 +5785,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 8867708443658859242, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: maxHealth
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: health
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: maxShield
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shield
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shieldRegenRate
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: shipWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 44092069c8469744e8d3eef5e92be63d,
-        type: 2}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f2282d5801127b246908dc5748fc618f, type: 3}
-    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: explosionScale
-      value: 3
+      propertyPath: defaultRotation
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
@@ -6098,29 +5797,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: defaultRotation
-      value: 270
+      propertyPath: angleClamp.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589763644928046056, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342353759947340897, guid: 4061014edf5b0d549b7855d382a753c2,
-        type: 3}
-      propertyPath: radius
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 11400000, guid: cd66cf2f1f0897048a7a79a80f281ab0,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
---- !u!4 &1931363619818352023 stripped
+--- !u!4 &2036145475691472258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
     type: 3}
-  m_PrefabInstance: {fileID: 7573860937117021442}
+  m_PrefabInstance: {fileID: 8041037616850173207}
   m_PrefabAsset: {fileID: 0}

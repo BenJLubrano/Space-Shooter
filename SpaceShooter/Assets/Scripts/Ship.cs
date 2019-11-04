@@ -12,7 +12,6 @@ public class Ship : ScriptableObject
     [Header("Basic Ship Variables")]
     public int health;
     public int shield;
-    public float speed;
     public float shieldRegenRate;
     public float shieldRegenTime;
 
@@ -20,6 +19,8 @@ public class Ship : ScriptableObject
     public List<Weapon> weapons;
 
     [Header("Movement Variables")]
+    public float speed;
+    public float acceleration;
     public float mass;
     public float drag;
     public float turnSpeed;

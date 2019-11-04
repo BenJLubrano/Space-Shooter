@@ -15,7 +15,6 @@ public class TargetingController : MonoBehaviour
     private void Awake()
     {
         targetingZone.radius = radius;
-        enemyFactions.Add("Player");
     }
 
     public void Initialize(List<string> factions)

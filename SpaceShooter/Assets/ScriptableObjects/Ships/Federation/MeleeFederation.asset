@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3210549f35f84f448fbec235ca29c4e, type: 3}
-  m_Name: Pirate
+  m_Name: MeleeFederation
   m_EditorClassIdentifier: 
-  baseSprite: {fileID: -4560926819719169033, guid: 1470b74edcde5e64884cfc39227b1d48,
+  baseSprite: {fileID: 1631311430100315378, guid: 65239e30c411027459bff9d80b044f01,
     type: 3}
-  animatorController: {fileID: 9100000, guid: 123d3e12affce394c81d3f065bc4abb3, type: 2}
+  animatorController: {fileID: 9100000, guid: 8b3b27daf82fbc24aa36064fd50fd327, type: 2}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  health: 15
-  shield: 5
-  speed: 2
-  shieldRegenRate: 15
-  shieldRegenTime: 5
+  health: 25
+  shield: 10
+  shieldRegenRate: 10
+  shieldRegenTime: 10
   weapons:
-  - {fileID: 11400000, guid: e7319b74543544941844d4b0e4e1c054, type: 2}
-  mass: 15
-  drag: 5
+  - {fileID: 11400000, guid: 47653cd744adba74caabe5a801c163ce, type: 2}
+  speed: 4
+  acceleration: 0
+  mass: 25
+  drag: 3
   turnSpeed: 5

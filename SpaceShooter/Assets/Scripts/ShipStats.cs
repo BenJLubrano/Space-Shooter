@@ -12,6 +12,7 @@ public class ShipStats : MonoBehaviour
     [SerializeField] public string faction;
     [SerializeField] public float reputation;
     [SerializeField] public float speed;
+    [SerializeField] public float acceleration;
     [SerializeField] public float maxHealth;
     [SerializeField] public float maxShield;
     [SerializeField] public float shieldRegenRate;
@@ -25,7 +26,7 @@ public class ShipStats : MonoBehaviour
     [SerializeField] public Ship ship;
     [SerializeField] public ShipController shipController;
 
-    protected  void Awake()
+    protected void Awake()
     {
         Initialize();
     }
@@ -33,6 +34,7 @@ public class ShipStats : MonoBehaviour
     //Set up using the variables from Ship
     void Initialize()
     {
+
         if (reputation > 10)
         {
             faction = "Federation";
@@ -55,14 +57,32 @@ public class ShipStats : MonoBehaviour
             Debug.LogError("GameManager was not found in the scene!");
         }
 
+        if(ship == null)
+        {
+            Debug.LogError(shipName + " is missing a Ship ScriptableObject!");
+            shipController.SetStats(this);
+            return;
+        }
+        
         maxHealth = ship.health;
         maxShield = ship.shield;
         speed = ship.speed;
+        acceleration = ship.acceleration;
         shieldRegenRate = ship.shieldRegenRate;
         shieldRegenTime = ship.shieldRegenTime;
 
-        weapons = ship.weapons;
+        if(weapons == null)
+            weapons = ship.weapons;
+        else
+        {
+            foreach(Weapon weapon in ship.weapons)
+            {
+                if(!weapons.Contains(weapon))
+                    weapons.Add(weapon);
+            }
+        }
         currentWeapon = 0;
+
         //Create a function like this when it is time to start changing stats based on level (player will need one to decide based on upgrades)
         //ModifyStats();
 

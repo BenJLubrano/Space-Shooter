@@ -40,6 +40,11 @@ public class BossController : NpcController
         }
     }
 
+    public override void Initialize(ShipStats newStats)
+    {
+        base.Initialize(newStats);
+    }
+
     protected override void Update()
     {
         DoUpdateChecks();

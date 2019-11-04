@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3210549f35f84f448fbec235ca29c4e, type: 3}
-  m_Name: BlueRunner
+  m_Name: Boss 1
   m_EditorClassIdentifier: 
-  baseSprite: {fileID: -2497278491602939282, guid: 6cf1f512dec65774091d6570536509af,
+  baseSprite: {fileID: -1682159248568164264, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
-  animatorController: {fileID: 22100000, guid: abc36073dbdfd2248a46095624b1b3f3, type: 2}
+  animatorController: {fileID: 0}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  health: 100
-  shield: 100
-  shieldRegenRate: 10
-  shieldRegenTime: 10
+  health: 350
+  shield: 2000
+  shieldRegenRate: 0
+  shieldRegenTime: 0
   weapons:
-  - {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
-  speed: 5
+  - {fileID: 11400000, guid: 26a04a7330f4d8c45b302e1a18b9e15c, type: 2}
+  speed: 2
   acceleration: 1
-  mass: 15
-  drag: 1
-  turnSpeed: 5
+  mass: 2000
+  drag: 5
+  turnSpeed: 2

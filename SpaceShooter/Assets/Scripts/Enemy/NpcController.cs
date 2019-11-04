@@ -51,7 +51,13 @@ public class NpcController : ShipController
         speed = (speed * shipRb.drag);
     }
 
-    void InitializeFactions()
+    public override void SetStats(ShipStats shipStats)
+    {
+        base.SetStats(shipStats);
+        InitializeFactions();
+    }
+
+    public void InitializeFactions()
     {
         if (stats.reputation > 10)
             enemyFactions.Add("Pirate");

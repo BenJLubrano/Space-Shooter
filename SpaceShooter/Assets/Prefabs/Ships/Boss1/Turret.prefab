@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 2406468487159217436}
   - component: {fileID: 7567615872356705138}
   - component: {fileID: 8867708443658859242}
+  - component: {fileID: 8750180777982080044}
   - component: {fileID: 1028947024904351862}
   m_Layer: 0
   m_Name: BossTurret
@@ -142,7 +143,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028947024904351863}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
@@ -186,8 +187,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingLayer: -2
+  m_SortingOrder: 5
   m_Sprite: {fileID: -7973389932233663961, guid: f6b74eb7aa83e34479b34259a6af1cab,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -238,7 +239,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -322,6 +323,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8750180777982080044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028947024904351863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4a458a7a93ce1479eabb7fb3817b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipId: 0
+  shipName: Boss Turret
+  level: 10
+  faction: 
+  reputation: -100
+  speed: 0
+  acceleration: 0
+  maxHealth: 0
+  maxShield: 0
+  shieldRegenRate: 0
+  shieldRegenTime: 0
+  weapons: []
+  currentWeapon: 0
+  ship: {fileID: 0}
+  shipController: {fileID: 1028947024904351862}
 --- !u!114 &1028947024904351862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,38 +362,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47df402bb9892594b98844cf5dc5bade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipId: 0
-  faction: Pirate
-  maxHealth: 15
-  health: 15
-  maxShield: 5
-  shield: 5
-  shieldRegenRate: 0
+  stats: {fileID: 0}
   speed: 0
+  maxHealth: 150
+  health: 150
+  maxShield: 25
+  shield: 25
+  shieldRegenTime: 15
+  shieldRegenRate: 1
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 5
   brakeStrength: 1
-  shipWeapon: {fileID: 11400000, guid: eb8ec8e4d93618941a35a89f779efb9a, type: 2}
+  speedConst: 100
+  shipAnimator: {fileID: 0}
+  shipWeapon: {fileID: 11400000, guid: a8c0bc5b5fd40d149b610907ebfe0267, type: 2}
   shipRb: {fileID: 0}
   shipCollider: {fileID: 7567615872356705138}
   spriteRenderer: {fileID: 2406468487159217436}
   audioSource: {fileID: 8867708443658859242}
-  deathSound: {fileID: 8300000, guid: 5f3a880a3b99ed44aad7ae99c3a88c51, type: 3}
+  deathSound: {fileID: 8300000, guid: f2282d5801127b246908dc5748fc618f, type: 3}
   moveSound: {fileID: 0}
   healthBar: {fileID: 2118684637808328874}
   shieldBar: {fileID: 3170040746295410289}
+  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
+    type: 3}
+  explosionScale: 3
   targets: []
   enemyFactions:
   - Player
   targetingController: {fileID: 8342353759947340897}
-  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
-    type: 3}
   boss: {fileID: 0}
-  angleClamp: {x: -360, y: 360}
-  defaultRotation: 90
+  angleClamp: {x: 0, y: 270}
+  defaultRotation: 180
 --- !u!1 &2388273850481952473
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +409,7 @@ GameObject:
   - component: {fileID: 4585053540081678799}
   - component: {fileID: 1589763644928046056}
   - component: {fileID: 8342353759947340897}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Censor Radius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +445,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 10
 --- !u!114 &8342353759947340897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,7 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1028947024904351862}
   targetingZone: {fileID: 1589763644928046056}
-  radius: 30
+  radius: 10
   enemyFactions: []
 --- !u!1 &8050637951942207577
 GameObject:
@@ -526,9 +558,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8346954197399476375}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 3066599250552188629}
   - {fileID: 3309144799217381826}
