@@ -76,7 +76,6 @@
     <Compile Include="Assets\Scripts\Enemy\BossHitZone.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossThruster.cs" />
     <Compile Include="Assets\Scripts\Enemy\NpcController.cs" />
-    <Compile Include="Assets\Scripts\Enemy\NpcShip.cs" />
     <Compile Include="Assets\Scripts\Enemy\TargetingController.cs" />
     <Compile Include="Assets\Scripts\Enemy\TurretController.cs" />
     <Compile Include="Assets\Scripts\Enemy\WeakPoint.cs" />

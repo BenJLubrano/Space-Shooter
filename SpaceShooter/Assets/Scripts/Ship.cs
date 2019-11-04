@@ -5,16 +5,19 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Ship", menuName = "Ship")]
 public class Ship : ScriptableObject
 {
-    public Sprite model;
-    public AnimatorOverrideController animatorController;
+    public Sprite baseSprite;
+    public RuntimeAnimatorController animatorController;
     public GameObject explosion;
 
     [Header("Basic Ship Variables")]
     public int health;
     public int shield;
-    public int speed;
-    public int shieldRegenRate;
-    public int shieldRegenTime;
+    public float speed;
+    public float shieldRegenRate;
+    public float shieldRegenTime;
+
+    [Header("Weapons")]
+    public List<Weapon> weapons;
 
     [Header("Movement Variables")]
     public float mass;

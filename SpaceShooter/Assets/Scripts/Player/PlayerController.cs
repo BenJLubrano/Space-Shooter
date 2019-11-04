@@ -5,7 +5,6 @@ using UnityEngine;
 //This script controls the player, both movement and ingame functions
 public class PlayerController : ShipController
 {
-    public Animator animator;
     [SerializeField] Animator shieldAnim;
     [SerializeField] Transform spawnPoint;
 
@@ -22,7 +21,24 @@ public class PlayerController : ShipController
     void HandleMovement()
     {
         //player movement stuff
-        float verticalMove = (Input.GetAxis("Vertical") * speed * (speedConst * shipRb.mass) * Time.deltaTime);
+        if(Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0)
+        {
+            if (Input.GetAxisRaw("Vertical") > 0 && thrusterPower < 0) //If the player was going backwards and now wants to go forwards, don't make them have to wait for double the time
+                thrusterPower = 0;
+            thrusterPower = thrusterPower + Input.GetAxisRaw("Vertical") * acceleration * Time.deltaTime;
+            if (thrusterPower < -1)
+                thrusterPower = -1;
+            if (thrusterPower > 1)
+                thrusterPower = 1;
+        }
+        else
+        {
+            if (thrusterPower < 0)
+                thrusterPower += 1 * Time.deltaTime;
+            else if (thrusterPower > 0)
+                thrusterPower -= 1 * Time.deltaTime;
+        }
+        float verticalMove = thrusterPower * speed * (speedConst * shipRb.mass) * Time.deltaTime;
         verticalMove = (verticalMove < 0) ? verticalMove * speedPenalty : verticalMove;
         float horizontalMove = Input.GetAxis("Horizontal") * speed * (speedConst * shipRb.mass) * speedPenalty * Time.deltaTime;
         float rotationMove = Input.GetAxis("Rotation") * turnSpeed;
@@ -57,17 +73,17 @@ public class PlayerController : ShipController
 
     void HandleAnimation(float currentSpeed)
     {
-        if (Input.GetButton("Vertical"))
+        if (Input.GetAxisRaw("Vertical") > 0)
         {
-            animator.SetBool("IsAccelerating", true);
+            shipAnimator.SetBool("IsAccelerating", true);
         }
         else
         {
-            animator.SetBool("IsAccelerating", false);
+            shipAnimator.SetBool("IsAccelerating", false);
         }
 
-        
-        animator.SetFloat("AnimatorSpeed", currentSpeed*50 / (this.speed*shipRb.mass));
+
+        shipAnimator.SetFloat("ThrusterPower", thrusterPower);
 
         if (shield >= 1)
         {

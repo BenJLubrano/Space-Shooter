@@ -794,7 +794,7 @@ Animator:
   m_GameObject: {fileID: 1670886136433585852}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ca16d4d599343d64aa82237cfe200408, type: 2}
+  m_Controller: {fileID: 22100000, guid: abc36073dbdfd2248a46095624b1b3f3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1392,7 +1392,7 @@ MonoBehaviour:
   defaultDrag: 1
   brakeStrength: 5
   speedConst: 100
-  shipAnimator: {fileID: 0}
+  shipAnimator: {fileID: 1559098501}
   shipWeapon: {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
   shipRb: {fileID: 1670886136433585851}
   shipCollider: {fileID: 1878275455685208786}
@@ -1532,19 +1532,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipId: 0
-  shipName: 
-  level: 0
+  shipName: Jeff
+  level: 1
   faction: 
-  reputation: 0
+  reputation: -5
   speed: 0
   maxHealth: 0
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
-  weapons: []
+  weapons:
+  - {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
   currentWeapon: 0
-  ship: {fileID: 0}
-  shipController: {fileID: 0}
+  ship: {fileID: 11400000, guid: 2a45f5a52485a8f45a0f806e21727d93, type: 2}
+  shipController: {fileID: 1670886136433585848}
   experience: 0
   units: 0
 --- !u!4 &1670886137074949199

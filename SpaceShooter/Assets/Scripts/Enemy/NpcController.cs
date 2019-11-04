@@ -11,15 +11,8 @@ public class NpcController : ShipController
     [SerializeField] public List<string> enemyFactions;
     [SerializeField] protected TargetingController targetingController;
 
+    float lastFrameVelocity;
     protected GameObject currentTarget;
-
-    private void Awake()
-    {
-        base.Awake();
-        //initialize enemyfactions  
-        targetingController.Initialize(enemyFactions);
-        speed = (speed * shipRb.drag);
-    }
 
     protected override void Update()
     {
@@ -49,6 +42,15 @@ public class NpcController : ShipController
         Move();
     }
 
+    public override void Initialize(ShipStats newStats)
+    {
+        base.Initialize(newStats);
+        InitializeFactions();
+
+        targetingController.Initialize(enemyFactions);
+        speed = (speed * shipRb.drag);
+    }
+
     void InitializeFactions()
     {
         if (stats.reputation > 10)
@@ -58,8 +60,15 @@ public class NpcController : ShipController
             enemyFactions.Add("Federation");
             enemyFactions.Add("Neutral");
         }
+        enemyFactions.Remove(stats.faction);
 
     }
+
+    void HandleAnimation()
+    {
+        //animations for npcs go here
+    }
+
     //Logic related to targeting
     protected virtual void LookForTargets()
     {
@@ -116,8 +125,11 @@ public class NpcController : ShipController
 
             if (!TargetInAttackRange()) //if the target is further away than half of the weapons range
             {
-                shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime);
+                thrusterPower = thrusterPower > 1 ? 1 : thrusterPower + acceleration * Time.deltaTime;
+                shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime * thrusterPower);
             }
+            else
+                thrusterPower = thrusterPower < 0 ? 0 : thrusterPower - acceleration * Time.deltaTime;
         }
     }
 

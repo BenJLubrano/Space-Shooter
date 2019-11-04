@@ -17,6 +17,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] protected float shieldRegenTime;
     [SerializeField] protected float shieldRegenRate;
     [SerializeField] protected float weaponCooldown;
+    [SerializeField] protected float acceleration;
 
     [Header("Player Movement Variables")]
     //These variables are used for the player controller, but they exist here in case we want to have the enemy ships move like the player
@@ -43,7 +44,7 @@ public class ShipController : MonoBehaviour
 
     protected bool isDead = false;
     protected float lastDamaged = 0f;
-
+    protected float thrusterPower = 0f;
     //public Animator anim;
 
     protected void Awake()
@@ -55,7 +56,7 @@ public class ShipController : MonoBehaviour
     }
 
     //Set variables from Ship
-    public void Initialize(ShipStats newStats)
+    public virtual void Initialize(ShipStats newStats)
     {
         //basic stats
         stats = newStats;
@@ -75,6 +76,10 @@ public class ShipController : MonoBehaviour
         defaultDrag = stats.ship.drag;
         defaultTurnSpeed = stats.ship.turnSpeed;
         turnSpeed = defaultTurnSpeed;
+
+        spriteRenderer.sprite = stats.ship.baseSprite == null ? spriteRenderer.sprite : stats.ship.baseSprite;
+        shipAnimator.runtimeAnimatorController = stats.ship.animatorController;
+        UpdateBars();
 
     }
 

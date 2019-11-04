@@ -59,8 +59,10 @@ public class ShipStats : MonoBehaviour
         maxShield = ship.shield;
         speed = ship.speed;
         shieldRegenRate = ship.shieldRegenRate;
-        shieldRegenRate = ship.shieldRegenTime;
+        shieldRegenTime = ship.shieldRegenTime;
 
+        weapons = ship.weapons;
+        currentWeapon = 0;
         //Create a function like this when it is time to start changing stats based on level (player will need one to decide based on upgrades)
         //ModifyStats();
 
