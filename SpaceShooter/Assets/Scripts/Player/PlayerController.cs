@@ -8,6 +8,12 @@ public class PlayerController : ShipController
     [SerializeField] Animator shieldAnim;
     [SerializeField] Transform spawnPoint;
 
+    private float alphaLevel = 0.01f;
+    private float maxAlphaLevel = 0.7f;
+    private float minAlphaLevel = 0.2f;
+    private float fadeInSpeed = 0.001f;
+    private float fadeOutSpeed = 0.01f;
+
     void Update()
     {
         base.Update(); //call the base ShipController update to perform generic functions
@@ -92,6 +98,18 @@ public class PlayerController : ShipController
         else if (shield < 1)
         {
             shieldAnim.SetBool("hasShield", false);
+        }
+
+        //shield fades in when regenerating, and fades out when stopped.
+        if (chargingShield)
+        {
+            alphaLevel = (alphaLevel <= maxAlphaLevel) ? (alphaLevel + fadeInSpeed) : maxAlphaLevel;
+            shieldAnim.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f, alphaLevel);
+        }
+        if (!chargingShield)
+        {
+            alphaLevel = (alphaLevel >= minAlphaLevel) ? (alphaLevel - fadeOutSpeed) : minAlphaLevel;
+            shieldAnim.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, alphaLevel);
         }
     }
 
