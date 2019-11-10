@@ -20,7 +20,7 @@ public class Ship : ScriptableObject
 
     [Header("Movement Variables")]
     public float speed;
-    public float acceleration;
+    public float acceleration = 1;
     public float mass;
     public float drag;
     public float turnSpeed;

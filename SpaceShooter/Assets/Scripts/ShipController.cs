@@ -87,10 +87,19 @@ public class ShipController : MonoBehaviour
         UpdateBars();
     }
 
+    public virtual void UpdateFactions()
+    {
+        //do nothing
+    }
+
     //just used for when shipstats has no other variables
     public virtual void SetStats(ShipStats shipStats)
     {
         stats = shipStats;
+    }
+    public ShipStats GetStats()
+    {
+        return stats;
     }
 
     protected virtual void Update()
@@ -140,7 +149,7 @@ public class ShipController : MonoBehaviour
     }
 
     //called by a projectile to inflict damage onto a ship
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, ShipController damager)
     {
         if (isDead)
             return;
@@ -155,11 +164,18 @@ public class ShipController : MonoBehaviour
             shield = 0;
             health -= damage;
         }
+
         if(health <= 0)
         {
             health = 0;
+            damager.GetStats().AlterReputation(stats.reputation, true);
             PrepareForDeath();
+        } 
+        else
+        {
+            damager.GetStats().AlterReputation(stats.reputation, false);
         }
+
         try
         {
             UpdateBars();
@@ -224,7 +240,6 @@ public class ShipController : MonoBehaviour
     //Base Die() simply destroys the ship
     protected virtual void Die()
     {
-
         Destroy(gameObject);
     }
 

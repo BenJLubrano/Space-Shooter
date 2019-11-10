@@ -38,7 +38,7 @@ public class WeakPoint : ShipController
         shieldRegenRate = 0f;
         spriteRenderer.sprite = damagedVersion;
         shipCollider.enabled = false;
-        owner.TakeDamage(damageToOwner);
+        owner.TakeDamage(damageToOwner, this);
         audioSource.clip = deathSound;
         audioSource.Play();
     }

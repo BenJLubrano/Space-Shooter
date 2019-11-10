@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
 
     [Header("Targeting")]
-    [SerializeField] int shooterId;
+    [SerializeField] ShipController shooter;
     [SerializeField] List<string> enemyFactions;
     [SerializeField] GameObject target;
 
@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
         damage = weapon.damage;
         renderer.sprite = weapon.projectileImage;
         
-        shooterId = shooter.GetId();
+        this.shooter = shooter;
         enemyFactions = factions;
         this.target = target;
 
@@ -89,9 +89,9 @@ public class Projectile : MonoBehaviour
                 string colliderFaction = colliderShip.GetFaction(); //get the faction of the colliding ship
                 if (enemyFactions.Contains(colliderFaction)) //if it's in the list of enemy factions (factions that the projectile can hit)
                 {
-                    if (colliderShip.CanBeHitBy(shooterId))
+                    if (colliderShip.CanBeHitBy(shooter.GetId()))
                     {
-                        colliderShip.TakeDamage(damage);
+                        colliderShip.TakeDamage(damage, shooter);
                         Deactivate();
                         if (collision.gameObject.GetComponent<ShipController>().getShield() < 1)
                         {
