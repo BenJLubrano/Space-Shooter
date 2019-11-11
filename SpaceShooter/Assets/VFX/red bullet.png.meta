@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 82e69fd8feb1c3d4c964d68d21a4ccb2
+guid: 26e22e078f247034f80329c984899b83
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4358779977521164881
-    second: enemy_01_sprite_sheet_0
+      213: -3347674708518003874
+    second: red bullet_0
   - first:
-      213: 6767919029580591355
-    second: enemy_01_sprite_sheet_1
+      213: -5504451366531638215
+    second: red bullet_1
   - first:
-      213: 2212842370339016813
-    second: enemy_01_sprite_sheet_2
+      213: 8023736580594523537
+    second: red bullet_2
   - first:
-      213: 2348784583680080191
-    second: enemy_01_sprite_sheet_3
+      213: 6619185805136356021
+    second: red bullet_3
   - first:
-      213: -866860767156945674
-    second: enemy_01_sprite_sheet_4
+      213: 1197185605551782521
+    second: red bullet_4
   - first:
-      213: -8729309914123411136
-    second: enemy_01_sprite_sheet_5
+      213: 5100775245191737180
+    second: red bullet_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -49,12 +49,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -78,10 +78,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -90,10 +90,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_01_sprite_sheet_0
+      name: red bullet_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 0
-        width: 48
-        height: 62
+        width: 10
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c23509ca2e8337b4895186d9bb31dfb3
-      internalID: 4358779977521164881
+      spriteID: 181b36a945b51fe4f8b8bc120c44ac35
+      internalID: -3347674708518003874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_01_sprite_sheet_1
+      name: red bullet_1
       rect:
         serializedVersion: 2
-        x: 72
-        y: 0
-        width: 48
-        height: 62
+        x: 40
+        y: 1
+        width: 10
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6b3be4f171b5e944a867257172048cf
-      internalID: 6767919029580591355
+      spriteID: 4b616084399f6dc498718f78d0fbe6d4
+      internalID: -5504451366531638215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_01_sprite_sheet_2
+      name: red bullet_2
       rect:
         serializedVersion: 2
-        x: 136
-        y: 0
-        width: 48
-        height: 62
+        x: 75
+        y: 2
+        width: 10
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d02c60581a39b714e86749c5d5596c09
-      internalID: 2212842370339016813
+      spriteID: c0f26517199ab834fbaae09b1de188d6
+      internalID: 8023736580594523537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_01_sprite_sheet_3
+      name: red bullet_3
       rect:
         serializedVersion: 2
-        x: 200
-        y: 0
-        width: 48
-        height: 62
+        x: 110
+        y: 2
+        width: 10
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10d818ebfc2c1cf458618d8d9c73e6ed
-      internalID: 2348784583680080191
+      spriteID: defc4445d95c0f949ac02dc9996bbbd1
+      internalID: 6619185805136356021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_01_sprite_sheet_4
+      name: red bullet_4
       rect:
         serializedVersion: 2
-        x: 264
-        y: 0
-        width: 48
-        height: 62
+        x: 144
+        y: 2
+        width: 10
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82692f4eb2738154e891ebc5945c8588
-      internalID: -866860767156945674
+      spriteID: 967758f156a8fd644940cbba95af5d68
+      internalID: 1197185605551782521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_01_sprite_sheet_5
+      name: red bullet_5
       rect:
         serializedVersion: 2
-        x: 328
-        y: 0
-        width: 48
-        height: 62
+        x: 175
+        y: 2
+        width: 10
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1a1d11260671d9499c13cb78de93878
-      internalID: -8729309914123411136
+      spriteID: 37705da1d0aa5424ab8955d434cd8477
+      internalID: 5100775245191737180
       vertices: []
       indices: 
       edges: []
