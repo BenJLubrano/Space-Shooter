@@ -60,7 +60,7 @@ public class ShipStats : MonoBehaviour
 
         if(ship == null)
         {
-            Debug.LogError(shipName + " is missing a Ship ScriptableObject!");
+            Debug.LogWarning(shipName + " is missing a Ship ScriptableObject!");
             shipController.SetStats(this);
             return;
         }

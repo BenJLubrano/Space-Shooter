@@ -238,7 +238,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Reputation: -100'
+  m_text: 'Reputation:
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -307,10 +309,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 3116595564646678549}
-    characterCount: 16
+    characterCount: 12
     spriteCount: 0
     spaceCount: 1
-    wordCount: 2
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -458,7 +460,7 @@ MonoBehaviour:
   level: 1
   faction: 
   reputation: -10
-  canChangeReputation: 0
+  staticReputation: 1
   speed: 0
   acceleration: 0
   maxHealth: 0
@@ -515,6 +517,7 @@ MonoBehaviour:
   shieldAnim: {fileID: 6752734329798578713}
   spawnPoint: {fileID: 0}
   reputationText: {fileID: 3116595564646678549}
+  mouseMovement: 1
 --- !u!82 &401094372879541271
 AudioSource:
   m_ObjectHideFlags: 0

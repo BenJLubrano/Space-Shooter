@@ -48,7 +48,9 @@ public class NpcController : ShipController
         UpdateFactions();
 
         targetingController.Initialize(enemyFactions);
-        speed = (speed * shipRb.drag);
+
+        if(shipRb != null)
+            speed = (speed * shipRb.drag);
     }
 
     public override void SetStats(ShipStats shipStats)

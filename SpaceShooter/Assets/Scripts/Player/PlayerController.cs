@@ -10,9 +10,12 @@ public class PlayerController : ShipController
     //TEMPORARY
     [SerializeField] TextMeshProUGUI reputationText;
 
+    [SerializeField] bool mouseMovement = false;
     void Update()
     {
         base.Update(); //call the base ShipController update to perform generic functions
+        if (Input.GetButtonDown("Toggle Mouse Rotation"))
+            ToggleMouseMovement();
     }
 
     private void FixedUpdate()
@@ -43,7 +46,30 @@ public class PlayerController : ShipController
         float verticalMove = thrusterPower * speed * (speedConst * shipRb.mass) * Time.deltaTime;
         verticalMove = (verticalMove < 0) ? verticalMove * speedPenalty : verticalMove;
         float horizontalMove = Input.GetAxis("Horizontal") * speed * (speedConst * shipRb.mass) * speedPenalty * Time.deltaTime;
-        float rotationMove = Input.GetAxis("Rotation") * turnSpeed;
+
+        float rotationMove = 0;
+        if(mouseMovement && Input.GetAxis("Rotation") == 0) //mouse rotate
+        {
+            //Commented out code rotates towards a mouse position... but it felt jittery at times
+            /*Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);*/
+            float mouseRotation = Input.GetAxis("Mouse X");
+
+            //These lines clamp the rotation speed. Moving your mouse faster won't make it rotate faster.
+            if (mouseRotation > 1)
+                mouseRotation = 1;
+            else if (mouseRotation < -1)
+                mouseRotation = -1;
+
+            rotationMove = -1 * mouseRotation * turnSpeed;
+        }
+        else
+        {
+            rotationMove += Input.GetAxis("Rotation") * turnSpeed;
+        }
+
 
         if (rotationMove + verticalMove + horizontalMove != 0f) //if the player is moving in a certain direction or rotating
         {
@@ -142,6 +168,28 @@ public class PlayerController : ShipController
 
     public void UpdateReputationDisplay()
     {
-        reputationText.text = "Reputation: " + stats.reputation;
+        try
+        {
+            reputationText.text = "Reputation: " + stats.reputation;
+        }
+        catch
+        {
+            //There is no reputation Text
+        }
+    }
+
+    public void ToggleMouseMovement()
+    {
+        mouseMovement = !mouseMovement;
+        if(mouseMovement)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
