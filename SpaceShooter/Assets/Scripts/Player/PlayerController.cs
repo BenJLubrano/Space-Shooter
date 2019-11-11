@@ -11,9 +11,9 @@ public class PlayerController : ShipController
     [SerializeField] TextMeshProUGUI reputationText;
 
     private float alphaLevel = 0.01f;
-    private float maxAlphaLevel = 0.7f;
+    private float maxAlphaLevel = 0.8f;
     private float minAlphaLevel = 0.2f;
-    private float fadeInSpeed = 0.001f;
+    private float fadeInSpeed = 0.0005f;
     private float fadeOutSpeed = 0.01f;
 
     [SerializeField] bool mouseMovement = false;
