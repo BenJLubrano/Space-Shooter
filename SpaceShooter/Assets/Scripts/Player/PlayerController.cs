@@ -10,10 +10,12 @@ public class PlayerController : ShipController
     //TEMPORARY
     [SerializeField] TextMeshProUGUI reputationText;
 
-    [SerializeField] bool mouseMovement = true;
+    [SerializeField] bool mouseMovement = false;
     void Update()
     {
         base.Update(); //call the base ShipController update to perform generic functions
+        if (Input.GetButtonDown("Toggle Mouse Rotation"))
+            ToggleMouseMovement();
     }
 
     private void FixedUpdate()
@@ -23,8 +25,6 @@ public class PlayerController : ShipController
 
     void HandleMovement()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-            ToggleMouseMovement();
         //player movement stuff
         if(Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0)
         {
