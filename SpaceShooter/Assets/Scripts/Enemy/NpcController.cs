@@ -45,20 +45,23 @@ public class NpcController : ShipController
     public override void Initialize(ShipStats newStats)
     {
         base.Initialize(newStats);
-        InitializeFactions();
+        UpdateFactions();
 
         targetingController.Initialize(enemyFactions);
-        speed = (speed * shipRb.drag);
+
+        if(shipRb != null)
+            speed = (speed * shipRb.drag);
     }
 
     public override void SetStats(ShipStats shipStats)
     {
         base.SetStats(shipStats);
-        InitializeFactions();
+        UpdateFactions();
     }
 
-    public void InitializeFactions()
+    public override void UpdateFactions()
     {
+        enemyFactions.Clear();
         if (stats.reputation > 10)
             enemyFactions.Add("Pirate");
         else if (stats.reputation < 0)
@@ -66,8 +69,7 @@ public class NpcController : ShipController
             enemyFactions.Add("Federation");
             enemyFactions.Add("Neutral");
         }
-        enemyFactions.Remove(stats.faction);
-
+        //enemyFactions.Remove(stats.faction);
     }
 
     void HandleAnimation()

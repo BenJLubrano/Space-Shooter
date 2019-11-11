@@ -11,6 +11,7 @@ public class ShipStats : MonoBehaviour
     [SerializeField] public int level;
     [SerializeField] public string faction;
     [SerializeField] public float reputation;
+    [SerializeField] public bool staticReputation = true;
     [SerializeField] public float speed;
     [SerializeField] public float acceleration;
     [SerializeField] public float maxHealth;
@@ -59,7 +60,7 @@ public class ShipStats : MonoBehaviour
 
         if(ship == null)
         {
-            Debug.LogError(shipName + " is missing a Ship ScriptableObject!");
+            Debug.LogWarning(shipName + " is missing a Ship ScriptableObject!");
             shipController.SetStats(this);
             return;
         }
@@ -114,9 +115,43 @@ public class ShipStats : MonoBehaviour
         return reputation;
     }
 
-    public void ModifyReputation(float change)
+    public virtual void AlterReputation(float targetRep, bool killed)
     {
-        reputation += change;
+        if (staticReputation)
+            return;
+        if(targetRep > 10) //hit a federation ship
+        {
+            if (killed)
+                reputation -= 10;
+            else
+                reputation -= 1;
+        }
+        else if (targetRep < 0) //hit a pirate ship
+        {
+            if (killed)
+                reputation += 5;
+        }
+        else //hit a neutral ship
+        {
+            if (killed)
+                reputation -= 5;
+        }
+
+        //make sure reputation doesn't go out of bounds
+        if (reputation > 100)
+            reputation = 100;
+        if (reputation < -100)
+            reputation = -100;
+
+        if (reputation > 10)
+            faction = "Federation";
+        else if (reputation >= 0)
+            faction = "Neutral";
+        else
+            faction = "Pirate";
+
+        shipController.UpdateFactions();
+
     }
 
 }
