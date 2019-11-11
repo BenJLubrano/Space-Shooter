@@ -23,7 +23,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 11400000, guid: eb8ec8e4d93618941a35a89f779efb9a, type: 2}
   speed: 5
-  acceleration: 0
+  acceleration: 1
   mass: 20
   drag: 2
   turnSpeed: 4
