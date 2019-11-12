@@ -26,7 +26,6 @@ public class TargetingController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         string collisionFaction;
-
         try
         {
             collisionFaction = collision.gameObject.GetComponent<ShipController>().GetFaction();
@@ -36,14 +35,10 @@ public class TargetingController : MonoBehaviour
             return;
         }
 
-        foreach (string tag in enemyFactions)
+        if (enemyFactions.Contains(collisionFaction))
         {
-            if (tag == collisionFaction) //if the tag is in the list of factions that thisShipControllerwill attack
-            {
-                targets.Add(collision.gameObject); //add the target to the
-                controller.UpdateTargets(targets);
-                break;
-            }
+            targets.Add(collision.gameObject);
+            controller.UpdateTargets(targets);
         }
     }
 
@@ -51,6 +46,35 @@ public class TargetingController : MonoBehaviour
     {
         if (targets.Contains(target))
             targets.Remove(target);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        string collisionFaction;
+        try
+        {
+            collisionFaction = collision.gameObject.GetComponent<ShipController>().GetFaction();
+        }
+        catch //we can't target it, so just exit.
+        {
+            return;
+        }
+
+        if (targets.Contains(collision.gameObject))
+        {
+            if (!enemyFactions.Contains(collisionFaction))
+            {
+                targets.Remove(collision.gameObject);
+            }
+        }
+        else
+        {
+            if (enemyFactions.Contains(collisionFaction))
+            {
+                targets.Add(collision.gameObject);
+            }
+        }
+        controller.UpdateTargets(targets);
     }
 
     //Activates when a collider exits the targeting zone of the ship

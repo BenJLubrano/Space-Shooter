@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 //This script controls the player, both movement and ingame functions
 public class PlayerController : ShipController
 {
     [SerializeField] Animator shieldAnim;
     [SerializeField] Transform spawnPoint;
+    //TEMPORARY
+    [SerializeField] TextMeshProUGUI reputationText;
 
     void Update()
     {
@@ -34,9 +36,9 @@ public class PlayerController : ShipController
         else
         {
             if (thrusterPower < 0)
-                thrusterPower += 1 * Time.deltaTime;
+                thrusterPower = thrusterPower + 1 * Time.deltaTime > 0 ? 0 : thrusterPower + 1 * Time.deltaTime;
             else if (thrusterPower > 0)
-                thrusterPower -= 1 * Time.deltaTime;
+                thrusterPower = thrusterPower - 1 * Time.deltaTime < 0 ? 0 : thrusterPower - 1 * Time.deltaTime;
         }
         float verticalMove = thrusterPower * speed * (speedConst * shipRb.mass) * Time.deltaTime;
         verticalMove = (verticalMove < 0) ? verticalMove * speedPenalty : verticalMove;
@@ -67,10 +69,10 @@ public class PlayerController : ShipController
 
         if (Input.GetButton("Shoot"))
         {
-            Shoot();
+            Shoot(null, new List<string> { "Federation", "Neutral", "Pirate" });
         }
     }
-
+    
     void HandleAnimation(float currentSpeed)
     {
         if (Input.GetAxisRaw("Vertical") > 0)
@@ -136,5 +138,10 @@ public class PlayerController : ShipController
         shieldAnim.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         shieldAnim.SetBool("hasShield", true);
         isDead = false;
+    }
+
+    public void UpdateReputationDisplay()
+    {
+        reputationText.text = "Reputation: " + stats.reputation;
     }
 }

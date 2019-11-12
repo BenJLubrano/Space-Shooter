@@ -11,6 +11,9 @@ public class PlayerStats : ShipStats
     private void Awake()
     {
         base.Awake();
+        staticReputation = false;
+        PlayerController pc = (PlayerController)shipController;
+        pc.UpdateReputationDisplay();
         shipId = 0;
     }
 
@@ -32,5 +35,12 @@ public class PlayerStats : ShipStats
     public void ModifyUnits(int amount)
     {
         units += amount;
+    }
+    public override void AlterReputation(float targetRep, bool killed)
+    {
+        base.AlterReputation(targetRep, killed);
+        PlayerController pc = (PlayerController)shipController;
+        pc.UpdateReputationDisplay();
+
     }
 }
