@@ -234,7 +234,7 @@ public class ShipController : MonoBehaviour
     //Not used for most ships, but is used for WeakPoints
     public virtual bool CanBeHitBy(int id)
     {
-        return true;
+        return id != stats.shipId;
     }
 
     //Base Die() simply destroys the ship
