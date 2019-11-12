@@ -10,6 +10,12 @@ public class PlayerController : ShipController
     //TEMPORARY
     [SerializeField] TextMeshProUGUI reputationText;
 
+    private float alphaLevel = 0.01f;
+    private float maxAlphaLevel = 0.8f;
+    private float minAlphaLevel = 0.2f;
+    private float fadeInSpeed = 0.0005f;
+    private float fadeOutSpeed = 0.01f;
+
     [SerializeField] bool mouseMovement = false;
     void Update()
     {
@@ -98,7 +104,7 @@ public class PlayerController : ShipController
             Shoot(null, new List<string> { "Federation", "Neutral", "Pirate" });
         }
     }
-    
+
     void HandleAnimation(float currentSpeed)
     {
         if (Input.GetAxisRaw("Vertical") > 0)
@@ -120,6 +126,18 @@ public class PlayerController : ShipController
         else if (shield < 1)
         {
             shieldAnim.SetBool("hasShield", false);
+        }
+
+        //shield fades in when regenerating, and fades out when stopped.
+        if (chargingShield)
+        {
+            alphaLevel = (alphaLevel <= maxAlphaLevel) ? (alphaLevel + fadeInSpeed) : maxAlphaLevel;
+            shieldAnim.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f, alphaLevel);
+        }
+        if (!chargingShield)
+        {
+            alphaLevel = (alphaLevel >= minAlphaLevel) ? (alphaLevel - fadeOutSpeed) : minAlphaLevel;
+            shieldAnim.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, alphaLevel);
         }
     }
 
@@ -148,7 +166,7 @@ public class PlayerController : ShipController
         Debug.Log("Waiting for respawn");
         yield return new WaitForSeconds(5);
         RespawnFunc();
-        
+
     }
 
     void RespawnFunc()

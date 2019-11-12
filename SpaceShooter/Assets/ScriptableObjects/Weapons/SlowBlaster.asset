@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   fireRate: 1
-  projectileSpeed: 10
+  projectileSpeed: 5
   projectileImage: {fileID: 21300000, guid: 7f96843276a49e44d9991d321935ffd7, type: 3}
   range: 10
   sound: {fileID: 8300000, guid: 606d6171967ca3d4baafa50865a6454f, type: 3}
   volume: 0.1
-  projectile: {fileID: 8819101810938153031, guid: 6323de503592567488e5b8378c8a0393,
+  projectile: {fileID: 31253595519513043, guid: 17f326c7d71ec7349928cffceb8ef4db,
     type: 3}
   scale: {x: 1, y: 1}

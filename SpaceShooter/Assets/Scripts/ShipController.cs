@@ -43,6 +43,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] protected float explosionScale = 1;
 
     protected bool isDead = false;
+    public bool chargingShield = false;
     protected float lastDamaged = 0f;
     protected float thrusterPower = 0f;
     //public Animator anim;
@@ -117,13 +118,18 @@ public class ShipController : MonoBehaviour
         {
             weaponCooldown -= Time.deltaTime;
             lastDamaged += Time.deltaTime;
-            if (lastDamaged >= shieldRegenTime) //regenerate shields if damage has not been taken in the last 5 seconds
+            if (lastDamaged >= shieldRegenTime && shield < maxShield) //regenerate shields if damage has not been taken in the last 5 seconds
             {
+                chargingShield = true;
                 shield += shieldRegenRate * Time.deltaTime;
                 if (shield > maxShield)
+                {
                     shield = maxShield;
+                    lastDamaged = 0;
+                }
                 UpdateBars();
             }
+            else chargingShield = false;
         }
     }
 
