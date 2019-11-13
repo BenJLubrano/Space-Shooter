@@ -9,6 +9,8 @@ public class ShopControl : MonoBehaviour
 {
     int units;
     int isSold;
+    [SerializeField] GameObject gObject;
+    [SerializeField] GameObject Shop;
 
     public TextMeshProUGUI unitsText;
     public TextMeshProUGUI weaponText;
@@ -56,5 +58,13 @@ public class ShopControl : MonoBehaviour
         buy.gameObject.SetActive(true);
         weaponText.text = "Dual Lasers \n Price: 5 Units";
         PlayerPrefs.DeleteAll();
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject == gObject)
+        {
+            Shop.gameObject.SetActive(true);
+        }
     }
 }
