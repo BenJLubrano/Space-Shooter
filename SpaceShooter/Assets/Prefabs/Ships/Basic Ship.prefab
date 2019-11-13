@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2690012981022930434}
   - component: {fileID: -6121423870878757738}
   m_Layer: 0
-  m_Name: MeleeFederation
+  m_Name: Basic Ship
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -699905497
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4b50f623200f4a24393e1e9bd99b13ed, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &863274986575074758
@@ -148,18 +148,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipId: 0
-  shipName: Federation Interceptor
+  shipName: Basic Ship
   level: 1
   faction: 
   reputation: 100
+  staticReputation: 1
   speed: 3.5
+  acceleration: 1
   maxHealth: 25
   maxShield: 10
   shieldRegenRate: 5
   shieldRegenTime: 10
+  overwriteValues: 1
   weapons: []
   currentWeapon: 0
-  ship: {fileID: 11400000, guid: 0a7626b8a0ebf664a9ba37668ed4fc03, type: 2}
+  ship: {fileID: 11400000, guid: 2a45f5a52485a8f45a0f806e21727d93, type: 2}
   shipController: {fileID: 8425060942357847168}
 --- !u!114 &8425060942357847168
 MonoBehaviour:
@@ -182,6 +185,7 @@ MonoBehaviour:
   shieldRegenTime: 15
   shieldRegenRate: 0
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -201,6 +205,7 @@ MonoBehaviour:
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   explosionScale: 1
+  chargingShield: 0
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985424437328009}
