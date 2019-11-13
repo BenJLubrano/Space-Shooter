@@ -1454,7 +1454,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ship
       value: 
-      objectReference: {fileID: 11400000, guid: 2a45f5a52485a8f45a0f806e21727d93,
+      objectReference: {fileID: 11400000, guid: d7aea0ffa638c444a9bf9ce54b1e3647,
         type: 2}
     - target: {fileID: 6519390988356707977, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
