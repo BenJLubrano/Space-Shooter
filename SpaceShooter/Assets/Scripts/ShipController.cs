@@ -253,6 +253,13 @@ public class ShipController : MonoBehaviour
     {
         return shield;
     }
+
+    public Vector2 GetSpeed()
+    {
+
+        return shipRb.velocity;
+    }
+
     public bool IsDead()
     {
         return isDead;
