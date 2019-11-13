@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1838343172613552362}
   - component: {fileID: 1838343172613552365}
   m_Layer: 0
-  m_Name: Close Field
+  m_Name: Transparent Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 1838343172674185134}
   - component: {fileID: 1838343172674185041}
   m_Layer: 0
-  m_Name: Far Field
+  m_Name: Opaque Far
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,11 +265,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1838343172377452681}
     m_Modifications:
-    - target: {fileID: 608216574862301995, guid: 5609e84318018ae4f91c1817cc8b2c61,
-        type: 3}
-      propertyPath: m_Name
-      value: Close Field
-      objectReference: {fileID: 0}
     - target: {fileID: 608216574862301992, guid: 5609e84318018ae4f91c1817cc8b2c61,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -324,6 +319,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 608216574862301995, guid: 5609e84318018ae4f91c1817cc8b2c61,
+        type: 3}
+      propertyPath: m_Name
+      value: Transparent Close
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5609e84318018ae4f91c1817cc8b2c61, type: 3}
@@ -334,11 +334,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1838343172377452681}
     m_Modifications:
-    - target: {fileID: 3151763159595548820, guid: 35119a233f56d5b4d990adc55fc46d8c,
-        type: 3}
-      propertyPath: m_Name
-      value: Far Field
-      objectReference: {fileID: 0}
     - target: {fileID: 3151763159595548823, guid: 35119a233f56d5b4d990adc55fc46d8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -393,6 +388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151763159595548820, guid: 35119a233f56d5b4d990adc55fc46d8c,
+        type: 3}
+      propertyPath: m_Name
+      value: Opaque Far
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35119a233f56d5b4d990adc55fc46d8c, type: 3}

@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] float maxSize = 5f;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         playerCam.orthographicSize -= scroll * scrollSpeed * Time.deltaTime; //scroll the camera
@@ -18,6 +18,6 @@ public class CameraController : MonoBehaviour
             playerCam.orthographicSize = minSize;
         if (playerCam.orthographicSize > maxSize)
             playerCam.orthographicSize = maxSize;
-        transform.rotation = Quaternion.Euler(Vector3.zero); //set the camera's rotation to zero (it's parented to the player ship so we don't want it to rotate if the player does)
+        transform.rotation = Quaternion.Euler(Vector3.zero); //set the camera's rotation to zero (it's parented to the player ShipController so we don't want it to rotate if the player does)
     }
 }
