@@ -47,6 +47,8 @@ public class Projectile : MonoBehaviour
             audioSource.Play();
         }
         hitBox.size *= weapon.scale;
+        Vector2 shooterSpeed = shooter.GetSpeed();
+        speedMod = new Vector3(shooterSpeed.x, shooterSpeed.y, 0);
     }
 
     // Update is called once per frame
