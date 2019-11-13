@@ -10,6 +10,7 @@ public class PlayerStats : ShipStats
 
     private void Awake()
     {
+        units = 1000;
         base.Awake();
         staticReputation = false;
         PlayerController pc = (PlayerController)shipController;

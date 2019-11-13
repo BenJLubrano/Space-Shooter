@@ -7,24 +7,25 @@ using TMPro;
 
 public class ShopControl : MonoBehaviour
 {
-    int units = 1000;
+    int units;
     int isSold;
 
     public TextMeshProUGUI unitsText;
     public TextMeshProUGUI weaponText;
+    [SerializeField] PlayerStats playerStats;
 
     public Button buy;
 
     // Start is called before the first frame update
     void Start()
     {
-        units = PlayerPrefs.GetInt("Units");
+        units = playerStats.GetUnits();
     }
 
     // Update is called once per frame
     void Update()
     {
-        unitsText.text = "Units: " + units.ToString();
+        unitsText.text = "Units: " + playerStats.GetUnits().ToString();
 
         isSold = PlayerPrefs.GetInt("IsSold");
 
@@ -36,8 +37,9 @@ public class ShopControl : MonoBehaviour
 
     public void buyWeapon()
     {
-        units -= 5;
-        PlayerPrefs.SetInt("IsSold", 1);
+        /*units -= 5;
+        PlayerPrefs.SetInt("IsSold", 1);*/
+        playerStats.ModifyUnits(-5);
         weaponText.text = "Already Sold!";
         buy.gameObject.SetActive(false);
     }
