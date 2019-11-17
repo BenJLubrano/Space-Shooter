@@ -37,6 +37,12 @@ public class PlayerStats : ShipStats
     {
         units += amount;
     }
+
+    public void ResetUnits(int amount)
+    {
+        units = amount;
+    }
+
     public override void AlterReputation(float targetRep, bool killed)
     {
         base.AlterReputation(targetRep, killed);

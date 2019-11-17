@@ -10,12 +10,10 @@ public class ShopControl : MonoBehaviour
     int units;
     int isSold;
 
-    [SerializeField] GameObject gObject;
-    [SerializeField] GameObject Shop;
-
     public TextMeshProUGUI unitsText;
     public TextMeshProUGUI weaponText;
     [SerializeField] PlayerStats playerStats;
+    [SerializeField] GameObject shop;
 
     public Button buy;
 
@@ -40,32 +38,27 @@ public class ShopControl : MonoBehaviour
 
     public void buyWeapon()
     {
+        playerStats.ModifyUnits(-5);
         /*units -= 5;
         PlayerPrefs.SetInt("IsSold", 1);*/
-        playerStats.ModifyUnits(-5);
-        weaponText.text = "Already Sold!";
-        buy.gameObject.SetActive(false);
+        //weaponText.text = "Already Sold!";
+        //buy.gameObject.SetActive(false);
     }
 
-    /*public void exitShop()
+    public void exitShop()
     {
-        PlayerPrefs.SetInt("Units", units);
-        SceneManager.LoadScene("MidtermScene");
+        shop.gameObject.SetActive(false);
+
+        //PlayerPrefs.SetInt("Units", units);
+        //SceneManager.LoadScene("MidtermScene");
     }
 
     public void resetPlayerPrefs()
     {
-        units = 1000;
-        buy.gameObject.SetActive(true);
-        weaponText.text = "Dual Lasers \n Price: 5 Units";
-        PlayerPrefs.DeleteAll();
+        playerStats.ResetUnits(1000);
+        //buy.gameObject.SetActive(true);
+        //weaponText.text = "Dual Lasers \n Price: 5 Units";
+        //PlayerPrefs.DeleteAll();
     }
-    */
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject == gObject)
-        {
-            Shop.gameObject.SetActive(true);
-        }
-    }
+   
 }
