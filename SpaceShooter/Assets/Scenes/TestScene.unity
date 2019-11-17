@@ -491,15 +491,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1670886136389112699, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670886136389112699, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 76290790}
+    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: mouseMovement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: shipWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: eb8ec8e4d93618941a35a89f779efb9a,
+        type: 2}
     - target: {fileID: 6519390988356707977, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: staticReputation
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519390988356707977, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 11400000, guid: d7aea0ffa638c444a9bf9ce54b1e3647,
+        type: 2}
+    - target: {fileID: 6519390988356707977, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: overwriteValues
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4103627688465375402, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
@@ -596,6 +628,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838343172259217286, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838343172259217286, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838343173033813987, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838343173033813987, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838343173033813986, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: parallax
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05bdc6182e9e4243aec202383b038ba, type: 3}
@@ -858,6 +915,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShooterFederation
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706373672459138013, guid: a47aa131e0ba3f44585408264c256907,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1704222323633253759, guid: a47aa131e0ba3f44585408264c256907,
         type: 3}
@@ -1238,6 +1300,7 @@ MonoBehaviour:
   maxShield: 10
   shieldRegenRate: 5
   shieldRegenTime: 10
+  overwriteValues: 1
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: 0a7626b8a0ebf664a9ba37668ed4fc03, type: 2}
@@ -1742,6 +1805,7 @@ MonoBehaviour:
   maxShield: 10
   shieldRegenRate: 5
   shieldRegenTime: 10
+  overwriteValues: 1
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: 0a7626b8a0ebf664a9ba37668ed4fc03, type: 2}
@@ -2034,6 +2098,7 @@ MonoBehaviour:
   maxShield: 10
   shieldRegenRate: 5
   shieldRegenTime: 10
+  overwriteValues: 1
   weapons: []
   currentWeapon: 0
   ship: {fileID: 0}
