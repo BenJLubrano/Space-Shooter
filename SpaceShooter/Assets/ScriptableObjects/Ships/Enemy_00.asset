@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3210549f35f84f448fbec235ca29c4e, type: 3}
-  m_Name: New Ship
+  m_Name: Enemy_00
   m_EditorClassIdentifier: 
   baseSprite: {fileID: 0}
-  animatorController: {fileID: 0}
-  explosion: {fileID: 0}
-  health: 0
-  shield: 0
-  shieldRegenRate: 0
-  shieldRegenTime: 0
-  weapons: []
-  speed: 0
+  animatorController: {fileID: 22100000, guid: daec2a9f8104a4b2d80d850698492b3b, type: 2}
+  explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
+    type: 3}
+  health: 100
+  shield: 100
+  shieldRegenRate: 10
+  shieldRegenTime: 15
+  weapons:
+  - {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
+  speed: 5
   acceleration: 1
-  mass: 0
-  drag: 0
-  turnSpeed: 0
+  mass: 15
+  drag: 1
+  turnSpeed: 5

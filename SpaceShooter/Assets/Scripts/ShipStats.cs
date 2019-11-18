@@ -8,16 +8,17 @@ public class ShipStats : MonoBehaviour
     [Header("Basic Stats", order = 0)]
     [SerializeField] public int shipId;
     [SerializeField] public string shipName = "Unnamed Ship";
-    [SerializeField] public int level;
+    [SerializeField] public int level = 1;
     [SerializeField] public string faction;
-    [SerializeField] public float reputation;
+    [SerializeField] public float reputation = 0;
     [SerializeField] public bool staticReputation = true;
-    [SerializeField] public float speed;
-    [SerializeField] public float acceleration;
-    [SerializeField] public float maxHealth;
-    [SerializeField] public float maxShield;
-    [SerializeField] public float shieldRegenRate;
-    [SerializeField] public float shieldRegenTime;
+    [SerializeField] public float speed = 5;
+    [SerializeField] public float acceleration = 1;
+    [SerializeField] public float maxHealth = 100;
+    [SerializeField] public float maxShield = 100;
+    [SerializeField] public float shieldRegenRate = 10;
+    [SerializeField] public float shieldRegenTime = 15;
+    [SerializeField] public bool overwriteValues = true;
 
     [Header("Weapons", order = 2)]
     [SerializeField] public List<Weapon> weapons;
@@ -64,22 +65,25 @@ public class ShipStats : MonoBehaviour
             shipController.SetStats(this);
             return;
         }
-        
-        maxHealth = ship.health;
-        maxShield = ship.shield;
-        speed = ship.speed;
-        acceleration = ship.acceleration;
-        shieldRegenRate = ship.shieldRegenRate;
-        shieldRegenTime = ship.shieldRegenTime;
 
-        if(weapons == null)
-            weapons = ship.weapons;
-        else
+        if (overwriteValues)
         {
-            foreach(Weapon weapon in ship.weapons)
+            maxHealth = ship.health;
+            maxShield = ship.shield;
+            speed = ship.speed;
+            acceleration = ship.acceleration;
+            shieldRegenRate = ship.shieldRegenRate;
+            shieldRegenTime = ship.shieldRegenTime;
+
+            if (weapons == null)
+                weapons = ship.weapons;
+            else
             {
-                if(!weapons.Contains(weapon))
-                    weapons.Add(weapon);
+                foreach (Weapon weapon in ship.weapons)
+                {
+                    if (!weapons.Contains(weapon))
+                        weapons.Add(weapon);
+                }
             }
         }
         currentWeapon = 0;
