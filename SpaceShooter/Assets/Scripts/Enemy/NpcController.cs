@@ -14,6 +14,7 @@ public class NpcController : ShipController
     float lastFrameVelocity;
     protected GameObject currentTarget;
 
+    float lastDistanceToTarget = 1000f;
     protected override void Update()
     {
         base.Update(); //call base ShipController update
@@ -130,14 +131,19 @@ public class NpcController : ShipController
         if (currentTarget != null)
         {
             Rotate();
-
+            float distance = Vector2.Distance(currentTarget.transform.position, transform.position);
             if (!TargetInAttackRange()) //if the target is further away than half of the weapons range
             {
-                thrusterPower = thrusterPower > 1 ? 1 : thrusterPower + acceleration * Time.deltaTime;
+                Debug.Log(Mathf.Abs(lastDistanceToTarget - distance) + " D: " + distance);
+                if(Mathf.Abs(lastDistanceToTarget - distance) < 1f && distance < 1f)
+                    thrusterPower = thrusterPower = thrusterPower < 0 ? 0 : thrusterPower - acceleration * Time.deltaTime;
+                else
+                    thrusterPower = thrusterPower > 1 ? 1 : thrusterPower + acceleration * Time.deltaTime;
                 shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime * thrusterPower);
             }
             else
                 thrusterPower = thrusterPower < 0 ? 0 : thrusterPower - acceleration * Time.deltaTime;
+            lastDistanceToTarget = distance;
         }
     }
 

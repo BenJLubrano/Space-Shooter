@@ -15,7 +15,7 @@ public class SeekingProjectile : Projectile
     float currentLifeSpan = 0f;
     Rigidbody2D missileRb;
 
-    float lastDistanceToTarget;
+    float lastDistanceToTarget = 1000f;
     float turnSpeedIncrease = .1f;
     public override void Initialize(Weapon weapon, ShipController shooter, GameObject target = null, List<string> factions = null)
     {
