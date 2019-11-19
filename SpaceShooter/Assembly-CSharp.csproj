@@ -90,6 +90,8 @@
     <Compile Include="Assets\Scripts\Projectiles\LaserProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectiles\LaserWeapon.cs" />
     <Compile Include="Assets\Scripts\Projectiles\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\SeekingProjectile.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\SeekingWeapon.cs" />
     <Compile Include="Assets\Scripts\Projectiles\Weapon.cs" />
     <Compile Include="Assets\Scripts\Ship.cs" />
     <Compile Include="Assets\Scripts\ShipController.cs" />
