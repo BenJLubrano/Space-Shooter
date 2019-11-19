@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fed_lvl_2_idle
+  m_Name: New Animation
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1564354497632032057, guid: 7ad86e87479d5d244b9f7b7d2eb8d636,
+      value: {fileID: 885935272934981695, guid: 7ad86e87479d5d244b9f7b7d2eb8d636,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -41,7 +41,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1564354497632032057, guid: 7ad86e87479d5d244b9f7b7d2eb8d636, type: 3}
+    - {fileID: 885935272934981695, guid: 7ad86e87479d5d244b9f7b7d2eb8d636, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
