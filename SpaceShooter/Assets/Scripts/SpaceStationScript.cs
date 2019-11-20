@@ -25,6 +25,7 @@ public class SpaceStationScript : MonoBehaviour
         if (collision.gameObject == player)
         {
             shop.gameObject.SetActive(true);
+            playerUI.gameObject.SetActive(false);
             //playerUI.SetActive(false);
 
         }
