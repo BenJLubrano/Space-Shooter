@@ -11,6 +11,11 @@ public class NpcController : ShipController
     [SerializeField] public List<string> enemyFactions;
     [SerializeField] protected TargetingController targetingController;
 
+    //We can just remove the "targets" gameobject and substitute it for this. The targeting controller will have to by modified but it will work.
+    //Basically, whenever a ship enters the aggro zone (or attacks the ship) they get added to an aggro table, and when they leave the aggro zone, they get removed.
+    //On attacking a ship, the initial aggro value should be damage - playerReputation, so that high rep players don't immediately get aggro when attacking federation ships
+    [SerializeField] AggroTable aggroTable = new AggroTable();
+
     float lastFrameVelocity;
     protected GameObject currentTarget;
 
