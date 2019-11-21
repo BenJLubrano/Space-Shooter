@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pirate_ship_4
   m_EditorClassIdentifier: 
   baseSprite: {fileID: 0}
-  animatorController: {fileID: 22100000, guid: d3a090f80c1be40dd97baa41024c0aaf, type: 2}
+  animatorController: {fileID: 22100000, guid: a86f97e87503248a091c20e61f49f6d7, type: 2}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   health: 100
@@ -21,7 +21,7 @@ MonoBehaviour:
   shieldRegenRate: 10
   shieldRegenTime: 15
   weapons:
-  - {fileID: 11400000, guid: 7fdd9d47c1dc46d4994509af076b785f, type: 2}
+  - {fileID: 11400000, guid: 47653cd744adba74caabe5a801c163ce, type: 2}
   speed: 5
   acceleration: 1
   mass: 15
