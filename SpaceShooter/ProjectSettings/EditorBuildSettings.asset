@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LiveDemo.unity
     guid: c5a692fc2b99e2d41ad55ddd084457a6
+  - enabled: 0
+    path: Assets/Scenes/ShopTest v2.unity
+    guid: 2a9fe4ef9134d6d4ea68eadc5f1291a0
   m_configObjects: {}
