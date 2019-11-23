@@ -8,14 +8,13 @@ public class TargetingController : MonoBehaviour
 {
     [SerializeField] NpcController controller;
     [SerializeField] CircleCollider2D targetingZone;
-    [SerializeField] float radius;
+    [SerializeField] public float radius;
     [SerializeField] List<string> enemyFactions = new List<string>();
     List<GameObject> targets = new List<GameObject>();
 
     private void Awake()
     {
         targetingZone.radius = radius;
-        enemyFactions.Add("Player");
     }
 
     public void Initialize(List<string> factions)
@@ -27,25 +26,55 @@ public class TargetingController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         string collisionFaction;
-
         try
         {
-            collisionFaction = collision.gameObject.GetComponent<Ship>().GetFaction();
+            collisionFaction = collision.gameObject.GetComponent<ShipController>().GetFaction();
         }
         catch //we can't target it, so just exit.
         {
             return;
         }
 
-        foreach (string tag in enemyFactions)
+        if (enemyFactions.Contains(collisionFaction))
         {
-            if (tag == collisionFaction) //if the tag is in the list of factions that this ship will attack
+            targets.Add(collision.gameObject);
+            controller.UpdateTargets(targets);
+        }
+    }
+
+    public void ManualRemoveTarget(GameObject target)
+    {
+        if (targets.Contains(target))
+            targets.Remove(target);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        string collisionFaction;
+        try
+        {
+            collisionFaction = collision.gameObject.GetComponent<ShipController>().GetFaction();
+        }
+        catch //we can't target it, so just exit.
+        {
+            return;
+        }
+
+        if (targets.Contains(collision.gameObject))
+        {
+            if (!enemyFactions.Contains(collisionFaction))
             {
-                targets.Add(collision.gameObject); //add the target to the
-                controller.UpdateTargets(targets);
-                break;
+                targets.Remove(collision.gameObject);
             }
         }
+        else
+        {
+            if (enemyFactions.Contains(collisionFaction))
+            {
+                targets.Add(collision.gameObject);
+            }
+        }
+        controller.UpdateTargets(targets);
     }
 
     //Activates when a collider exits the targeting zone of the ship
@@ -61,6 +90,5 @@ public class TargetingController : MonoBehaviour
             }
         }
     }
-
 
 }

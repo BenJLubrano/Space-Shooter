@@ -17,4 +17,9 @@ public class CanvasClamp : MonoBehaviour
         transform.rotation = initialRot;
         transform.localPosition = initialPos;
     }
+    private void FixedUpdate()
+    {
+        transform.rotation = initialRot;
+        transform.localPosition = initialPos;
+    }
 }
