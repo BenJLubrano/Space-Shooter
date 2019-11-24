@@ -1960,7 +1960,7 @@ PrefabInstance:
     - target: {fileID: 3706373672459138013, guid: a47aa131e0ba3f44585408264c256907,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1704222323633253759, guid: a47aa131e0ba3f44585408264c256907,
         type: 3}
@@ -2017,6 +2017,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8697842573006581047, guid: a47aa131e0ba3f44585408264c256907,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 11400000, guid: 475ebd9350b993449b372d3a1dd413cf,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a47aa131e0ba3f44585408264c256907, type: 3}
 --- !u!1 &1558847048
@@ -2342,6 +2348,7 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: 0a7626b8a0ebf664a9ba37668ed4fc03, type: 2}
@@ -2469,6 +2476,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MeleeFederation
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765514119680980127, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8415550468204227133, guid: bab22a56eb911f24baf863d86f041110,
         type: 3}
@@ -2916,6 +2928,7 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: 0a7626b8a0ebf664a9ba37668ed4fc03, type: 2}

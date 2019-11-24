@@ -17,5 +17,6 @@ public class Weapon : ScriptableObject
     [SerializeField] public float volume = 1f;
     [SerializeField] public GameObject projectile;
     [SerializeField] public Vector2 scale = new Vector2(1,1);
+    [SerializeField] public float degreesOfAccuracy = 45f;
 
 }

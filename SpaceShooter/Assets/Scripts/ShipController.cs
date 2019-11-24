@@ -18,6 +18,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] protected float shieldRegenRate;
     [SerializeField] protected float weaponCooldown;
     [SerializeField] protected float acceleration;
+    [SerializeField] protected float accuracy;
 
     [Header("Player Movement Variables")]
     //These variables are used for the player controller, but they exist here in case we want to have the enemy ships move like the player

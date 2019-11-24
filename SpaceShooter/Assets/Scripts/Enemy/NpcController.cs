@@ -18,7 +18,7 @@ public class NpcController : ShipController
 
     float lastFrameVelocity;
     protected GameObject currentTarget;
-
+    protected Vector3 targetPosition;
     float lastDistanceToTarget = 1000f;
     protected override void Update()
     {
@@ -36,15 +36,16 @@ public class NpcController : ShipController
         }
 
         //if the ShipController has a target
-        if (currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead)
+        if (currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead && TargetWithinShootAngle())
         {
-            //Turn this into a method in Ship.cs called "Shoot()" that will handle the cooldown setting etc, since it's universal for all ships
             Shoot(currentTarget, enemyFactions);
         }
     }
 
     protected virtual void FixedUpdate()
     {
+        if(currentTarget != null)
+            targetPosition = currentTarget.transform.position;
         Move();
     }
 
@@ -90,7 +91,7 @@ public class NpcController : ShipController
             return;
         GameObject tempTarget = targets[0];
         float closest = Vector2.Distance(gameObject.transform.position, tempTarget.transform.position);
-        foreach(GameObject target in targets)
+        foreach(GameObject target in targets) //TODO: Add something that has to do with aggro tables here
         {
             float tempDist = Vector2.Distance(gameObject.transform.position, target.transform.position);
             if (tempDist < closest)
@@ -169,6 +170,16 @@ public class NpcController : ShipController
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         return angle < 0 ? angle + 360 : angle;
+    }
+
+    protected bool TargetWithinShootAngle()
+    {
+        Vector2 direction = currentTarget.transform.position - transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle -= transform.rotation.eulerAngles.z;
+        angle = angle < 0 ? angle + 360 : angle;
+        return angle > 90 - shipWeapon.degreesOfAccuracy && angle < 90 + shipWeapon.degreesOfAccuracy;
     }
 
     protected override void Die()
