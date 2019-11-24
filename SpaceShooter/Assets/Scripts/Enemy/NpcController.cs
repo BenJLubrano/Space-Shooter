@@ -18,7 +18,8 @@ public class NpcController : ShipController
 
     float lastFrameVelocity;
     protected GameObject currentTarget;
-    protected Vector3 targetPosition;
+    protected Vector2 targetPosition;
+    protected Rigidbody2D targetRb;
     float lastDistanceToTarget = 1000f;
     protected override void Update()
     {
@@ -45,7 +46,7 @@ public class NpcController : ShipController
     protected virtual void FixedUpdate()
     {
         if(currentTarget != null)
-            targetPosition = currentTarget.transform.position;
+            targetPosition = PredictTargetLocation();
         Move();
     }
 
@@ -130,6 +131,7 @@ public class NpcController : ShipController
     {
         //going to do other stuff here later, like returning to patrol point
         currentTarget = null;
+        targetRb = null;
     }
     
     protected virtual void Move()
@@ -157,16 +159,16 @@ public class NpcController : ShipController
     {
         if (currentTarget == null)
             return;
-        float angle = AngleToTarget();
+        /*float angle = AngleToTarget();
         Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);*/
         //CODE FOR INSTANT ROTATE
-        //transform.up = currentTarget.gameObject.transform.position - transform.position; //change rotation to face target
+        transform.up = currentTarget.gameObject.transform.position - transform.position; //change rotation to face target
     }
 
     protected float AngleToTarget()
     {
-        Vector2 direction = currentTarget.transform.position - transform.position;
+        Vector2 direction = targetPosition - (Vector2)transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         return angle < 0 ? angle + 360 : angle;
@@ -174,7 +176,7 @@ public class NpcController : ShipController
 
     protected bool TargetWithinShootAngle()
     {
-        Vector2 direction = currentTarget.transform.position - transform.position;
+        Vector2 direction = targetPosition - (Vector2)transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         angle -= transform.rotation.eulerAngles.z;
@@ -182,6 +184,63 @@ public class NpcController : ShipController
         return angle > 90 - shipWeapon.degreesOfAccuracy && angle < 90 + shipWeapon.degreesOfAccuracy;
     }
 
+    protected Vector2 PredictTargetLocation()
+    {
+        Vector2 position = currentTarget.transform.position;
+
+        if(targetRb == null)
+            targetRb = currentTarget.GetComponent<Rigidbody2D>();
+
+        Vector2 relativeVelocity = targetRb.velocity - shipRb.velocity;
+        
+        return position + FirstOrderInterceptTime(shipWeapon.projectileSpeed, position - (Vector2)transform.position, relativeVelocity)*relativeVelocity;
+    }
+
+    public static float FirstOrderInterceptTime(float shotSpeed, Vector3 targetRelativePosition, Vector3 targetRelativeVelocity)
+    {
+        float velocitySquared = targetRelativeVelocity.sqrMagnitude;
+        if (velocitySquared < 0.001f)
+            return 0f;
+
+        float a = velocitySquared - shotSpeed * shotSpeed;
+
+        //handle similar velocities
+        if (Mathf.Abs(a) < 0.001f)
+        {
+            float t = -targetRelativePosition.sqrMagnitude /
+            (
+                2f * Vector3.Dot
+                (
+                    targetRelativeVelocity,
+                    targetRelativePosition
+                )
+            );
+            return Mathf.Max(t, 0f); //don't shoot back in time
+        }
+
+        float b = 2f * Vector3.Dot(targetRelativeVelocity, targetRelativePosition);
+        float c = targetRelativePosition.sqrMagnitude;
+        float determinant = b * b - 4f * a * c;
+
+        if (determinant > 0f)
+        { //determinant > 0; two intercept paths (most common)
+            float t1 = (-b + Mathf.Sqrt(determinant)) / (2f * a),
+                    t2 = (-b - Mathf.Sqrt(determinant)) / (2f * a);
+            if (t1 > 0f)
+            {
+                if (t2 > 0f)
+                    return Mathf.Min(t1, t2); //both are positive
+                else
+                    return t1; //only t1 is positive
+            }
+            else
+                return Mathf.Max(t2, 0f); //don't shoot back in time
+        }
+        else if (determinant < 0f) //determinant < 0; no intercept path
+            return 0f;
+        else //determinant = 0; one intercept path, pretty much never happens
+            return Mathf.Max(-b / (2f * a), 0f); //don't shoot back in time
+    }
     protected override void Die()
     {
         //eventually will do more stuff here

@@ -2021,7 +2021,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ship
       value: 
-      objectReference: {fileID: 11400000, guid: 475ebd9350b993449b372d3a1dd413cf,
+      objectReference: {fileID: 11400000, guid: a42c7bdc76c4cb54a95efcf190b906a8,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a47aa131e0ba3f44585408264c256907, type: 3}
@@ -2300,6 +2300,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0.5
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -2880,6 +2881,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0.5
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
