@@ -12,6 +12,7 @@ public class Weapon : ScriptableObject
     [SerializeField] public float projectileSpeed = 1;
     [SerializeField] public Sprite projectileImage;
     [SerializeField] public float range = 25f;
+    [SerializeField] public float maxDistance = 25f;
     [SerializeField] public AudioClip sound;
     [Range(0.0f, 1f)]
     [SerializeField] public float volume = 1f;

@@ -37,7 +37,7 @@ public class NpcController : ShipController
         }
 
         //if the ShipController has a target
-        if (currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead && TargetWithinShootAngle())
+        if (currentTarget != null && TargetInWeaponRange() && weaponCooldown <= 0 && !isDead && TargetWithinShootAngle())
         {
             Shoot(currentTarget, enemyFactions);
         }
@@ -121,6 +121,11 @@ public class NpcController : ShipController
     }
 
     //Whether or not the target is in range to attack. Might do some more complicated calculations here later?
+    protected virtual bool TargetInWeaponRange()
+    {
+        return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.maxDistance / 2;
+    }
+
     protected virtual bool TargetInAttackRange()
     {
         return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.range;
