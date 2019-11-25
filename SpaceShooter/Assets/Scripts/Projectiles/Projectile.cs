@@ -71,7 +71,7 @@ public class Projectile : MonoBehaviour
     //called after physics updates
     protected virtual void LateUpdate()
     {
-        if (Vector2.Distance(transform.position, startPos) >= weapon.maxDistance)
+        if (Vector2.Distance(transform.position, startPos) >= weapon.range)
             Deactivate();
     }
 

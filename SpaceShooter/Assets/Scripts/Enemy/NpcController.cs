@@ -14,7 +14,8 @@ public class NpcController : ShipController
     //We can just remove the "targets" gameobject and substitute it for this. The targeting controller will have to by modified but it will work.
     //Basically, whenever a ship enters the aggro zone (or attacks the ship) they get added to an aggro table, and when they leave the aggro zone, they get removed.
     //On attacking a ship, the initial aggro value should be damage - playerReputation, so that high rep players don't immediately get aggro when attacking federation ships
-    [SerializeField] AggroTable aggroTable = new AggroTable();
+    AggroTable aggroTable = new AggroTable();
+    [SerializeField] List<AggroElement> aggroElements = new List<AggroElement>();
 
     float lastFrameVelocity;
     protected GameObject currentTarget;
@@ -88,9 +89,23 @@ public class NpcController : ShipController
     //Logic related to targeting
     protected virtual void LookForTargets()
     {
-        if (targets.Count == 0)
+        if (aggroElements.Count == 0)
             return;
-        GameObject tempTarget = targets[0];
+
+        AggroElement tempTarget = aggroTable.GetTopAggro();
+        float currentShortestDistance = Vector2.Distance(transform.position, tempTarget.ship.transform.position);
+        foreach(AggroElement aggroTarget in aggroTable.GetElements())
+        {
+            float tempDist = Vector2.Distance(transform.position, aggroTarget.ship.transform.position);
+            if (tempDist < currentShortestDistance)
+            {
+                currentShortestDistance = tempDist;
+                tempTarget = aggroTarget;
+            }
+        }
+
+        currentTarget = tempTarget.ship.gameObject;
+        /*
         float closest = Vector2.Distance(gameObject.transform.position, tempTarget.transform.position);
         foreach(GameObject target in targets) //TODO: Add something that has to do with aggro tables here
         {
@@ -102,6 +117,7 @@ public class NpcController : ShipController
             }
         }
         currentTarget = tempTarget;
+        */
     }
 
     //Used to get target updates from the TargetingController
@@ -123,12 +139,12 @@ public class NpcController : ShipController
     //Whether or not the target is in range to attack. Might do some more complicated calculations here later?
     protected virtual bool TargetInWeaponRange()
     {
-        return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.maxDistance / 2;
+        return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.range / 2;
     }
 
     protected virtual bool TargetInAttackRange()
     {
-        return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.range;
+        return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.npcFollowDistance;
     }
 
     //Called when the npc "loses interest" in a target
@@ -147,15 +163,28 @@ public class NpcController : ShipController
             float distance = Vector2.Distance(currentTarget.transform.position, transform.position);
             if (!TargetInAttackRange()) //if the target is further away than half of the weapons range
             {
-                if(Mathf.Abs(lastDistanceToTarget - distance) < 1f && distance < 1f)
-                    thrusterPower = thrusterPower = thrusterPower < 0 ? 0 : thrusterPower - acceleration * Time.deltaTime;
+                if (Mathf.Abs(lastDistanceToTarget - distance) < 1f && distance < 1f)
+                {
+                    thrusterPower -= acceleration * 2 * Time.deltaTime;
+                    if (thrusterPower < 0)
+                        thrusterPower = 0;
+                }
                 else
-                    thrusterPower = thrusterPower > 1 ? 1 : thrusterPower + acceleration * Time.deltaTime;
-                shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime * thrusterPower);
+                {
+                    thrusterPower += acceleration * Time.deltaTime;
+                    if (thrusterPower > 1)
+                        thrusterPower = 1;
+                }
             }
             else
-                thrusterPower = thrusterPower < 0 ? 0 : thrusterPower - acceleration * Time.deltaTime;
+            {
+                thrusterPower -= acceleration * 2 * Time.deltaTime;
+                if (thrusterPower < 0)
+                    thrusterPower = 0;
+            }
+
             lastDistanceToTarget = distance;
+            shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime * thrusterPower);
         }
     }
 
@@ -246,6 +275,66 @@ public class NpcController : ShipController
         else //determinant = 0; one intercept path, pretty much never happens
             return Mathf.Max(-b / (2f * a), 0f); //don't shoot back in time
     }
+
+    public override void TakeDamage(float damage, ShipController damager)
+    {
+        if (isDead)
+            return;
+        lastDamaged = 0f;
+        if (shield >= damage)
+        {
+            shield -= damage;
+        }
+        else
+        {
+            damage -= shield;
+            shield = 0;
+            health -= damage;
+        }
+
+        if (health <= 0)
+        {
+            health = 0;
+            damager.GetStats().AlterReputation(stats.reputation, true);
+            PrepareForDeath();
+        }
+        else
+        {
+            damager.GetStats().AlterReputation(stats.reputation, false);
+        }
+
+        if (!aggroTable.IsInTable(damager))
+            aggroTable.AddShip(damager, damage);
+        else
+            aggroTable.UpdateEntry(damager, damage);
+
+        aggroElements = aggroTable.GetElements();
+        try
+        {
+            UpdateBars();
+        }
+        catch
+        {
+            Debug.LogWarning(gameObject.name + " does not have a health bar");
+        }
+    }
+
+    public void AddTargetFromTargetingController(ShipController ship)
+    {
+        if(!aggroTable.IsInTable(ship))
+            aggroTable.AddShip(ship);
+        if (currentTarget == null)
+            currentTarget = ship.gameObject;
+    }
+
+    public void AttemptToRemoveTargetFromTargetingController(ShipController ship)
+    {
+        if(aggroTable.IsInTable(ship))
+            aggroTable.RemoveElement(ship);
+        if (ship.gameObject == currentTarget)
+            Deaggro();
+    }
+
     protected override void Die()
     {
         //eventually will do more stuff here

@@ -17,8 +17,8 @@ MonoBehaviour:
   projectileSpeed: 8
   projectileImage: {fileID: 7145968359262953003, guid: c7a59bdc6aa23d645973807ee9ec4501,
     type: 3}
-  range: 5
-  maxDistance: 25
+  npcFollowDistance: 5
+  range: 25
   sound: {fileID: 0}
   volume: 1
   projectile: {fileID: 1293707857675163038, guid: bb60df3976c46984cb3b47884fb99bb7,

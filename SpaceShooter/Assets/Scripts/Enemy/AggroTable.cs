@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class AggroElement
 {
     public AggroElement(ShipController newShip, float agr)
@@ -17,19 +18,21 @@ public class AggroTable
 {
     List<AggroElement> aggroTable = new List<AggroElement>();
 
-    void AddShip(ShipController ship, float aggro)
+    public void AddShip(ShipController ship, float aggro = 0)
     {
         AggroElement newEntry = new AggroElement(ship, aggro);
         aggroTable.Add(newEntry);
     }
     
-    void UpdateEntry(ShipController ship, float aggro)
+    public void UpdateEntry(ShipController ship, float aggro)
     {
         foreach(AggroElement element in aggroTable)
         {
             if (element.ship == ship)
                 element.aggro += aggro;
+            return;
         }
+
     }
 
     public bool IsInTable(ShipController ship)
@@ -42,7 +45,7 @@ public class AggroTable
         return false;
     }
 
-    public GameObject GetTopAggro()
+    public AggroElement GetTopAggro()
     {
         AggroElement highestAggro = new AggroElement(null, 0);
         foreach(AggroElement element in aggroTable)
@@ -52,7 +55,7 @@ public class AggroTable
                 highestAggro = element;
             }
         }
-        return highestAggro.ship.gameObject;
+        return highestAggro;
     }
 
     public void RemoveElement(ShipController ship)
@@ -62,7 +65,13 @@ public class AggroTable
             if (element.ship == ship)
             {
                 aggroTable.Remove(element);
+                return;
             }
         }
+    }
+
+    public List<AggroElement> GetElements()
+    {
+        return aggroTable;
     }
 }

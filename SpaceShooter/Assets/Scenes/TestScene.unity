@@ -2023,6 +2023,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a42c7bdc76c4cb54a95efcf190b906a8,
         type: 2}
+    - target: {fileID: 5687444219440480203, guid: a47aa131e0ba3f44585408264c256907,
+        type: 3}
+      propertyPath: radius
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a47aa131e0ba3f44585408264c256907, type: 3}
 --- !u!1 &1558847048
@@ -2324,6 +2329,7 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 137262162}
+  aggroElements: []
 --- !u!114 &1827099719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2905,6 +2911,7 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 400078926}
+  aggroElements: []
 --- !u!114 &2091647605
 MonoBehaviour:
   m_ObjectHideFlags: 0
