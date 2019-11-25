@@ -20,6 +20,8 @@ public class ShipStats : MonoBehaviour
     [SerializeField] public float shieldRegenTime = 15;
     [SerializeField] public bool overwriteValues = true;
 
+    [Header("Upgrade", order = 1)]
+    [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
     [Header("Weapons", order = 2)]
     [SerializeField] public List<Weapon> weapons;
     [SerializeField] public int currentWeapon;
@@ -158,4 +160,27 @@ public class ShipStats : MonoBehaviour
 
     }
 
+    public void ApplyUpgrade(Upgrade newUpgrade)
+    {
+        upgrades.Add(newUpgrade);
+        if(newUpgrade.type == 0) //hull upgrade
+        {
+            maxHealth += newUpgrade.increase;
+        }
+        else if(newUpgrade.type == 1) //shield upgrade
+        {
+            maxShield += newUpgrade.increase;
+        }
+        else if(newUpgrade.type == 2) //speed upgrade
+        {
+            speed += newUpgrade.increase;
+        }
+        else if (newUpgrade.type == 3) //new weapon
+        {
+            weapons.Add(newUpgrade.weapon);
+        }
+
+        //update the controller values
+        shipController.Initialize(this);
+    }
 }
