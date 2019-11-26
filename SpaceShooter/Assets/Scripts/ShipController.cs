@@ -211,6 +211,11 @@ public class ShipController : MonoBehaviour
         return stats.faction;
     }
 
+    public float GetReputation()
+    {
+        return stats.reputation;
+    }
+
     //returns the ID of the ship
     public int GetId()
     {

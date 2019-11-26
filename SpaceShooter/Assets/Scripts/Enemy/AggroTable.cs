@@ -17,8 +17,29 @@ public class AggroElement
 public class AggroTable
 {
     List<AggroElement> aggroTable = new List<AggroElement>();
+    NpcController controller;
 
-    public void AddShip(ShipController ship, float aggro = 0)
+    public void Initialize(NpcController control)
+    {
+        controller = control;
+    }
+
+    public void ReduceAllAggro(float amount)
+    {
+        foreach (AggroElement element in aggroTable)
+        {
+            element.aggro -= amount;
+        }
+
+        aggroTable.RemoveAll(element => element.aggro < 0);
+    }
+
+    public bool AggroIsPositive(ShipController ship)
+    {
+        return GetElement(ship).aggro >= 0;
+    }
+
+    public void AddShip(ShipController ship, float aggro = 10)
     {
         AggroElement newEntry = new AggroElement(ship, aggro);
         aggroTable.Add(newEntry);
@@ -30,7 +51,6 @@ public class AggroTable
         {
             if (element.ship == ship)
                 element.aggro += aggro;
-            return;
         }
 
     }
@@ -44,17 +64,37 @@ public class AggroTable
         }
         return false;
     }
+    
 
     public AggroElement GetTopAggro()
     {
-        AggroElement highestAggro = new AggroElement(null, 0);
-        foreach(AggroElement element in aggroTable)
+        if (aggroTable.Count <= 0)
+            return null;
+        AggroElement highestAggro = aggroTable[0];
+        float distanceToAggroRatio = highestAggro.aggro / Vector2.Distance(highestAggro.ship.gameObject.transform.position, controller.gameObject.transform.position);
+        //Objective: find ship with highest aggro/distance ratio, if the aggro is greater than the reputation of the ship.
+        //first, we just need to get the ship that has the highest aggro
+        foreach (AggroElement element in aggroTable)
         {
-            if(element.aggro >= highestAggro.aggro)
+            float tempDistToAggroRatio = element.aggro / Vector2.Distance(element.ship.gameObject.transform.position, controller.gameObject.transform.position);
+
+            if (tempDistToAggroRatio >= distanceToAggroRatio) //if the ratio is higher for the new target
             {
                 highestAggro = element;
+                distanceToAggroRatio = tempDistToAggroRatio;
+            }
+            else if(highestAggro.aggro < Mathf.Abs(highestAggro.ship.GetReputation()) && highestAggro.ship.GetFaction() == controller.GetFaction() && element.aggro >= Mathf.Abs(highestAggro.ship.GetReputation())) //If highest aggro is less than the reputation of the ship and they are of the same faction
+            {
+                highestAggro = element;
+                distanceToAggroRatio = tempDistToAggroRatio;
             }
         }
+
+        Debug.Log(distanceToAggroRatio);
+
+        if (highestAggro.ship.GetFaction() == controller.GetFaction() && highestAggro.aggro < Mathf.Abs(highestAggro.ship.GetReputation())) //if the highest aggro is too low, just return null
+            return null;
+
         return highestAggro;
     }
 
@@ -70,6 +110,15 @@ public class AggroTable
         }
     }
 
+    public AggroElement GetElement(ShipController ship)
+    {
+        foreach(AggroElement element in aggroTable)
+        {
+            if (element.ship == ship)
+                return element;
+        }
+        return null;
+    }
     public List<AggroElement> GetElements()
     {
         return aggroTable;

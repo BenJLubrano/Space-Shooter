@@ -89,7 +89,7 @@ public class Projectile : MonoBehaviour
             if (colliderShip != null) //if it got aShipControllerscript, it must be a ship
             {
                 string colliderFaction = colliderShip.GetFaction(); //get the faction of the colliding ship
-                if (enemyFactions.Contains(colliderFaction)) //if it's in the list of enemy factions (factions that the projectile can hit)
+                if (enemyFactions.Contains(colliderFaction) || colliderShip.gameObject == target) //if it's in the list of enemy factions (factions that the projectile can hit)
                 {
                     if (colliderShip.CanBeHitBy(shooter.GetId()))
                     {

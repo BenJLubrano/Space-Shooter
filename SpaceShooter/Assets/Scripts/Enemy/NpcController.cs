@@ -18,29 +18,32 @@ public class NpcController : ShipController
     [SerializeField] List<AggroElement> aggroElements = new List<AggroElement>();
 
     float lastFrameVelocity;
-    protected GameObject currentTarget;
+    protected ShipController currentTarget;
     protected Vector2 targetPosition;
     protected Rigidbody2D targetRb;
     float lastDistanceToTarget = 1000f;
+
+    private void Awake()
+    {
+        base.Awake();
+        aggroTable.Initialize(this);
+    }
     protected override void Update()
     {
         base.Update(); //call base ShipController update
-        if(currentTarget == null)
+
+        LookForTargets();
+        aggroTable.ReduceAllAggro(Time.deltaTime / 5);
+
+        if (currentTarget != null && (OutOfRange() || currentTarget.IsDead() || !aggroTable.IsInTable(currentTarget)))
         {
-            LookForTargets();
-        }
-        else
-        {
-            if(OutOfRange() || currentTarget.GetComponent<ShipController>().IsDead())
-            {
-                Deaggro();
-            }
+            Deaggro();
         }
 
         //if the ShipController has a target
         if (currentTarget != null && TargetInWeaponRange() && weaponCooldown <= 0 && !isDead && TargetWithinShootAngle())
         {
-            Shoot(currentTarget, enemyFactions);
+            Shoot(currentTarget.gameObject, enemyFactions);
         }
     }
 
@@ -89,11 +92,12 @@ public class NpcController : ShipController
     //Logic related to targeting
     protected virtual void LookForTargets()
     {
-        if (aggroElements.Count == 0)
-            return;
-
         AggroElement tempTarget = aggroTable.GetTopAggro();
-        float currentShortestDistance = Vector2.Distance(transform.position, tempTarget.ship.transform.position);
+        if (tempTarget == null)
+            return;
+        currentTarget = tempTarget.ship;
+
+        /*float currentShortestDistance = Vector2.Distance(transform.position, tempTarget.ship.transform.position);
         foreach(AggroElement aggroTarget in aggroTable.GetElements())
         {
             float tempDist = Vector2.Distance(transform.position, aggroTarget.ship.transform.position);
@@ -102,9 +106,8 @@ public class NpcController : ShipController
                 currentShortestDistance = tempDist;
                 tempTarget = aggroTarget;
             }
-        }
+        }*/
 
-        currentTarget = tempTarget.ship.gameObject;
         /*
         float closest = Vector2.Distance(gameObject.transform.position, tempTarget.transform.position);
         foreach(GameObject target in targets) //TODO: Add something that has to do with aggro tables here
@@ -124,7 +127,7 @@ public class NpcController : ShipController
     public virtual void UpdateTargets(List<GameObject> newTargets)
     {
         targets = newTargets;
-        if(!targets.Contains(currentTarget))
+        if(!targets.Contains(currentTarget.gameObject))
         {
             currentTarget = null;
         }
@@ -322,9 +325,7 @@ public class NpcController : ShipController
     public void AddTargetFromTargetingController(ShipController ship)
     {
         if(!aggroTable.IsInTable(ship))
-            aggroTable.AddShip(ship);
-        if (currentTarget == null)
-            currentTarget = ship.gameObject;
+            aggroTable.AddShip(ship, CalculateInitalAggro(stats.reputation, ship.GetReputation()));
     }
 
     public void AttemptToRemoveTargetFromTargetingController(ShipController ship)
@@ -333,6 +334,11 @@ public class NpcController : ShipController
             aggroTable.RemoveElement(ship);
         if (ship.gameObject == currentTarget)
             Deaggro();
+    }
+
+    float CalculateInitalAggro(float rep1, float rep2)
+    {
+        return Mathf.Abs(rep1 - rep2);
     }
 
     protected override void Die()
