@@ -90,8 +90,6 @@ public class AggroTable
             }
         }
 
-        Debug.Log(distanceToAggroRatio);
-
         if (highestAggro.ship.GetFaction() == controller.GetFaction() && highestAggro.aggro < Mathf.Abs(highestAggro.ship.GetReputation())) //if the highest aggro is too low, just return null
             return null;
 
