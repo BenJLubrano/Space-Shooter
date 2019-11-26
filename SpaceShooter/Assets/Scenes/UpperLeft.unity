@@ -7720,6 +7720,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -7743,6 +7744,7 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 4160405397788389530}
+  aggroElements: []
 --- !u!4 &6987330305457725998
 Transform:
   m_ObjectHideFlags: 0
@@ -9133,6 +9135,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9156,6 +9159,7 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985424500206732}
+  aggroElements: []
 --- !u!114 &8425060942369766315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9178,6 +9182,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9201,6 +9206,7 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985424448741282}
+  aggroElements: []
 --- !u!114 &8425060942859544959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9223,6 +9229,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9246,6 +9253,7 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985423932476790}
+  aggroElements: []
 --- !u!114 &8425060943236221573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9268,6 +9276,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9291,6 +9300,7 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985424107220620}
+  aggroElements: []
 --- !u!114 &8425060943913466061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9313,6 +9323,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9336,6 +9347,7 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985422905957572}
+  aggroElements: []
 --- !u!4 &8491578637394539828
 Transform:
   m_ObjectHideFlags: 0
@@ -9372,6 +9384,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9395,6 +9408,7 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3438270422159725407}
+  aggroElements: []
 --- !u!4 &8573853090430206443
 Transform:
   m_ObjectHideFlags: 0
