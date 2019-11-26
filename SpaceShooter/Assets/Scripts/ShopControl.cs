@@ -37,7 +37,7 @@ public class ShopControl : MonoBehaviour
             buy.interactable = false;
     }
 
-    public void buyWeapon(ShopButton clickedButton)
+    public void buyUpgrade(ShopButton clickedButton)
     {
         playerStats.ModifyUnits(-clickedButton.upgrade.cost);
         playerStats.ApplyUpgrade(clickedButton.upgrade);
@@ -45,6 +45,16 @@ public class ShopControl : MonoBehaviour
         PlayerPrefs.SetInt("IsSold", 1);*/
         //weaponText.text = "Already Sold!";
         //buy.gameObject.SetActive(false);
+    }
+
+    public void buyWeapon(ShopButton clickedButton)
+    {
+
+    }
+
+    public void buyShip(ShopButton clickedButton)
+    {
+
     }
 
     public void exitShop()

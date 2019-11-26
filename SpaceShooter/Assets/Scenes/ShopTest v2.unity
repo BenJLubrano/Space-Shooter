@@ -217,7 +217,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1460086458}
-        m_MethodName: buyWeapon
+        m_MethodName: buyUpgrade
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 110025323}
@@ -1149,7 +1149,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 693178633}
-        m_MethodName: buyWeapon
+        m_MethodName: buyShip
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 580159714}
@@ -1525,7 +1525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &794535789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2155,7 +2155,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 693178633}
-        m_MethodName: buyWeapon
+        m_MethodName: buyShip
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1022420077}
@@ -2661,7 +2661,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1460086458}
-        m_MethodName: buyWeapon
+        m_MethodName: buyUpgrade
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1236623508}
@@ -4524,7 +4524,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 693178633}
-        m_MethodName: buyWeapon
+        m_MethodName: buyShip
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1616700751}
@@ -5384,7 +5384,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1460086458}
-        m_MethodName: buyWeapon
+        m_MethodName: buyUpgrade
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1797139983}
