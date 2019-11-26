@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2690012981022930434}
   - component: {fileID: -6121423870878757738}
   m_Layer: 0
-  m_Name: Lvl1Pirate
+  m_Name: PirateLvl2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
-  ship: {fileID: 11400000, guid: f7a81675cd7af47d0b5b86e83518edb1, type: 2}
+  ship: {fileID: 11400000, guid: c4fe7044fe3e04f848222f135c5f6ebe, type: 2}
   shipController: {fileID: 8425060942357847168}
 --- !u!114 &8425060942357847168
 MonoBehaviour:

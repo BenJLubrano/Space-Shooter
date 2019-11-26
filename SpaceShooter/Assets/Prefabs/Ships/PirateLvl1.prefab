@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2690012981022930434}
   - component: {fileID: -6121423870878757738}
   m_Layer: 0
-  m_Name: Lvl1Pirate
+  m_Name: PirateLvl1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
