@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5765514119680980127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 7054278259021462823}
   - {fileID: 8334127700963095850}
@@ -152,11 +152,15 @@ MonoBehaviour:
   level: 1
   faction: 
   reputation: 100
+  staticReputation: 1
   speed: 3.5
+  acceleration: 1
   maxHealth: 25
   maxShield: 10
   shieldRegenRate: 5
   shieldRegenTime: 10
+  overwriteValues: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: 0a7626b8a0ebf664a9ba37668ed4fc03, type: 2}
@@ -182,6 +186,7 @@ MonoBehaviour:
   shieldRegenTime: 15
   shieldRegenRate: 0
   weaponCooldown: 0
+  acceleration: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -201,6 +206,7 @@ MonoBehaviour:
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   explosionScale: 1
+  chargingShield: 0
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985424437328009}

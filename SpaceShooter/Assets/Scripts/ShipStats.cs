@@ -19,7 +19,10 @@ public class ShipStats : MonoBehaviour
     [SerializeField] public float shieldRegenRate = 10;
     [SerializeField] public float shieldRegenTime = 15;
     [SerializeField] public bool overwriteValues = true;
+    [SerializeField] public bool useDefaultReputation = true;
 
+    [Header("Upgrade", order = 1)]
+    [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
     [Header("Weapons", order = 2)]
     [SerializeField] public List<Weapon> weapons;
     [SerializeField] public int currentWeapon;
@@ -36,6 +39,8 @@ public class ShipStats : MonoBehaviour
     //Set up using the variables from Ship
     void Initialize()
     {
+        if (useDefaultReputation)
+            reputation = ship.defaultReputation;
 
         if (reputation > 10)
         {
@@ -86,6 +91,7 @@ public class ShipStats : MonoBehaviour
                 }
             }
         }
+
         currentWeapon = 0;
 
         //Create a function like this when it is time to start changing stats based on level (player will need one to decide based on upgrades)
@@ -158,4 +164,27 @@ public class ShipStats : MonoBehaviour
 
     }
 
+    public void ApplyUpgrade(Upgrade newUpgrade)
+    {
+        upgrades.Add(newUpgrade);
+        if(newUpgrade.type == 0) //hull upgrade
+        {
+            maxHealth += newUpgrade.increase;
+        }
+        else if(newUpgrade.type == 1) //shield upgrade
+        {
+            maxShield += newUpgrade.increase;
+        }
+        else if(newUpgrade.type == 2) //speed upgrade
+        {
+            speed += newUpgrade.increase;
+        }
+        else if (newUpgrade.type == 3) //new weapon
+        {
+            weapons.Add(newUpgrade.weapon);
+        }
+
+        //update the controller values
+        shipController.Initialize(this);
+    }
 }

@@ -8,17 +8,17 @@ public class Projectile : MonoBehaviour
     [Header("Targeting")]
     [SerializeField] ShipController shooter;
     [SerializeField] List<string> enemyFactions;
-    [SerializeField] GameObject target;
+    [SerializeField] protected GameObject target;
 
     [Header("References")]
     [SerializeField] Weapon weapon;
     [SerializeField] protected BoxCollider2D hitBox;
     [SerializeField] protected SpriteRenderer renderer;
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] protected AudioSource audioSource;
     Vector3 speedMod = Vector2.zero;
 
     protected float damage;
-    bool waitingForDestroy = false;
+    protected bool waitingForDestroy = false;
     protected Vector2 startPos;
 
     [SerializeField] GameObject onHitExplosion;
@@ -69,14 +69,14 @@ public class Projectile : MonoBehaviour
     }
 
     //called after physics updates
-    private void LateUpdate()
+    protected virtual void LateUpdate()
     {
         if (Vector2.Distance(transform.position, startPos) >= weapon.range)
             Deactivate();
     }
 
     //called when the projectile collides with something
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Asteroid") //if it's an asteroid, we know what to do
         {
@@ -89,7 +89,7 @@ public class Projectile : MonoBehaviour
             if (colliderShip != null) //if it got aShipControllerscript, it must be a ship
             {
                 string colliderFaction = colliderShip.GetFaction(); //get the faction of the colliding ship
-                if (enemyFactions.Contains(colliderFaction)) //if it's in the list of enemy factions (factions that the projectile can hit)
+                if (enemyFactions.Contains(colliderFaction) || colliderShip.gameObject == target) //if it's in the list of enemy factions (factions that the projectile can hit)
                 {
                     if (colliderShip.CanBeHitBy(shooter.GetId()))
                     {
@@ -106,14 +106,14 @@ public class Projectile : MonoBehaviour
     }
 
     //Called when it is time for the projectile to die. Makes it so nothing can interact with it, but sets waitingForDestroy to true so we can finish hearing the sound
-    void Deactivate()
+    protected virtual void Deactivate()
     {
         hitBox.enabled = false;
         renderer.enabled = false;
         waitingForDestroy = true;
     }
 
-    void OnHit()
+    protected void OnHit()
     {
         if(onHitExplosion != null)
             Instantiate(onHitExplosion, transform.position, transform.rotation);

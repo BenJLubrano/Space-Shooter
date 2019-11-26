@@ -24,4 +24,7 @@ public class Ship : ScriptableObject
     public float mass;
     public float drag;
     public float turnSpeed;
+
+    [Header("Reputation")]
+    public float defaultReputation;
 }
