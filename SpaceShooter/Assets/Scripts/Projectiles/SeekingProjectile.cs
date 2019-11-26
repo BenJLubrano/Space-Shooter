@@ -6,6 +6,7 @@ public class SeekingProjectile : Projectile
 {
     float lifespan;
     float followRange;
+    float followStrength;
     float turnSpeed;
     float maxTurnSpeed;
     float flyStraightTime;
@@ -15,7 +16,9 @@ public class SeekingProjectile : Projectile
     float currentLifeSpan = 0f;
     Rigidbody2D missileRb;
 
-    float lastDistanceToTarget;
+    float distanceToTarget;
+    [SerializeField] float angleToTarget;
+    float lastDistanceToTarget = 1000f;
     float turnSpeedIncrease = .1f;
     public override void Initialize(Weapon weapon, ShipController shooter, GameObject target = null, List<string> factions = null)
     {
@@ -23,6 +26,7 @@ public class SeekingProjectile : Projectile
         SeekingWeapon seekingWeapon = (SeekingWeapon)weapon;
         lifespan = seekingWeapon.lifespan;
         followRange = seekingWeapon.followRange;
+        followStrength = Mathf.Abs(seekingWeapon.followStrength * 90);
         turnSpeed = seekingWeapon.turnSpeed;
         maxTurnSpeed = seekingWeapon.maxTurnSpeed;
         flyStraightTime = seekingWeapon.flyStraightTime;
@@ -34,10 +38,15 @@ public class SeekingProjectile : Projectile
 
     protected override void Update()
     {
-        float distanceToTarget = Vector2.Distance(transform.position, target.transform.position);
+        if (target != null)
+        {
+            angleToTarget = AngleToTarget();
+            distanceToTarget = Vector2.Distance(transform.position, target.transform.position);
+        }
+
         currentLifeSpan += Time.deltaTime;
 
-        if (target != null && Vector2.Distance(transform.position, target.transform.position) > followRange)
+        if (target != null && (Vector2.Distance(transform.position, target.transform.position) > followRange || (angleToTarget < 90 - followStrength || angleToTarget > 90 + followStrength)))
         {
             target = null;
             flyingStraight = true;
@@ -53,7 +62,6 @@ public class SeekingProjectile : Projectile
 
             Quaternion rotation = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
             turnSpeed = AdjustedTurnSpeed(turnSpeed, distanceToTarget, maxTurnSpeed);
-            Debug.Log(turnSpeed);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
         }
 
@@ -78,6 +86,15 @@ public class SeekingProjectile : Projectile
             tempSpeed += tempSpeed * turnSpeedIncrease * Time.deltaTime;
         }
         return tempSpeed > max && max > 0 ? max : tempSpeed;
+    }
+
+    protected float AngleToTarget()
+    {
+        Vector2 direction = target.transform.position - transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle -= transform.rotation.eulerAngles.z;
+        return angle < 0 ? angle + 360 : angle;
     }
 
     protected override void LateUpdate()

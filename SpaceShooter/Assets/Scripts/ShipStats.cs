@@ -19,6 +19,7 @@ public class ShipStats : MonoBehaviour
     [SerializeField] public float shieldRegenRate = 10;
     [SerializeField] public float shieldRegenTime = 15;
     [SerializeField] public bool overwriteValues = true;
+    [SerializeField] public bool useDefaultReputation = true;
 
     [Header("Upgrade", order = 1)]
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
@@ -38,6 +39,8 @@ public class ShipStats : MonoBehaviour
     //Set up using the variables from Ship
     void Initialize()
     {
+        if (useDefaultReputation)
+            reputation = ship.defaultReputation;
 
         if (reputation > 10)
         {
@@ -88,6 +91,7 @@ public class ShipStats : MonoBehaviour
                 }
             }
         }
+
         currentWeapon = 0;
 
         //Create a function like this when it is time to start changing stats based on level (player will need one to decide based on upgrades)
