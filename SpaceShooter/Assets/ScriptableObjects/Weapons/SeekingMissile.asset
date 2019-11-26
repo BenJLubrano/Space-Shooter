@@ -22,8 +22,11 @@ MonoBehaviour:
   projectile: {fileID: 8819101810938153031, guid: d78346faf013bae45b10c19ccbeb36d3,
     type: 3}
   scale: {x: 1, y: 1}
-  lifespan: 5
+  degreesOfAccuracy: 45
+  lifespan: 100
   followRange: 15
-  flyStraightTime: 0.25
+  followStrength: 0.75
+  flyStraightTime: 0
   turnSpeed: 5
+  maxTurnSpeed: 15
   explosionSound: {fileID: 0}

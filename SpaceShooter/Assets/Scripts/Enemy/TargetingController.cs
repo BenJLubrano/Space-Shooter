@@ -25,20 +25,18 @@ public class TargetingController : MonoBehaviour
     //Activates when a collider enters the targeting zone of the ship
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        string collisionFaction;
-        try
-        {
-            collisionFaction = collision.gameObject.GetComponent<ShipController>().GetFaction();
-        }
-        catch //we can't target it, so just exit.
-        {
-            return;
-        }
+        ShipController colliderShip;
+        colliderShip = collision.gameObject.GetComponent<ShipController>();
 
-        if (enemyFactions.Contains(collisionFaction))
+        if (colliderShip == null)
+            return; //Can't target it, just exit
+
+        if (enemyFactions.Contains(colliderShip.GetFaction()))
         {
-            targets.Add(collision.gameObject);
-            controller.UpdateTargets(targets);
+            controller.AddTargetFromTargetingController(colliderShip);
+            //Old targeting method
+            //targets.Add(collision.gameObject);
+            //controller.UpdateTargets(targets);
         }
     }
 
@@ -48,7 +46,7 @@ public class TargetingController : MonoBehaviour
             targets.Remove(target);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    /*private void OnTriggerStay2D(Collider2D collision)
     {
         string collisionFaction;
         try
@@ -75,12 +73,15 @@ public class TargetingController : MonoBehaviour
             }
         }
         controller.UpdateTargets(targets);
-    }
+    }*/
 
     //Activates when a collider exits the targeting zone of the ship
     private void OnTriggerExit2D(Collider2D collision)
     {
-        foreach (GameObject target in targets)
+        ShipController colliderShip = collision.GetComponent<ShipController>();
+        if(colliderShip != null)
+            controller.AttemptToRemoveTargetFromTargetingController(colliderShip);
+        /*foreach (GameObject target in targets)
         {
             if (target == collision.gameObject) //if the gameobject was a target
             {
@@ -88,7 +89,7 @@ public class TargetingController : MonoBehaviour
                 controller.UpdateTargets(targets); //update the list of targets on the controller
                 break;
             }
-        }
+        }*/
     }
 
 }
