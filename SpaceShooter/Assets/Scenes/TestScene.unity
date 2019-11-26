@@ -1267,6 +1267,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: eb8ec8e4d93618941a35a89f779efb9a,
         type: 2}
+    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: maxShield
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: shield
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 6519390988356707977, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: staticReputation
@@ -1409,6 +1419,26 @@ PrefabInstance:
       propertyPath: parallax
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6752734329798578712, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerShield
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752734329798578718, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752734329798578718, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752734329798578718, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05bdc6182e9e4243aec202383b038ba, type: 3}
 --- !u!1 &951551170
@@ -1524,6 +1554,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 215034732}
+--- !u!1 &1209660698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6752734329798578712, guid: d05bdc6182e9e4243aec202383b038ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 610935198}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1209660702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209660698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05bc17bd40b8b5347976f4218a4461f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1311174814
 PrefabInstance:
   m_ObjectHideFlags: 0
