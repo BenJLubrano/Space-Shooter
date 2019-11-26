@@ -14,6 +14,7 @@ public class ShopControl : MonoBehaviour
     public TextMeshProUGUI weaponText;
     [SerializeField] PlayerStats playerStats;
     [SerializeField] GameObject shop;
+    [SerializeField] GameObject shop2;
 
     public Button buy;
 
@@ -52,6 +53,18 @@ public class ShopControl : MonoBehaviour
 
         //PlayerPrefs.SetInt("Units", units);
         //SceneManager.LoadScene("MidtermScene");
+    }
+
+    public void shipShop()
+    {
+        shop.gameObject.SetActive(false);
+        shop2.gameObject.SetActive(true);
+    }
+
+    public void back()
+    {
+        shop.gameObject.SetActive(false);
+        shop2.gameObject.SetActive(true);
     }
 
     public void resetPlayerPrefs()
