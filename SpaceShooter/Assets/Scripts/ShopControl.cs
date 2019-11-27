@@ -15,6 +15,8 @@ public class ShopControl : MonoBehaviour
     [SerializeField] PlayerStats playerStats;
     [SerializeField] GameObject shop;
     [SerializeField] GameObject shop2;
+    [SerializeField] private List<GameObject> upgradeShopUI;
+    [SerializeField] private List<GameObject> shipShopUI;
 
     public Button buy;
 
@@ -22,6 +24,9 @@ public class ShopControl : MonoBehaviour
     void Start()
     {
         units = playerStats.GetUnits();
+
+        foreach (var obj in shipShopUI)
+            obj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -67,14 +72,24 @@ public class ShopControl : MonoBehaviour
 
     public void shipShop()
     {
-        shop.gameObject.SetActive(false);
-        shop2.gameObject.SetActive(true);
+        //shop.gameObject.SetActive(false);
+        //shop2.gameObject.SetActive(true);
+        foreach (var obj in shipShopUI)
+            obj.SetActive(true);
+
+        foreach (var obj in upgradeShopUI)
+            obj.SetActive(false);
     }
 
     public void back()
     {
-        shop.gameObject.SetActive(false);
-        shop2.gameObject.SetActive(true);
+        shop.gameObject.SetActive(true);
+        //shop2.gameObject.SetActive(true);
+        foreach (var obj in shipShopUI)
+            obj.SetActive(false);
+
+        foreach (var obj in upgradeShopUI)
+            obj.SetActive(true);
     }
 
     public void resetPlayerPrefs()

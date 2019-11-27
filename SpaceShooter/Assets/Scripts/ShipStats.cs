@@ -25,6 +25,8 @@ public class ShipStats : MonoBehaviour
     [Header("Weapons", order = 2)]
     [SerializeField] public List<Weapon> weapons;
     [SerializeField] public int currentWeapon;
+    [SerializeField] public List<Ship> ships;
+    [SerializeField] public int currentShip;
 
     [Header("References", order = 3)]
     [SerializeField] public Ship ship;
@@ -178,6 +180,10 @@ public class ShipStats : MonoBehaviour
         else if (newUpgrade.type == 3) //new weapon
         {
             weapons.Add(newUpgrade.weapon);
+        }
+        else if (newUpgrade.type == 4) // new ship
+        {
+            ships.Add(newUpgrade.ship);
         }
 
         //update the controller values
