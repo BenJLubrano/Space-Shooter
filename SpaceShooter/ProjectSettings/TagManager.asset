@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - GameManager
   - WeakPoint
+  - EnemyProjectile
+  - PlayerShield
   layers:
   - Default
   - TransparentFX
