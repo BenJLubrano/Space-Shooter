@@ -95,7 +95,7 @@ public class Projectile : MonoBehaviour
                     {
                         colliderShip.TakeDamage(damage, shooter);
                         Deactivate();
-                        if (collision.gameObject.GetComponent<ShipController>().getShield() < 1) //on hit effect when no shield.
+                        if (collision.gameObject.GetComponent<ShipController>().getShield() < 1)
                         {
                             OnHit();
                         }
