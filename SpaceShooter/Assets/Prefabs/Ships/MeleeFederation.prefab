@@ -151,7 +151,7 @@ MonoBehaviour:
   shipName: Federation Interceptor
   level: 1
   faction: 
-  reputation: 100
+  reputation: -100
   staticReputation: 1
   speed: 3.5
   acceleration: 1
@@ -160,6 +160,7 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  useDefaultReputation: 1
   upgrades: []
   weapons: []
   currentWeapon: 0
@@ -187,6 +188,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -210,6 +212,7 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985424437328009}
+  aggroElements: []
 --- !u!82 &2690012981022930434
 AudioSource:
   m_ObjectHideFlags: 0
