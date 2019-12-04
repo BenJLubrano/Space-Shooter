@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LiveDemo.unity
     guid: c5a692fc2b99e2d41ad55ddd084457a6
   - enabled: 1
-    path: Assets/Scenes/UpperRight.unity
+    path: Assets/Scenes/LowerLeft.unity
     guid: 094c0645f730648f6bc3ffaf410c29fd
   m_configObjects: {}
