@@ -47,7 +47,6 @@ public class ShipController : MonoBehaviour
     public bool chargingShield = false;
     protected float lastDamaged = 0f;
     protected float thrusterPower = 0f;
-    private GameObject playerShield;
     //public Animator anim;
 
     protected void Awake()
@@ -88,8 +87,6 @@ public class ShipController : MonoBehaviour
         else
             Debug.LogWarning(stats.ship.name + " does not have an animator or is missing an animator controller.");
         UpdateBars();
-
-        playerShield = GameObject.FindGameObjectWithTag("PlayerShield");
     }
 
     public virtual void UpdateFactions()
@@ -166,16 +163,10 @@ public class ShipController : MonoBehaviour
         lastDamaged = 0f;
         if (shield >= damage)
         {
-            //if(gameObject.tag == "Player")
-            //{
-            //    playerShield.GetComponent<ShieldOnHit>().onHit();
-            //}
-            playerShield.GetComponent<ShieldOnHit>().onHit();
             shield -= damage;
         }
         else
         {
-            playerShield.GetComponent<ShieldOnHit>().onHit();
             damage -= shield;
             shield = 0;
             health -= damage;
