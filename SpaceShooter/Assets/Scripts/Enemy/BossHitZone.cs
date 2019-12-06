@@ -9,7 +9,7 @@ public class BossHitZone : MonoBehaviour
     [SerializeField] List<ShipController> shipsInHitZone = new List<ShipController>();
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       ShipController ship = collision.GetComponent<ShipController>();
+        ShipController ship = collision.GetComponent<ShipController>();
         if(ship != null)
         {
             if(boss.enemyFactions.Contains(ship.GetFaction()))

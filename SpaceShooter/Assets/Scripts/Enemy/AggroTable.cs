@@ -71,7 +71,17 @@ public class AggroTable
         if (aggroTable.Count <= 0)
             return null;
         AggroElement highestAggro = aggroTable[0];
-        float distanceToAggroRatio = highestAggro.aggro / Vector2.Distance(highestAggro.ship.gameObject.transform.position, controller.gameObject.transform.position);
+        float distanceToAggroRatio;
+        try
+        {
+            distanceToAggroRatio = highestAggro.aggro / Vector2.Distance(highestAggro.ship.gameObject.transform.position, controller.gameObject.transform.position);
+        }
+        catch
+        {
+            RemoveElement(highestAggro.ship);
+            return null;
+        }
+
         //Objective: find ship with highest aggro/distance ratio, if the aggro is greater than the reputation of the ship.
         //first, we just need to get the ship that has the highest aggro
         foreach (AggroElement element in aggroTable)

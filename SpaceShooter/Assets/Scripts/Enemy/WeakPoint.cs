@@ -26,6 +26,11 @@ public class WeakPoint : ShipController
         DoUpdateChecks();
     }
 
+    protected override void Shoot(GameObject target = null, List<string> factions = null)
+    {
+        
+    }
+
     public override bool CanBeHitBy(int id)
     {
         return zone.IsInZone(id);
@@ -38,7 +43,7 @@ public class WeakPoint : ShipController
         shieldRegenRate = 0f;
         spriteRenderer.sprite = damagedVersion;
         shipCollider.enabled = false;
-        owner.TakeDamage(damageToOwner, this);
+        owner.TakeDamage(damageToOwner, GameObject.FindGameObjectWithTag("Player").GetComponent<ShipController>());
         audioSource.clip = deathSound;
         audioSource.Play();
     }

@@ -12,7 +12,7 @@ public class TurretController : NpcController
     private void Awake()
     {
         base.Awake();
-        
+        aggroTable.Initialize(this);
         targetingController.Initialize(enemyFactions);
     }
 
@@ -25,6 +25,7 @@ public class TurretController : NpcController
         }
         else
         {
+            targetPosition = currentTarget.transform.position;
             if (OutOfRange() || currentTarget.GetComponent<ShipController>().IsDead())
             {
                 Deaggro();
@@ -54,7 +55,7 @@ public class TurretController : NpcController
             return;
         }
 
-        if (!TargetInAttackRange())
+        if (!TargetInWeaponRange())
         {
             if (boss.IsMoving())
             {
@@ -94,7 +95,13 @@ public class TurretController : NpcController
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
         }
-        
+
+    }
+
+    protected override void PrepareForDeath()
+    {
+        base.PrepareForDeath();
+        boss.RemoveTurret(this);
     }
 
     void ResetRotation()
@@ -149,6 +156,6 @@ public class TurretController : NpcController
 
     public bool CanHitTarget()
     {
-        return currentTarget != null && TargetInAttackRange() && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset());
+        return currentTarget != null && TargetInWeaponRange() && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset());
     }
 }

@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3210549f35f84f448fbec235ca29c4e, type: 3}
-  m_Name: BossFrontTurret
+  m_Name: Boss 2
   m_EditorClassIdentifier: 
-  baseSprite: {fileID: -7973389932233663961, guid: f6b74eb7aa83e34479b34259a6af1cab,
+  baseSprite: {fileID: 3795931205095769796, guid: 9fc63f94ffa6b504184001a4ed91e434,
     type: 3}
   animatorController: {fileID: 0}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  health: 150
-  shield: 75
-  shieldRegenRate: 10
-  shieldRegenTime: 15
-  weapons:
-  - {fileID: 11400000, guid: 0d1ea7b5cc3ce6d4fb47d27c9799b266, type: 2}
-  speed: 0
-  acceleration: 0
-  mass: 0
-  drag: 0
-  turnSpeed: 5
+  health: 2500
+  shield: 2000
+  shieldRegenRate: 0
+  shieldRegenTime: 0
+  weapons: []
+  speed: 2
+  acceleration: 1
+  mass: 3000
+  drag: 1
+  turnSpeed: 2
   defaultReputation: -100

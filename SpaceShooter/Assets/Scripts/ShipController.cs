@@ -176,6 +176,7 @@ public class ShipController : MonoBehaviour
         {
             health = 0;
             damager.GetStats().AlterReputation(stats.reputation, true);
+            damager.RemoveDeadTarget(this);
             PrepareForDeath();
         } 
         else
@@ -262,8 +263,10 @@ public class ShipController : MonoBehaviour
 
     public Vector2 GetSpeed()
     {
-
-        return shipRb.velocity;
+        if (shipRb != null)
+            return shipRb.velocity;
+        else
+            return new Vector2(0, 0);
     }
 
     public bool IsDead()
@@ -279,5 +282,10 @@ public class ShipController : MonoBehaviour
     public void ReduceTurnSpeed(float reduction)
     {
         defaultTurnSpeed -= reduction;
+    }
+
+    public virtual void RemoveDeadTarget(ShipController deadTarget)
+    {
+
     }
 }
