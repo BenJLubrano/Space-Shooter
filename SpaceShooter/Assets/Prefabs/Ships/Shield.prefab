@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6752734329540229016}
   - component: {fileID: 6752734329540229017}
   - component: {fileID: 6752734329540229022}
+  - component: {fileID: 891484481821212982}
   m_Layer: 0
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: PlayerShield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,3 +102,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &891484481821212982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752734329540229023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744cd77348de1b1458f2b7113532a8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
