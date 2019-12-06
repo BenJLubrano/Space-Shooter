@@ -1204,6 +1204,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 6752734329798578712, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerShield
+      objectReference: {fileID: 0}
     - target: {fileID: 1670886136389112699, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1426,11 +1431,6 @@ PrefabInstance:
         type: 3}
       propertyPath: parallax
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6752734329798578712, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: m_TagString
-      value: PlayerShield
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05bdc6182e9e4243aec202383b038ba, type: 3}

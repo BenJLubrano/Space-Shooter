@@ -21,9 +21,10 @@ MonoBehaviour:
   shieldRegenRate: 10
   shieldRegenTime: 15
   weapons:
-  - {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
+  - {fileID: 11400000, guid: eb8ec8e4d93618941a35a89f779efb9a, type: 2}
   speed: 5
   acceleration: 1
   mass: 15
   drag: 1
   turnSpeed: 5
+  defaultReputation: 0
