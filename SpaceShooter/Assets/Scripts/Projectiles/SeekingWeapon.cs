@@ -8,6 +8,7 @@ public class SeekingWeapon : Weapon
     [SerializeField] public float lifespan = 5;
     [SerializeField] public float followRange = 15;
     [SerializeField] public float followStrength = .5f;
+    [SerializeField] public float absoluteTrackingTime = .5f;
     [SerializeField] public float flyStraightTime = .25f;
     [SerializeField] public float turnSpeed = 5;
     [SerializeField] public float maxTurnSpeed = 15;

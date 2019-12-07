@@ -26,7 +26,8 @@ MonoBehaviour:
   degreesOfAccuracy: 45
   lifespan: 10
   followRange: 10000
-  followStrength: 5
+  followStrength: 0.7
+  absoluteTrackingTime: 2
   flyStraightTime: 0.5
   turnSpeed: 5
   maxTurnSpeed: 15

@@ -48,7 +48,7 @@ public class RepeatingMissileLauncher : TurretController
                 if(shootCount == 3)
                 {
                     shootCount = 0;
-                    weaponCooldown = 10f;
+                    weaponCooldown = 25f;
                 }
             }
         }

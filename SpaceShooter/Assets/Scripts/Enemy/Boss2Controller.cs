@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Boss2Controller : BossController
 {
+    [SerializeField] float missileCD = 30f;
     [SerializeField] WeaponHolder forwardMissileL;
     [SerializeField] WeaponHolder forwardMissileR;
     [SerializeField] BossHitZone hitZone2;
@@ -74,9 +75,9 @@ public class Boss2Controller : BossController
     IEnumerator DoAnim(int side)
     {
         if (side == 0)
-            leftCD = 15f;
+            leftCD = missileCD;
         else
-            rightCD = 15f;
+            rightCD = missileCD;
         StallTime(5);
         shipAnimator.SetBool("IsOpen", true);
         yield return new WaitForSeconds(2);

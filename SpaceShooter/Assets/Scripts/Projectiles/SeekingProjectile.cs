@@ -15,6 +15,7 @@ public class SeekingProjectile : Projectile
     float speedGrowth;
     AudioClip explosionSound;
     bool flyingStraight = true;
+    float absoluteTrackingTime;
     float currentLifeSpan = 0f;
     Rigidbody2D missileRb;
 
@@ -30,6 +31,7 @@ public class SeekingProjectile : Projectile
         lifespan = seekingWeapon.lifespan;
         followRange = seekingWeapon.followRange;
         followStrength = Mathf.Abs(seekingWeapon.followStrength * 90);
+        absoluteTrackingTime = seekingWeapon.absoluteTrackingTime;
         turnSpeed = seekingWeapon.turnSpeed;
         maxTurnSpeed = seekingWeapon.maxTurnSpeed;
         flyStraightTime = seekingWeapon.flyStraightTime;
@@ -51,7 +53,7 @@ public class SeekingProjectile : Projectile
 
         currentLifeSpan += Time.deltaTime;
 
-        if (target != null && (Vector2.Distance(transform.position, target.transform.position) > followRange || (angleToTarget < 90 - followStrength || angleToTarget > 90 + followStrength)))
+        if (target != null && currentLifeSpan >= absoluteTrackingTime && (Vector2.Distance(transform.position, target.transform.position) > followRange || (angleToTarget < 90 - followStrength || angleToTarget > 90 + followStrength)))
         {
             target = null;
             flyingStraight = true;

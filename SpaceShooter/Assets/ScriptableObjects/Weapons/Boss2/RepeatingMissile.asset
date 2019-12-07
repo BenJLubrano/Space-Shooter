@@ -18,15 +18,16 @@ MonoBehaviour:
   projectileImage: {fileID: 21300000, guid: 90db16385d3b00343ac44d38f58fa2d7, type: 3}
   npcFollowDistance: 25
   range: 25
-  sound: {fileID: 8300000, guid: 36b6053172a394e0a8518be5dfec1998, type: 3}
-  volume: 0.02
+  sound: {fileID: 8300000, guid: 6c62402415fdd11468651ccb13a52745, type: 3}
+  volume: 0.13
   projectile: {fileID: 8819101810938153031, guid: d78346faf013bae45b10c19ccbeb36d3,
     type: 3}
   scale: {x: 1, y: 1}
   degreesOfAccuracy: 95
-  lifespan: 5
+  lifespan: 4
   followRange: 1000
-  followStrength: 100
+  followStrength: 0.8
+  absoluteTrackingTime: 1
   flyStraightTime: 0.25
   turnSpeed: 5
   maxTurnSpeed: 15
