@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
     protected bool waitingForDestroy = false;
     protected Vector2 startPos;
 
-    [SerializeField] GameObject onHitExplosion;
+    [SerializeField] protected GameObject onHitExplosion;
 
     // Start is called before the first frame update
     void Awake()
@@ -46,6 +46,7 @@ public class Projectile : MonoBehaviour
             audioSource.volume = weapon.volume;
             audioSource.Play();
         }
+        transform.localScale = weapon.scale;
         hitBox.size *= weapon.scale;
         Vector2 shooterSpeed = shooter.GetSpeed();
         speedMod = new Vector3(shooterSpeed.x, shooterSpeed.y, 0);

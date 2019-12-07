@@ -112,6 +112,8 @@ public class ShipStats : MonoBehaviour
 
     public Weapon GetWeapon(int value)
     {
+        if (weapons.Count == 0)
+            return null;
         if (value >= weapons.Count)
             return weapons[weapons.Count - 1];
         else if (value < 0)

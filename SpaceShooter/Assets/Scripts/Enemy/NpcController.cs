@@ -16,7 +16,7 @@ public class NpcController : ShipController
     //Basically, whenever a ship enters the aggro zone (or attacks the ship) they get added to an aggro table, and when they leave the aggro zone, they get removed.
     //On attacking a ship, the initial aggro value should be damage - playerReputation, so that high rep players don't immediately get aggro when attacking federation ships
     protected AggroTable aggroTable = new AggroTable();
-    [SerializeField] List<AggroElement> aggroElements = new List<AggroElement>();
+    [SerializeField] protected List<AggroElement> aggroElements = new List<AggroElement>();
 
     float lastFrameVelocity;
     protected ShipController currentTarget;
@@ -233,8 +233,6 @@ public class NpcController : ShipController
         angle -= transform.rotation.eulerAngles.z;
         angle = angle < 0 ? angle + 360 : angle;
         bool isInAngle = angle > 90 - shipWeapon.degreesOfAccuracy && angle < 90 + shipWeapon.degreesOfAccuracy;
-        if (!isInAngle)
-            Debug.Log("Target not in shoot angle");
         return isInAngle;
     }
 

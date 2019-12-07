@@ -109,7 +109,7 @@ public class ShipController : MonoBehaviour
         DoUpdateChecks();
     }
 
-    protected void DoUpdateChecks()
+    protected virtual void DoUpdateChecks()
     {
         if (isDead && !audioSource.isPlaying)
         {

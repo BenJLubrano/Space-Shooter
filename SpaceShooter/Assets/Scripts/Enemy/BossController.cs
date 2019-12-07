@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class BossController : NpcController
 {
-    [SerializeField] List<TurretController> turrets = new List<TurretController>();
-    [SerializeField] BossHitZone hitZone;
+    [SerializeField] protected List<TurretController> turrets = new List<TurretController>();
+    [SerializeField] protected BossHitZone hitZone;
 
     public bool canShoot = false;
     [SerializeField] float internalClock = 0f;
-    [SerializeField] float nextActionTime;
+    [SerializeField] protected float nextActionTime;
 
     [SerializeField] Vector2 moveTime = new Vector2(2,5);
     [SerializeField] Vector2 rotateTime = new Vector2(3,10);
 
-    [SerializeField] float actionDuration;
-    [SerializeField] float lastActionTime = 0f;
-    [SerializeField] float waitTime = 5f;
-    [SerializeField] bool canPerformAction = true;
-    [SerializeField] bool isWaiting = false;
+    [SerializeField] protected float actionDuration;
+    [SerializeField] protected float lastActionTime = 0f;
+    [SerializeField] protected float waitTime = 5f;
+    [SerializeField] protected bool canPerformAction = true;
+    [SerializeField] protected bool isWaiting = false;
 
     //intervalClock keeps track of the time of the boss.
     //moveTime is how long the ShipController gets to move for
@@ -39,12 +39,8 @@ public class BossController : NpcController
             turretController.SetBoss(this);
             turrets.Add(turretController);
         }
-        aggroTable.AddShip(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>(), 100);
-    }
-
-    public override void Initialize(ShipStats newStats)
-    {
-        base.Initialize(newStats);
+        aggroTable.AddShip(GameObject.FindGameObjectWithTag("Player").GetComponent<ShipController>(), 100);
+        aggroElements = aggroTable.GetElements();
     }
 
     protected override void Update()
@@ -61,12 +57,8 @@ public class BossController : NpcController
         internalClock += Time.deltaTime;
         if (hitZone.ShipsInZone().Count > 0 && weaponCooldown <= 0)
         {
-            canRotate = false;
-            canMove = false;
-            Shoot(null, enemyFactions);
-            shipRb.velocity = Vector2.zero;
-            isWaiting = true;
-            nextActionTime += 10f;
+            StallTime(10, true);
+            Shoot(currentTarget.gameObject, enemyFactions);
             return; //Don't do anything else if the boss is shooting
         }
 
@@ -94,12 +86,12 @@ public class BossController : NpcController
         {
             if (canMove)
             {
-                turnSpeed = defaultTurnSpeed * .1f;
+                turnSpeed = defaultTurnSpeed;
                 Move();
             }
             else if (canRotate)
             {
-                turnSpeed = defaultTurnSpeed;
+                turnSpeed = defaultTurnSpeed * .25f;
                 Rotate();
             }
         }
@@ -110,8 +102,9 @@ public class BossController : NpcController
     {
         Rotate();
         float distance = Vector2.Distance(currentTarget.transform.position, transform.position);
-        if (!TurretsInRange()) //if the target is further away than half of the weapons range
+        if (!TurretsInRange() && !isWaiting) //if the target is further away than half of the weapons range
         {
+            turnSpeed = defaultTurnSpeed;
             if (Mathf.Abs(lastDistanceToTarget - distance) < 5f && distance < 5f)
             {
                 thrusterPower -= acceleration * 2 * Time.deltaTime;
@@ -216,6 +209,17 @@ public class BossController : NpcController
         }
 
         canPerformAction = false;
+    }
+
+    protected void StallTime(float time, bool immediateStop = false)
+    {
+        if (immediateStop)
+            shipRb.velocity = Vector2.zero;
+        canMove = false;
+        canRotate = false;
+        isWaiting = true;
+        waitTime = time;
+        nextActionTime += time;
     }
 
     bool TurretsInRange()

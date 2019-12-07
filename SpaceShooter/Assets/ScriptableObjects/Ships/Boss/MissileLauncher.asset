@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3210549f35f84f448fbec235ca29c4e, type: 3}
-  m_Name: Boss 2
+  m_Name: MissileLauncher
   m_EditorClassIdentifier: 
-  baseSprite: {fileID: 3795931205095769796, guid: 9fc63f94ffa6b504184001a4ed91e434,
-    type: 3}
+  baseSprite: {fileID: 0}
   animatorController: {fileID: 0}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  health: 2500
-  shield: 2000
+  health: 1
+  shield: 1
   shieldRegenRate: 0
   shieldRegenTime: 0
   weapons:
-  - {fileID: 11400000, guid: 7a146509f6ec5214a92c008bd99fc3f3, type: 2}
-  speed: 2
+  - {fileID: 11400000, guid: 8ec62468f74f2924cba7871284d52a5c, type: 2}
+  speed: 0
   acceleration: 1
-  mass: 3000
-  drag: 1
-  turnSpeed: 0.5
+  mass: 0
+  drag: 0
+  turnSpeed: 0
   defaultReputation: -100

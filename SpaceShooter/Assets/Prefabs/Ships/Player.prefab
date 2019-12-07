@@ -466,6 +466,8 @@ MonoBehaviour:
   shieldRegenRate: 0
   shieldRegenTime: 0
   overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: 2a45f5a52485a8f45a0f806e21727d93, type: 2}
@@ -494,6 +496,7 @@ MonoBehaviour:
   shieldRegenRate: 5
   weaponCooldown: 0
   acceleration: 1
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 5
   turnSpeed: 5
@@ -969,7 +972,7 @@ PrefabInstance:
     - target: {fileID: 6752734329540229016, guid: 018d60817ac456741bf00bdbb39c8c23,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6752734329540229016, guid: 018d60817ac456741bf00bdbb39c8c23,
         type: 3}

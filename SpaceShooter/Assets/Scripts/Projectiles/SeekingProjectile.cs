@@ -110,7 +110,12 @@ public class SeekingProjectile : Projectile
         audioSource.clip = explosionSound;
         audioSource.Play();
         base.Deactivate();
-        OnHit();
+        if (onHitExplosion != null)
+        {
+            GameObject explosion = Instantiate(onHitExplosion, transform.position, transform.rotation);
+            explosion.transform.localScale = transform.localScale;
+        }
+
     }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurretController : NpcController
 {
-    [SerializeField] BossController boss;
+    [SerializeField] protected BossController boss;
     [SerializeField] Vector2 angleClamp;
     [SerializeField] float defaultRotation;
 
@@ -149,7 +149,7 @@ public class TurretController : NpcController
         return true;
     }
 
-    public void SetBoss(BossController boss)
+    public virtual void SetBoss(BossController boss)
     {
         this.boss = boss;
     }
