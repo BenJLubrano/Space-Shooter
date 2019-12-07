@@ -18,6 +18,7 @@ public class SeekingProjectile : Projectile
 
     float distanceToTarget;
     [SerializeField] float angleToTarget;
+    [SerializeField] Animator thrusterEffect;
     float lastDistanceToTarget = 1000f;
     float turnSpeedIncrease = .1f;
     public override void Initialize(Weapon weapon, ShipController shooter, GameObject target = null, List<string> factions = null)
@@ -33,7 +34,7 @@ public class SeekingProjectile : Projectile
         missileSpeed = seekingWeapon.projectileSpeed;
         explosionSound = seekingWeapon.explosionSound;
         missileRb = GetComponent<Rigidbody2D>();
-        
+        thrusterEffect.SetBool("IsOn", true);
     }
 
     protected override void Update()
@@ -110,6 +111,7 @@ public class SeekingProjectile : Projectile
         audioSource.clip = explosionSound;
         audioSource.Play();
         base.Deactivate();
+        thrusterEffect.gameObject.SetActive(false);
         if (onHitExplosion != null)
         {
             GameObject explosion = Instantiate(onHitExplosion, transform.position, transform.rotation);

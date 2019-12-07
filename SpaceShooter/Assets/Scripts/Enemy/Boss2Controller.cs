@@ -34,39 +34,60 @@ public class Boss2Controller : BossController
 
     protected override void Shoot(GameObject target = null, List<string> factions = null)
     {
-        StallTime(5f);
         List<ShipController> shipsinLZone = hitZone.ShipsInZone();
         List<ShipController> shipsInRZone= hitZone2.ShipsInZone();
 
         //The target is in one of the zones
-        if(shipsinLZone.Contains(currentTarget))
-        {
-            if (leftCD <= 0)
-            {
-                forwardMissileL.ForceShoot(target, factions);
-                leftCD = 15f;
-            }
-        }
-        else if (shipsInRZone.Contains(currentTarget))
+        if (shipsInRZone.Contains(currentTarget))
         {
             if (rightCD <= 0)
             {
-                forwardMissileR.ForceShoot(target, factions);
-                rightCD = 15f;
+                StartCoroutine("DoAnim", 1);
             }
         }
-
-        if(shipsinLZone.Count > 0 && leftCD <= 0)
+        else if (shipsinLZone.Contains(currentTarget))
         {
+            if(leftCD <= 0)
+                StartCoroutine("DoAnim", 0);
+            /*shipAnimator.SetBool("IsOpen", true);
+            if (leftCD <= 0)
+            {
+                forwardMissileL.ForceShoot(currentTarget.gameObject, factions);
+                leftCD = 15f;
+            }*/
+        }
+
+        /*if(shipsinLZone.Count > 0 && leftCD <= 0)
+        {
+            shipAnimator.SetBool("IsOpen", true);
             forwardMissileL.ForceShoot(shipsinLZone[0].gameObject, factions);
             leftCD = 15f;
         }
         if (shipsInRZone.Count > 0 && rightCD <= 0)
         {
+            shipAnimator.SetBool("IsOpen", true);
             forwardMissileR.ForceShoot(shipsInRZone[0].gameObject, factions);
             rightCD = 15f;
-        }
+        }*/
     }
+
+    IEnumerator DoAnim(int side)
+    {
+        if (side == 0)
+            leftCD = 15f;
+        else
+            rightCD = 15f;
+        StallTime(5);
+        shipAnimator.SetBool("IsOpen", true);
+        yield return new WaitForSeconds(2);
+        if(side == 0)
+            forwardMissileL.ForceShoot(currentTarget.gameObject, enemyFactions);
+        else
+            forwardMissileR.ForceShoot(currentTarget.gameObject, enemyFactions);
+        shipAnimator.SetBool("IsOpen", false);
+        shipAnimator.SetTrigger("Close");
+    }
+
     public void MissileShot()
     {
         StallTime(15f);

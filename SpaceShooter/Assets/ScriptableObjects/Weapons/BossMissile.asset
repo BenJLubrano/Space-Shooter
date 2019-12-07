@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22915c8fb6a7f074a817b11902f35be8, type: 3}
   m_Name: BossMissile
   m_EditorClassIdentifier: 
-  damage: 150
+  damage: 100
   fireRate: 0.05
-  projectileSpeed: 4
+  projectileSpeed: 5
   projectileImage: {fileID: 21300000, guid: 7e6c520959ddcc2498d6a871ef9978a5, type: 3}
   npcFollowDistance: 25
   range: 25
@@ -22,7 +22,7 @@ MonoBehaviour:
   volume: 0.3
   projectile: {fileID: 8819101810938153031, guid: d78346faf013bae45b10c19ccbeb36d3,
     type: 3}
-  scale: {x: 2.5, y: 2.5}
+  scale: {x: 2, y: 2}
   degreesOfAccuracy: 45
   lifespan: 10
   followRange: 10000

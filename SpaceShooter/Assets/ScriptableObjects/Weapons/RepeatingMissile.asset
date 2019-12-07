@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0.05
   fireRate: 2.5
-  projectileSpeed: 5
+  projectileSpeed: 4
   projectileImage: {fileID: 21300000, guid: 90db16385d3b00343ac44d38f58fa2d7, type: 3}
   npcFollowDistance: 25
   range: 25
