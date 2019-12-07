@@ -20,13 +20,14 @@ MonoBehaviour:
   range: 15
   sound: {fileID: 8300000, guid: 40871ae62b5af4a49a6c89f9d9b2e4e0, type: 3}
   volume: 1
-  projectile: {fileID: 8819101810938153031, guid: d78346faf013bae45b10c19ccbeb36d3,
+  projectile: {fileID: 8819101810938153031, guid: 6eaea51f15927614d95381b4b2d53b6a,
     type: 3}
   scale: {x: 1, y: 1}
   degreesOfAccuracy: 45
   lifespan: 100
   followRange: 15
   followStrength: 0.75
+  absoluteTrackingTime: 0.5
   flyStraightTime: 0
   turnSpeed: 5
   maxTurnSpeed: 15

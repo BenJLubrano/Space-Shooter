@@ -520,6 +520,8 @@ MonoBehaviour:
   shieldAnim: {fileID: 6752734329798578713}
   spawnPoint: {fileID: 0}
   reputationText: {fileID: 3116595564646678549}
+  playerShield: {fileID: 6752734329798578712}
+  shieldOnHit: {fileID: 891484481009247409}
   mouseMovement: 0
 --- !u!82 &401094372879541271
 AudioSource:
@@ -1021,6 +1023,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018d60817ac456741bf00bdbb39c8c23, type: 3}
+--- !u!1 &6752734329798578712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6752734329540229023, guid: 018d60817ac456741bf00bdbb39c8c23,
+    type: 3}
+  m_PrefabInstance: {fileID: 820929927}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6752734329798578719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6752734329540229016, guid: 018d60817ac456741bf00bdbb39c8c23,
@@ -1033,3 +1041,15 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 820929927}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &891484481009247409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 891484481821212982, guid: 018d60817ac456741bf00bdbb39c8c23,
+    type: 3}
+  m_PrefabInstance: {fileID: 820929927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752734329798578712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744cd77348de1b1458f2b7113532a8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

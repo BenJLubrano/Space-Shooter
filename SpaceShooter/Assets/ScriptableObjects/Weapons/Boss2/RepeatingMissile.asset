@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22915c8fb6a7f074a817b11902f35be8, type: 3}
   m_Name: RepeatingMissile
   m_EditorClassIdentifier: 
-  damage: 0.05
+  damage: 5
   fireRate: 2.5
   projectileSpeed: 2
   projectileImage: {fileID: 21300000, guid: 90db16385d3b00343ac44d38f58fa2d7, type: 3}
   npcFollowDistance: 25
   range: 25
   sound: {fileID: 8300000, guid: 6c62402415fdd11468651ccb13a52745, type: 3}
-  volume: 0.13
-  projectile: {fileID: 8819101810938153031, guid: d78346faf013bae45b10c19ccbeb36d3,
+  volume: 0.1
+  projectile: {fileID: 8819101810938153031, guid: 6eaea51f15927614d95381b4b2d53b6a,
     type: 3}
   scale: {x: 1, y: 1}
   degreesOfAccuracy: 95

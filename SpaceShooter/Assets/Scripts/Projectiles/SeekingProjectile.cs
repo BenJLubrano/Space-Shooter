@@ -40,7 +40,8 @@ public class SeekingProjectile : Projectile
         maxSpeed = seekingWeapon.maxSpeed;
         explosionSound = seekingWeapon.explosionSound;
         missileRb = GetComponent<Rigidbody2D>();
-        thrusterEffect.SetBool("IsOn", true);
+        if(thrusterEffect != null)
+            thrusterEffect.SetBool("IsOn", true);
     }
 
     protected override void Update()
@@ -118,7 +119,8 @@ public class SeekingProjectile : Projectile
         audioSource.clip = explosionSound;
         audioSource.Play();
         base.Deactivate();
-        thrusterEffect.gameObject.SetActive(false);
+        if(thrusterEffect != null)
+            thrusterEffect.gameObject.SetActive(false);
         if (onHitExplosion != null)
         {
             GameObject explosion = Instantiate(onHitExplosion, transform.position, transform.rotation);

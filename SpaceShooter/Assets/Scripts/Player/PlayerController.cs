@@ -15,11 +15,24 @@ public class PlayerController : ShipController
     private float minAlphaLevel = 0.2f;
     private float fadeInSpeed = 0.0005f;
     private float fadeOutSpeed = 0.01f;
-
+    float deadTimer = 0f;
+    [SerializeField] private GameObject playerShield;
+    [SerializeField] private ShieldOnHit shieldOnHit;
     [SerializeField] bool mouseMovement = false;
+
     void Update()
     {
         base.Update(); //call the base ShipController update to perform generic functions
+
+        if(isDead)
+        {
+            deadTimer += Time.deltaTime;
+            if(deadTimer >= 3)
+            {
+                RespawnFunc();
+            }
+        }
+
         if (Input.GetButtonDown("Toggle Mouse Rotation"))
             ToggleMouseMovement();
     }
@@ -31,6 +44,8 @@ public class PlayerController : ShipController
 
     void HandleMovement()
     {
+        if (isDead)
+            return;
         //player movement stuff
         if(Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0)
         {
@@ -151,22 +166,13 @@ public class PlayerController : ShipController
     {
         //eventually will do more stuff here
         //StartCoroutine("Respawn") For some reason this causes the player to get stuck.
-        RespawnFunc();
+        //RespawnFunc();
     }
 
     protected override void PrepareForDeath()
     {
         base.PrepareForDeath();
         shieldAnim.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-    }
-
-    //Simple method to respawn the player
-    IEnumerator Respawn()
-    {
-        Debug.Log("Waiting for respawn");
-        yield return new WaitForSeconds(5);
-        RespawnFunc();
-
     }
 
     void RespawnFunc()
@@ -182,8 +188,57 @@ public class PlayerController : ShipController
         shieldAnim.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         shieldAnim.SetBool("hasShield", true);
         isDead = false;
+        deadTimer = 0;
     }
 
+    public override void TakeDamage(float damage, ShipController damager)
+    {
+        if (isDead)
+            return;
+
+        lastDamaged = 0f;
+        if (shield >= damage)
+        {
+            playerShield.GetComponent<ShieldOnHit>().onHit();
+            shield -= damage;
+        }
+        else
+        {
+            playerShield.GetComponent<ShieldOnHit>().onHit();
+            damage -= shield;
+            shield = 0;
+            health -= damage;
+        }
+
+        if (health <= 0)
+        {
+            health = 0;
+            try
+            {
+                damager.GetStats().AlterReputation(stats.reputation, true);
+                damager.RemoveDeadTarget(this);
+            }
+            catch
+            {
+                Debug.LogWarning("Could not remove from aggroTable");
+            }
+            PrepareForDeath();
+        }
+        else
+        {
+            damager.GetStats().AlterReputation(stats.reputation, false);
+        }
+
+        try
+        {
+            UpdateBars();
+        }
+        catch
+        {
+            Debug.LogWarning(gameObject.name + " does not have a health bar");
+        }
+
+    }
     public void UpdateReputationDisplay()
     {
         try

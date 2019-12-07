@@ -75,9 +75,16 @@ public class Boss2Controller : BossController
     IEnumerator DoAnim(int side)
     {
         if (side == 0)
+        {
             leftCD = missileCD;
+            rightCD = missileCD * .5f;
+        }
+
         else
+        {
             rightCD = missileCD;
+            leftCD = missileCD * .5f;
+        }
         StallTime(5);
         shipAnimator.SetBool("IsOpen", true);
         yield return new WaitForSeconds(2);
