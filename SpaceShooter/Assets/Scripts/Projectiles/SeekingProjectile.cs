@@ -11,6 +11,8 @@ public class SeekingProjectile : Projectile
     float maxTurnSpeed;
     float flyStraightTime;
     float missileSpeed;
+    float maxSpeed;
+    float speedGrowth;
     AudioClip explosionSound;
     bool flyingStraight = true;
     float currentLifeSpan = 0f;
@@ -32,6 +34,8 @@ public class SeekingProjectile : Projectile
         maxTurnSpeed = seekingWeapon.maxTurnSpeed;
         flyStraightTime = seekingWeapon.flyStraightTime;
         missileSpeed = seekingWeapon.projectileSpeed;
+        speedGrowth = seekingWeapon.speedGrowth;
+        maxSpeed = seekingWeapon.maxSpeed;
         explosionSound = seekingWeapon.explosionSound;
         missileRb = GetComponent<Rigidbody2D>();
         thrusterEffect.SetBool("IsOn", true);
@@ -66,6 +70,7 @@ public class SeekingProjectile : Projectile
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
         }
 
+        missileSpeed = missileSpeed >= maxSpeed ? maxSpeed : missileSpeed + speedGrowth * Time.deltaTime;
         missileRb.AddForce(transform.up * missileSpeed * 100 * missileRb.drag * Time.deltaTime);
 
         if (waitingForDestroy)

@@ -11,5 +11,7 @@ public class SeekingWeapon : Weapon
     [SerializeField] public float flyStraightTime = .25f;
     [SerializeField] public float turnSpeed = 5;
     [SerializeField] public float maxTurnSpeed = 15;
+    [SerializeField] public float speedGrowth = 1;
+    [SerializeField] public float maxSpeed = 5;
     [SerializeField] public AudioClip explosionSound;
 }

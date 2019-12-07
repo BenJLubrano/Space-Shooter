@@ -46,6 +46,7 @@ public class Projectile : MonoBehaviour
             audioSource.volume = weapon.volume;
             audioSource.Play();
         }
+
         transform.localScale = weapon.scale;
         hitBox.size *= weapon.scale;
         Vector2 shooterSpeed = shooter.GetSpeed();
