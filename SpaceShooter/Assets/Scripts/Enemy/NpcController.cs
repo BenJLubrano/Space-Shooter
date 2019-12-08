@@ -12,13 +12,14 @@ public class NpcController : ShipController
     [SerializeField] protected TargetingController targetingController;
     [SerializeField] protected bool usePrediction = true;
     [SerializeField] protected bool hasAnimator = true;
-    
+    [SerializeField] int numUnits = 0;
+    [SerializeField] GameObject unitPrefab;
+
     //We can just remove the "targets" gameobject and substitute it for this. The targeting controller will have to by modified but it will work.
     //Basically, whenever a ship enters the aggro zone (or attacks the ship) they get added to an aggro table, and when they leave the aggro zone, they get removed.
     //On attacking a ship, the initial aggro value should be damage - playerReputation, so that high rep players don't immediately get aggro when attacking federation ships
     protected AggroTable aggroTable = new AggroTable();
     [SerializeField] protected List<AggroElement> aggroElements = new List<AggroElement>();
-
     float lastFrameThrusterPower = 0f;
     bool isAccel = false;
     float lastFrameVelocity;
@@ -382,6 +383,16 @@ public class NpcController : ShipController
         return Mathf.Abs(rep1 - rep2);
     }
 
+    protected override void PrepareForDeath()
+    {
+        base.PrepareForDeath();
+        for(int i = 0; i < numUnits; i++)
+        {
+            Vector3 randomOffset = new Vector3(Random.Range(-1f - (.05f * numUnits), 1f + (.05f * numUnits)), Random.Range(-1f - (.05f * numUnits), 1f + (.05f * numUnits)), 0);
+
+            Instantiate(unitPrefab, transform.position + randomOffset, Quaternion.identity);
+        }
+    }
     protected override void Die()
     {
         //eventually will do more stuff here
