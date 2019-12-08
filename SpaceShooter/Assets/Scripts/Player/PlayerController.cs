@@ -19,6 +19,16 @@ public class PlayerController : ShipController
     [SerializeField] private GameObject playerShield;
     [SerializeField] private ShieldOnHit shieldOnHit;
     [SerializeField] bool mouseMovement = false;
+    [SerializeField] List<float> weaponCDs = new List<float>();
+
+    public override void Initialize(ShipStats newStats)
+    {
+        base.Initialize(newStats);
+        for (int i = 0; i < stats.weapons.Count; i++)
+        {
+            weaponCDs.Add(0);
+        }
+    }
 
     void Update()
     {
@@ -35,11 +45,76 @@ public class PlayerController : ShipController
 
         if (Input.GetButtonDown("Toggle Mouse Rotation"))
             ToggleMouseMovement();
+
+        if (Input.GetButton("Shoot") && weaponCooldown <= 0)
+        {
+            Shoot(null, new List<string> { "Federation", "Neutral", "Pirate" });
+            weaponCDs[stats.currentWeapon] = 1 / stats.weapons[stats.currentWeapon].fireRate;
+        }
+
+        if (Input.GetButtonDown("Weapon1"))
+        {
+            SwitchWeapons(0);
+        }
+        else if (Input.GetButtonDown("Weapon2"))
+        {
+            SwitchWeapons(1);
+        }
+        else if (Input.GetButtonDown("Weapon3"))
+        {
+            SwitchWeapons(2);
+        }
+        else if (Input.GetButtonDown("Weapon4"))
+        {
+            SwitchWeapons(3);
+        }
+        else if (Input.GetButtonDown("Weapon5"))
+        {
+            SwitchWeapons(4);
+        }
     }
 
     private void FixedUpdate()
     {
         HandleMovement();
+    }
+
+    void SwitchWeapons(int slot)
+    {
+        Debug.Log("switching weapon");
+        shipWeapon = stats.GetWeapon(slot);
+        stats.SetCurrentWeapon(slot);
+    }
+
+    protected override void DoUpdateChecks()
+    {
+        if (isDead && !audioSource.isPlaying)
+        {
+            Die();
+        }
+        else if (!isDead)
+        {
+            for(int i = 0; i < weaponCDs.Count; i++)
+            {
+                weaponCDs[i] -= Time.deltaTime;
+            }
+
+            weaponCooldown = weaponCDs[stats.currentWeapon];
+
+            lastDamaged += Time.deltaTime;
+            if (lastDamaged >= shieldRegenTime && shield < maxShield) //regenerate shields if damage has not been taken in the last 5 seconds
+            {
+                chargingShield = true;
+                shield += shieldRegenRate * Time.deltaTime;
+                if (shield > maxShield)
+                {
+                    shield = maxShield;
+                    lastDamaged = 0;
+                }
+                UpdateBars();
+            }
+            else chargingShield = false;
+        }
     }
 
     void HandleMovement()
@@ -65,8 +140,8 @@ public class PlayerController : ShipController
                 thrusterPower = thrusterPower - 1 * Time.deltaTime < 0 ? 0 : thrusterPower - 1 * Time.deltaTime;
         }
         float verticalMove = thrusterPower * speed * (speedConst * shipRb.mass) * Time.deltaTime;
-        verticalMove = (verticalMove < 0) ? verticalMove * speedPenalty : verticalMove;
-        float horizontalMove = Input.GetAxis("Horizontal") * speed * (speedConst * shipRb.mass) * speedPenalty * Time.deltaTime;
+        verticalMove = (verticalMove < 0) ? verticalMove * reversePenalty : verticalMove;
+        float horizontalMove = Input.GetAxis("Horizontal") * speed * (speedConst * shipRb.mass) * strafePenalty * Time.deltaTime;
 
         float rotationMove = 0;
         if(mouseMovement && Input.GetAxis("Rotation") == 0) //mouse rotate
@@ -112,11 +187,6 @@ public class PlayerController : ShipController
         {
             turnSpeed = defaultTurnSpeed;
             shipRb.drag = defaultDrag;
-        }
-
-        if (Input.GetButton("Shoot"))
-        {
-            Shoot(null, new List<string> { "Federation", "Neutral", "Pirate" });
         }
     }
 

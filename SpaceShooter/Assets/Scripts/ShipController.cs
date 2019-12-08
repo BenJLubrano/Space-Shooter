@@ -22,7 +22,8 @@ public class ShipController : MonoBehaviour
 
     [Header("Player Movement Variables")]
     //These variables are used for the player controller, but they exist here in case we want to have the enemy ships move like the player
-    [SerializeField] protected float speedPenalty = .25f;
+    [SerializeField] protected float strafePenalty = .6f;
+    [SerializeField] protected float reversePenalty = .25f;
     [SerializeField] protected float defaultTurnSpeed = 5;
     [SerializeField] protected float turnSpeed = 5;
     [SerializeField] protected float defaultDrag = 5;
