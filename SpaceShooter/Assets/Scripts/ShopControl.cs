@@ -18,6 +18,7 @@ public class ShopControl : MonoBehaviour
     [SerializeField] private List<GameObject> upgradeShopUI;
     [SerializeField] private List<GameObject> shipShopUI;
     [SerializeField] private List<GameObject> itemDescriptions;
+    [SerializeField] private TextMeshProUGUI descriptionText;
 
     public Button buy;
 
@@ -25,6 +26,7 @@ public class ShopControl : MonoBehaviour
     void Start()
     {
         units = playerStats.GetUnits();
+        unitsText.text = "Units: " + units.ToString();
 
         foreach (var obj in shipShopUI)
             obj.SetActive(false);
@@ -33,29 +35,40 @@ public class ShopControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        unitsText.text = "Units: " + playerStats.GetUnits().ToString();
-
-        isSold = PlayerPrefs.GetInt("IsSold");
+        //unitsText.text = "Units: " + playerStats.GetUnits().ToString();
+        /*isSold = PlayerPrefs.GetInt("IsSold");
 
         if (units >= 5 && isSold == 0)
             buy.interactable = true;
         else
-            buy.interactable = false;
+            buy.interactable = false;*/
     }
 
     public void buyUpgrade(ShopButton clickedButton)
     {
-        playerStats.ModifyUnits(-clickedButton.upgrade.cost);
-        playerStats.ApplyUpgrade(clickedButton.upgrade);
-        /*units -= 5;
-        PlayerPrefs.SetInt("IsSold", 1);*/
-        //weaponText.text = "Already Sold!";
-        //buy.gameObject.SetActive(false);
+        if (units >= clickedButton.upgrade.cost)
+        {
+            playerStats.ModifyUnits(-clickedButton.upgrade.cost);
+            playerStats.ApplyUpgrade(clickedButton.upgrade);
+        }
+        units = playerStats.GetUnits();
+        unitsText.text = "Units: " + units.ToString();
     }
 
     public void buyWeapon(ShopButton clickedButton)
     {
-
+        if(units >= clickedButton.upgrade.cost)
+        {
+            if (playerStats.weapons.Count >= 5)
+            {
+                UpdateDescriptionDisplay("You already have the maximum number of weapons!");
+                return;
+            }
+            playerStats.ModifyUnits(-clickedButton.upgrade.cost);
+            playerStats.ApplyUpgrade(clickedButton.upgrade);
+        }
+        units = playerStats.GetUnits();
+        unitsText.text = "Units: " + units.ToString();
     }
 
     public void buyShip(ShopButton clickedButton)
@@ -73,8 +86,8 @@ public class ShopControl : MonoBehaviour
 
     public void shipShop()
     {
-        //shop.gameObject.SetActive(false);
-        //shop2.gameObject.SetActive(true);
+        units = playerStats.GetUnits();
+        unitsText.text = "Units: " + units.ToString();
         foreach (var obj in shipShopUI)
             obj.SetActive(true);
 
@@ -99,6 +112,12 @@ public class ShopControl : MonoBehaviour
         //buy.gameObject.SetActive(true);
         //weaponText.text = "Dual Lasers \n Price: 5 Units";
         //PlayerPrefs.DeleteAll();
+    }
+
+    public void UpdateDescriptionDisplay(string text)
+    {
+        descriptionText.text = text;
+        itemDescriptions[0].SetActive(true);
     }
 
     public void OnMouseOver()

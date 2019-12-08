@@ -171,6 +171,10 @@ public class ShipStats : MonoBehaviour
 
     }
 
+    protected virtual void AddWeapon(Weapon newWeapon)
+    {
+        weapons.Add(newWeapon);
+    }
     public void ApplyUpgrade(Upgrade newUpgrade)
     {
         upgrades.Add(newUpgrade);
@@ -188,7 +192,7 @@ public class ShipStats : MonoBehaviour
         }
         else if (newUpgrade.type == 3) //new weapon
         {
-            weapons.Add(newUpgrade.weapon);
+            AddWeapon(newUpgrade.weapon);
         }
         else if (newUpgrade.type == 4) // new ship
         {

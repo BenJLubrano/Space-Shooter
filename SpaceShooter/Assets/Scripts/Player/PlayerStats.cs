@@ -61,6 +61,11 @@ public class PlayerStats : ShipStats
 
     }
 
+    protected override void AddWeapon(Weapon newWeapon)
+    {
+        weaponHolders[weapons.Count].SlotImage(newWeapon.projectileImage);
+        base.AddWeapon(newWeapon);
+    }
     public override void SetCurrentWeapon(int value)
     {
         base.SetCurrentWeapon(value);
@@ -108,6 +113,6 @@ public class PlayerStats : ShipStats
             factionSprite = factionSprites[1];
         else
             factionSprite = factionSprites[0];
-        statsUI.UpdateDisplay(ship.baseSprite, factionSprite, healthTxt, shieldTxt, speedTxt, faction, reputation.ToString(), false, false, false);
+        statsUI.UpdateDisplay(ship.baseSprite, factionSprite, healthTxt, shieldTxt, speedTxt, faction, reputation.ToString(), units.ToString(), false, false, false);
     }
 }

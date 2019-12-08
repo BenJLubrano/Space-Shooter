@@ -15,10 +15,11 @@ public class PlayerStatsUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI speedText;
     [SerializeField] TextMeshProUGUI factionText;
     [SerializeField] TextMeshProUGUI reputationText;
+    [SerializeField] TextMeshProUGUI unitsText;
 
     [SerializeField] List<Image> hyperdriveComps = new List<Image>();
 
-    public void UpdateDisplay(Sprite shipSprite, Sprite factionSprite, string hulltxt, string shieldtxt, string speedtxt, string factiontxt, string reptxt, bool h1, bool h2, bool h3)
+    public void UpdateDisplay(Sprite shipSprite, Sprite factionSprite, string hulltxt, string shieldtxt, string speedtxt, string factiontxt, string reptxt, string unitstxt, bool h1, bool h2, bool h3)
     {
         bg.SetActive(true);
         border.SetActive(true);
@@ -29,6 +30,7 @@ public class PlayerStatsUI : MonoBehaviour
         speedText.text = speedtxt;
         factionText.text = factiontxt;
         reputationText.text = reptxt;
+        unitsText.text = unitstxt;
     }
 
     public void Hide()
