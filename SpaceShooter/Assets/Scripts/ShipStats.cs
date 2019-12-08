@@ -55,13 +55,16 @@ public class ShipStats : MonoBehaviour
             faction = "Pirate";
         }
 
-        try
+        if(shipId == 0)
         {
-            shipId = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().RegisterShip();
-        }
-        catch
-        {
-            Debug.LogError("GameManager was not found in the scene!");
+            try
+            {
+                shipId = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().RegisterShip();
+            }
+            catch
+            {
+                Debug.LogError("GameManager was not found in the scene!");
+            }
         }
 
         if(ship == null)

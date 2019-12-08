@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22915c8fb6a7f074a817b11902f35be8, type: 3}
   m_Name: BossMissile
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 150
   fireRate: 0.05
   projectileSpeed: 2
   projectileImage: {fileID: 21300000, guid: 7e6c520959ddcc2498d6a871ef9978a5, type: 3}
@@ -24,6 +24,8 @@ MonoBehaviour:
     type: 3}
   scale: {x: 3, y: 3}
   degreesOfAccuracy: 45
+  canBeHitByProjectiles: 1
+  damageBeforeDestroyed: 25
   lifespan: 10
   followRange: 10000
   followStrength: 0.7

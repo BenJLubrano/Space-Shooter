@@ -151,7 +151,11 @@ public class TurretController : NpcController
 
     public virtual void SetBoss(BossController boss)
     {
+        Debug.Log(name);
         this.boss = boss;
+        if (stats == null)
+            Debug.Log("stats null");
+        stats.shipId = this.boss.GetStats().shipId;
     }
 
     public bool CanHitTarget()

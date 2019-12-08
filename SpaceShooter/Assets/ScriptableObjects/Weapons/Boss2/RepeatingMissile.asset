@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22915c8fb6a7f074a817b11902f35be8, type: 3}
   m_Name: RepeatingMissile
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   fireRate: 2.5
   projectileSpeed: 2
   projectileImage: {fileID: 21300000, guid: 90db16385d3b00343ac44d38f58fa2d7, type: 3}
@@ -24,6 +24,8 @@ MonoBehaviour:
     type: 3}
   scale: {x: 1, y: 1}
   degreesOfAccuracy: 95
+  canBeHitByProjectiles: 1
+  damageBeforeDestroyed: 1
   lifespan: 4
   followRange: 1000
   followStrength: 0.8

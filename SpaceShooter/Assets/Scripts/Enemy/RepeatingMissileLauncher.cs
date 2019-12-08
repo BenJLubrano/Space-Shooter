@@ -21,6 +21,7 @@ public class RepeatingMissileLauncher : TurretController
 
     public override void SetBoss(BossController boss)
     {
+        stats.shipId = boss.GetStats().shipId;
         this.boss = boss;
         boss2 = (Boss2Controller) boss;
     }

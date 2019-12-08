@@ -36,6 +36,7 @@ public class BossController : NpcController
     private void Awake()
     {
         aggroTable.Initialize(this);
+        Initialize(stats);
         UpdateBars();
         GameObject turretContainer = transform.Find("Turrets").gameObject;
         

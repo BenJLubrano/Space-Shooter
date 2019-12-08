@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected AudioSource audioSource;
     float speedMod = 0f;
 
+    float health = 1f;
     protected float damage;
     protected bool waitingForDestroy = false;
     protected Vector2 startPos;
@@ -51,6 +52,8 @@ public class Projectile : MonoBehaviour
         hitBox.size *= weapon.scale;
         Vector2 shooterSpeed = shooter.GetSpeed();
         speedMod = shooterSpeed.magnitude;
+
+        health = weapon.damageBeforeDestroyed;
     }
 
     // Update is called once per frame
@@ -111,20 +114,26 @@ public class Projectile : MonoBehaviour
             if (proj == null)
                 return;
             Weapon wep = proj.weapon;
-            if(wep != null && wep.canBeHitByProjectiles)
+            if(wep != null && wep.canBeHitByProjectiles && shooter.GetId() != proj.GetShooterId())
             {
-                proj.GetHitByOtherProjectile();
+                proj.GetHitByOtherProjectile(damage);
                 Deactivate();
                 OnHit();
             }
         }
     }
 
-    public void GetHitByOtherProjectile()
+    public void GetHitByOtherProjectile(float damage)
     {
-        Deactivate();
+        health -= damage;
+        if(health <= 0)
+            Deactivate();
     }
 
+    public int GetShooterId()
+    {
+        return shooter.GetId();
+    }
     //Called when it is time for the projectile to die. Makes it so nothing can interact with it, but sets waitingForDestroy to true so we can finish hearing the sound
     protected virtual void Deactivate()
     {

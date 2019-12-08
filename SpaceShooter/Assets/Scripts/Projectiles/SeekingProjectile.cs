@@ -74,7 +74,7 @@ public class SeekingProjectile : Projectile
         }
 
         missileSpeed = missileSpeed >= maxSpeed ? maxSpeed : missileSpeed + speedGrowth * Time.deltaTime;
-        missileRb.AddForce(transform.up * missileSpeed * 100 * missileRb.drag * Time.deltaTime);
+        missileRb.AddForce(transform.up * missileSpeed * 100 * missileRb.drag * missileRb.mass * Time.deltaTime);
 
         if (waitingForDestroy)
         {

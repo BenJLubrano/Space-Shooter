@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99ac17f532e65947ab837c5b36cf455, type: 3}
   m_Name: DoubleGrow
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 25
   fireRate: 0.75
-  projectileSpeed: 5
+  projectileSpeed: 8
   projectileImage: {fileID: 7305301340208738424, guid: 9f95539e075e8f549898b8d3f1132e83,
     type: 3}
   npcFollowDistance: 25
@@ -25,9 +25,9 @@ MonoBehaviour:
     type: 3}
   scale: {x: 1, y: 1}
   degreesOfAccuracy: 45
-  canBeHitByProjectiles: 1
+  canBeHitByProjectiles: 0
   startSize: 1
-  endSize: 5
+  endSize: 3
   growthSpeed: 4
   endDamage: 150
-  damagegrowthSpeed: 0
+  damagegrowthSpeed: 25
