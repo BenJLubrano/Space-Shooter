@@ -497,7 +497,7 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 1
   accuracy: 0
-  speedPenalty: 0.25
+  speedPenalty: 0.75
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 1
@@ -534,14 +534,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d883e5488e60d014ea7c3151c07b3efa, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.156
-  m_Pitch: -2.34
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 84
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -919,12 +919,12 @@ PrefabInstance:
     - target: {fileID: 1838343172613552364, guid: 6104e84c87e16a042b516bd502c76f39,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1838343172613552364, guid: 6104e84c87e16a042b516bd502c76f39,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1838343172613552365, guid: 6104e84c87e16a042b516bd502c76f39,
         type: 3}
@@ -935,7 +935,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0d07b7df756a8364186f9c5a20e5261a, type: 2}
+      objectReference: {fileID: 2100000, guid: 0c345703007fb74498a5a99ab3b6bc56, type: 2}
     - target: {fileID: 1838343172613552360, guid: 6104e84c87e16a042b516bd502c76f39,
         type: 3}
       propertyPath: m_Mesh
@@ -945,7 +945,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f9df4f94c78e03945bf5b4b94a1f63d3, type: 2}
+      objectReference: {fileID: 2100000, guid: 8089a97ba5eef7f4ca442bdc44ea6553, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6104e84c87e16a042b516bd502c76f39, type: 3}
 --- !u!4 &1838343172259217286 stripped

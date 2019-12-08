@@ -46,11 +46,11 @@ TagManager:
   - name: BottomLayer
     uniqueID: 2011536443
     locked: 0
-  - name: Player
-    uniqueID: 588918663
-    locked: 0
   - name: NPC Ships
     uniqueID: 3595061799
+    locked: 0
+  - name: Player
+    uniqueID: 588918663
     locked: 0
   - name: Projectiles
     uniqueID: 195804275

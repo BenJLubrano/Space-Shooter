@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56dfad2355f8dd74b956bfe524abac64, type: 3}
-  m_Name: BossTurretSpray
+  m_Name: DoubleShot
   m_EditorClassIdentifier: 
-  damage: 2.5
-  fireRate: 3
-  projectileSpeed: 7.5
-  projectileImage: {fileID: 5719075548217615797, guid: 13b53ad6633655344b58f98929a76d96,
+  damage: 35
+  fireRate: 1
+  projectileSpeed: 8
+  projectileImage: {fileID: 7305301340208738424, guid: 9f95539e075e8f549898b8d3f1132e83,
     type: 3}
-  npcFollowDistance: 15
-  range: 15
-  sound: {fileID: 0}
-  volume: 0.11
-  projectile: {fileID: 8819101810938153031, guid: 6323de503592567488e5b8378c8a0393,
+  npcFollowDistance: 25
+  range: 25
+  sound: {fileID: 8300000, guid: e455c98a7f5521e46a641b74fff4a6ba, type: 3}
+  volume: 0.5
+  projectile: {fileID: 8205101436414778113, guid: 6fab3b3869ad4cf4e917a79e1876713a,
     type: 3}
-  scale: {x: 5, y: 5}
+  scale: {x: 2, y: 2}
   degreesOfAccuracy: 45

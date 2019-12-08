@@ -179,7 +179,6 @@ public class NpcController : ShipController
             float distance = Vector2.Distance(currentTarget.transform.position, transform.position);
             if (!TargetInWeaponRange()) //if the target is further away than half of the weapons range
             {
-                Debug.Log("Target not in attack range");
                 if (Mathf.Abs(lastDistanceToTarget - distance) < 1f && distance < 1f)
                 {
                     thrusterPower -= acceleration * 2 * Time.deltaTime;

@@ -2195,46 +2195,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 76290790}
-    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: speedConst
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1670886136389112697, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: m_Mass
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1838343173094946911, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1838343173094946911, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1838343173033813987, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1838343173033813987, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 3116595564646678549, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2260,6 +2220,56 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1670886136389112697, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_Mass
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 76290790}
+    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: speedConst
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670886136389112698, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838343173094946911, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838343173094946911, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838343173033813987, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838343173033813987, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838343173033813988, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c345703007fb74498a5a99ab3b6bc56, type: 2}
+    - target: {fileID: 1838343173094946976, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8089a97ba5eef7f4ca442bdc44ea6553, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05bdc6182e9e4243aec202383b038ba, type: 3}
 --- !u!4 &648528330 stripped
@@ -5796,6 +5806,8 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: f7a81675cd7af47d0b5b86e83518edb1, type: 2}
@@ -5825,6 +5837,8 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: f7a81675cd7af47d0b5b86e83518edb1, type: 2}
@@ -5854,6 +5868,8 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: ce3736036005944d592113c34bae2b67, type: 2}
@@ -5883,6 +5899,8 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: f7a81675cd7af47d0b5b86e83518edb1, type: 2}
@@ -5912,6 +5930,8 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: 221207128a4e44f27b219f716e558b2f, type: 2}
@@ -5941,6 +5961,8 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: f7a81675cd7af47d0b5b86e83518edb1, type: 2}
@@ -5970,6 +5992,8 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: 91ca7c6f8f7d040f6b0db584096922ef, type: 2}
@@ -5999,6 +6023,8 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
   ship: {fileID: 11400000, guid: c4fe7044fe3e04f848222f135c5f6ebe, type: 2}
@@ -9453,6 +9479,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9476,6 +9503,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985424573579842}
+  usePrediction: 1
+  aggroElements: []
 --- !u!114 &8425060942286440581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9498,6 +9527,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9521,6 +9551,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985424500206732}
+  usePrediction: 1
+  aggroElements: []
 --- !u!114 &8425060942369766315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9543,6 +9575,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9566,6 +9599,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985424448741282}
+  usePrediction: 1
+  aggroElements: []
 --- !u!114 &8425060942859544959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9588,6 +9623,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9611,6 +9647,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985423932476790}
+  usePrediction: 1
+  aggroElements: []
 --- !u!114 &8425060943236221573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9633,6 +9671,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9656,6 +9695,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985424107220620}
+  usePrediction: 1
+  aggroElements: []
 --- !u!114 &8425060943913466061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9678,6 +9719,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9701,6 +9743,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985422905957572}
+  usePrediction: 1
+  aggroElements: []
 --- !u!114 &8425060944081348124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9723,6 +9767,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9746,6 +9791,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985422737801749}
+  usePrediction: 1
+  aggroElements: []
 --- !u!114 &8565194685370660694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9768,6 +9815,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
+  accuracy: 0
   speedPenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
@@ -9791,6 +9839,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3438270422159725407}
+  usePrediction: 1
+  aggroElements: []
 --- !u!4 &8573853090430206443
 Transform:
   m_ObjectHideFlags: 0

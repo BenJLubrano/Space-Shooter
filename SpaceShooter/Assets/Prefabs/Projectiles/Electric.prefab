@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 384443149582037041}
   - component: {fileID: 3547892027557101241}
   m_Layer: 8
-  m_Name: Growing Projectile 1
+  m_Name: Electric
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,5 +245,4 @@ MonoBehaviour:
   hitBox: {fileID: 1345088327068953904}
   renderer: {fileID: 6673826620940139229}
   audioSource: {fileID: 384443149582037041}
-  onHitExplosion: {fileID: 4265490741943177347, guid: efc312c3e056e044cbdd8491e2d0f7b3,
-    type: 3}
+  onHitExplosion: {fileID: 0}
