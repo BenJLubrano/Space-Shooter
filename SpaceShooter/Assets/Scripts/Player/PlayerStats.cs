@@ -7,6 +7,7 @@ public class PlayerStats : ShipStats
     [Header("Player Specific", order = 1)]
     [SerializeField] int experience;
     [SerializeField] int units;
+    [SerializeField] List<WeaponUI> weaponHolders = new List<WeaponUI>();
 
     private void Awake()
     {
@@ -16,6 +17,11 @@ public class PlayerStats : ShipStats
         PlayerController pc = (PlayerController)shipController;
         pc.UpdateReputationDisplay();
         shipId = 0;
+
+        for(int i = 0; i < weapons.Count; i++)
+        {
+            weaponHolders[i].SlotImage(weapons[i].projectileImage);
+        }
     }
 
     public void AddExperience(int exp)
@@ -49,5 +55,22 @@ public class PlayerStats : ShipStats
         PlayerController pc = (PlayerController)shipController;
         pc.UpdateReputationDisplay();
 
+    }
+
+    public override void SetCurrentWeapon(int value)
+    {
+        base.SetCurrentWeapon(value);
+        if(value < weapons.Count)
+        {
+            weaponHolders[value].GetSelected();
+            for (int i = 0; i < weaponHolders.Count; i++)
+            {
+                if (i != value)
+                {
+                    weaponHolders[i].AccelerateFade();
+                }
+            }
+            shipController.SetCooldown(value, .5f);
+        }
     }
 }

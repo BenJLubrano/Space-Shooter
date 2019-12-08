@@ -22,7 +22,8 @@ public class ShipController : MonoBehaviour
 
     [Header("Player Movement Variables")]
     //These variables are used for the player controller, but they exist here in case we want to have the enemy ships move like the player
-    [SerializeField] protected float speedPenalty = .25f;
+    [SerializeField] protected float strafePenalty = .6f;
+    [SerializeField] protected float reversePenalty = .25f;
     [SerializeField] protected float defaultTurnSpeed = 5;
     [SerializeField] protected float turnSpeed = 5;
     [SerializeField] protected float defaultDrag = 5;
@@ -47,7 +48,6 @@ public class ShipController : MonoBehaviour
     public bool chargingShield = false;
     protected float lastDamaged = 0f;
     protected float thrusterPower = 0f;
-    private GameObject playerShield;
     //public Animator anim;
 
     protected void Awake()
@@ -56,7 +56,6 @@ public class ShipController : MonoBehaviour
         {
             shieldBar.fillAmount = 0;
         }
-        playerShield = GameObject.FindGameObjectWithTag("PlayerShield");
     }
 
     //Set variables from Ship
@@ -111,7 +110,7 @@ public class ShipController : MonoBehaviour
         DoUpdateChecks();
     }
 
-    protected void DoUpdateChecks()
+    protected virtual void DoUpdateChecks()
     {
         if (isDead && !audioSource.isPlaying)
         {
@@ -165,12 +164,10 @@ public class ShipController : MonoBehaviour
         lastDamaged = 0f;
         if (shield >= damage)
         {
-            playerShield.GetComponent<ShieldOnHit>().onHit();
             shield -= damage;
         }
         else
         {
-            playerShield.GetComponent<ShieldOnHit>().onHit();
             damage -= shield;
             shield = 0;
             health -= damage;
@@ -180,6 +177,7 @@ public class ShipController : MonoBehaviour
         {
             health = 0;
             damager.GetStats().AlterReputation(stats.reputation, true);
+            damager.RemoveDeadTarget(this);
             PrepareForDeath();
         } 
         else
@@ -266,8 +264,10 @@ public class ShipController : MonoBehaviour
 
     public Vector2 GetSpeed()
     {
-
-        return shipRb.velocity;
+        if (shipRb != null)
+            return shipRb.velocity;
+        else
+            return Vector2.zero;
     }
 
     public bool IsDead()
@@ -280,8 +280,18 @@ public class ShipController : MonoBehaviour
         speed -= reduction;
     }
 
+    public virtual void SetCooldown(int weapon, float amount)
+    {
+        weaponCooldown = amount;
+    }
+
     public void ReduceTurnSpeed(float reduction)
     {
         defaultTurnSpeed -= reduction;
+    }
+
+    public virtual void RemoveDeadTarget(ShipController deadTarget)
+    {
+
     }
 }

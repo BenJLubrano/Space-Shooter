@@ -28,3 +28,4 @@ MonoBehaviour:
   mass: 0
   drag: 0
   turnSpeed: 5
+  defaultReputation: -100

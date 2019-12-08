@@ -15,13 +15,14 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected BoxCollider2D hitBox;
     [SerializeField] protected SpriteRenderer renderer;
     [SerializeField] protected AudioSource audioSource;
-    Vector3 speedMod = Vector2.zero;
+    float speedMod = 0f;
 
+    float health = 1f;
     protected float damage;
     protected bool waitingForDestroy = false;
     protected Vector2 startPos;
 
-    [SerializeField] GameObject onHitExplosion;
+    [SerializeField] protected GameObject onHitExplosion;
 
     // Start is called before the first frame update
     void Awake()
@@ -46,9 +47,13 @@ public class Projectile : MonoBehaviour
             audioSource.volume = weapon.volume;
             audioSource.Play();
         }
+
+        transform.localScale = weapon.scale;
         hitBox.size *= weapon.scale;
         Vector2 shooterSpeed = shooter.GetSpeed();
-        speedMod = new Vector3(shooterSpeed.x, shooterSpeed.y, 0);
+        speedMod = shooterSpeed.magnitude;
+
+        health = weapon.damageBeforeDestroyed;
     }
 
     // Update is called once per frame
@@ -63,7 +68,7 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            transform.position += (transform.up * weapon.projectileSpeed * Time.deltaTime) + speedMod * Time.deltaTime;
+            transform.position += (transform.up * (weapon.projectileSpeed + speedMod) * Time.deltaTime);
         }
         
     }
@@ -102,9 +107,35 @@ public class Projectile : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                //see if it's a missile
+                Projectile proj = collision.gameObject.GetComponent<Projectile>();
+                if (proj == null)
+                    return;
+                Weapon wep = proj.weapon;
+                if (wep != null && wep.canBeHitByProjectiles && shooter.GetId() != proj.GetShooterId())
+                {
+                    proj.GetHitByOtherProjectile(damage);
+                    Deactivate();
+                    OnHit();
+                }
+            }
+
         }
     }
 
+    public void GetHitByOtherProjectile(float damage)
+    {
+        health -= damage;
+        if(health <= 0)
+            Deactivate();
+    }
+
+    public int GetShooterId()
+    {
+        return shooter.GetId();
+    }
     //Called when it is time for the projectile to die. Makes it so nothing can interact with it, but sets waitingForDestroy to true so we can finish hearing the sound
     protected virtual void Deactivate()
     {

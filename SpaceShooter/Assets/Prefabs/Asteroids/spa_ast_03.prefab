@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2258067991062312044}
   - component: {fileID: -5482984866759265323}
   - component: {fileID: 1797063137367730055}
+  - component: {fileID: 4912474647467096541}
   m_Layer: 9
   m_Name: spa_ast_03
   m_TagString: Asteroid
@@ -233,3 +234,24 @@ MonoBehaviour:
   destroySound: {fileID: -2258067991062312044}
   hitBox: {fileID: -5482984866759265323}
   renderer: {fileID: 4377090963297841177}
+  animator: {fileID: 4912474647467096541}
+  GrowthSpeed: 3
+--- !u!95 &4912474647467096541
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337847038398359564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 336e904a72804424c81116c1d0629b5b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
