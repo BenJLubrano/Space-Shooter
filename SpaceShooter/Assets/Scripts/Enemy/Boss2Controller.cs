@@ -10,10 +10,11 @@ public class Boss2Controller : BossController
     [SerializeField] BossHitZone hitZone2;
 
     float leftCD, rightCD = 0f;
-    private void Awake()
+
+    public override void Initialize(ShipStats newStats)
     {
+        base.Initialize(newStats);
         aggroTable.Initialize(this);
-        Initialize(stats);
         UpdateBars();
         GameObject turretContainer = transform.Find("Turrets").gameObject;
         foreach (Transform turret in turretContainer.transform)
@@ -29,7 +30,6 @@ public class Boss2Controller : BossController
         rotateTurnSpeed = rotateRatio * defaultTurnSpeed;
         outOfRangeTurnSpeed = outOfRangeRatio * defaultTurnSpeed;
     }
-
     protected override void DoUpdateChecks()
     {
         base.DoUpdateChecks();

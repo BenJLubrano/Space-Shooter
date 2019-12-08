@@ -6,7 +6,7 @@ using UnityEngine;
 public class ShipStats : MonoBehaviour
 {
     [Header("Basic Stats", order = 0)]
-    [SerializeField] public int shipId;
+    [SerializeField] public int shipId = 0;
     [SerializeField] public string shipName = "Unnamed Ship";
     [SerializeField] public int level = 1;
     [SerializeField] public string faction;

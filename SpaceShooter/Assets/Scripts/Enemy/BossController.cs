@@ -35,12 +35,17 @@ public class BossController : NpcController
     bool canMove, canRotate;
     private void Awake()
     {
+
+    }
+
+    public override void Initialize(ShipStats newStats)
+    {
+        base.Initialize(newStats);
         aggroTable.Initialize(this);
-        Initialize(stats);
         UpdateBars();
         GameObject turretContainer = transform.Find("Turrets").gameObject;
-        
-        foreach(Transform turret in turretContainer.transform)
+
+        foreach (Transform turret in turretContainer.transform)
         {
             TurretController turretController = turret.GetComponentInChildren<TurretController>();
             turretController.SetBoss(this);

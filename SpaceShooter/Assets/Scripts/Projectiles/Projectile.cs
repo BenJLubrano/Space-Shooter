@@ -83,7 +83,6 @@ public class Projectile : MonoBehaviour
     //called when the projectile collides with something
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
         if (collision.gameObject.tag == "Asteroid") //if it's an asteroid, we know what to do
         {
             collision.gameObject.GetComponent<Asteroid>().TakeDamage(damage);
@@ -108,18 +107,21 @@ public class Projectile : MonoBehaviour
                     }
                 }
             }
-
-            //see if it's a missile
-            Projectile proj = collision.gameObject.GetComponent<Projectile>();
-            if (proj == null)
-                return;
-            Weapon wep = proj.weapon;
-            if(wep != null && wep.canBeHitByProjectiles && shooter.GetId() != proj.GetShooterId())
+            else
             {
-                proj.GetHitByOtherProjectile(damage);
-                Deactivate();
-                OnHit();
+                //see if it's a missile
+                Projectile proj = collision.gameObject.GetComponent<Projectile>();
+                if (proj == null)
+                    return;
+                Weapon wep = proj.weapon;
+                if (wep != null && wep.canBeHitByProjectiles && shooter.GetId() != proj.GetShooterId())
+                {
+                    proj.GetHitByOtherProjectile(damage);
+                    Deactivate();
+                    OnHit();
+                }
             }
+
         }
     }
 
