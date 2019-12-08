@@ -668,7 +668,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &77691719 stripped
 Transform:
@@ -1104,7 +1104,7 @@ Transform:
   - {fileID: 1088932565846626082}
   - {fileID: 495291694139300272}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &199085661
 PrefabInstance:
@@ -1368,7 +1368,7 @@ Transform:
   - {fileID: 35250183}
   - {fileID: 1181970520}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &242038274 stripped
 Transform:
@@ -2862,8 +2862,10 @@ Transform:
   - {fileID: 3286699739781147287}
   - {fileID: 3290025857315965170}
   - {fileID: 7878283247131278188}
+  - {fileID: 8415550469278812977}
+  - {fileID: 8415550469278355880}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &517854857
 PrefabInstance:
@@ -3369,6 +3371,156 @@ PrefabInstance:
     - target: {fileID: 3116595564646678549, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569576605527526464, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569576605527526464, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569576605527526464, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569576605527526464, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569576605527526464, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569576605527526464, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791667407968511053, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791667407968511053, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791667407968511053, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791667407968511053, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791667407968511053, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791667407968511053, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004828037073800616, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004828037073800616, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004828037073800616, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004828037073800616, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004828037073800616, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3004828037073800616, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271972075150529520, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271972075150529520, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271972075150529520, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271972075150529520, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271972075150529520, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271972075150529520, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901836106781240549, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901836106781240549, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901836106781240549, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901836106781240549, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901836106781240549, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901836106781240549, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4763,7 +4915,7 @@ Transform:
   - {fileID: 420136203}
   - {fileID: 1966627567}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &847925457
 PrefabInstance:
@@ -5043,7 +5195,7 @@ RectTransform:
   m_Children:
   - {fileID: 215034733}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6009,7 +6161,7 @@ Transform:
   - {fileID: 726736955}
   - {fileID: 1164385087}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1290353038
 PrefabInstance:
@@ -6423,7 +6575,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1378631324 stripped
 Transform:
@@ -7372,7 +7524,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1661205727
 PrefabInstance:
@@ -8473,7 +8625,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2026655938
 PrefabInstance:
@@ -9139,6 +9291,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 221207128a4e44f27b219f716e558b2f, type: 2}
   shipController: {fileID: 7887093797526769105}
 --- !u!4 &218747499635309825
@@ -9232,7 +9386,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9582,7 +9736,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -9605,6 +9760,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 6887376455101418244}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!1001 &511926359911985157
 PrefabInstance:
@@ -9928,7 +10085,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9998,7 +10155,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -10021,6 +10179,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 6221699971063668118}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!58 &1233411966423693226
 CircleCollider2D:
@@ -10128,7 +10288,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -10151,6 +10312,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 5508793707671923691}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!4 &1529090813892196703
 Transform:
@@ -10210,7 +10373,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -10233,6 +10397,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 5723436156784048303}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!4 &1596239725022620187
 Transform:
@@ -10438,7 +10604,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -10461,6 +10628,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 5641736435360200015}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!1 &1788942578843305707
 GameObject:
@@ -10624,7 +10793,9 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
-  ship: {fileID: 11400000, guid: 2a45f5a52485a8f45a0f806e21727d93, type: 2}
+  ships: []
+  currentShip: 0
+  ship: {fileID: 11400000, guid: 8310d4e49c1de416fa84960b36d11756, type: 2}
   shipController: {fileID: 8425060943433295637}
 --- !u!114 &2006465785532025721
 MonoBehaviour:
@@ -10655,7 +10826,9 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
-  ship: {fileID: 11400000, guid: 2a45f5a52485a8f45a0f806e21727d93, type: 2}
+  ships: []
+  currentShip: 0
+  ship: {fileID: 11400000, guid: 475ebd9350b993449b372d3a1dd413cf, type: 2}
   shipController: {fileID: 8425060943432711564}
 --- !u!58 &2009969260509092071
 CircleCollider2D:
@@ -10727,7 +10900,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10794,7 +10967,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10861,7 +11034,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11169,7 +11342,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -11192,6 +11366,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 8825856634607780207}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!4 &2535804319332570075
 Transform:
@@ -11238,6 +11414,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: f7a81675cd7af47d0b5b86e83518edb1, type: 2}
   shipController: {fileID: 5336804690079469708}
 --- !u!82 &2690012979949571479
@@ -11504,7 +11682,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11553,7 +11731,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11589,7 +11767,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -11612,6 +11791,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 9092450385248081774}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!4 &2838849126156273114
 Transform:
@@ -11683,7 +11864,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11746,7 +11927,7 @@ PrefabInstance:
     - target: {fileID: 1165297707054960403, guid: afcffebca8af3d246809cc2db9cbf6ac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1165297707054960403, guid: afcffebca8af3d246809cc2db9cbf6ac,
         type: 3}
@@ -12073,7 +12254,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12159,7 +12340,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -12182,6 +12364,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 8422791624018451014}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!4 &3286699739781147287
 Transform:
@@ -12238,7 +12422,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -12261,6 +12446,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 8419464871370586147}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!61 &3377248441752237771
 BoxCollider2D:
@@ -12945,7 +13132,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13041,7 +13228,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -13064,6 +13252,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 7300874416141273853}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!82 &4380765223389980499
 AudioSource:
@@ -13513,7 +13703,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13555,6 +13745,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: f027313982275fa4fb39f6a17dcce414, type: 2}
   shipController: {fileID: 3295910511608634410}
 --- !u!114 &4808412313252776122
@@ -13586,6 +13778,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 221207128a4e44f27b219f716e558b2f, type: 2}
   shipController: {fileID: 3281254751383436879}
 --- !u!50 &4839778888137189298
@@ -13984,6 +14178,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: ce3736036005944d592113c34bae2b67, type: 2}
   shipController: {fileID: 2829457828817122151}
 --- !u!95 &5243992990945116496
@@ -14070,7 +14266,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -14093,6 +14290,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 1403640958789596293}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!4 &5346332740713047601
 Transform:
@@ -14158,6 +14357,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 8310d4e49c1de416fa84960b36d11756, type: 2}
   shipController: {fileID: 2526838583920600422}
 --- !u!114 &5508793707671923691
@@ -14386,6 +14587,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 475ebd9350b993449b372d3a1dd413cf, type: 2}
   shipController: {fileID: 4340191366288142068}
 --- !u!61 &6091986441970526812
@@ -14943,6 +15146,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 91ca7c6f8f7d040f6b0db584096922ef, type: 2}
   shipController: {fileID: 1098162235173910943}
 --- !u!61 &6970395577963093628
@@ -15334,7 +15539,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -15436,6 +15641,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 91ca7c6f8f7d040f6b0db584096922ef, type: 2}
   shipController: {fileID: 503980884860432141}
 --- !u!50 &7640525442335475364
@@ -15498,7 +15705,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -15521,6 +15729,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3755449659808672216}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!82 &7891566358295217270
 AudioSource:
@@ -15855,14 +16065,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5765514118606835466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.024536, y: -6.6172523, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.69862, y: -6.761924, z: 718.82404}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 7054278260093748914}
   - {fileID: 589436148}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 512899185}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8415550469278812977
 Transform:
@@ -15871,14 +16081,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5765514118606247315}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.445179, y: 7.8418036, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -42.168335, y: 7.697132, z: 718.82404}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 7054278260094344235}
   - {fileID: 1724726469}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 512899185}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8419464871370586147
 MonoBehaviour:
@@ -15935,7 +16145,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -15958,6 +16169,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985423364692357}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!114 &8425060943433295637
 MonoBehaviour:
@@ -15982,7 +16195,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0.25
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -16005,6 +16219,8 @@ MonoBehaviour:
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985423365276444}
+  usePrediction: 1
+  hasAnimator: 1
   aggroElements: []
 --- !u!58 &8552541390513224460
 CircleCollider2D:
@@ -16147,6 +16363,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: f027313982275fa4fb39f6a17dcce414, type: 2}
   shipController: {fileID: 1666867261962522950}
 --- !u!4 &8681417244682022006
@@ -16211,6 +16429,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 0a7626b8a0ebf664a9ba37668ed4fc03, type: 2}
   shipController: {fileID: 1587278387602889894}
 --- !u!50 &8786333469265962571
@@ -16263,6 +16483,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 221207128a4e44f27b219f716e558b2f, type: 2}
   shipController: {fileID: 1520445516942790626}
 --- !u!114 &8825856634607780207
@@ -16693,7 +16915,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -16742,7 +16964,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
