@@ -11,6 +11,7 @@ public class NpcController : ShipController
     [SerializeField] public List<string> enemyFactions;
     [SerializeField] protected TargetingController targetingController;
     [SerializeField] protected bool usePrediction = true;
+    [SerializeField] protected bool hasAnimator = true;
     
     //We can just remove the "targets" gameobject and substitute it for this. The targeting controller will have to by modified but it will work.
     //Basically, whenever a ship enters the aggro zone (or attacks the ship) they get added to an aggro table, and when they leave the aggro zone, they get removed.
@@ -18,6 +19,8 @@ public class NpcController : ShipController
     protected AggroTable aggroTable = new AggroTable();
     [SerializeField] protected List<AggroElement> aggroElements = new List<AggroElement>();
 
+    float lastFrameThrusterPower = 0f;
+    bool isAccel = false;
     float lastFrameVelocity;
     protected ShipController currentTarget;
     protected Vector2 targetPosition;
@@ -28,6 +31,8 @@ public class NpcController : ShipController
     {
         base.Awake();
         aggroTable.Initialize(this);
+        if (shipAnimator == null)
+            hasAnimator = false;
     }
     protected override void Update()
     {
@@ -50,6 +55,7 @@ public class NpcController : ShipController
 
     protected virtual void FixedUpdate()
     {
+        HandleAnimation();
         if (currentTarget != null)
         {
             if(usePrediction && targetRb != null)
@@ -98,7 +104,19 @@ public class NpcController : ShipController
 
     void HandleAnimation()
     {
-        //animations for npcs go here
+        shipAnimator.SetFloat("ThrusterPower", thrusterPower);
+        if(thrusterPower == 0)
+        {
+            shipAnimator.SetBool("IsAccelerating", false);
+        }
+        else if(isAccel)
+        {
+            shipAnimator.SetBool("IsAccelerating", true);
+        }
+        else
+        {
+            shipAnimator.SetBool("IsAccelerating", false);
+        }
     }
 
     //Logic related to targeting
@@ -181,12 +199,14 @@ public class NpcController : ShipController
             {
                 if (Mathf.Abs(lastDistanceToTarget - distance) < 1f && distance < 1f)
                 {
+                    isAccel = false;
                     thrusterPower -= acceleration * 2 * Time.deltaTime;
                     if (thrusterPower < 0)
                         thrusterPower = 0;
                 }
                 else
                 {
+                    isAccel = true;
                     thrusterPower += acceleration * Time.deltaTime;
                     if (thrusterPower > 1)
                         thrusterPower = 1;
@@ -194,12 +214,14 @@ public class NpcController : ShipController
             }
             else
             {
+                isAccel = false;
                 thrusterPower -= acceleration * 2 * Time.deltaTime;
                 if (thrusterPower < 0)
                     thrusterPower = 0;
             }
 
             lastDistanceToTarget = distance;
+            lastFrameThrusterPower = thrusterPower;
             shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime * thrusterPower);
         }
     }
