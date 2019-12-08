@@ -68,6 +68,7 @@
     <Compile Include="Assets\Images\Space\Background\FollowUV.cs" />
     <Compile Include="Assets\Images\Space\Background\ScrollUV.cs" />
     <Compile Include="Assets\Images\Space\Background\SimpleSpaceShip.cs" />
+    <Compile Include="Assets\PlayerStatsUI.cs" />
     <Compile Include="Assets\Prefabs\Parallax\ParallaxFollow.cs" />
     <Compile Include="Assets\SceneChanger.cs" />
     <Compile Include="Assets\Scripts\Asteroid.cs" />

@@ -21,6 +21,7 @@ public class PlayerController : ShipController
     [SerializeField] bool mouseMovement = false;
     [SerializeField] List<float> weaponCDs = new List<float>();
 
+    PlayerStats pStats;
     public override void Initialize(ShipStats newStats)
     {
         base.Initialize(newStats);
@@ -28,6 +29,7 @@ public class PlayerController : ShipController
         {
             weaponCDs.Add(0);
         }
+        pStats = (PlayerStats)newStats;
     }
 
     void Update()
@@ -71,6 +73,11 @@ public class PlayerController : ShipController
         else if (Input.GetButtonDown("Weapon5"))
         {
             SwitchWeapons(4);
+        }
+
+        if(Input.GetButtonDown("ToggleUI"))
+        {
+            pStats.ToggleUI();
         }
     }
 
@@ -338,5 +345,15 @@ public class PlayerController : ShipController
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+    }
+
+    public float GetCurrentHealth()
+    {
+        return health;
+    }
+
+    public float GetCurrentShield()
+    {
+        return shield;
     }
 }
