@@ -266,7 +266,7 @@ public class ShipController : MonoBehaviour
         if (shipRb != null)
             return shipRb.velocity;
         else
-            return new Vector2(0, 0);
+            return Vector2.zero;
     }
 
     public bool IsDead()

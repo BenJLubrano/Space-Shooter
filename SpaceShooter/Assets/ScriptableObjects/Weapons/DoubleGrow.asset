@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   fireRate: 0.75
-  projectileSpeed: 9
+  projectileSpeed: 5
   projectileImage: {fileID: 7305301340208738424, guid: 9f95539e075e8f549898b8d3f1132e83,
     type: 3}
   npcFollowDistance: 25
-  range: 25
+  range: 50
   sound: {fileID: 8300000, guid: e455c98a7f5521e46a641b74fff4a6ba, type: 3}
   volume: 0.513
   projectile: {fileID: 8819101810938153031, guid: 29d1e3bb62f6d1b40a77b81737c2b98e,

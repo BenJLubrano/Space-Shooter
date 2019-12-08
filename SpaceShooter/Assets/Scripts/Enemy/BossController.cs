@@ -20,6 +20,12 @@ public class BossController : NpcController
     [SerializeField] protected bool canPerformAction = true;
     [SerializeField] protected bool isWaiting = false;
 
+    [SerializeField] protected float moveRatio = .25f;
+    [SerializeField] protected float rotateRatio = .25f;
+    [SerializeField] protected float outOfRangeRatio = 3f;
+    [SerializeField] protected float moveTurnSpeed;
+    [SerializeField] protected float rotateTurnSpeed;
+    [SerializeField] protected float outOfRangeTurnSpeed;
     //intervalClock keeps track of the time of the boss.
     //moveTime is how long the ShipController gets to move for
     //rotateTime is how long the ShipController gets to rotate for
@@ -41,6 +47,10 @@ public class BossController : NpcController
         }
         aggroTable.AddShip(GameObject.FindGameObjectWithTag("Player").GetComponent<ShipController>(), 100);
         aggroElements = aggroTable.GetElements();
+
+        moveTurnSpeed = moveRatio * defaultTurnSpeed;
+        rotateTurnSpeed = rotateRatio * defaultTurnSpeed;
+        outOfRangeTurnSpeed = outOfRangeRatio * defaultTurnSpeed;
     }
 
     protected override void Update()
@@ -84,14 +94,18 @@ public class BossController : NpcController
         }
         else
         {
-            if (canMove)
+            if(!TurretsInRange() && canMove)
             {
-                turnSpeed = defaultTurnSpeed;
+                turnSpeed = outOfRangeTurnSpeed;
+            }
+            else if (canMove)
+            {
+                turnSpeed = moveTurnSpeed;
                 Move();
             }
             else if (canRotate)
             {
-                turnSpeed = defaultTurnSpeed * .25f;
+                turnSpeed = rotateTurnSpeed;
                 Rotate();
             }
         }
@@ -136,9 +150,9 @@ public class BossController : NpcController
             canRotate = false;
             canMove = false;
             Shoot(null, enemyFactions);
-            shipRb.velocity = Vector2.zero;
-            isWaiting = true;
             nextActionTime += 10f;
+            shipRb.velocity = Vector2.zero;
+            isWaiting = true;           
             return; //Don't do anything else if the boss is shooting
         }
 
@@ -193,14 +207,14 @@ public class BossController : NpcController
             canRotate = true;
             canMove = false;
             actionDuration = Random.Range(rotateTime.x, rotateTime.y);
-            waitTime = 2;
+            waitTime = 7;
         }
         else if (choice == 1)
         {
             canMove = true;
             canRotate = true;
             actionDuration = Random.Range(moveTime.x, moveTime.y);
-            waitTime = 10;
+            waitTime = 5;
         }
 
         if(!turretInRange)
@@ -222,7 +236,7 @@ public class BossController : NpcController
         nextActionTime += time;
     }
 
-    bool TurretsInRange()
+    protected virtual bool TurretsInRange()
     {
         foreach (TurretController turret in turrets)
         {

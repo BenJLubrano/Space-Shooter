@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected BoxCollider2D hitBox;
     [SerializeField] protected SpriteRenderer renderer;
     [SerializeField] protected AudioSource audioSource;
-    Vector3 speedMod = Vector2.zero;
+    float speedMod = 0f;
 
     protected float damage;
     protected bool waitingForDestroy = false;
@@ -50,7 +50,7 @@ public class Projectile : MonoBehaviour
         transform.localScale = weapon.scale;
         hitBox.size *= weapon.scale;
         Vector2 shooterSpeed = shooter.GetSpeed();
-        speedMod = new Vector3(shooterSpeed.x, shooterSpeed.y, 0);
+        speedMod = shooterSpeed.magnitude;
     }
 
     // Update is called once per frame
@@ -65,7 +65,7 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            transform.position += (transform.up * weapon.projectileSpeed * Time.deltaTime) + speedMod * Time.deltaTime;
+            transform.position += (transform.up * (weapon.projectileSpeed + speedMod) * Time.deltaTime);
         }
         
     }

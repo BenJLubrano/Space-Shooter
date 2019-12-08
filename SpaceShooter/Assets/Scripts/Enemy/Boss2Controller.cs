@@ -29,8 +29,24 @@ public class Boss2Controller : BossController
     protected override void DoUpdateChecks()
     {
         base.DoUpdateChecks();
+        weaponCooldown = leftCD > rightCD ? leftCD : rightCD;
         leftCD -= Time.deltaTime;
         rightCD -= Time.deltaTime;
+    }
+
+
+    protected override bool TurretsInRange()
+    {
+
+        foreach (TurretController turret in turrets)
+        {
+            if (turret.CanHitTarget() && turret.gameObject.name != "BossMainMissile")
+            {
+                return true;
+            }
+        }
+        return false;
+
     }
 
     protected override void Shoot(GameObject target = null, List<string> factions = null)
@@ -50,26 +66,7 @@ public class Boss2Controller : BossController
         {
             if(leftCD <= 0)
                 StartCoroutine("DoAnim", 0);
-            /*shipAnimator.SetBool("IsOpen", true);
-            if (leftCD <= 0)
-            {
-                forwardMissileL.ForceShoot(currentTarget.gameObject, factions);
-                leftCD = 15f;
-            }*/
         }
-
-        /*if(shipsinLZone.Count > 0 && leftCD <= 0)
-        {
-            shipAnimator.SetBool("IsOpen", true);
-            forwardMissileL.ForceShoot(shipsinLZone[0].gameObject, factions);
-            leftCD = 15f;
-        }
-        if (shipsInRZone.Count > 0 && rightCD <= 0)
-        {
-            shipAnimator.SetBool("IsOpen", true);
-            forwardMissileR.ForceShoot(shipsInRZone[0].gameObject, factions);
-            rightCD = 15f;
-        }*/
     }
 
     IEnumerator DoAnim(int side)
@@ -79,7 +76,6 @@ public class Boss2Controller : BossController
             leftCD = missileCD;
             rightCD = missileCD * .5f;
         }
-
         else
         {
             rightCD = missileCD;
@@ -96,8 +92,4 @@ public class Boss2Controller : BossController
         shipAnimator.SetTrigger("Close");
     }
 
-    public void MissileShot()
-    {
-        StallTime(15f);
-    }
 }

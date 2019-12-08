@@ -41,8 +41,6 @@ public class RepeatingMissileLauncher : TurretController
             }
             if(currentTarget != null && TargetInWeaponRange() && weaponCooldown <= 0 && !isDead && TargetWithinShootAngle())
             {
-                if(shootCount == 0)
-                    boss2.MissileShot();
                 Shoot(currentTarget.gameObject);
                 shootCount += 1;
                 if(shootCount == 3)

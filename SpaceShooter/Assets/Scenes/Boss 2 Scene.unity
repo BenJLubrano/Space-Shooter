@@ -2173,7 +2173,7 @@ GameObject:
   - component: {fileID: 490154356}
   - component: {fileID: 490154355}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: BossMainMissile
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4887,15 +4887,15 @@ PrefabInstance:
       propertyPath: Loop
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6752734329798578712, guid: d05bdc6182e9e4243aec202383b038ba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1838343172259217286, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752734329798578712, guid: d05bdc6182e9e4243aec202383b038ba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1670886137031074163, guid: d05bdc6182e9e4243aec202383b038ba,
         type: 3}
@@ -7525,7 +7525,7 @@ MonoBehaviour:
   maxShield: 2000
   shieldRegenRate: 0
   shieldRegenTime: 0
-  overwriteValues: 0
+  overwriteValues: 1
   useDefaultReputation: 1
   upgrades: []
   weapons: []
@@ -8758,7 +8758,7 @@ GameObject:
   - component: {fileID: 5464683520860413065}
   - component: {fileID: 5012217575983261213}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: BossMainMissile
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9895,7 +9895,7 @@ MonoBehaviour:
   internalClock: 0
   nextActionTime: 0
   moveTime: {x: 2, y: 5}
-  rotateTime: {x: 3, y: 10}
+  rotateTime: {x: 2, y: 5}
   actionDuration: 0
   lastActionTime: 0
   waitTime: 5
