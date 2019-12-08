@@ -47,6 +47,7 @@ public class ShipController : MonoBehaviour
     public bool chargingShield = false;
     protected float lastDamaged = 0f;
     protected float thrusterPower = 0f;
+    private GameObject playerShield;
     //public Animator anim;
 
     protected void Awake()
@@ -55,6 +56,7 @@ public class ShipController : MonoBehaviour
         {
             shieldBar.fillAmount = 0;
         }
+        playerShield = GameObject.FindGameObjectWithTag("PlayerShield");
     }
 
     //Set variables from Ship
@@ -163,10 +165,12 @@ public class ShipController : MonoBehaviour
         lastDamaged = 0f;
         if (shield >= damage)
         {
+            playerShield.GetComponent<ShieldOnHit>().onHit();
             shield -= damage;
         }
         else
         {
+            playerShield.GetComponent<ShieldOnHit>().onHit();
             damage -= shield;
             shield = 0;
             health -= damage;
