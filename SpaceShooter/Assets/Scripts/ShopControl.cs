@@ -17,6 +17,7 @@ public class ShopControl : MonoBehaviour
     [SerializeField] GameObject shop2;
     [SerializeField] private List<GameObject> upgradeShopUI;
     [SerializeField] private List<GameObject> shipShopUI;
+    [SerializeField] private List<GameObject> itemDescriptions;
 
     public Button buy;
 
@@ -99,5 +100,20 @@ public class ShopControl : MonoBehaviour
         //weaponText.text = "Dual Lasers \n Price: 5 Units";
         //PlayerPrefs.DeleteAll();
     }
-   
+
+    public void OnMouseOver()
+    {
+        //If your mouse hovers over the GameObject with the script attached, output this message
+        itemDescriptions[0].SetActive(true);
+        Debug.Log("Mouse is over GameObject.");
+
+    }
+
+    public void OnMouseExit()
+    {
+        //The mouse is no longer hovering over the GameObject so output this message each frame
+        itemDescriptions[0].SetActive(false);
+        Debug.Log("Mouse is no longer on GameObject.");
+    }
+
 }
