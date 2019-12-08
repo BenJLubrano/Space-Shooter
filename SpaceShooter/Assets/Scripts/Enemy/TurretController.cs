@@ -32,18 +32,18 @@ public class TurretController : NpcController
             }
         }
 
-    }
-
-    protected override void FixedUpdate()
-    {
         //if the ShipController has a target
-        if (currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset()))//AngleToTargetOffset() > angleClamp.x && AngleToTargetOffset() < angleClamp.y)
+        if (currentTarget != null && TargetInAttackRange() && TargetWithinShootAngle() && weaponCooldown <= 0 && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset()))//AngleToTargetOffset() > angleClamp.x && AngleToTargetOffset() < angleClamp.y)
         {
             //Turn this into a method in Ship.cs called "Shoot()" that will handle the cooldown setting etc, since it's universal for all ships
             Shoot(currentTarget.gameObject, enemyFactions);
         }
 
+    }
 
+    protected override void FixedUpdate()
+    {
+      
         TurretRotate();
     }
 
