@@ -8,7 +8,7 @@ public class GrowingProjectile : Projectile
     float endSize;
     float growthSpeed;
     float endDamage;
-    float damageGrowthSpeed;
+    float damagegrowthSpeed;
 
     public override void Initialize(Weapon weapon, ShipController shooter, GameObject target = null, List<string> factions = null)
     {
@@ -19,7 +19,7 @@ public class GrowingProjectile : Projectile
         endSize = grWeapon.endSize;
         growthSpeed = grWeapon.growthSpeed;
         endDamage = grWeapon.endDamage;
-        damageGrowthSpeed = grWeapon.damageGrowthSpeed;
+        damagegrowthSpeed = grWeapon.damagegrowthSpeed;
 
     }
 
@@ -49,6 +49,6 @@ public class GrowingProjectile : Projectile
 
     void ScaleDamage()
     {
-        damage += damageGrowthSpeed * Time.deltaTime;
+        damage += damagegrowthSpeed * Time.deltaTime;
     }
 }

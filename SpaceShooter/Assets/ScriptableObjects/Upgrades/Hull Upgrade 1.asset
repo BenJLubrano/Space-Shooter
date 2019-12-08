@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   upgradeName: Hull Upgrade
-  cost: 0
+  cost: 100
   increase: 15
   weapon: {fileID: 0}

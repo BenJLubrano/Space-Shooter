@@ -10,23 +10,29 @@ public class NpcController : ShipController
     [SerializeField] protected List<GameObject> targets;
     [SerializeField] public List<string> enemyFactions;
     [SerializeField] protected TargetingController targetingController;
-
+    [SerializeField] protected bool usePrediction = true;
+    [SerializeField] protected bool hasAnimator = true;
+    
     //We can just remove the "targets" gameobject and substitute it for this. The targeting controller will have to by modified but it will work.
     //Basically, whenever a ship enters the aggro zone (or attacks the ship) they get added to an aggro table, and when they leave the aggro zone, they get removed.
     //On attacking a ship, the initial aggro value should be damage - playerReputation, so that high rep players don't immediately get aggro when attacking federation ships
-    AggroTable aggroTable = new AggroTable();
-    [SerializeField] List<AggroElement> aggroElements = new List<AggroElement>();
+    protected AggroTable aggroTable = new AggroTable();
+    [SerializeField] protected List<AggroElement> aggroElements = new List<AggroElement>();
 
+    float lastFrameThrusterPower = 0f;
+    bool isAccel = false;
     float lastFrameVelocity;
     protected ShipController currentTarget;
     protected Vector2 targetPosition;
     protected Rigidbody2D targetRb;
-    float lastDistanceToTarget = 1000f;
+    protected float lastDistanceToTarget = 1000f;
 
     private void Awake()
     {
         base.Awake();
         aggroTable.Initialize(this);
+        if (shipAnimator == null)
+            hasAnimator = false;
     }
     protected override void Update()
     {
@@ -49,8 +55,20 @@ public class NpcController : ShipController
 
     protected virtual void FixedUpdate()
     {
-        if(currentTarget != null)
-            targetPosition = PredictTargetLocation();
+        HandleAnimation();
+        if (currentTarget != null)
+        {
+            if(usePrediction && targetRb != null)
+            {
+                targetPosition = PredictTargetLocation();
+            }
+            else
+            {
+                targetPosition = currentTarget.transform.position;
+            }
+
+        }
+
         Move();
     }
 
@@ -86,7 +104,21 @@ public class NpcController : ShipController
 
     void HandleAnimation()
     {
-        //animations for npcs go here
+        if (!hasAnimator)
+            return;
+        shipAnimator.SetFloat("ThrusterPower", thrusterPower);
+        if(thrusterPower == 0)
+        {
+            shipAnimator.SetBool("IsAccelerating", false);
+        }
+        else if(isAccel)
+        {
+            shipAnimator.SetBool("IsAccelerating", true);
+        }
+        else
+        {
+            shipAnimator.SetBool("IsAccelerating", false);
+        }
     }
 
     //Logic related to targeting
@@ -96,6 +128,7 @@ public class NpcController : ShipController
         if (tempTarget == null)
             return;
         currentTarget = tempTarget.ship;
+        targetRb = currentTarget.GetComponent<Rigidbody2D>();
 
         /*float currentShortestDistance = Vector2.Distance(transform.position, tempTarget.ship.transform.position);
         foreach(AggroElement aggroTarget in aggroTable.GetElements())
@@ -142,7 +175,7 @@ public class NpcController : ShipController
     //Whether or not the target is in range to attack. Might do some more complicated calculations here later?
     protected virtual bool TargetInWeaponRange()
     {
-        return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.range / 2;
+        return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.range;
     }
 
     protected virtual bool TargetInAttackRange()
@@ -164,16 +197,18 @@ public class NpcController : ShipController
         {
             Rotate();
             float distance = Vector2.Distance(currentTarget.transform.position, transform.position);
-            if (!TargetInAttackRange()) //if the target is further away than half of the weapons range
+            if (!TargetInWeaponRange()) //if the target is further away than half of the weapons range
             {
                 if (Mathf.Abs(lastDistanceToTarget - distance) < 1f && distance < 1f)
                 {
+                    isAccel = false;
                     thrusterPower -= acceleration * 2 * Time.deltaTime;
                     if (thrusterPower < 0)
                         thrusterPower = 0;
                 }
                 else
                 {
+                    isAccel = true;
                     thrusterPower += acceleration * Time.deltaTime;
                     if (thrusterPower > 1)
                         thrusterPower = 1;
@@ -181,12 +216,14 @@ public class NpcController : ShipController
             }
             else
             {
+                isAccel = false;
                 thrusterPower -= acceleration * 2 * Time.deltaTime;
                 if (thrusterPower < 0)
                     thrusterPower = 0;
             }
 
             lastDistanceToTarget = distance;
+            lastFrameThrusterPower = thrusterPower;
             shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime * thrusterPower);
         }
     }
@@ -196,11 +233,11 @@ public class NpcController : ShipController
     {
         if (currentTarget == null)
             return;
-        /*float angle = AngleToTarget();
+        float angle = AngleToTarget();
         Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);*/
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
         //CODE FOR INSTANT ROTATE
-        transform.up = currentTarget.gameObject.transform.position - transform.position; //change rotation to face target
+        //transform.up = currentTarget.gameObject.transform.position - transform.position; //change rotation to face target
     }
 
     protected float AngleToTarget()
@@ -218,15 +255,13 @@ public class NpcController : ShipController
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         angle -= transform.rotation.eulerAngles.z;
         angle = angle < 0 ? angle + 360 : angle;
-        return angle > 90 - shipWeapon.degreesOfAccuracy && angle < 90 + shipWeapon.degreesOfAccuracy;
+        bool isInAngle = angle > 90 - shipWeapon.degreesOfAccuracy && angle < 90 + shipWeapon.degreesOfAccuracy;
+        return isInAngle;
     }
 
     protected Vector2 PredictTargetLocation()
     {
         Vector2 position = currentTarget.transform.position;
-
-        if(targetRb == null)
-            targetRb = currentTarget.GetComponent<Rigidbody2D>();
 
         Vector2 relativeVelocity = targetRb.velocity - shipRb.velocity;
         
@@ -299,6 +334,7 @@ public class NpcController : ShipController
         {
             health = 0;
             damager.GetStats().AlterReputation(stats.reputation, true);
+            damager.RemoveDeadTarget(this);
             PrepareForDeath();
         }
         else
@@ -334,6 +370,11 @@ public class NpcController : ShipController
             aggroTable.RemoveElement(ship);
         if (ship.gameObject == currentTarget)
             Deaggro();
+    }
+
+    public override void RemoveDeadTarget(ShipController deadTarget)
+    {
+        AttemptToRemoveTargetFromTargetingController(deadTarget);
     }
 
     float CalculateInitalAggro(float rep1, float rep2)

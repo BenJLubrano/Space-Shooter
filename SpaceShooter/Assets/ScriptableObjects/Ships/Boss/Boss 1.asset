@@ -27,4 +27,5 @@ MonoBehaviour:
   acceleration: 1
   mass: 2000
   drag: 5
-  turnSpeed: 2
+  turnSpeed: 1
+  defaultReputation: 0

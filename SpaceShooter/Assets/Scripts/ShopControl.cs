@@ -14,6 +14,10 @@ public class ShopControl : MonoBehaviour
     public TextMeshProUGUI weaponText;
     [SerializeField] PlayerStats playerStats;
     [SerializeField] GameObject shop;
+    [SerializeField] GameObject shop2;
+    [SerializeField] private List<GameObject> upgradeShopUI;
+    [SerializeField] private List<GameObject> shipShopUI;
+    [SerializeField] private List<GameObject> itemDescriptions;
 
     public Button buy;
 
@@ -21,6 +25,9 @@ public class ShopControl : MonoBehaviour
     void Start()
     {
         units = playerStats.GetUnits();
+
+        foreach (var obj in shipShopUI)
+            obj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,7 +43,7 @@ public class ShopControl : MonoBehaviour
             buy.interactable = false;
     }
 
-    public void buyWeapon(ShopButton clickedButton)
+    public void buyUpgrade(ShopButton clickedButton)
     {
         playerStats.ModifyUnits(-clickedButton.upgrade.cost);
         playerStats.ApplyUpgrade(clickedButton.upgrade);
@@ -44,6 +51,16 @@ public class ShopControl : MonoBehaviour
         PlayerPrefs.SetInt("IsSold", 1);*/
         //weaponText.text = "Already Sold!";
         //buy.gameObject.SetActive(false);
+    }
+
+    public void buyWeapon(ShopButton clickedButton)
+    {
+
+    }
+
+    public void buyShip(ShopButton clickedButton)
+    {
+
     }
 
     public void exitShop()
@@ -54,6 +71,28 @@ public class ShopControl : MonoBehaviour
         //SceneManager.LoadScene("MidtermScene");
     }
 
+    public void shipShop()
+    {
+        //shop.gameObject.SetActive(false);
+        //shop2.gameObject.SetActive(true);
+        foreach (var obj in shipShopUI)
+            obj.SetActive(true);
+
+        foreach (var obj in upgradeShopUI)
+            obj.SetActive(false);
+    }
+
+    public void back()
+    {
+        shop.gameObject.SetActive(true);
+        //shop2.gameObject.SetActive(true);
+        foreach (var obj in shipShopUI)
+            obj.SetActive(false);
+
+        foreach (var obj in upgradeShopUI)
+            obj.SetActive(true);
+    }
+
     public void resetPlayerPrefs()
     {
         playerStats.ResetUnits(1000);
@@ -61,5 +100,20 @@ public class ShopControl : MonoBehaviour
         //weaponText.text = "Dual Lasers \n Price: 5 Units";
         //PlayerPrefs.DeleteAll();
     }
-   
+
+    public void OnMouseOver()
+    {
+        //If your mouse hovers over the GameObject with the script attached, output this message
+        itemDescriptions[0].SetActive(true);
+        Debug.Log("Mouse is over GameObject.");
+
+    }
+
+    public void OnMouseExit()
+    {
+        //The mouse is no longer hovering over the GameObject so output this message each frame
+        itemDescriptions[0].SetActive(false);
+        Debug.Log("Mouse is no longer on GameObject.");
+    }
+
 }

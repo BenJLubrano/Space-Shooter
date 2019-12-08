@@ -10,6 +10,7 @@ public class Upgrade : ScriptableObject
     public int cost;
     public float increase;
     public Weapon weapon;
+    public Ship ship;
     // 0 is hull, 1 is shield, 2 is speed, 3 weapon
 
 }
