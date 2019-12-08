@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\SpaceStationScript.cs" />
     <Compile Include="Assets\Scripts\Upgrade.cs" />
     <Compile Include="Assets\UIAppear.cs" />
+    <Compile Include="Assets\WeaponUI.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

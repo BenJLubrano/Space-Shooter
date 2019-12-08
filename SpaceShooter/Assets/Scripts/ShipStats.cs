@@ -100,7 +100,7 @@ public class ShipStats : MonoBehaviour
         shipController.Initialize(this);
     }
 
-    public void SetCurrentWeapon(int value)
+    public virtual void SetCurrentWeapon(int value)
     {
         if (value >= weapons.Count)
             currentWeapon = weapons.Count - 1;

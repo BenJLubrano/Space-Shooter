@@ -15,7 +15,8 @@ MonoBehaviour:
   damage: 25
   fireRate: 0.25
   projectileSpeed: 9
-  projectileImage: {fileID: 0}
+  projectileImage: {fileID: 759683346799781104, guid: 66fe7ad5f21085b4d9dbb2df3eb5a807,
+    type: 3}
   npcFollowDistance: 25
   range: 25
   sound: {fileID: 8300000, guid: e455c98a7f5521e46a641b74fff4a6ba, type: 3}
