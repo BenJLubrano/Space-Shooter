@@ -55,13 +55,16 @@ public class ShipStats : MonoBehaviour
             faction = "Pirate";
         }
 
-        try
+        if(shipId == 0)
         {
-            shipId = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().RegisterShip();
-        }
-        catch
-        {
-            Debug.LogError("GameManager was not found in the scene!");
+            try
+            {
+                shipId = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().RegisterShip();
+            }
+            catch
+            {
+                Debug.LogError("GameManager was not found in the scene!");
+            }
         }
 
         if(ship == null)
@@ -100,7 +103,7 @@ public class ShipStats : MonoBehaviour
         shipController.Initialize(this);
     }
 
-    public void SetCurrentWeapon(int value)
+    public virtual void SetCurrentWeapon(int value)
     {
         if (value >= weapons.Count)
             currentWeapon = weapons.Count - 1;
@@ -112,6 +115,8 @@ public class ShipStats : MonoBehaviour
 
     public Weapon GetWeapon(int value)
     {
+        if (weapons.Count == 0)
+            return null;
         if (value >= weapons.Count)
             return weapons[weapons.Count - 1];
         else if (value < 0)

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3340055637390003945}
   - component: {fileID: -1382848553489059442}
   - component: {fileID: 3670573567081836382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoubleProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1584085216448065238, guid: 4e8e9c921844c374682cfac2d3f6e80c,
+  m_Sprite: {fileID: 7305301340208738424, guid: 9f95539e075e8f549898b8d3f1132e83,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -149,7 +149,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.34, y: 0.32}
+  m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
 --- !u!82 &3670573567081836382
 AudioSource:
