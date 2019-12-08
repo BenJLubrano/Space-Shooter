@@ -280,6 +280,11 @@ public class ShipController : MonoBehaviour
         speed -= reduction;
     }
 
+    public virtual void SetCooldown(int weapon, float amount)
+    {
+        weaponCooldown = amount;
+    }
+
     public void ReduceTurnSpeed(float reduction)
     {
         defaultTurnSpeed -= reduction;

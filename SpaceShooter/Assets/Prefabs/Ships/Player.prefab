@@ -543,10 +543,7 @@ MonoBehaviour:
   useDefaultReputation: 1
   upgrades: []
   weapons:
-  - {fileID: 11400000, guid: 6b6f2a149e6fb6240ab26609608a20de, type: 2}
-  - {fileID: 11400000, guid: 1f8e83c41b1ccec43a158d703983a28c, type: 2}
-  - {fileID: 11400000, guid: 44092069c8469744e8d3eef5e92be63d, type: 2}
-  - {fileID: 11400000, guid: 26a04a7330f4d8c45b302e1a18b9e15c, type: 2}
+  - {fileID: 11400000, guid: e675763611ac78143963eaf02f12f879, type: 2}
   currentWeapon: 0
   ship: {fileID: 11400000, guid: 2a45f5a52485a8f45a0f806e21727d93, type: 2}
   shipController: {fileID: 1670886136389112698}
@@ -984,7 +981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1221,7 +1218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1312,7 +1309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1476,7 +1473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1715,7 +1712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

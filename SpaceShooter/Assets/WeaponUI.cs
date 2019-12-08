@@ -27,6 +27,7 @@ public class WeaponUI : MonoBehaviour
     {
         childImage.sprite = sprite;
         childImage.type = Image.Type.Simple;
+        childImage.preserveAspect = true;
     }
 
     public void GetSelected()

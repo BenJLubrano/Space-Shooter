@@ -60,13 +60,17 @@ public class PlayerStats : ShipStats
     public override void SetCurrentWeapon(int value)
     {
         base.SetCurrentWeapon(value);
-        weaponHolders[value].GetSelected();
-        for(int i = 0; i < weaponHolders.Count; i++)
+        if(value < weapons.Count)
         {
-            if(i != value)
+            weaponHolders[value].GetSelected();
+            for (int i = 0; i < weaponHolders.Count; i++)
             {
-                weaponHolders[i].AccelerateFade();
+                if (i != value)
+                {
+                    weaponHolders[i].AccelerateFade();
+                }
             }
+            shipController.SetCooldown(value, .5f);
         }
     }
 }
