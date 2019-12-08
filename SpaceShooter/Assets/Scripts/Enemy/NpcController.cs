@@ -104,6 +104,8 @@ public class NpcController : ShipController
 
     void HandleAnimation()
     {
+        if (!hasAnimator)
+            return;
         shipAnimator.SetFloat("ThrusterPower", thrusterPower);
         if(thrusterPower == 0)
         {

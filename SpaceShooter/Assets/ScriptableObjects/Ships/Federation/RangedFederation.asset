@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSprite: {fileID: 1631311430100315378, guid: 65239e30c411027459bff9d80b044f01,
     type: 3}
-  animatorController: {fileID: 9100000, guid: 8b3b27daf82fbc24aa36064fd50fd327, type: 2}
+  animatorController: {fileID: 22100000, guid: 242fde35fb85a498aa42459422dbe63b, type: 2}
   explosion: {fileID: 0}
   health: 15
   shield: 15
