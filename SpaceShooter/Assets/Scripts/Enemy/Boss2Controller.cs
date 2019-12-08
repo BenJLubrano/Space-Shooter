@@ -24,6 +24,9 @@ public class Boss2Controller : BossController
         aggroTable.AddShip(GameObject.FindGameObjectWithTag("Player").GetComponent<ShipController>(), 100);
         aggroElements = aggroTable.GetElements();
         UpdateFactions();
+        moveTurnSpeed = moveRatio * defaultTurnSpeed;
+        rotateTurnSpeed = rotateRatio * defaultTurnSpeed;
+        outOfRangeTurnSpeed = outOfRangeRatio * defaultTurnSpeed;
     }
 
     protected override void DoUpdateChecks()

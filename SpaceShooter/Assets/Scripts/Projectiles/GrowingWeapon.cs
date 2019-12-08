@@ -10,5 +10,5 @@ public class GrowingWeapon : Weapon
     [SerializeField] public float endSize;
     [SerializeField] public float growthSpeed;
     [SerializeField] public float endDamage;
-    [SerializeField] public float damageGrowthSpeed;
+    [SerializeField] public float damagegrowthSpeed;
 }

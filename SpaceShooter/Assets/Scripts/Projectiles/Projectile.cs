@@ -80,6 +80,7 @@ public class Projectile : MonoBehaviour
     //called when the projectile collides with something
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.name);
         if (collision.gameObject.tag == "Asteroid") //if it's an asteroid, we know what to do
         {
             collision.gameObject.GetComponent<Asteroid>().TakeDamage(damage);
@@ -104,7 +105,24 @@ public class Projectile : MonoBehaviour
                     }
                 }
             }
+
+            //see if it's a missile
+            Projectile proj = collision.gameObject.GetComponent<Projectile>();
+            if (proj == null)
+                return;
+            Weapon wep = proj.weapon;
+            if(wep != null && wep.canBeHitByProjectiles)
+            {
+                proj.GetHitByOtherProjectile();
+                Deactivate();
+                OnHit();
+            }
         }
+    }
+
+    public void GetHitByOtherProjectile()
+    {
+        Deactivate();
     }
 
     //Called when it is time for the projectile to die. Makes it so nothing can interact with it, but sets waitingForDestroy to true so we can finish hearing the sound

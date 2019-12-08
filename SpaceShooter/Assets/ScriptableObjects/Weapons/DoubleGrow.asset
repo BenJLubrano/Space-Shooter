@@ -25,8 +25,9 @@ MonoBehaviour:
     type: 3}
   scale: {x: 1, y: 1}
   degreesOfAccuracy: 45
+  canBeHitByProjectiles: 1
   startSize: 1
   endSize: 5
   growthSpeed: 4
   endDamage: 150
-  damageGrowthSpeed: 25
+  damagegrowthSpeed: 0

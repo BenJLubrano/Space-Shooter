@@ -55,61 +55,7 @@ public class BossController : NpcController
 
     protected override void Update()
     {
-        DoUpdateChecks();
-        if(shield <= 0)
-        {
-            gameObject.layer = 0;
-        }
-        if (currentTarget == null)
-            LookForTargets();
-        else
-            targetPosition = currentTarget.transform.position;
-        internalClock += Time.deltaTime;
-        if (hitZone.ShipsInZone().Count > 0 && weaponCooldown <= 0)
-        {
-            StallTime(10, true);
-            Shoot(currentTarget.gameObject, enemyFactions);
-            return; //Don't do anything else if the boss is shooting
-        }
-
         
-        if(canPerformAction) //if it is time to perform an action
-        {
-            lastActionTime = internalClock;
-            PerformAction();
-        }
-        if(internalClock >= lastActionTime + actionDuration) //if it is time to wait after performing an action
-        {
-            canMove = false;
-            canRotate = false;
-            isWaiting = true;
-        }
-        if(isWaiting)
-        {
-            if(internalClock >= lastActionTime + actionDuration + waitTime)
-            {
-                isWaiting = false;
-                canPerformAction = true;
-            }
-        }
-        else
-        {
-            if(!TurretsInRange() && canMove)
-            {
-                turnSpeed = outOfRangeTurnSpeed;
-            }
-            else if (canMove)
-            {
-                turnSpeed = moveTurnSpeed;
-                Move();
-            }
-            else if (canRotate)
-            {
-                turnSpeed = rotateTurnSpeed;
-                Rotate();
-            }
-        }
-        nextActionTime = lastActionTime + actionDuration + waitTime;
     }
 
     protected override void Move()
@@ -118,7 +64,7 @@ public class BossController : NpcController
         float distance = Vector2.Distance(currentTarget.transform.position, transform.position);
         if (!TurretsInRange() && !isWaiting) //if the target is further away than half of the weapons range
         {
-            turnSpeed = defaultTurnSpeed;
+            turnSpeed = outOfRangeTurnSpeed;
             if (Mathf.Abs(lastDistanceToTarget - distance) < 5f && distance < 5f)
             {
                 thrusterPower -= acceleration * 2 * Time.deltaTime;
@@ -144,15 +90,20 @@ public class BossController : NpcController
 
     protected override void FixedUpdate()
     {
+        DoUpdateChecks();
+        if (shield <= 0)
+        {
+            gameObject.layer = 0;
+        }
+        if (currentTarget == null)
+            LookForTargets();
+        else
+            targetPosition = currentTarget.transform.position;
         internalClock += Time.deltaTime;
         if (hitZone.ShipsInZone().Count > 0 && weaponCooldown <= 0)
         {
-            canRotate = false;
-            canMove = false;
-            Shoot(null, enemyFactions);
-            nextActionTime += 10f;
-            shipRb.velocity = Vector2.zero;
-            isWaiting = true;           
+            StallTime(10, true);
+            Shoot(currentTarget.gameObject, enemyFactions);
             return; //Don't do anything else if the boss is shooting
         }
 
@@ -178,14 +129,19 @@ public class BossController : NpcController
         }
         else
         {
-            if (canMove)
+            if (!TurretsInRange() && canMove)
             {
-                turnSpeed = defaultTurnSpeed * .1f;
+                turnSpeed = outOfRangeTurnSpeed;
+                Move();
+            }
+            else if (canMove)
+            {
+                turnSpeed = moveTurnSpeed;
                 Move();
             }
             else if (canRotate)
             {
-                turnSpeed = defaultTurnSpeed;
+                turnSpeed = rotateTurnSpeed;
                 Rotate();
             }
         }
