@@ -83,8 +83,13 @@ public class ShipController : MonoBehaviour
         turnSpeed = defaultTurnSpeed;
 
         spriteRenderer.sprite = stats.ship.baseSprite == null ? spriteRenderer.sprite : stats.ship.baseSprite;
-        if (shipAnimator != null && stats.ship.animatorController != null)
-            shipAnimator.runtimeAnimatorController = stats.ship.animatorController;
+        if (shipAnimator != null)
+        {
+            if (stats.ship.animatorController != null)
+                shipAnimator.runtimeAnimatorController = stats.ship.animatorController;
+            else
+                shipAnimator.runtimeAnimatorController = null;
+        }
         else
             Debug.LogWarning(stats.ship.name + " does not have an animator or is missing an animator controller.");
         UpdateBars();

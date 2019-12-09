@@ -26,7 +26,7 @@ public class ShopControl : MonoBehaviour
     void Start()
     {
         units = playerStats.GetUnits();
-        unitsText.text = "Units: " + units.ToString();
+        unitsText.text = units.ToString();
 
         foreach (var obj in shipShopUI)
             obj.SetActive(false);
@@ -57,7 +57,7 @@ public class ShopControl : MonoBehaviour
             UpdateDescriptionDisplay(clickedButton);
         }
         units = playerStats.GetUnits();
-        unitsText.text = "Units: " + units.ToString();
+        unitsText.text = units.ToString();
     }
 
     public void buyWeapon(ShopButton clickedButton)
@@ -78,12 +78,44 @@ public class ShopControl : MonoBehaviour
             ForceDescriptionUpdate("Not Enough Credits!");
         }
         units = playerStats.GetUnits();
-        unitsText.text = "Units: " + units.ToString();
+        unitsText.text = units.ToString();
     }
 
     public void buyShip(ShopButton clickedButton)
     {
+        if (units >= clickedButton.upgrade.cost)
+        {
+            playerStats.ModifyUnits(-clickedButton.upgrade.cost);
+            playerStats.ApplyUpgrade(clickedButton.upgrade);
+            clickedButton.GetPurchased();
+            NewShipBought();
+        }
+        else
+        {
+            ForceDescriptionUpdate("Not Enough Credits!");
+        }
+        units = playerStats.GetUnits();
+        unitsText.text = units.ToString();
+    }
 
+    void NewShipBought()
+    {
+        foreach(GameObject obj in upgradeShopUI)
+        {
+            ShopButton btn = obj.GetComponent<ShopButton>();
+            if(btn != null)
+            {
+                btn.Reset();
+            }
+        }
+        foreach(GameObject obj in shipShopUI)
+        {
+            ShopButton btn = obj.GetComponent<ShopButton>();
+            if (btn != null)
+            {
+                btn.Reset();
+            }
+        }
     }
 
     public void exitShop()
@@ -97,23 +129,43 @@ public class ShopControl : MonoBehaviour
     public void shipShop()
     {
         units = playerStats.GetUnits();
-        unitsText.text = "Units: " + units.ToString();
-        foreach (var obj in shipShopUI)
-            obj.SetActive(true);
+        unitsText.text = units.ToString();
 
-        foreach (var obj in upgradeShopUI)
+        DisableUI(upgradeShopUI);
+        EnableUI(shipShopUI);
+
+    }
+
+    void EnableUI(List<GameObject> uiList)
+    {
+        foreach(GameObject obj in uiList)
+        {
+            ShopButton btn = obj.GetComponent<ShopButton>();
+            if(btn != null)
+            {
+                btn.Enable();
+            }
+            else
+            {
+                obj.SetActive(true);
+            }
+        }
+    }
+
+    void DisableUI(List<GameObject> uiList)
+    {
+        foreach (GameObject obj in uiList)
+        {
             obj.SetActive(false);
+        }
     }
 
     public void back()
     {
         shop.gameObject.SetActive(true);
         //shop2.gameObject.SetActive(true);
-        foreach (var obj in shipShopUI)
-            obj.SetActive(false);
-
-        foreach (var obj in upgradeShopUI)
-            obj.SetActive(true);
+        DisableUI(shipShopUI);
+        EnableUI(upgradeShopUI);
     }
 
     public void resetPlayerPrefs()
@@ -141,7 +193,6 @@ public class ShopControl : MonoBehaviour
         //If your mouse hovers over the GameObject with the script attached, output this message
         itemDescriptions[0].SetActive(true);
         Debug.Log("Mouse is over GameObject.");
-
     }
 
     public void OnMouseExit()

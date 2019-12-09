@@ -39,7 +39,7 @@ public class ShipStats : MonoBehaviour
     }
 
     //Set up using the variables from Ship
-    void Initialize()
+    protected void Initialize()
     {
         if (useDefaultReputation)
             reputation = ship.defaultReputation;
@@ -175,6 +175,12 @@ public class ShipStats : MonoBehaviour
     {
         weapons.Add(newWeapon);
     }
+
+    protected virtual void SwitchShip(Ship newShip)
+    {
+
+    }
+
     public void ApplyUpgrade(Upgrade newUpgrade)
     {
         upgrades.Add(newUpgrade);
@@ -196,6 +202,7 @@ public class ShipStats : MonoBehaviour
         }
         else if (newUpgrade.type == 4) // new ship
         {
+            SwitchShip(newUpgrade.ship);
             ships.Add(newUpgrade.ship);
         }
 

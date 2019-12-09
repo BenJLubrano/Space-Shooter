@@ -44,6 +44,20 @@ public class ShopButton : MonoBehaviour
 
     }
 
+    public void Enable()
+    {
+        if(upgrade != null && boughtCount < maxBuyCount)
+        {
+            gameObject.SetActive(true);
+        }
+    }
+
+    public void Reset()
+    {
+        boughtCount = 0;
+        Awake();
+    }
+
     public void GetPurchased()
     {
         boughtCount += 1;

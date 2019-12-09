@@ -98,6 +98,12 @@ public class PlayerStats : ShipStats
         uiIsActive = !uiIsActive;
     }
 
+    protected override void SwitchShip(Ship newShip)
+    {
+        ship = newShip;
+        Initialize();
+    }
+
     void DisplayPlayerStatsUI()
     {
         int currentHealth = (int)pc.GetCurrentHealth();

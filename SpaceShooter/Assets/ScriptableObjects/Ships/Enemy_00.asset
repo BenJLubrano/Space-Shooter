@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3210549f35f84f448fbec235ca29c4e, type: 3}
   m_Name: Enemy_00
   m_EditorClassIdentifier: 
-  baseSprite: {fileID: 0}
+  baseSprite: {fileID: -3911525947952118071, guid: c4595cbbd7d69c84c94a6fbe1541c7bb,
+    type: 3}
   animatorController: {fileID: 22100000, guid: daec2a9f8104a4b2d80d850698492b3b, type: 2}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
@@ -27,3 +28,4 @@ MonoBehaviour:
   mass: 15
   drag: 1
   turnSpeed: 5
+  defaultReputation: 0

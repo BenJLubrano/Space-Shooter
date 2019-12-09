@@ -38,6 +38,7 @@ public class PlayerStatsUI : MonoBehaviour
         bg.SetActive(false);
         border.SetActive(false);
     }
+
     // Start is called before the first frame update
     void Start()
     {
