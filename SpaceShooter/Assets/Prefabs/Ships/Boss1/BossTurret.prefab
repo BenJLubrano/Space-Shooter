@@ -398,7 +398,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -7973389932233663961, guid: f6b74eb7aa83e34479b34259a6af1cab,
     type: 3}
@@ -447,7 +447,8 @@ AudioSource:
   m_GameObject: {fileID: 8008957071299556690}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4587144162968173002, guid: 31df40953bf129949940bd3f6366fa43,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -563,6 +564,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 0}
 --- !u!114 &8008957071299556691
@@ -588,7 +591,8 @@ MonoBehaviour:
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
-  speedPenalty: 0
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 5
@@ -612,6 +616,9 @@ MonoBehaviour:
   - Player
   targetingController: {fileID: 1344319336763488580}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
   angleClamp: {x: 0, y: 0}

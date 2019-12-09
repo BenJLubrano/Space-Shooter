@@ -19,7 +19,7 @@ MonoBehaviour:
   npcFollowDistance: 25
   range: 25
   sound: {fileID: 8300000, guid: 36b6053172a394e0a8518be5dfec1998, type: 3}
-  volume: 0.136
+  volume: 0.75
   projectile: {fileID: 8819101810938153031, guid: d78346faf013bae45b10c19ccbeb36d3,
     type: 3}
   scale: {x: 3, y: 3}

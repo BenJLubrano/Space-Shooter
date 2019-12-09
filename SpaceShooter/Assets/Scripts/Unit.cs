@@ -14,7 +14,6 @@ public class Unit : MonoBehaviour
         {
             float distance = Vector2.Distance(target.transform.position, transform.position);
             speed += distance * Time.deltaTime;
-            Debug.Log(speed);
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
             if(distance < .5f)
             {

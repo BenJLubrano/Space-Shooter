@@ -85,12 +85,13 @@ public class ShipStats : MonoBehaviour
             shieldRegenRate = ship.shieldRegenRate;
             shieldRegenTime = ship.shieldRegenTime;
 
-            if (weapons == null)
+            if (weapons == null || weapons.Count < 1)
                 weapons = ship.weapons;
             else
             {
                 foreach (Weapon weapon in ship.weapons)
                 {
+                    Debug.Log("Adding weapon" + weapon.name);
                     if (!weapons.Contains(weapon))
                         weapons.Add(weapon);
                 }

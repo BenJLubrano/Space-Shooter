@@ -130,6 +130,6 @@ public class Intro : MonoBehaviour
             slides[i].SetActive(false);
         }
         finalFade = true;
-        gameManager.CrossFadeAudio("noCombat", .05f);
+        gameManager.CrossFadeAudio("inPlay", .3f);
     }
 }

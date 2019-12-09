@@ -20,8 +20,10 @@ MonoBehaviour:
   npcFollowDistance: 25
   range: 25
   sound: {fileID: 8300000, guid: c3318c9b5adbd5c4290a0ec3e98bb2f2, type: 3}
-  volume: 0.105
+  volume: 0.5
   projectile: {fileID: 31253595519513043, guid: 17f326c7d71ec7349928cffceb8ef4db,
     type: 3}
   scale: {x: 2, y: 2}
   degreesOfAccuracy: 45
+  canBeHitByProjectiles: 0
+  damageBeforeDestroyed: 1

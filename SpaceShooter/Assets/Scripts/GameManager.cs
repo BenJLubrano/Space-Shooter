@@ -17,10 +17,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip introOutro;
 
     [SerializeField] AudioMixer mixer;
-    [Range(0.0f, 1f)]
-    [SerializeField] float outOfCombatVolume;
-    [Range(0.0f, 1f)]
-    [SerializeField] float inCombatVolume;
 
     int primaryPlayer = 0;
     float fadeAmount = 0f;
@@ -66,15 +62,13 @@ public class GameManager : MonoBehaviour
     {
         if (inCombat)
         {
-            musicPlayer.clip = combat;
-            musicPlayer.volume = inCombatVolume;
+            Debug.Log("true");
+            CrossFadeAudio("inCombat", .25f);
         }
         else
         {
-            musicPlayer.clip = noCombat;
-            musicPlayer.volume = outOfCombatVolume;
+            CrossFadeAudio("combat", .25f);
         }
-        musicPlayer.Play();
     }
 
     public void SetMusicVolume(float amt)
@@ -103,12 +97,12 @@ public class GameManager : MonoBehaviour
 
     public void BeginIntroSequence()
     {
-        CrossFadeAudio("intro", .5f);
+        CrossFadeAudio("intro", .75f);
     }
 
     public void CrossFadeAudio(string newClip, float fadeSpeed = 1)
     {
-        AudioClip fadeInClip = noCombat;
+        AudioClip fadeInClip = null;
 
         if(newClip == "intro")
         {
@@ -146,6 +140,7 @@ public class GameManager : MonoBehaviour
             musicPlayer.Play();
             primaryPlayer = 0;
         }
+
         crossFading = true;
         this.fadeSpeed = fadeSpeed;
     }

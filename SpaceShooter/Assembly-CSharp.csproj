@@ -62,21 +62,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BackgroundMover.cs" />
-    <Compile Include="Assets\CanvasClamp.cs" />
-    <Compile Include="Assets\ColorLerp.cs" />
-    <Compile Include="Assets\DestroyOnExit.cs" />
-    <Compile Include="Assets\EdgeMarker.cs" />
-    <Compile Include="Assets\FollowShip.cs" />
     <Compile Include="Assets\Images\Space\Background\FollowUV.cs" />
     <Compile Include="Assets\Images\Space\Background\ScrollUV.cs" />
     <Compile Include="Assets\Images\Space\Background\SimpleSpaceShip.cs" />
-    <Compile Include="Assets\Intro.cs" />
-    <Compile Include="Assets\PlayerStatsUI.cs" />
     <Compile Include="Assets\Prefabs\Parallax\ParallaxFollow.cs" />
-    <Compile Include="Assets\SceneChanger.cs" />
     <Compile Include="Assets\Scripts\Asteroid.cs" />
+    <Compile Include="Assets\Scripts\BackgroundMover.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\CanvasClamp.cs" />
+    <Compile Include="Assets\Scripts\ColorLerp.cs" />
+    <Compile Include="Assets\Scripts\DestroyOnExit.cs" />
     <Compile Include="Assets\Scripts\Distributor.cs" />
     <Compile Include="Assets\Scripts\Enemy\AggroTable.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss2Controller.cs" />
@@ -90,12 +85,15 @@
     <Compile Include="Assets\Scripts\Enemy\WeakPoint.cs" />
     <Compile Include="Assets\Scripts\Enemy\WeakPointZone.cs" />
     <Compile Include="Assets\Scripts\Enemy\WeaponHolder.cs" />
+    <Compile Include="Assets\Scripts\FollowShip.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Intro.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Player\ShieldOnHit.cs" />
+    <Compile Include="Assets\Scripts\PlayerStatsUI.cs" />
     <Compile Include="Assets\Scripts\Projectiles\GrowingProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectiles\GrowingWeapon.cs" />
     <Compile Include="Assets\Scripts\Projectiles\LaserProjectile.cs" />
@@ -104,6 +102,7 @@
     <Compile Include="Assets\Scripts\Projectiles\SeekingProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectiles\SeekingWeapon.cs" />
     <Compile Include="Assets\Scripts\Projectiles\Weapon.cs" />
+    <Compile Include="Assets\Scripts\SceneChanger.cs" />
     <Compile Include="Assets\Scripts\Ship.cs" />
     <Compile Include="Assets\Scripts\ShipController.cs" />
     <Compile Include="Assets\Scripts\ShipSpawner.cs" />
@@ -111,10 +110,10 @@
     <Compile Include="Assets\Scripts\ShopButton.cs" />
     <Compile Include="Assets\Scripts\ShopControl.cs" />
     <Compile Include="Assets\Scripts\SpaceStationScript.cs" />
+    <Compile Include="Assets\Scripts\UIAppear.cs" />
+    <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\Upgrade.cs" />
-    <Compile Include="Assets\UIAppear.cs" />
-    <Compile Include="Assets\Unit.cs" />
-    <Compile Include="Assets\WeaponUI.cs" />
+    <Compile Include="Assets\Scripts\WeaponUI.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

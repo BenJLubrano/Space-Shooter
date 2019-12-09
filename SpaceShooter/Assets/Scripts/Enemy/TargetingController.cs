@@ -15,6 +15,8 @@ public class TargetingController : MonoBehaviour
     private void Awake()
     {
         targetingZone.radius = radius;
+        if (controller == null)
+            controller = GetComponentInParent<NpcController>();
     }
 
     public void Initialize(List<string> factions)

@@ -279,10 +279,12 @@ public class PlayerController : ShipController
         shieldAnim.gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    public override void SetCooldown(int weapon, float amount)
+    public void SetDelay(int weapon, float amount)
     {
-        weaponCDs[weapon] = amount;
+        if(weaponCDs[weapon] < amount)
+            weaponCDs[weapon] = amount;
     }
+
     void RespawnFunc()
     {
         transform.position = spawnPoint.position;

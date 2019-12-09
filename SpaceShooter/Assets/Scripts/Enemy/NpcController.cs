@@ -35,6 +35,7 @@ public class NpcController : ShipController
         if (shipAnimator == null)
             hasAnimator = false;
     }
+
     protected override void Update()
     {
         base.Update(); //call base ShipController update

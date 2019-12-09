@@ -79,7 +79,7 @@ public class PlayerStats : ShipStats
                     weaponHolders[i].AccelerateFade();
                 }
             }
-            shipController.SetCooldown(value, .5f);
+            pc.SetDelay(value, .5f);
         }
     }
 

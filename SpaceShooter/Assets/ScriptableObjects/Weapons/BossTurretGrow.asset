@@ -17,14 +17,18 @@ MonoBehaviour:
   projectileSpeed: 10
   projectileImage: {fileID: 4892241630681466050, guid: 13b53ad6633655344b58f98929a76d96,
     type: 3}
+  npcFollowDistance: 25
   range: 25
   sound: {fileID: 8300000, guid: 40871ae62b5af4a49a6c89f9d9b2e4e0, type: 3}
-  volume: 0.15
+  volume: 0.5
   projectile: {fileID: 8819101810938153031, guid: cb12c90b5135fe046aff1ddb37873038,
     type: 3}
   scale: {x: 1, y: 1}
+  degreesOfAccuracy: 45
+  canBeHitByProjectiles: 0
+  damageBeforeDestroyed: 1
   startSize: 1
   endSize: 25
   growthSpeed: 5
   endDamage: 100
-  damageGrowthSpeed: 20
+  damagegrowthSpeed: 0

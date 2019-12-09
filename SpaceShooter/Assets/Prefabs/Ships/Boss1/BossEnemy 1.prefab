@@ -242,7 +242,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_Sprite: {fileID: 8778713090750626916, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
@@ -303,14 +303,20 @@ MonoBehaviour:
   level: 1
   faction: 
   reputation: -100
+  staticReputation: 1
   speed: 0
   acceleration: 0
   maxHealth: 250
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
+  overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 196986225}
 --- !u!114 &196986225
@@ -335,7 +341,9 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
-  speedPenalty: 0
+  accuracy: 0
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 0
   turnSpeed: 0
   defaultDrag: 0
@@ -354,6 +362,7 @@ MonoBehaviour:
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   explosionScale: 3
+  chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1407191420}
   damageToOwner: 0
@@ -631,7 +640,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -976,7 +985,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1177,7 +1186,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_Sprite: {fileID: 6883773503190148002, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
@@ -1238,14 +1247,20 @@ MonoBehaviour:
   level: 1
   faction: 
   reputation: -100
+  staticReputation: 1
   speed: 0
   acceleration: 0
   maxHealth: 250
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
+  overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 1055383587}
 --- !u!114 &1055383587
@@ -1270,7 +1285,9 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
-  speedPenalty: 0
+  accuracy: 0
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 0
   turnSpeed: 0
   defaultDrag: 0
@@ -1289,6 +1306,7 @@ MonoBehaviour:
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   explosionScale: 3
+  chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1407191420}
   damageToOwner: 0
@@ -1465,7 +1483,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1666,7 +1684,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_Sprite: {fileID: -486397421872253245, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
@@ -1727,14 +1745,20 @@ MonoBehaviour:
   level: 1
   faction: 
   reputation: -100
+  staticReputation: 1
   speed: 0
   acceleration: 0
   maxHealth: 250
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
+  overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 1362851961}
 --- !u!114 &1362851961
@@ -1759,7 +1783,9 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
-  speedPenalty: 0
+  accuracy: 0
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 0
   turnSpeed: 0
   defaultDrag: 0
@@ -1778,6 +1804,7 @@ MonoBehaviour:
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   explosionScale: 3
+  chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1407191420}
   damageToOwner: 0
@@ -2106,7 +2133,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_Sprite: {fileID: 7066738160420386036, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
@@ -2167,14 +2194,20 @@ MonoBehaviour:
   level: 1
   faction: 
   reputation: -100
+  staticReputation: 1
   speed: 0
   acceleration: 0
   maxHealth: 250
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
+  overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 1526708481}
 --- !u!114 &1526708481
@@ -2199,7 +2232,9 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
-  speedPenalty: 0
+  accuracy: 0
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 0
   turnSpeed: 0
   defaultDrag: 0
@@ -2218,6 +2253,7 @@ MonoBehaviour:
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   explosionScale: 3
+  chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1407191420}
   damageToOwner: 0
@@ -2594,7 +2630,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_Sprite: {fileID: -2313263830533597211, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
@@ -2655,14 +2691,20 @@ MonoBehaviour:
   level: 1
   faction: 
   reputation: -100
+  staticReputation: 1
   speed: 0
   acceleration: 0
   maxHealth: 250
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
+  overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 1715600079}
 --- !u!114 &1715600079
@@ -2687,7 +2729,9 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
-  speedPenalty: 0
+  accuracy: 0
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 0
   turnSpeed: 0
   defaultDrag: 0
@@ -2706,6 +2750,7 @@ MonoBehaviour:
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   explosionScale: 3
+  chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1407191420}
   damageToOwner: 0
@@ -2783,7 +2828,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3128,7 +3173,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3357,14 +3402,20 @@ MonoBehaviour:
   level: 1
   faction: 
   reputation: -100
+  staticReputation: 1
   speed: 0
   acceleration: 0
   maxHealth: 250
   maxShield: 50
   shieldRegenRate: 10
   shieldRegenTime: 5
+  overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 1931363620170092309}
 --- !u!114 &1931363620170092309
@@ -3389,7 +3440,9 @@ MonoBehaviour:
   shieldRegenRate: 15
   weaponCooldown: 0
   acceleration: 0
-  speedPenalty: 0
+  accuracy: 0
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 5
@@ -3408,6 +3461,7 @@ MonoBehaviour:
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   explosionScale: 1
+  chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1931363620560078290}
   damageToOwner: 1000
@@ -3545,7 +3599,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 697663179408511391, guid: dd286c57009272d4ba8aba74f50365c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3717,14 +3771,20 @@ MonoBehaviour:
   level: 1
   faction: 
   reputation: -100
+  staticReputation: 1
   speed: 0
   acceleration: 0
   maxHealth: 250
   maxShield: 50
   shieldRegenRate: 10
   shieldRegenTime: 5
+  overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 1931363620464240520}
 --- !u!114 &1931363620464240520
@@ -3749,7 +3809,9 @@ MonoBehaviour:
   shieldRegenRate: 15
   weaponCooldown: 0
   acceleration: 0
-  speedPenalty: 0
+  accuracy: 0
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 5
@@ -3768,6 +3830,7 @@ MonoBehaviour:
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   explosionScale: 1
+  chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1931363620560078290}
   damageToOwner: 1000
@@ -3905,7 +3968,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 697663179408511391, guid: dd286c57009272d4ba8aba74f50365c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4439,7 +4502,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1682159248568164264, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
@@ -4483,7 +4546,8 @@ AudioSource:
   m_GameObject: {fileID: 4912866718557121110}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4587144162968173002, guid: 31df40953bf129949940bd3f6366fa43,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -4587,15 +4651,21 @@ MonoBehaviour:
   level: 10
   faction: Pirate
   reputation: -100
+  staticReputation: 1
   speed: 2
   acceleration: 1
   maxHealth: 350
   maxShield: 2000
   shieldRegenRate: 0
   shieldRegenTime: 0
+  overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons:
   - {fileID: 11400000, guid: 26a04a7330f4d8c45b302e1a18b9e15c, type: 2}
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 55d537bed615c7a4882aeadc66fe7016, type: 2}
   shipController: {fileID: 4912866718557121109}
 --- !u!114 &4912866718557121109
@@ -4620,7 +4690,9 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
-  speedPenalty: 0
+  accuracy: 0
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 2
   turnSpeed: 0.05
   defaultDrag: 5
@@ -4639,9 +4711,15 @@ MonoBehaviour:
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   explosionScale: 12
+  chargingShield: 0
   targets: []
   enemyFactions: []
   targetingController: {fileID: 4155820894792443456}
+  usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
+  aggroElements: []
   turrets: []
   hitZone: {fileID: 7859233120537421824}
   canShoot: 0
@@ -4654,6 +4732,12 @@ MonoBehaviour:
   waitTime: 1
   canPerformAction: 1
   isWaiting: 0
+  moveRatio: 0.25
+  rotateRatio: 0.25
+  outOfRangeRatio: 3
+  moveTurnSpeed: 0
+  rotateTurnSpeed: 0
+  outOfRangeTurnSpeed: 0
 --- !u!60 &8988184937699154969
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4671,7 +4755,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.93, y: 3.86}
+    oldSize: {x: 3.95, y: 3.84}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
