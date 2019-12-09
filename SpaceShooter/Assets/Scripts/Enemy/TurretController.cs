@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurretController : NpcController
 {
-    [SerializeField] protected BossController boss;
+    [SerializeField] BossController boss;
     [SerializeField] Vector2 angleClamp;
     [SerializeField] float defaultRotation;
 
@@ -12,7 +12,7 @@ public class TurretController : NpcController
     private void Awake()
     {
         base.Awake();
-        aggroTable.Initialize(this);
+        
         targetingController.Initialize(enemyFactions);
     }
 
@@ -25,25 +25,24 @@ public class TurretController : NpcController
         }
         else
         {
-            targetPosition = currentTarget.transform.position;
             if (OutOfRange() || currentTarget.GetComponent<ShipController>().IsDead())
             {
                 Deaggro();
             }
         }
 
+    }
+
+    protected override void FixedUpdate()
+    {
         //if the ShipController has a target
-        if (currentTarget != null && TargetInAttackRange() && TargetWithinShootAngle() && weaponCooldown <= 0 && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset()))//AngleToTargetOffset() > angleClamp.x && AngleToTargetOffset() < angleClamp.y)
+        if (currentTarget != null && TargetInAttackRange() && weaponCooldown <= 0 && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset()))//AngleToTargetOffset() > angleClamp.x && AngleToTargetOffset() < angleClamp.y)
         {
             //Turn this into a method in Ship.cs called "Shoot()" that will handle the cooldown setting etc, since it's universal for all ships
             Shoot(currentTarget.gameObject, enemyFactions);
         }
 
-    }
 
-    protected override void FixedUpdate()
-    {
-      
         TurretRotate();
     }
 
@@ -55,7 +54,7 @@ public class TurretController : NpcController
             return;
         }
 
-        if (!TargetInWeaponRange())
+        if (!TargetInAttackRange())
         {
             if (boss.IsMoving())
             {
@@ -95,13 +94,7 @@ public class TurretController : NpcController
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
         }
-
-    }
-
-    protected override void PrepareForDeath()
-    {
-        base.PrepareForDeath();
-        boss.RemoveTurret(this);
+        
     }
 
     void ResetRotation()
@@ -149,15 +142,13 @@ public class TurretController : NpcController
         return true;
     }
 
-    public virtual void SetBoss(BossController boss)
+    public void SetBoss(BossController boss)
     {
         this.boss = boss;
-        Debug.Log("boss id: " + boss.GetStats().shipId);
-        stats.shipId = this.boss.GetStats().shipId;
     }
 
     public bool CanHitTarget()
     {
-        return currentTarget != null && TargetInWeaponRange() && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset());
+        return currentTarget != null && TargetInAttackRange() && !isDead && IsBetween(angleClamp.x, angleClamp.y, AngleToTargetOffset());
     }
 }

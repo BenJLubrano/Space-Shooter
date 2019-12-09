@@ -11,17 +11,13 @@ public class SeekingProjectile : Projectile
     float maxTurnSpeed;
     float flyStraightTime;
     float missileSpeed;
-    float maxSpeed;
-    float speedGrowth;
     AudioClip explosionSound;
     bool flyingStraight = true;
-    float absoluteTrackingTime;
     float currentLifeSpan = 0f;
     Rigidbody2D missileRb;
 
     float distanceToTarget;
     [SerializeField] float angleToTarget;
-    [SerializeField] Animator thrusterEffect;
     float lastDistanceToTarget = 1000f;
     float turnSpeedIncrease = .1f;
     public override void Initialize(Weapon weapon, ShipController shooter, GameObject target = null, List<string> factions = null)
@@ -31,17 +27,13 @@ public class SeekingProjectile : Projectile
         lifespan = seekingWeapon.lifespan;
         followRange = seekingWeapon.followRange;
         followStrength = Mathf.Abs(seekingWeapon.followStrength * 90);
-        absoluteTrackingTime = seekingWeapon.absoluteTrackingTime;
         turnSpeed = seekingWeapon.turnSpeed;
         maxTurnSpeed = seekingWeapon.maxTurnSpeed;
         flyStraightTime = seekingWeapon.flyStraightTime;
         missileSpeed = seekingWeapon.projectileSpeed;
-        speedGrowth = seekingWeapon.speedGrowth;
-        maxSpeed = seekingWeapon.maxSpeed;
         explosionSound = seekingWeapon.explosionSound;
         missileRb = GetComponent<Rigidbody2D>();
-        if(thrusterEffect != null)
-            thrusterEffect.SetBool("IsOn", true);
+        
     }
 
     protected override void Update()
@@ -54,7 +46,7 @@ public class SeekingProjectile : Projectile
 
         currentLifeSpan += Time.deltaTime;
 
-        if (target != null && currentLifeSpan >= absoluteTrackingTime && (Vector2.Distance(transform.position, target.transform.position) > followRange || (angleToTarget < 90 - followStrength || angleToTarget > 90 + followStrength)))
+        if (target != null && (Vector2.Distance(transform.position, target.transform.position) > followRange || (angleToTarget < 90 - followStrength || angleToTarget > 90 + followStrength)))
         {
             target = null;
             flyingStraight = true;
@@ -73,8 +65,7 @@ public class SeekingProjectile : Projectile
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
         }
 
-        missileSpeed = missileSpeed >= maxSpeed ? maxSpeed : missileSpeed + speedGrowth * Time.deltaTime;
-        missileRb.AddForce(transform.up * missileSpeed * 100 * missileRb.drag * missileRb.mass * Time.deltaTime);
+        missileRb.AddForce(transform.up * missileSpeed * 100 * missileRb.drag * Time.deltaTime);
 
         if (waitingForDestroy)
         {
@@ -119,14 +110,7 @@ public class SeekingProjectile : Projectile
         audioSource.clip = explosionSound;
         audioSource.Play();
         base.Deactivate();
-        if(thrusterEffect != null)
-            thrusterEffect.gameObject.SetActive(false);
-        if (onHitExplosion != null)
-        {
-            GameObject explosion = Instantiate(onHitExplosion, transform.position, transform.rotation);
-            explosion.transform.localScale = transform.localScale;
-        }
-
+        OnHit();
     }
 
 }

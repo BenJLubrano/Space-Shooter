@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MissileFederation
   m_EditorClassIdentifier: 
   baseSprite: {fileID: 0}
-  animatorController: {fileID: 22100000, guid: 75ca51031cc7448f8820552db8ada0f8, type: 2}
+  animatorController: {fileID: 9100000, guid: 8b3b27daf82fbc24aa36064fd50fd327, type: 2}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   health: 100

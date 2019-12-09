@@ -1,0 +1,703 @@
+fileFormatVersion: 2
+guid: 4aeb2ccb15e90c348aff4090b2dd60a8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9117301545255221776
+    second: npc_boss_03_SpriteSheet_0
+  - first:
+      213: -7377838383670952250
+    second: npc_boss_03_SpriteSheet_1
+  - first:
+      213: -6835179104096512473
+    second: npc_boss_03_SpriteSheet_2
+  - first:
+      213: 790736361035134584
+    second: npc_boss_03_SpriteSheet_3
+  - first:
+      213: 4890727956637152325
+    second: npc_boss_03_SpriteSheet_4
+  - first:
+      213: 224500625015194606
+    second: npc_boss_03_SpriteSheet_5
+  - first:
+      213: 6313938481755515555
+    second: npc_boss_03_SpriteSheet_6
+  - first:
+      213: 3485481888332592550
+    second: npc_boss_03_SpriteSheet_7
+  - first:
+      213: -1522726387202635155
+    second: npc_boss_03_SpriteSheet_8
+  - first:
+      213: -3697868015242921701
+    second: npc_boss_03_SpriteSheet_9
+  - first:
+      213: -7197651478382869622
+    second: npc_boss_03_SpriteSheet_10
+  - first:
+      213: -222753538351303108
+    second: npc_boss_03_SpriteSheet_11
+  - first:
+      213: -154107597463189091
+    second: npc_boss_03_SpriteSheet_12
+  - first:
+      213: 4114461368757269750
+    second: npc_boss_03_SpriteSheet_13
+  - first:
+      213: -2871514503538973584
+    second: npc_boss_03_SpriteSheet_14
+  - first:
+      213: -7726159730830646030
+    second: npc_boss_03_SpriteSheet_15
+  - first:
+      213: 5896349164993894969
+    second: npc_boss_03_SpriteSheet_16
+  - first:
+      213: 7495330262716603633
+    second: npc_boss_03_SpriteSheet_17
+  - first:
+      213: -6874475287970837838
+    second: npc_boss_03_SpriteSheet_18
+  - first:
+      213: -2339937873831959527
+    second: npc_boss_03_SpriteSheet_19
+  - first:
+      213: 9112603217121925579
+    second: npc_boss_03_SpriteSheet_20
+  - first:
+      213: 7668647540625500939
+    second: npc_boss_03_SpriteSheet_21
+  - first:
+      213: 3191991798183594450
+    second: npc_boss_03_SpriteSheet_22
+  - first:
+      213: 1418188249348116984
+    second: npc_boss_03_SpriteSheet_23
+  - first:
+      213: -4043428438715424382
+    second: npc_boss_03_SpriteSheet_24
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 367
+        width: 503
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38389f859d778274286246df12cb2ab0
+      internalID: 9117301545255221776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 458
+        width: 47
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db4272f0c71312545bea288337c758cb
+      internalID: -7377838383670952250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 459
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637f55446b532924b9374143d15db9e1
+      internalID: -6835179104096512473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 456
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e74e04ff0f32d47b6706a57a8edf33
+      internalID: 790736361035134584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 455
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a7eec6beeb33e14a9c09f737471d975
+      internalID: 4890727956637152325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 452
+        width: 48
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78a2720f33f873d468c3d3040c8eb2b9
+      internalID: 224500625015194606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 371
+        width: 45
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17eac94a2e4962e49a7d0f991effd40b
+      internalID: 6313938481755515555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 369
+        width: 45
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e33a4560463bc841b49ec7001143ca2
+      internalID: 3485481888332592550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 371
+        width: 45
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a19210a238eda47aa35952c9b7b38f
+      internalID: -1522726387202635155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 377
+        width: 45
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 273a161cf5a0f0a40b3533d5393e9def
+      internalID: -3697868015242921701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 377
+        width: 45
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a287b7439ec2c44a9a51cb8eb7097e6
+      internalID: -7197651478382869622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 231
+        width: 149
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bcbc4afe2e49b742a2d2fb8f3e6d29a
+      internalID: -222753538351303108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 231
+        width: 149
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3373f723d79c5c9419119c36de8b3303
+      internalID: -154107597463189091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 282
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3518ad2f42cf7c1499b2caf5599480a2
+      internalID: 4114461368757269750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 283
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034ac407bbd053f4e9dfa39cac4d8250
+      internalID: -2871514503538973584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 255
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6358d1ea8de285342bfa1a05d448444a
+      internalID: -7726159730830646030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 255
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc68019aee3eb3a4cad0cbbbcd549851
+      internalID: 5896349164993894969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 255
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff64ee4359b1b6439094002e22c0f99
+      internalID: 7495330262716603633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 199
+        width: 33
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22abf174f4b6654c991db3dce7d84e5
+      internalID: -6874475287970837838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 171
+        width: 33
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 975734a5cd167294a981a35148f7ccbf
+      internalID: -2339937873831959527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 171
+        width: 33
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0249d151801eb2e438c97a2334392912
+      internalID: 9112603217121925579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 170
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 209d4d83b58d5194496614bd3af52f91
+      internalID: 7668647540625500939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 199
+        width: 33
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 309b00f4935a46e4ba13243509930595
+      internalID: 3191991798183594450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 89
+        width: 149
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c75797caa8740704998cbba568b8c9a0
+      internalID: 1418188249348116984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_boss_03_SpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 96
+        width: 149
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d15bd85d60066e5408444c6ceeb75722
+      internalID: -4043428438715424382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
