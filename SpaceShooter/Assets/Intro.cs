@@ -57,6 +57,18 @@ public class Intro : MonoBehaviour
 
     public void NextSlide()
     {
+        if(fadeType == 0)
+        {
+            Color tempColor = fadeImg.color;
+            tempColor.a = 1;
+            fadeImg.color = tempColor;
+        }
+        else
+        {
+            Color tempColor = fadeText.color;
+            tempColor.a = 1;
+            fadeText.color = tempColor;
+        }
         currentSlide += 1;
         if (currentSlide > slides.Count)
             return;
