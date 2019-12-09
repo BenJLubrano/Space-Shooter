@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -160,9 +160,12 @@ MonoBehaviour:
   shieldRegenRate: 5
   shieldRegenTime: 10
   overwriteValues: 1
+  useDefaultReputation: 1
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: f7a81675cd7af47d0b5b86e83518edb1, type: 2}
   shipController: {fileID: 8425060942357847168}
 --- !u!114 &8425060942357847168
@@ -187,7 +190,9 @@ MonoBehaviour:
   shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
-  speedPenalty: 0.25
+  accuracy: 0
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 10
   turnSpeed: 10
   defaultDrag: 5
@@ -205,11 +210,16 @@ MonoBehaviour:
   shieldBar: {fileID: 8483244676230986393}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 1
+  explosionScale: 3
   chargingShield: 0
   targets: []
   enemyFactions: []
   targetingController: {fileID: 3278985424437328009}
+  usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
+  aggroElements: []
 --- !u!82 &2690012981022930434
 AudioSource:
   m_ObjectHideFlags: 0
@@ -219,7 +229,8 @@ AudioSource:
   m_GameObject: {fileID: 5765514119680980127}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3748107729440784098, guid: 31df40953bf129949940bd3f6366fa43,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.05
@@ -229,7 +240,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -266,7 +277,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

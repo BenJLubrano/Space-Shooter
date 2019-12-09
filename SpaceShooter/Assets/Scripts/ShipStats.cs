@@ -48,7 +48,7 @@ public class ShipStats : MonoBehaviour
         {
             faction = "Federation";
         }
-        else if (reputation < 10 && reputation >= 0)
+        else if (reputation < 10 && reputation > -1)
         {
             faction = "Neutral";
         }
@@ -141,17 +141,21 @@ public class ShipStats : MonoBehaviour
             if (killed)
                 reputation -= 10;
             else
-                reputation -= 1;
+                reputation -= .1f;
         }
-        else if (targetRep < 0) //hit a pirate ship
+        else if (targetRep <= -1) //hit a pirate ship
         {
             if (killed)
                 reputation += 5;
+            else
+                reputation += .05f;
         }
         else //hit a neutral ship
         {
             if (killed)
                 reputation -= 5;
+            else
+                reputation -= .05f;
         }
 
         //make sure reputation doesn't go out of bounds
@@ -162,7 +166,7 @@ public class ShipStats : MonoBehaviour
 
         if (reputation > 10)
             faction = "Federation";
-        else if (reputation >= 0)
+        else if (reputation > -1)
             faction = "Neutral";
         else
             faction = "Pirate";

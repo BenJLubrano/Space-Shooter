@@ -2,17 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
-    public GameObject PauseMenuUI;
+    [SerializeField] string menuScene;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject optionsMenu;
+    [SerializeField] GameManager gameManager;
 
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider sfxSlider;
+
+    private void Awake()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Menu"))
         {
             if (GameIsPaused)
             {
@@ -27,23 +38,54 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        PauseMenuUI.SetActive(false);
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
     void Pause()
     {
-        PauseMenuUI.SetActive(true);
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        UpdateSliders();
         Time.timeScale = 0f;
         GameIsPaused = true;
+    }
+
+    public void ShowOptions()
+    {
+        pauseMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+
+    public void HideOptions()
+    {
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 
     public void LoadMenu()
     {
         Debug.Log("Loading Main Menu...");
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(menuScene);
+    }
+
+    public void ChangeMusicVolume(Slider slider)
+    {
+        gameManager.SetMusicVolume(slider.value);
+    }
+
+    public void ChangeSFXVolume(Slider slider)
+    {
+        gameManager.SetSFXVolume(slider.value);
+    }
+
+    void UpdateSliders()
+    {
+        musicSlider.value = gameManager.GetMusicVolume();
+        sfxSlider.value = gameManager.GetSFXVolume();
     }
 
     public void QuitGame()

@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LowerLeft.unity
     guid: 094c0645f730648f6bc3ffaf410c29fd
+  - enabled: 1
+    path: Assets/Scenes/Center.unity
+    guid: 694f1f5be830441bcb8b143ef5bd113f
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: eac37f80086703743af62a256e72311b
   m_configObjects: {}

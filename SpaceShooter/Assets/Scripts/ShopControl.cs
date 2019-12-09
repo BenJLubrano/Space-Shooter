@@ -98,6 +98,11 @@ public class ShopControl : MonoBehaviour
         unitsText.text = units.ToString();
     }
 
+    public void SetPlayerStats(PlayerStats stats)
+    {
+        playerStats = stats;
+    }
+
     void NewShipBought()
     {
         foreach(GameObject obj in upgradeShopUI)

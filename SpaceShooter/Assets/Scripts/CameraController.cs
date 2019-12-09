@@ -19,5 +19,6 @@ public class CameraController : MonoBehaviour
         if (playerCam.orthographicSize > maxSize)
             playerCam.orthographicSize = maxSize;
         transform.rotation = Quaternion.Euler(Vector3.zero); //set the camera's rotation to zero (it's parented to the player ShipController so we don't want it to rotate if the player does)
+
     }
 }

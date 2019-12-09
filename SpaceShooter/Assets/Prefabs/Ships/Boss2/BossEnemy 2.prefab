@@ -372,6 +372,8 @@ MonoBehaviour:
   weapons:
   - {fileID: 11400000, guid: 7a146509f6ec5214a92c008bd99fc3f3, type: 2}
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 992994806452721382}
 --- !u!114 &992994806452721382
@@ -421,6 +423,9 @@ MonoBehaviour:
   enemyFactions: []
   targetingController: {fileID: 0}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
   angleClamp: {x: 0, y: 0}
@@ -1367,6 +1372,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 3694718818123927341}
 --- !u!114 &3694718818123927341
@@ -1774,6 +1781,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 0f6a42e5d6c214a4484e3d971b8bae79, type: 2}
   shipController: {fileID: 3694718818166292655}
 --- !u!114 &3694718818166292655
@@ -1825,6 +1834,9 @@ MonoBehaviour:
   - Player
   targetingController: {fileID: 3694718818045452497}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 6482542740974593203}
   angleClamp: {x: 315, y: 225}
@@ -2144,6 +2156,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 3694718818175859117}
 --- !u!114 &3694718818175859117
@@ -2611,6 +2625,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 707c9203c892fcd4b875a7a19b6bc683, type: 2}
   shipController: {fileID: 3694718818284933090}
 --- !u!114 &3694718818284933090
@@ -2662,6 +2678,9 @@ MonoBehaviour:
   - Player
   targetingController: {fileID: 3694718818235335235}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 6482542740974593203}
   angleClamp: {x: 35, y: 225}
@@ -2765,6 +2784,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 3694718818312360262}
 --- !u!114 &3694718818312360262
@@ -3616,6 +3637,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 6ddab777c8b4ba8458f123d1d61a0bc1, type: 2}
   shipController: {fileID: 3694718818631619472}
 --- !u!114 &3694718818631619472
@@ -3665,6 +3688,9 @@ MonoBehaviour:
   enemyFactions: []
   targetingController: {fileID: 3694718817973836064}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
   angleClamp: {x: 0, y: 0}
@@ -3911,6 +3937,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 3694718818755559679}
 --- !u!114 &3694718818755559679
@@ -4758,6 +4786,8 @@ MonoBehaviour:
   weapons:
   - {fileID: 11400000, guid: 7a146509f6ec5214a92c008bd99fc3f3, type: 2}
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 3694718819035586950}
 --- !u!114 &3694718819035586950
@@ -4807,6 +4837,9 @@ MonoBehaviour:
   enemyFactions: []
   targetingController: {fileID: 0}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
   angleClamp: {x: 0, y: 0}
@@ -5519,6 +5552,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 3694718819291702008}
 --- !u!114 &3694718819291702008
@@ -6224,6 +6259,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 6ddab777c8b4ba8458f123d1d61a0bc1, type: 2}
   shipController: {fileID: 3694718819444243150}
 --- !u!114 &3694718819444243150
@@ -6273,6 +6310,9 @@ MonoBehaviour:
   enemyFactions: []
   targetingController: {fileID: 3694718818424656930}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
   angleClamp: {x: 0, y: 0}
@@ -6697,6 +6737,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 3694718819521337371}
 --- !u!114 &3694718819521337371
@@ -7260,6 +7302,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 6ddab777c8b4ba8458f123d1d61a0bc1, type: 2}
   shipController: {fileID: 3694718819731610649}
 --- !u!114 &3694718819731610649
@@ -7309,6 +7353,9 @@ MonoBehaviour:
   enemyFactions: []
   targetingController: {fileID: 3694718819203718873}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
   angleClamp: {x: 0, y: 0}
@@ -8293,6 +8340,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 6ddab777c8b4ba8458f123d1d61a0bc1, type: 2}
   shipController: {fileID: 4932739133293949599}
 --- !u!114 &4932739133293949599
@@ -8342,6 +8391,9 @@ MonoBehaviour:
   enemyFactions: []
   targetingController: {fileID: 4176788826980040334}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
   angleClamp: {x: 0, y: 0}
@@ -8787,7 +8839,8 @@ AudioSource:
   m_GameObject: {fileID: 6482542740974593229}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3748107729440784098, guid: 31df40953bf129949940bd3f6366fa43,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -8903,6 +8956,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 6460721400b39e743868dcb2fffab276, type: 2}
   shipController: {fileID: 6482542740974593203}
 --- !u!114 &6482542740974593203
@@ -8953,6 +9008,9 @@ MonoBehaviour:
   enemyFactions: []
   targetingController: {fileID: 2626985150558480603}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   turrets: []
   hitZone: {fileID: 8127034581940594331}
@@ -9325,6 +9383,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 10777cd3ab3736c4083858237f473884, type: 2}
   shipController: {fileID: 6657392502501028593}
 --- !u!114 &6657392502501028593
@@ -9376,6 +9436,9 @@ MonoBehaviour:
   - Player
   targetingController: {fileID: 2441439597637172966}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 6482542740974593203}
   angleClamp: {x: 180, y: 360}
@@ -9809,6 +9872,8 @@ MonoBehaviour:
   upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 11400000, guid: 707c9203c892fcd4b875a7a19b6bc683, type: 2}
   shipController: {fileID: 8602812648659516723}
 --- !u!114 &8602812648659516723
@@ -9860,6 +9925,9 @@ MonoBehaviour:
   - Player
   targetingController: {fileID: 783951600095211812}
   usePrediction: 1
+  hasAnimator: 1
+  numUnits: 0
+  unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 6482542740974593203}
   angleClamp: {x: 315, y: 145}

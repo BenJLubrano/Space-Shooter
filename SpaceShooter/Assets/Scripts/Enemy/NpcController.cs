@@ -198,7 +198,7 @@ public class NpcController : ShipController
         {
             Rotate();
             float distance = Vector2.Distance(currentTarget.transform.position, transform.position);
-            if (!TargetInWeaponRange()) //if the target is further away than half of the weapons range
+            if (!TargetInAttackRange()) //if the target is further away than half of the weapons range
             {
                 if (Mathf.Abs(lastDistanceToTarget - distance) < 1f && distance < 1f)
                 {

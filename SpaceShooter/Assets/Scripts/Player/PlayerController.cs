@@ -21,6 +21,8 @@ public class PlayerController : ShipController
     [SerializeField] bool mouseMovement = false;
     [SerializeField] List<float> weaponCDs = new List<float>();
 
+
+    bool inCombat = false;
     PlayerStats pStats;
     public override void Initialize(ShipStats newStats)
     {
@@ -43,6 +45,16 @@ public class PlayerController : ShipController
             {
                 RespawnFunc();
             }
+        }
+
+        HandleMusic();
+
+        if (Input.GetButtonDown("Menu"))
+        {
+            mouseMovement = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
         }
 
         if (Input.GetButtonDown("Toggle Mouse Rotation"))
@@ -122,6 +134,21 @@ public class PlayerController : ShipController
             }
             else chargingShield = false;
         }
+    }
+
+    void HandleMusic()
+    {
+        if(inCombat && lastDamaged > 30)
+        {
+            inCombat = false;
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().SetCombatState(inCombat);
+        }
+    }
+
+    void EnterCombat()
+    {
+        inCombat = true;
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().SetCombatState(inCombat);
     }
 
     void HandleMovement()
@@ -278,6 +305,8 @@ public class PlayerController : ShipController
             return;
 
         lastDamaged = 0f;
+        if(!inCombat)
+            EnterCombat();
         if (shield >= damage)
         {
             playerShield.GetComponent<ShieldOnHit>().onHit();
@@ -324,7 +353,7 @@ public class PlayerController : ShipController
     {
         try
         {
-            reputationText.text = "Reputation: " + stats.reputation;
+            reputationText.text = "Reputation: " + (int)stats.reputation;
         }
         catch
         {

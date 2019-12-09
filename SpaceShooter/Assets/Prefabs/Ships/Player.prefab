@@ -1451,7 +1451,7 @@ MonoBehaviour:
   shipCollider: {fileID: 1878275455641261840}
   spriteRenderer: {fileID: 1670886136389112696}
   audioSource: {fileID: 401094372879541271}
-  deathSound: {fileID: 8300000, guid: 875e9a39939771c4185f185e231363cf, type: 3}
+  deathSound: {fileID: 8300000, guid: f2282d5801127b246908dc5748fc618f, type: 3}
   moveSound: {fileID: 0}
   healthBar: {fileID: 328025652}
   shieldBar: {fileID: 4321287086970203227}
@@ -1475,7 +1475,8 @@ AudioSource:
   m_GameObject: {fileID: 1670886136389112702}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3748107729440784098, guid: 31df40953bf129949940bd3f6366fa43,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: d883e5488e60d014ea7c3151c07b3efa, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -1485,7 +1486,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -1707,7 +1708,7 @@ MonoBehaviour:
   playerCam: {fileID: 1670886137031074162}
   scrollSpeed: 100
   minSize: 1
-  maxSize: 7
+  maxSize: 12
 --- !u!1 &1712298466776117283
 GameObject:
   m_ObjectHideFlags: 0

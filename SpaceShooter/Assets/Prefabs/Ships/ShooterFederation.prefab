@@ -140,6 +140,27 @@ PrefabInstance:
       propertyPath: defaultTurnSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8425060942357847168, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: explosionScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690012981022930434, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690012981022930434, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690012981022930434, guid: bab22a56eb911f24baf863d86f041110,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3748107729440784098, guid: 31df40953bf129949940bd3f6366fa43,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab22a56eb911f24baf863d86f041110, type: 3}
 --- !u!114 &1645535332007198171 stripped

@@ -113,12 +113,12 @@ public class PlayerStats : ShipStats
         string shieldTxt = currentShield.ToString() + " / " + maxShield.ToString();
         string speedTxt = speed.ToString();
         Sprite factionSprite;
-        if (reputation < 0)
+        if (reputation <= -1)
             factionSprite = factionSprites[2];
         else if (reputation > 10)
             factionSprite = factionSprites[1];
         else
             factionSprite = factionSprites[0];
-        statsUI.UpdateDisplay(ship.baseSprite, factionSprite, healthTxt, shieldTxt, speedTxt, faction, reputation.ToString(), units.ToString(), false, false, false);
+        statsUI.UpdateDisplay(ship.baseSprite, factionSprite, healthTxt, shieldTxt, speedTxt, faction, ((int)reputation).ToString(), units.ToString(), false, false, false);
     }
 }

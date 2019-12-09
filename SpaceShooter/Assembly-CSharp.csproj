@@ -62,12 +62,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BackgroundMover.cs" />
     <Compile Include="Assets\CanvasClamp.cs" />
+    <Compile Include="Assets\ColorLerp.cs" />
     <Compile Include="Assets\DestroyOnExit.cs" />
+    <Compile Include="Assets\EdgeMarker.cs" />
     <Compile Include="Assets\FollowShip.cs" />
     <Compile Include="Assets\Images\Space\Background\FollowUV.cs" />
     <Compile Include="Assets\Images\Space\Background\ScrollUV.cs" />
     <Compile Include="Assets\Images\Space\Background\SimpleSpaceShip.cs" />
+    <Compile Include="Assets\Intro.cs" />
     <Compile Include="Assets\PlayerStatsUI.cs" />
     <Compile Include="Assets\Prefabs\Parallax\ParallaxFollow.cs" />
     <Compile Include="Assets\SceneChanger.cs" />

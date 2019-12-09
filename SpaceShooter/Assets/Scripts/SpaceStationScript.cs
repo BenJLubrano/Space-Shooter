@@ -7,11 +7,12 @@ public class SpaceStationScript : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject shop;
     [SerializeField] GameObject playerUI;
+    [SerializeField] ShopControl shopControl;
 
+    bool canAppear = true;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -20,14 +21,25 @@ public class SpaceStationScript : MonoBehaviour
         
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == player)
         {
+            shopControl.SetPlayerStats(player.GetComponent<PlayerStats>());
             shop.gameObject.SetActive(true);
             playerUI.gameObject.SetActive(false);
-            //playerUI.SetActive(false);
+            canAppear = false;
 
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject == player)
+        {
+            shop.gameObject.SetActive(false);
+            playerUI.gameObject.SetActive(true);
+            canAppear = true;
         }
     }
 
