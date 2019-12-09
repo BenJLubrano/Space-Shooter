@@ -899,6 +899,21 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: a837e199102827a44893a07f3207c04b, type: 3}
+    - target: {fileID: 3172623927726516574, guid: afcffebca8af3d246809cc2db9cbf6ac,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 89165714231494877, guid: afcffebca8af3d246809cc2db9cbf6ac,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 24540749234226826, guid: afcffebca8af3d246809cc2db9cbf6ac,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcffebca8af3d246809cc2db9cbf6ac, type: 3}
 --- !u!114 &580643254 stripped
@@ -1508,6 +1523,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837954121}
   m_CullTransparentMesh: 0
+--- !u!1 &864402567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1812214336064442749, guid: afcffebca8af3d246809cc2db9cbf6ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 580643253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &864402568
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864402567}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &911886957
 GameObject:
   m_ObjectHideFlags: 0

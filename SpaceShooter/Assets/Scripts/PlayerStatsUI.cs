@@ -18,7 +18,8 @@ public class PlayerStatsUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI unitsText;
 
     [SerializeField] List<Image> hyperdriveComps = new List<Image>();
-
+    [SerializeField] GameObject combineBtn;
+    int obtainedParts = 0;
     public void UpdateDisplay(Sprite shipSprite, Sprite factionSprite, string hulltxt, string shieldtxt, string speedtxt, string factiontxt, string reptxt, string unitstxt, bool h1, bool h2, bool h3)
     {
         bg.SetActive(true);
@@ -37,6 +38,21 @@ public class PlayerStatsUI : MonoBehaviour
     {
         bg.SetActive(false);
         border.SetActive(false);
+    }
+
+    public void AquireHyperDrivePart(int partNum)
+    {
+        hyperdriveComps[partNum].gameObject.SetActive(true);
+        obtainedParts += 1;
+        if(obtainedParts == 3)
+        {
+            combineBtn.SetActive(true);
+        }
+    }
+
+    public void EndGame()
+    {
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().SceneTransition(6, "Outro", "intro", false);
     }
 
     // Start is called before the first frame update

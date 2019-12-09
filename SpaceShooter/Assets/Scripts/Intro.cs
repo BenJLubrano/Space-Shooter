@@ -10,6 +10,7 @@ public class Intro : MonoBehaviour
 
     [SerializeField] List<GameObject> slides = new List<GameObject>();
     [SerializeField] GameManager gameManager;
+    [SerializeField] GameObject nextBtn;
     [SerializeField] string nextScene;
     int currentSlide = 0;
     float fadeSpeed = 1;
@@ -20,6 +21,8 @@ public class Intro : MonoBehaviour
     TextMeshProUGUI fadeText;
 
     bool finalFade = false;
+
+    [SerializeField] bool isOutro = false;
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
@@ -70,11 +73,13 @@ public class Intro : MonoBehaviour
             fadeText.color = tempColor;
         }
         currentSlide += 1;
-        if (currentSlide > slides.Count)
-            return;
         if(currentSlide == slides.Count - 1)
         {
-            ExitIntro();
+            nextBtn.SetActive(false);
+            if (isOutro)
+                ExitOutro();
+            else
+                ExitIntro();
         }
         else
         {
@@ -104,32 +109,12 @@ public class Intro : MonoBehaviour
 
     void ExitIntro()
     {
-        fadeImg = null;
-        fadeText = null;
-        fadeImg = slides[currentSlide].GetComponent<Image>();
-        fadeText = slides[currentSlide].GetComponent<TextMeshProUGUI>();
-        if (fadeImg == null)
-        {
-            fadeType = 1;
-            Color tempColor = fadeText.color;
-            tempColor.a = 0;
-            fadeText.color = tempColor;
-            fadeText.gameObject.SetActive(true);
-        }
-        else
-        {
-            fadeType = 0;
-            Color tempColor = fadeImg.color;
-            tempColor.a = 0;
-            fadeImg.color = tempColor;
-            fadeImg.gameObject.SetActive(true);
-        }
-        fadeAmt = 0;
-        for(int i = 0; i < slides.Count - 1; i++)
-        {
-            slides[i].SetActive(false);
-        }
-        finalFade = true;
-        gameManager.CrossFadeAudio("inPlay", .3f);
+        gameManager.SceneTransition(2, nextScene, "inPlay");
+    }
+
+    void ExitOutro()
+    {
+        Destroy(gameManager.gameObject);
+        SceneManager.LoadScene("MainMenu");
     }
 }

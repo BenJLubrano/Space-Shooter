@@ -13,6 +13,7 @@ public class PlayerStats : ShipStats
 
     bool uiIsActive = false;
     PlayerController pc;
+
     private void Awake()
     {
         units = 1000;
@@ -120,5 +121,10 @@ public class PlayerStats : ShipStats
         else
             factionSprite = factionSprites[0];
         statsUI.UpdateDisplay(ship.baseSprite, factionSprite, healthTxt, shieldTxt, speedTxt, faction, ((int)reputation).ToString(), units.ToString(), false, false, false);
+    }
+
+    public void AquireHyperDrivePart(int partNum)
+    {
+        statsUI.AquireHyperDrivePart(partNum);
     }
 }

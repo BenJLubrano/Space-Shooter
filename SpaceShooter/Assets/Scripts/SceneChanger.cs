@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     public string transportTo;
+    public string musicName;
     public GameObject Player;
 
     // Start is called before the first frame update
@@ -16,6 +17,6 @@ public class SceneChanger : MonoBehaviour
 
     public void transportPlayer()
     {
-        SceneManager.LoadScene(transportTo);
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().SceneTransition(4, transportTo, musicName, true);
     }
 }

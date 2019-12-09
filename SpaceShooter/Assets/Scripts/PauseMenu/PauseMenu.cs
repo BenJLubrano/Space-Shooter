@@ -69,7 +69,8 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Loading Main Menu...");
         Time.timeScale = 1f;
-        SceneManager.LoadScene(menuScene);
+        Destroy(gameManager.gameObject);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void ChangeMusicVolume(Slider slider)

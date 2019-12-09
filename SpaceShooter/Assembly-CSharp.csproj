@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Enemy\WeaponHolder.cs" />
     <Compile Include="Assets\Scripts\FollowShip.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\HyperdriveComponent.cs" />
     <Compile Include="Assets\Scripts\Intro.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\PauseMenu.cs" />
