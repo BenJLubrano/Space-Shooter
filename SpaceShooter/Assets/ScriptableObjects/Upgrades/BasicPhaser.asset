@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   upgradeName: Basic Phaser
+  description: A slow phaser weapon
   cost: 500
   increase: 0
   weapon: {fileID: 11400000, guid: eb8ec8e4d93618941a35a89f779efb9a, type: 2}

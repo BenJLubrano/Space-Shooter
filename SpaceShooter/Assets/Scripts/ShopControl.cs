@@ -50,6 +50,11 @@ public class ShopControl : MonoBehaviour
         {
             playerStats.ModifyUnits(-clickedButton.upgrade.cost);
             playerStats.ApplyUpgrade(clickedButton.upgrade);
+            clickedButton.GetPurchased();
+        }
+        else
+        {
+            UpdateDescriptionDisplay(clickedButton);
         }
         units = playerStats.GetUnits();
         unitsText.text = "Units: " + units.ToString();
@@ -61,11 +66,16 @@ public class ShopControl : MonoBehaviour
         {
             if (playerStats.weapons.Count >= 5)
             {
-                UpdateDescriptionDisplay("You already have the maximum number of weapons!");
+                ForceDescriptionUpdate("You already have the maximum number of weapons!");
                 return;
             }
             playerStats.ModifyUnits(-clickedButton.upgrade.cost);
             playerStats.ApplyUpgrade(clickedButton.upgrade);
+            clickedButton.GetPurchased();
+        }
+        else
+        {
+            ForceDescriptionUpdate("Not Enough Credits!");
         }
         units = playerStats.GetUnits();
         unitsText.text = "Units: " + units.ToString();
@@ -78,8 +88,8 @@ public class ShopControl : MonoBehaviour
 
     public void exitShop()
     {
+        back();
         shop.gameObject.SetActive(false);
-
         //PlayerPrefs.SetInt("Units", units);
         //SceneManager.LoadScene("MidtermScene");
     }
@@ -114,9 +124,15 @@ public class ShopControl : MonoBehaviour
         //PlayerPrefs.DeleteAll();
     }
 
-    public void UpdateDescriptionDisplay(string text)
+    public void ForceDescriptionUpdate(string text)
     {
         descriptionText.text = text;
+        itemDescriptions[0].SetActive(true);
+    }
+
+    public void UpdateDescriptionDisplay(ShopButton button)
+    {
+        descriptionText.text = button.upgrade.description;
         itemDescriptions[0].SetActive(true);
     }
 

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Hull Upgrade 1
   m_EditorClassIdentifier: 
   type: 0
-  upgradeName: Hull Upgrade
-  cost: 100
-  increase: 10
+  upgradeName: HULL
+  description: Increases the health of your ship by 15
+  cost: 200
+  increase: 15
   weapon: {fileID: 0}
   ship: {fileID: 0}

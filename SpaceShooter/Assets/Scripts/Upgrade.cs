@@ -7,6 +7,7 @@ public class Upgrade : ScriptableObject
 {
     public int type;
     public string upgradeName;
+    public string description;
     public int cost;
     public float increase;
     public Weapon weapon;

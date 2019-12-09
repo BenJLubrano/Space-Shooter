@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb831d302c8bdc041b4e6f58fd2089f0, type: 3}
-  m_Name: Shield Upgrade
+  m_Name: DoubleShot
   m_EditorClassIdentifier: 
-  type: 1
-  upgradeName: SHIELD
-  description: Increases the strength of your shield by 15
-  cost: 200
-  increase: 15
-  weapon: {fileID: 0}
+  type: 3
+  upgradeName: Double Photon Cannon
+  description: Shoots a highly unstable projectile which deals more damage the further
+    it flies
+  cost: 1000
+  increase: 0
+  weapon: {fileID: 11400000, guid: 1f8e83c41b1ccec43a158d703983a28c, type: 2}
   ship: {fileID: 0}

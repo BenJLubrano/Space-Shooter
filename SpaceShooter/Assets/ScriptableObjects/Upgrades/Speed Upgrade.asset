@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Speed Upgrade
   m_EditorClassIdentifier: 
   type: 2
-  upgradeName: Speed Upgrade
-  cost: 100
+  upgradeName: SPEED
+  description: Increases the speed of your ship by 1
+  cost: 200
   increase: 1
   weapon: {fileID: 0}
+  ship: {fileID: 0}
