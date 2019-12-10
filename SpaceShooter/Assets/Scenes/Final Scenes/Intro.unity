@@ -405,8 +405,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In the year 3019, an unfortunate human finds himself stranded in a foreign
-    star system after a \nwarp drive malfunction..."
+  m_text: In the year 3019, an unfortunate human finds himself stranded in a foreign
+    star system after a warp malfunction...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f1954fc3e31a76459ed6680ad6e43f2, type: 2}
   m_sharedMaterial: {fileID: -7371047037437188630, guid: 1f1954fc3e31a76459ed6680ad6e43f2,
@@ -870,6 +870,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   nextBtn: {fileID: 1480609886}
   nextScene: Center
+  isOutro: 0
 --- !u!1 &1480609886
 GameObject:
   m_ObjectHideFlags: 0
