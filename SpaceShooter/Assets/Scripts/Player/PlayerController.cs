@@ -7,8 +7,6 @@ public class PlayerController : ShipController
 {
     [SerializeField] Animator shieldAnim;
     [SerializeField] Transform spawnPoint;
-    //TEMPORARY
-    [SerializeField] TextMeshProUGUI reputationText;
 
     private float alphaLevel = 0.01f;
     private float maxAlphaLevel = 0.8f;
@@ -354,17 +352,6 @@ public class PlayerController : ShipController
             Debug.LogWarning(gameObject.name + " does not have a health bar");
         }
 
-    }
-    public void UpdateReputationDisplay()
-    {
-        try
-        {
-            reputationText.text = "Reputation: " + (int)stats.reputation;
-        }
-        catch
-        {
-            //There is no reputation Text
-        }
     }
 
     public void ToggleMouseMovement()

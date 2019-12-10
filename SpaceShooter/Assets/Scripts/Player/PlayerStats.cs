@@ -20,7 +20,7 @@ public class PlayerStats : ShipStats
         base.Awake();
         staticReputation = false;
         pc = (PlayerController)shipController;
-        pc.UpdateReputationDisplay();
+
         shipId = 0;
 
         for(int i = 0; i < weapons.Count; i++)
@@ -57,9 +57,6 @@ public class PlayerStats : ShipStats
     public override void AlterReputation(float targetRep, bool killed)
     {
         base.AlterReputation(targetRep, killed);
-        PlayerController pc = (PlayerController)shipController;
-        pc.UpdateReputationDisplay();
-
     }
 
     protected override void AddWeapon(Weapon newWeapon)
