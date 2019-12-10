@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56dfad2355f8dd74b956bfe524abac64, type: 3}
-  m_Name: MeleeAttack
+  m_Name: MicroLaser
   m_EditorClassIdentifier: 
-  damage: 20
-  fireRate: 0.5
+  damage: 4
+  fireRate: 8
   projectileSpeed: 10
-  projectileImage: {fileID: 0}
-  npcFollowDistance: 1.25
-  range: 1.5
-  sound: {fileID: 8300000, guid: adc7942800780cf4f9004ea7eb139877, type: 3}
-  volume: 1
-  projectile: {fileID: 8819101810938153031, guid: 8e52f94d533610746970344ab60294e1,
+  projectileImage: {fileID: -136138064069190416, guid: 42c003b4cb8108e449af450dee0d0580,
+    type: 3}
+  npcFollowDistance: 25
+  range: 25
+  sound: {fileID: 8300000, guid: cbfd5650c63cd0f44a93713894d87390, type: 3}
+  volume: 0.35
+  projectile: {fileID: 1293707857675163038, guid: b1d20bb9226119547ae83ead71064d2e,
     type: 3}
   scale: {x: 1, y: 1}
   degreesOfAccuracy: 45

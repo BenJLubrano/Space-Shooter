@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Weapon weapon;
-    [SerializeField] protected BoxCollider2D hitBox;
+    [SerializeField] protected Collider2D hitBox;
     [SerializeField] protected SpriteRenderer renderer;
     [SerializeField] protected AudioSource audioSource;
     float speedMod = 0f;
@@ -49,7 +49,6 @@ public class Projectile : MonoBehaviour
         }
 
         transform.localScale = weapon.scale;
-        hitBox.size *= weapon.scale;
         Vector2 shooterSpeed = shooter.GetSpeed();
         speedMod = shooterSpeed.magnitude;
 

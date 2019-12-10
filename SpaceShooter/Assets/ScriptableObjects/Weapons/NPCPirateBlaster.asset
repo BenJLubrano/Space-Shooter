@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56dfad2355f8dd74b956bfe524abac64, type: 3}
-  m_Name: SlowBlaster
+  m_Name: NPCPirateBlaster
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 15
   fireRate: 1
-  projectileSpeed: 5
+  projectileSpeed: 15
   projectileImage: {fileID: -3347674708518003874, guid: 26e22e078f247034f80329c984899b83,
     type: 3}
-  npcFollowDistance: 25
+  npcFollowDistance: 7
   range: 25
   sound: {fileID: 8300000, guid: 606d6171967ca3d4baafa50865a6454f, type: 3}
   volume: 0.5

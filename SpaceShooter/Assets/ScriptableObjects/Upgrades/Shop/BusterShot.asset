@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb831d302c8bdc041b4e6f58fd2089f0, type: 3}
-  m_Name: SprayShot
+  m_Name: BusterShot
   m_EditorClassIdentifier: 
   type: 3
-  upgradeName: Spray Shot
-  description: Rapid fire, but less damage per shot. A good choice for those with
-    can't aim!
-  cost: 500
+  upgradeName: Buster Cannon
+  description: A powerful cannon that shoots slowly and gains more damage as it flies!
+  cost: 750
   increase: 0
-  weapon: {fileID: 11400000, guid: 4eb0fd322f7bbcb458a4d4fc0440daca, type: 2}
+  weapon: {fileID: 11400000, guid: 2d897691d4112eb4a9b0a8f4efdd1611, type: 2}
   ship: {fileID: 0}

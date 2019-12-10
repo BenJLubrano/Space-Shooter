@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb831d302c8bdc041b4e6f58fd2089f0, type: 3}
-  m_Name: SprayShot
+  m_Name: PirateBlaster
   m_EditorClassIdentifier: 
   type: 3
-  upgradeName: Spray Shot
-  description: Rapid fire, but less damage per shot. A good choice for those with
-    can't aim!
-  cost: 500
+  upgradeName: Pirate Blaster
+  description: Hey kid... Wanna be a pirate? Yeah? Well, then you gotta get yourself
+    one of these... It's just like your normal blaster.. but it's red!
+  cost: 0
   increase: 0
-  weapon: {fileID: 11400000, guid: 4eb0fd322f7bbcb458a4d4fc0440daca, type: 2}
+  weapon: {fileID: 11400000, guid: 6fe3715d8c599d24d809ba842618d4ab, type: 2}
   ship: {fileID: 0}
