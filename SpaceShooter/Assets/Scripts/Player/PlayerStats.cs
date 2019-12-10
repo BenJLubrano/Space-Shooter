@@ -11,6 +11,7 @@ public class PlayerStats : ShipStats
     [SerializeField] List<Sprite> factionSprites = new List<Sprite>();
     [SerializeField] List<WeaponUI> weaponHolders = new List<WeaponUI>();
 
+    [SerializeField] List<int> purchasedUpgrades = new List<int>();
     bool uiIsActive = false;
     PlayerController pc;
 
@@ -59,11 +60,36 @@ public class PlayerStats : ShipStats
         base.AlterReputation(targetRep, killed);
     }
 
+    public void SetReputation(float rep)
+    {
+        reputation = rep;
+        if (reputation > 100)
+            reputation = 100;
+        if (reputation < -100)
+            reputation = -100;
+
+        if (reputation > 10)
+            faction = "Federation";
+        else if (reputation > -1)
+            faction = "Neutral";
+        else
+            faction = "Pirate";
+
+        shipController.UpdateFactions();
+    }
+
     protected override void AddWeapon(Weapon newWeapon)
     {
         weaponHolders[weapons.Count].SlotImage(newWeapon.projectileImage);
         base.AddWeapon(newWeapon);
     }
+
+    protected override void ReplaceWeapon(Weapon newWeapon)
+    {
+        weaponHolders[currentWeapon].SlotImage(newWeapon.projectileImage);
+        base.ReplaceWeapon(newWeapon);
+    }
+
     public override void SetCurrentWeapon(int value)
     {
         base.SetCurrentWeapon(value);
@@ -100,6 +126,8 @@ public class PlayerStats : ShipStats
     {
         ship = newShip;
         Initialize();
+        weapons = new List<Weapon>();
+        AddWeapon(ship.weapons[0]);
     }
 
     void DisplayPlayerStatsUI()

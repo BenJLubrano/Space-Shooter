@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] AudioMixer mixer;
     [SerializeField] Image whiteScreen;
+
+    [SerializeField] GameObject playerPrefab;
+    [SerializeField] PlayerController player;
+
+    float playerRep = 0;
     int primaryPlayer = 0;
     float fadeAmount = 0f;
     float fadeSpeed = 1f;
@@ -80,7 +85,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            CrossFadeAudio("combat", .25f);
+            CrossFadeAudio("inPlay", .25f);
         }
     }
 
@@ -179,8 +184,21 @@ public class GameManager : MonoBehaviour
 
     public void SceneTransition(float transitionTime, string sceneName, string newMusic = null, bool bossFight = false)
     {
+        Debug.Log("calling scene transition with:" + sceneName);
         if (sceneName == SceneManager.GetActiveScene().name)
             return;
+
+        if(sceneName == "MainMenu")
+        {
+            DestroyPlayer();
+        }
+
+        if (sceneName == "Center" && player == null)
+        {
+            Debug.Log("spawning player");
+            player = Instantiate(playerPrefab, new Vector3(0, -10, 0), Quaternion.identity, null).GetComponent<PlayerController>();
+        }
+
         StartCoroutine(FadeIn(transitionTime/2, sceneName));
         if (newMusic != null)
         {
@@ -205,6 +223,21 @@ public class GameManager : MonoBehaviour
             whiteScreen.color = tempColor;
             yield return null;
         }
+        if (scene == "Boss Scene")
+        {
+            player.ChangeBG(1);
+            player.SpawnAtPoint(new Vector3(7.5f, -7.5f, 0));
+        }
+        else if (scene == "Boss 2 Scene")
+        {
+            player.ChangeBG(2);
+            player.SpawnAtPoint(new Vector3(-31, 53, 0));
+        }
+        else if (scene == "Center")
+        {
+            player.ChangeBG(0);
+            player.SpawnAtPoint(new Vector3(0, -10, 0));
+        }
         SceneManager.LoadScene(scene);
         StartCoroutine(FadeOut(time));
     }
@@ -221,4 +254,41 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public void ResetPlayerReputation()
+    {
+        player.GetComponent<PlayerStats>().SetReputation(playerRep);
+    }
+
+    public void DestroyPlayer()
+    {
+        Destroy(player);
+    }
+
+    public void SetPlayer(PlayerController player)
+    {
+        this.player = player;
+    }
+
+    public void EnterBossFight(float transitionTime, string sceneName, string bossMusic, Vector3 spawnPos)
+    {
+        SceneTransition(transitionTime, sceneName, bossMusic, true);
+        PlayerStats stats = player.GetComponent<PlayerStats>();
+        playerRep = stats.reputation;
+        stats.SetReputation(0);
+    }
+
+    public void RespawnPlayer()
+    {
+        canChangeMusic = true;
+        if (SceneManager.GetActiveScene().name != "Center")
+        {
+            SceneTransition(3f, "Center", "inPlay", false);
+        }
+        else
+        {
+            player.SpawnAtPoint(new Vector3(0, -10, 0));
+        }
+    }
+
 }

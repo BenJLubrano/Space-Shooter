@@ -6,6 +6,7 @@ using UnityEngine;
 public class Upgrade : ScriptableObject
 {
     public int type;
+    public int maxBuyCount;
     public string upgradeName;
     public string description;
     public int cost;

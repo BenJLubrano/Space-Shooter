@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ElectricBlast
   m_EditorClassIdentifier: 
   type: 3
+  maxBuyCount: 1
   upgradeName: Electric Blast
   description: With great power comes great responsibility.. or irresponsibility.
   cost: 1500

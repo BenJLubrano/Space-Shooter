@@ -26,6 +26,8 @@ public class BossController : NpcController
     [SerializeField] protected float moveTurnSpeed = .25f;
     [SerializeField] protected float rotateTurnSpeed = .25f;
     [SerializeField] protected float outOfRangeTurnSpeed = 2.5f;
+
+    [SerializeField] GameObject hyperDrivePiece;
     //intervalClock keeps track of the time of the boss.
     //moveTime is how long the ShipController gets to move for
     //rotateTime is how long the ShipController gets to rotate for
@@ -223,6 +225,11 @@ public class BossController : NpcController
         }
     }
 
+    protected override void Die()
+    {
+        Instantiate(hyperDrivePiece, transform.position, Quaternion.identity, null);
+        Destroy(gameObject);
+    }
     public void RemoveTurret(TurretController turret)
     {
         turrets.Remove(turret);

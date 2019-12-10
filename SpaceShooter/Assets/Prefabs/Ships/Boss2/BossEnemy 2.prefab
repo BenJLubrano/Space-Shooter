@@ -424,7 +424,7 @@ MonoBehaviour:
   targetingController: {fileID: 0}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
+  dropsUnits: 0
   unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
@@ -1708,7 +1708,7 @@ MonoBehaviour:
   targetingController: {fileID: 3694718818045452497}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
+  dropsUnits: 1
   unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 6482542740974593203}
@@ -2552,7 +2552,7 @@ MonoBehaviour:
   targetingController: {fileID: 3694718818235335235}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
+  dropsUnits: 1
   unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 6482542740974593203}
@@ -3562,7 +3562,7 @@ MonoBehaviour:
   targetingController: {fileID: 3694718817973836064}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
+  dropsUnits: 0
   unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
@@ -4711,7 +4711,7 @@ MonoBehaviour:
   targetingController: {fileID: 0}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
+  dropsUnits: 0
   unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
@@ -6184,7 +6184,7 @@ MonoBehaviour:
   targetingController: {fileID: 3694718818424656930}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
+  dropsUnits: 0
   unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
@@ -7227,7 +7227,7 @@ MonoBehaviour:
   targetingController: {fileID: 3694718819203718873}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
+  dropsUnits: 0
   unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
@@ -8265,7 +8265,7 @@ MonoBehaviour:
   targetingController: {fileID: 4176788826980040334}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
+  dropsUnits: 0
   unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 0}
@@ -8881,8 +8881,9 @@ MonoBehaviour:
   targetingController: {fileID: 2626985150558480603}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
-  unitPrefab: {fileID: 0}
+  dropsUnits: 1
+  unitPrefab: {fileID: 3483762288426013979, guid: f2c8466ec3d1add439f6f7701640dc9f,
+    type: 3}
   aggroElements: []
   turrets: []
   hitZone: {fileID: 8127034581940594331}
@@ -9309,7 +9310,7 @@ MonoBehaviour:
   targetingController: {fileID: 2441439597637172966}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
+  dropsUnits: 1
   unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 6482542740974593203}
@@ -9798,7 +9799,7 @@ MonoBehaviour:
   targetingController: {fileID: 783951600095211812}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
+  dropsUnits: 1
   unitPrefab: {fileID: 0}
   aggroElements: []
   boss: {fileID: 6482542740974593203}

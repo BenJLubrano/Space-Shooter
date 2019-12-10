@@ -12,8 +12,15 @@ public class NpcController : ShipController
     [SerializeField] protected TargetingController targetingController;
     [SerializeField] protected bool usePrediction = true;
     [SerializeField] protected bool hasAnimator = true;
-    [SerializeField] int numUnits = 0;
+    [SerializeField] protected bool wasSpawned = false;
+    [SerializeField] protected float leashRange = 15f;
+    [SerializeField] Vector2 spawnPos;
+    protected ShipSpawner spawner = null;
+
+    [Header("Loot Options")]
+    [SerializeField] bool dropsUnits = true;
     [SerializeField] GameObject unitPrefab;
+
 
     //We can just remove the "targets" gameobject and substitute it for this. The targeting controller will have to by modified but it will work.
     //Basically, whenever a ship enters the aggro zone (or attacks the ship) they get added to an aggro table, and when they leave the aggro zone, they get removed.
@@ -22,6 +29,7 @@ public class NpcController : ShipController
     [SerializeField] protected List<AggroElement> aggroElements = new List<AggroElement>();
     float lastFrameThrusterPower = 0f;
     bool isAccel = false;
+    bool isLeashing = false;
     float lastFrameVelocity;
     protected ShipController currentTarget;
     protected Vector2 targetPosition;
@@ -31,6 +39,7 @@ public class NpcController : ShipController
     private void Awake()
     {
         base.Awake();
+        spawnPos = transform.position;
         aggroTable.Initialize(this);
         if (shipAnimator == null)
             hasAnimator = false;
@@ -58,17 +67,28 @@ public class NpcController : ShipController
     protected virtual void FixedUpdate()
     {
         HandleAnimation();
-        if (currentTarget != null)
+        if(isLeashing)
         {
-            if(usePrediction && targetRb != null)
+            targetPosition = spawnPos;
+        }
+        else
+        {
+            
+            if (Vector2.Distance(transform.position, spawnPos) >= leashRange + aggroTable.GetTopAggroAmount())
             {
-                targetPosition = PredictTargetLocation();
+                Leash();
             }
-            else
+            if (currentTarget != null)
             {
-                targetPosition = currentTarget.transform.position;
+                if (usePrediction && targetRb != null)
+                {
+                    targetPosition = PredictTargetLocation();
+                }
+                else
+                {
+                    targetPosition = currentTarget.transform.position;
+                }
             }
-
         }
 
         Move();
@@ -126,6 +146,8 @@ public class NpcController : ShipController
     //Logic related to targeting
     protected virtual void LookForTargets()
     {
+        if (isLeashing)
+            return;
         AggroElement tempTarget = aggroTable.GetTopAggro();
         if (tempTarget == null)
             return;
@@ -193,6 +215,13 @@ public class NpcController : ShipController
         targetRb = null;
     }
     
+    protected void Leash()
+    {
+        aggroTable.DropAllAggro();
+        Deaggro();
+        isLeashing = true;
+    }
+
     protected virtual void Move()
     {
         if (currentTarget != null)
@@ -228,12 +257,46 @@ public class NpcController : ShipController
             lastFrameThrusterPower = thrusterPower;
             shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime * thrusterPower);
         }
+        else if(isLeashing)
+        {
+            Rotate();
+            float distance = Vector2.Distance(targetPosition, transform.position);
+            if (distance > 2f) //if the target is further away than half of the weapons range
+            {
+                if (Mathf.Abs(lastDistanceToTarget - distance) < 1f && distance < 1f)
+                {
+                    isAccel = false;
+                    thrusterPower -= acceleration * 2 * Time.deltaTime;
+                    if (thrusterPower < 0)
+                        thrusterPower = 0;
+                }
+                else
+                {
+                    isAccel = true;
+                    thrusterPower += acceleration * Time.deltaTime;
+                    if (thrusterPower > 1)
+                        thrusterPower = 1;
+                }
+            }
+            else
+            {
+                isLeashing = false;
+                isAccel = false;
+                thrusterPower -= acceleration * 2 * Time.deltaTime;
+                if (thrusterPower < 0)
+                    thrusterPower = 0;
+            }
+
+            lastDistanceToTarget = distance;
+            lastFrameThrusterPower = thrusterPower;
+            shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime * thrusterPower);
+        }
     }
 
     //this function handles the rotation of the enemy
     protected void Rotate()
     {
-        if (currentTarget == null)
+        if (currentTarget == null && !isLeashing)
             return;
         float angle = AngleToTarget();
         Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
@@ -387,16 +450,34 @@ public class NpcController : ShipController
     protected override void PrepareForDeath()
     {
         base.PrepareForDeath();
-        for(int i = 0; i < numUnits; i++)
+        if(dropsUnits)
         {
-            Vector3 randomOffset = new Vector3(Random.Range(-1f - (.05f * numUnits), 1f + (.05f * numUnits)), Random.Range(-1f - (.05f * numUnits), 1f + (.05f * numUnits)), 0);
+            float tempUnits = (int)(maxHealth + maxShield) / 50;
+            if (tempUnits < 1)
+                tempUnits = 1;
+            int numUnits = (int)tempUnits;
+            for (int i = 0; i < numUnits; i++)
+            {
+                Vector3 randomOffset = new Vector3(Random.Range(-1f - (.05f * numUnits), 1f + (.05f * numUnits)), Random.Range(-1f - (.05f * numUnits), 1f + (.05f * numUnits)), 0);
 
-            Instantiate(unitPrefab, transform.position + randomOffset, Quaternion.identity);
+                Instantiate(unitPrefab, transform.position + randomOffset, Quaternion.identity);
+            }
         }
     }
+
+    public void SetSpawner(ShipSpawner spawner, bool spawned = true)
+    {
+        this.spawner = spawner;
+        wasSpawned = spawned;
+    }
+
     protected override void Die()
     {
         //eventually will do more stuff here
+        if(wasSpawned)
+        {
+            spawner.ReduceSpawnedAmount(1);
+        }
         Destroy(gameObject);
     }
 

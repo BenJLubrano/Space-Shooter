@@ -617,8 +617,9 @@ MonoBehaviour:
   targetingController: {fileID: 1344319336763488580}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
-  unitPrefab: {fileID: 0}
+  dropsUnits: 0
+  unitPrefab: {fileID: 3483762288426013979, guid: f2c8466ec3d1add439f6f7701640dc9f,
+    type: 3}
   aggroElements: []
   boss: {fileID: 0}
   angleClamp: {x: 0, y: 0}

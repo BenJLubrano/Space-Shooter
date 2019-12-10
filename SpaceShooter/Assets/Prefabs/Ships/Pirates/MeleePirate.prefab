@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2690012981022930434}
   - component: {fileID: -6121423870878757738}
   m_Layer: 0
-  m_Name: PirateLvl1
+  m_Name: MeleePirate
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   currentWeapon: 0
   ships: []
   currentShip: 0
-  ship: {fileID: 11400000, guid: f7a81675cd7af47d0b5b86e83518edb1, type: 2}
+  ship: {fileID: 11400000, guid: 91ca7c6f8f7d040f6b0db584096922ef, type: 2}
   shipController: {fileID: 8425060942357847168}
 --- !u!114 &8425060942357847168
 MonoBehaviour:
@@ -217,8 +217,9 @@ MonoBehaviour:
   targetingController: {fileID: 3278985424437328009}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
-  unitPrefab: {fileID: 0}
+  dropsUnits: 1
+  unitPrefab: {fileID: 3483762288426013979, guid: f2c8466ec3d1add439f6f7701640dc9f,
+    type: 3}
   aggroElements: []
 --- !u!82 &2690012981022930434
 AudioSource:
@@ -383,7 +384,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 20
 --- !u!114 &3278985424437328009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8425060942357847168}
   targetingZone: {fileID: 5209341823776929536}
-  radius: 30
+  radius: 20
   enemyFactions: []
 --- !u!1001 &7264456783001206211
 PrefabInstance:

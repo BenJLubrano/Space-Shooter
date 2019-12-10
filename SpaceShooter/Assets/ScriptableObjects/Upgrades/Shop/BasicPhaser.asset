@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BasicPhaser
   m_EditorClassIdentifier: 
   type: 3
+  maxBuyCount: 1
   upgradeName: Basic Phaser
   description: A slow phaser weapon
   cost: 500

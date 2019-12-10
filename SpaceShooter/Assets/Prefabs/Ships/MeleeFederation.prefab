@@ -217,8 +217,9 @@ MonoBehaviour:
   targetingController: {fileID: 3278985424437328009}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
-  unitPrefab: {fileID: 0}
+  dropsUnits: 1
+  unitPrefab: {fileID: 3483762288426013979, guid: f2c8466ec3d1add439f6f7701640dc9f,
+    type: 3}
   aggroElements: []
 --- !u!82 &2690012981022930434
 AudioSource:

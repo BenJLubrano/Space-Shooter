@@ -66,6 +66,7 @@
     <Compile Include="Assets\Images\Space\Background\ScrollUV.cs" />
     <Compile Include="Assets\Images\Space\Background\SimpleSpaceShip.cs" />
     <Compile Include="Assets\Prefabs\Parallax\ParallaxFollow.cs" />
+    <Compile Include="Assets\Prefabs\Ships\ShopState.cs" />
     <Compile Include="Assets\Scripts\Asteroid.cs" />
     <Compile Include="Assets\Scripts\BackgroundMover.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />

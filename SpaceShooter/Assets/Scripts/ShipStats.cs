@@ -181,6 +181,12 @@ public class ShipStats : MonoBehaviour
         weapons.Add(newWeapon);
     }
 
+    protected virtual void ReplaceWeapon(Weapon newWeapon)
+    {
+        weapons[currentWeapon] = newWeapon;
+        
+    }
+
     protected virtual void SwitchShip(Ship newShip)
     {
 
@@ -203,7 +209,14 @@ public class ShipStats : MonoBehaviour
         }
         else if (newUpgrade.type == 3) //new weapon
         {
-            AddWeapon(newUpgrade.weapon);
+            if(weapons.Count >= 5)
+            {
+                ReplaceWeapon(newUpgrade.weapon);
+            }
+            else
+            {
+                AddWeapon(newUpgrade.weapon);
+            }
         }
         else if (newUpgrade.type == 4) // new ship
         {

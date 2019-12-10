@@ -284,6 +284,8 @@ public class ShipController : MonoBehaviour
     public void ReduceSpeed(float reduction)
     {
         speed -= reduction;
+        if (speed < 0)
+            speed = 0;
     }
 
     public void SetCooldown(int weapon, float amount)

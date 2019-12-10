@@ -65,6 +65,18 @@ public class AggroTable
         return false;
     }
     
+    public void DropAllAggro()
+    {
+        aggroTable = new List<AggroElement>();
+    }
+
+    public float GetTopAggroAmount()
+    {
+        AggroElement topEle = GetTopAggro();
+        if (topEle != null)
+            return topEle.aggro;
+        else return 0;
+    }
 
     public AggroElement GetTopAggro()
     {

@@ -9,6 +9,7 @@ TagManager:
   - GameManager
   - WeakPoint
   - PlayerShield
+  - Shop
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DoubleShot
   m_EditorClassIdentifier: 
   type: 3
+  maxBuyCount: 1
   upgradeName: Double Photon Cannon
   description: Shoots a highly unstable projectile which deals more damage the further
     it flies

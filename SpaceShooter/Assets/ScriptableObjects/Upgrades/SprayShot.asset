@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SprayShot
   m_EditorClassIdentifier: 
   type: 3
+  maxBuyCount: 1
   upgradeName: Spray Shot
   description: Rapid fire, but less damage per shot. A good choice for those with
     can't aim!

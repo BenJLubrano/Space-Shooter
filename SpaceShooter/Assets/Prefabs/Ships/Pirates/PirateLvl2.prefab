@@ -217,8 +217,9 @@ MonoBehaviour:
   targetingController: {fileID: 3278985424437328009}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
-  unitPrefab: {fileID: 0}
+  dropsUnits: 1
+  unitPrefab: {fileID: 3483762288426013979, guid: f2c8466ec3d1add439f6f7701640dc9f,
+    type: 3}
   aggroElements: []
 --- !u!82 &2690012981022930434
 AudioSource:
@@ -383,7 +384,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 20
 --- !u!114 &3278985424437328009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8425060942357847168}
   targetingZone: {fileID: 5209341823776929536}
-  radius: 30
+  radius: 20
   enemyFactions: []
 --- !u!1001 &7264456783001206211
 PrefabInstance:

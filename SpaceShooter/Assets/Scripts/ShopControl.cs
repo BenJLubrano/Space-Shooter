@@ -64,11 +64,6 @@ public class ShopControl : MonoBehaviour
     {
         if(units >= clickedButton.upgrade.cost)
         {
-            if (playerStats.weapons.Count >= 5)
-            {
-                ForceDescriptionUpdate("You already have the maximum number of weapons!");
-                return;
-            }
             playerStats.ModifyUnits(-clickedButton.upgrade.cost);
             playerStats.ApplyUpgrade(clickedButton.upgrade);
             clickedButton.GetPurchased();
@@ -88,7 +83,7 @@ public class ShopControl : MonoBehaviour
             playerStats.ModifyUnits(-clickedButton.upgrade.cost);
             playerStats.ApplyUpgrade(clickedButton.upgrade);
             clickedButton.GetPurchased();
-            NewShipBought();
+            ResetShops();
         }
         else
         {
@@ -103,17 +98,26 @@ public class ShopControl : MonoBehaviour
         playerStats = stats;
     }
 
-    void NewShipBought()
+    public void ResetShops()
     {
-        foreach(GameObject obj in upgradeShopUI)
+        GameObject[] shops = GameObject.FindGameObjectsWithTag("Shop");
+        foreach(GameObject shop in shops)
+        {
+            shop.GetComponentInChildren<ShopControl>().Restock();
+        }
+    }
+
+    public void Restock()
+    {
+        foreach (GameObject obj in upgradeShopUI)
         {
             ShopButton btn = obj.GetComponent<ShopButton>();
-            if(btn != null)
+            if (btn != null)
             {
                 btn.Reset();
             }
         }
-        foreach(GameObject obj in shipShopUI)
+        foreach (GameObject obj in shipShopUI)
         {
             ShopButton btn = obj.GetComponent<ShopButton>();
             if (btn != null)
@@ -139,6 +143,13 @@ public class ShopControl : MonoBehaviour
         DisableUI(upgradeShopUI);
         EnableUI(shipShopUI);
 
+    }
+
+    public void GivePlayerUnits()
+    {
+        playerStats.ModifyUnits(1000);
+        units = playerStats.GetUnits();
+        unitsText.text = units.ToString();
     }
 
     void EnableUI(List<GameObject> uiList)

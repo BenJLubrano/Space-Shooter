@@ -187,7 +187,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 5
   m_Sprite: {fileID: -7973389932233663961, guid: f6b74eb7aa83e34479b34259a6af1cab,
     type: 3}
@@ -340,14 +340,20 @@ MonoBehaviour:
   level: 10
   faction: 
   reputation: -100
+  staticReputation: 1
   speed: 0
   acceleration: 0
   maxHealth: 0
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
+  overwriteValues: 1
+  useDefaultReputation: 1
+  upgrades: []
   weapons: []
   currentWeapon: 0
+  ships: []
+  currentShip: 0
   ship: {fileID: 0}
   shipController: {fileID: 1028947024904351862}
 --- !u!114 &1028947024904351862
@@ -372,7 +378,9 @@ MonoBehaviour:
   shieldRegenRate: 1
   weaponCooldown: 0
   acceleration: 0
-  speedPenalty: 0
+  accuracy: 0
+  strafePenalty: 0.6
+  reversePenalty: 0.25
   defaultTurnSpeed: 5
   turnSpeed: 5
   defaultDrag: 5
@@ -391,10 +399,17 @@ MonoBehaviour:
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
   explosionScale: 3
+  chargingShield: 0
   targets: []
   enemyFactions:
   - Player
   targetingController: {fileID: 8342353759947340897}
+  usePrediction: 1
+  hasAnimator: 1
+  dropsUnits: 1
+  unitPrefab: {fileID: 3483762288426013979, guid: f2c8466ec3d1add439f6f7701640dc9f,
+    type: 3}
+  aggroElements: []
   boss: {fileID: 0}
   angleClamp: {x: 0, y: 270}
   defaultRotation: 180

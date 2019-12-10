@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: New Upgrade
   m_EditorClassIdentifier: 
   type: 4
+  maxBuyCount: 1
   upgradeName: Test Ship
   description: This is a ship!
   cost: 1000

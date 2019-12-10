@@ -9,15 +9,14 @@ public class ShopButton : MonoBehaviour
     [SerializeField] public Upgrade upgrade;
     [SerializeField] public TextMeshProUGUI text;
     [SerializeField] public Image icon;
-
+    [SerializeField] TextMeshProUGUI priceTag;
     public int boughtCount = 0;
     public int maxBuyCount = 1;
 
     private void Awake()
     {
-        
         if (upgrade != null)
-        { 
+        {
 
             text.text = upgrade.upgradeName;
             if (upgrade.type == 3)
@@ -32,8 +31,10 @@ public class ShopButton : MonoBehaviour
             }
             else
             {
-                maxBuyCount = 5;
+                maxBuyCount = upgrade.maxBuyCount;
             }
+
+            priceTag.text = upgrade.cost.ToString();
             icon.type = Image.Type.Simple;
             icon.preserveAspect = true;
         }
@@ -41,7 +42,6 @@ public class ShopButton : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
     }
 
     public void Enable()
@@ -63,6 +63,15 @@ public class ShopButton : MonoBehaviour
         boughtCount += 1;
         if (boughtCount >= maxBuyCount)
             gameObject.SetActive(false);
+    }
+
+    public void ModifyStock(int amount)
+    {
+        boughtCount = amount;
+        if (boughtCount < 0)
+            boughtCount = 0;
+        if (boughtCount > maxBuyCount)
+            boughtCount = maxBuyCount;
     }
 
 }

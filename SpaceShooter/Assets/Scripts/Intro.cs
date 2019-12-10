@@ -28,6 +28,12 @@ public class Intro : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         fadeImg = slides[0].GetComponent<Image>();
         fadeImg.gameObject.SetActive(true);
+        if(isOutro)
+        {
+            Debug.Log("destroying player");
+            SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("Player"), SceneManager.GetActiveScene());
+            gameManager.DestroyPlayer();
+        }
     }
 
     private void Update()

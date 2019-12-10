@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb831d302c8bdc041b4e6f58fd2089f0, type: 3}
-  m_Name: Speed Upgrade
+  m_Name: Phoenix
   m_EditorClassIdentifier: 
-  type: 2
-  upgradeName: SPEED
-  description: Increases the speed of your ship by 1
-  cost: 200
-  increase: 1
+  type: 4
+  maxBuyCount: 0
+  upgradeName: Phoenix
+  description: I'm you, but stronger.
+  cost: 1500
+  increase: 0
   weapon: {fileID: 0}
-  ship: {fileID: 0}
+  ship: {fileID: 11400000, guid: 052d8c17f01243d4b89b27dd1c0ac87e, type: 2}

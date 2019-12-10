@@ -24,12 +24,18 @@ public class ShipSpawner : MonoBehaviour
         }
     }
 
+    public void ReduceSpawnedAmount(int amount)
+    {
+        spawnedShips -= amount;
+    }
+
     void SpawnShip()
     {
         Vector3 spawnPosition = transform.position;
         spawnPosition.x += Random.Range(-(spawnArea.size.x / 2), spawnArea.size.x / 2);
         spawnPosition.y += Random.Range(-(spawnArea.size.y / 2), spawnArea.size.y / 2);
-        Instantiate(ships[Random.Range(0, ships.Count)], spawnPosition, Quaternion.identity);
+        NpcController spawnedShip = Instantiate(ships[Random.Range(0, ships.Count)], spawnPosition, Quaternion.identity).GetComponent<NpcController>();
+        spawnedShip.SetSpawner(this);
         timeSinceLastSpawn = 0f;
         spawnedShips += 1;
     }

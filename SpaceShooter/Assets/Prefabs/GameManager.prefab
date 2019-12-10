@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 89165714231494877}
   - component: {fileID: 3863149994608305223}
   - component: {fileID: 2398177916128706959}
+  - component: {fileID: 258349072}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -58,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3863149994608305223
 MonoBehaviour:
@@ -99,6 +100,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &258349072
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812214336064442749}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &5434792659097955818
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +170,9 @@ MonoBehaviour:
   boss3: {fileID: 8300000, guid: 6bc0b2ea2f6833b40b5aed98f5cd14a2, type: 3}
   mixer: {fileID: 24100000, guid: 31df40953bf129949940bd3f6366fa43, type: 2}
   whiteScreen: {fileID: 24540749234226826}
+  playerPrefab: {fileID: 1670886136389112702, guid: d05bdc6182e9e4243aec202383b038ba,
+    type: 3}
+  player: {fileID: 0}
 --- !u!82 &754810561539358863
 AudioSource:
   m_ObjectHideFlags: 0
@@ -168,7 +184,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6644696465431258288, guid: 31df40953bf129949940bd3f6366fa43,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a837e199102827a44893a07f3207c04b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

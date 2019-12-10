@@ -5,9 +5,11 @@ using TMPro;
 //This script controls the player, both movement and ingame functions
 public class PlayerController : ShipController
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] Animator shieldAnim;
     [SerializeField] Transform spawnPoint;
 
+    [SerializeField] List<GameObject> bgPrefabs = new List<GameObject>();
     private float alphaLevel = 0.01f;
     private float maxAlphaLevel = 0.8f;
     private float minAlphaLevel = 0.2f;
@@ -22,10 +24,14 @@ public class PlayerController : ShipController
     [SerializeField] float TS = 250;
     [SerializeField] float defaultTS = 250;
     bool inCombat = false;
+    bool respawning = false;
     PlayerStats pStats;
     public override void Initialize(ShipStats newStats)
     {
         base.Initialize(newStats);
+        DontDestroyOnLoad(this);
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        gameManager.SetPlayer(this);
         for (int i = 0; i < stats.weapons.Count; i++)
         {
             weaponCDs.Add(0);
@@ -41,9 +47,10 @@ public class PlayerController : ShipController
         if(isDead)
         {
             deadTimer += Time.deltaTime;
-            if(deadTimer >= 3)
+            if(deadTimer >= 3 && !respawning)
             {
-                RespawnFunc();
+                respawning = true;
+                gameManager.RespawnPlayer();
             }
         }
 
@@ -287,9 +294,14 @@ public class PlayerController : ShipController
             weaponCDs[weapon] = amount;
     }
 
-    void RespawnFunc()
+    public void SpawnAtPoint(Vector3 point)
     {
-        transform.position = spawnPoint.position;
+        RespawnFunc();
+        transform.position = point;
+    }
+
+    public void RespawnFunc()
+    {
         shipCollider.enabled = true;
         spriteRenderer.enabled = true;
         shipRb.velocity = Vector2.zero;
@@ -300,7 +312,15 @@ public class PlayerController : ShipController
         shieldAnim.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         shieldAnim.SetBool("hasShield", true);
         isDead = false;
+        respawning = false;
         deadTimer = 0;
+    }
+
+    public void ChangeBG(int backgroundNum)
+    {
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        Destroy(camera.transform.GetChild(0).gameObject);
+        Instantiate(bgPrefabs[backgroundNum], camera.transform).transform.SetSiblingIndex(0);
     }
 
     public override void TakeDamage(float damage, ShipController damager)
@@ -354,6 +374,11 @@ public class PlayerController : ShipController
 
     }
 
+    public void KillSelf()
+    {
+        Destroy(gameObject);
+    }
+
     public void ToggleMouseMovement()
     {
         mouseMovement = !mouseMovement;
@@ -378,4 +403,5 @@ public class PlayerController : ShipController
     {
         return shield;
     }
+
 }

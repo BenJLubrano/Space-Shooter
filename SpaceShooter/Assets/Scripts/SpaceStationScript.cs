@@ -4,30 +4,19 @@ using UnityEngine;
 
 public class SpaceStationScript : MonoBehaviour
 {
-    [SerializeField] GameObject player;
     [SerializeField] GameObject shop;
     [SerializeField] GameObject playerUI;
     [SerializeField] ShopControl shopControl;
 
+    [SerializeField] Vector2 repRange;
     bool canAppear = true;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == player)
+        if (collision.gameObject.tag == "Player" && collision.GetComponent<PlayerStats>().reputation >= repRange.x && collision.GetComponent<PlayerStats>().reputation < repRange.y)
         {
-            shopControl.SetPlayerStats(player.GetComponent<PlayerStats>());
+            shopControl.SetPlayerStats(collision.GetComponent<PlayerStats>());
             shop.gameObject.SetActive(true);
-            playerUI.gameObject.SetActive(false);
             canAppear = false;
 
         }
@@ -35,10 +24,9 @@ public class SpaceStationScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject == player)
+        if (collision.gameObject.tag == "Player")
         {
             shop.gameObject.SetActive(false);
-            playerUI.gameObject.SetActive(true);
             canAppear = true;
         }
     }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2690012981022930434}
   - component: {fileID: -6121423870878757738}
   m_Layer: 0
-  m_Name: PirateLvl3
+  m_Name: Federation_2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,15 +77,15 @@ SpriteRenderer:
   m_SortingLayerID: -699905497
   m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 885935272934981695, guid: 7ad86e87479d5d244b9f7b7d2eb8d636, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.6, y: 0.53}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &863274986575074758
@@ -126,8 +126,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8888889, y: 0.8888889}
-    newSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.6, y: 0.53}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   currentWeapon: 0
   ships: []
   currentShip: 0
-  ship: {fileID: 11400000, guid: f7f9c8ef4105d43e6b2821ce0dfca773, type: 2}
+  ship: {fileID: 11400000, guid: ce3736036005944d592113c34bae2b67, type: 2}
   shipController: {fileID: 8425060942357847168}
 --- !u!114 &8425060942357847168
 MonoBehaviour:
@@ -217,8 +217,9 @@ MonoBehaviour:
   targetingController: {fileID: 3278985424437328009}
   usePrediction: 1
   hasAnimator: 1
-  numUnits: 0
-  unitPrefab: {fileID: 0}
+  dropsUnits: 1
+  unitPrefab: {fileID: 3483762288426013979, guid: f2c8466ec3d1add439f6f7701640dc9f,
+    type: 3}
   aggroElements: []
 --- !u!82 &2690012981022930434
 AudioSource:
@@ -383,7 +384,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 20
 --- !u!114 &3278985424437328009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8425060942357847168}
   targetingZone: {fileID: 5209341823776929536}
-  radius: 30
+  radius: 20
   enemyFactions: []
 --- !u!1001 &7264456783001206211
 PrefabInstance:

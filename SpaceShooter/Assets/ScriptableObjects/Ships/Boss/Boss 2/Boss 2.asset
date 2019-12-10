@@ -17,7 +17,7 @@ MonoBehaviour:
   animatorController: {fileID: 9100000, guid: 1130be0764ed6a743b456c00275464cf, type: 2}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  health: 2500
+  health: 1500
   shield: 2000
   shieldRegenRate: 0
   shieldRegenTime: 0

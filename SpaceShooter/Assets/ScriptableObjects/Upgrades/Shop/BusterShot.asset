@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BusterShot
   m_EditorClassIdentifier: 
   type: 3
+  maxBuyCount: 1
   upgradeName: Buster Cannon
   description: A powerful cannon that shoots slowly and gains more damage as it flies!
   cost: 750

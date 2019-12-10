@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: PirateBlaster
   m_EditorClassIdentifier: 
   type: 3
+  maxBuyCount: 1
   upgradeName: Pirate Blaster
   description: Hey kid... Wanna be a pirate? Yeah? Well, then you gotta get yourself
     one of these... It's just like your normal blaster.. but it's red!
-  cost: 0
+  cost: 250
   increase: 0
   weapon: {fileID: 11400000, guid: 6fe3715d8c599d24d809ba842618d4ab, type: 2}
   ship: {fileID: 0}
