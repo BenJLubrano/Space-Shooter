@@ -21,7 +21,8 @@ public class PlayerController : ShipController
     [SerializeField] bool mouseMovement = false;
     [SerializeField] List<float> weaponCDs = new List<float>();
 
-
+    [SerializeField] float TS = 250;
+    [SerializeField] float defaultTS = 250;
     bool inCombat = false;
     PlayerStats pStats;
     public override void Initialize(ShipStats newStats)
@@ -32,6 +33,7 @@ public class PlayerController : ShipController
             weaponCDs.Add(0);
         }
         pStats = (PlayerStats)newStats;
+        TS = defaultTS;
     }
 
     void Update()
@@ -193,11 +195,11 @@ public class PlayerController : ShipController
             else if (mouseRotation < -1)
                 mouseRotation = -1;
 
-            rotationMove = -1 * mouseRotation * turnSpeed;
+            rotationMove = -1 * mouseRotation * TS * Time.deltaTime;
         }
         else
         {
-            rotationMove += Input.GetAxis("Rotation") * turnSpeed;
+            rotationMove += Input.GetAxis("Rotation") * TS * Time.deltaTime;
         }
 
 
@@ -213,12 +215,14 @@ public class PlayerController : ShipController
         shipRb.AddForce(transform.TransformDirection(force));
         if (Input.GetButton("Brake")) //if the player is braking
         {
+            TS = defaultTS / 2f;
             turnSpeed = defaultTurnSpeed / 2f;
             shipRb.drag = defaultDrag * 5; //up the drag, which causes the player to stop faster
             shipRb.angularVelocity = 0f;
         }
         else
         {
+            TS = defaultTS;
             turnSpeed = defaultTurnSpeed;
             shipRb.drag = defaultDrag;
         }

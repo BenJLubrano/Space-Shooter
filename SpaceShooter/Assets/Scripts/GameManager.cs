@@ -76,7 +76,6 @@ public class GameManager : MonoBehaviour
     {
         if (inCombat)
         {
-            Debug.Log("true");
             CrossFadeAudio("inCombat", .25f);
         }
         else

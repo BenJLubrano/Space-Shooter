@@ -23,9 +23,9 @@ public class BossController : NpcController
     [SerializeField] protected float moveRatio = .25f;
     [SerializeField] protected float rotateRatio = .25f;
     [SerializeField] protected float outOfRangeRatio = 3f;
-    [SerializeField] protected float moveTurnSpeed;
-    [SerializeField] protected float rotateTurnSpeed;
-    [SerializeField] protected float outOfRangeTurnSpeed;
+    [SerializeField] protected float moveTurnSpeed = .25f;
+    [SerializeField] protected float rotateTurnSpeed = .25f;
+    [SerializeField] protected float outOfRangeTurnSpeed = 2.5f;
     //intervalClock keeps track of the time of the boss.
     //moveTime is how long the ShipController gets to move for
     //rotateTime is how long the ShipController gets to rotate for
@@ -33,9 +33,13 @@ public class BossController : NpcController
     //lastActionTime is the time that the last action was completed. This + actionDuration is the time when the ShipController has to "cooldown"
     //nextActionTime is the time when the next action can be started. This has to be set
     bool canMove, canRotate;
+
     private void Awake()
     {
-
+        moveTurnSpeed = .125f;
+        rotateTurnSpeed = .125f;
+        outOfRangeTurnSpeed = 2.5f;
+        base.Awake();
     }
 
     public override void Initialize(ShipStats newStats)
@@ -45,12 +49,13 @@ public class BossController : NpcController
         UpdateBars();
         GameObject turretContainer = transform.Find("Turrets").gameObject;
 
-        foreach (Transform turret in turretContainer.transform)
+        /*foreach (Transform turret in turretContainer.transform)
         {
             TurretController turretController = turret.GetComponentInChildren<TurretController>();
             turretController.SetBoss(this);
             turrets.Add(turretController);
-        }
+        }*/
+
         aggroTable.AddShip(GameObject.FindGameObjectWithTag("Player").GetComponent<ShipController>(), 100);
         aggroElements = aggroTable.GetElements();
 
@@ -70,7 +75,6 @@ public class BossController : NpcController
         float distance = Vector2.Distance(currentTarget.transform.position, transform.position);
         if (!TurretsInRange() && !isWaiting) //if the target is further away than half of the weapons range
         {
-            turnSpeed = outOfRangeTurnSpeed;
             if (Mathf.Abs(lastDistanceToTarget - distance) < 5f && distance < 5f)
             {
                 thrusterPower -= acceleration * 2 * Time.deltaTime;
@@ -101,6 +105,7 @@ public class BossController : NpcController
         {
             gameObject.layer = 0;
         }
+
         if (currentTarget == null)
             LookForTargets();
         else
