@@ -14,6 +14,16 @@ public class NpcController : ShipController
     [SerializeField] protected bool hasAnimator = true;
     [SerializeField] protected bool wasSpawned = false;
     [SerializeField] protected float leashRange = 15f;
+
+    [Header("Retreat Options")]
+    [SerializeField] protected bool canRetreat = true;
+    [SerializeField] protected bool isRetreating = false;
+    [SerializeField] protected float timeBetweenRetreat = 2f;
+    [SerializeField] protected float retreatTime = 2f;
+    [Range(0, 1f)]
+    [SerializeField] protected float retreatRangePercentage = .5f;
+    [Range(0,1f)]
+    [SerializeField] protected float retreatHealthPercentage = .1f;
     [SerializeField] Vector2 spawnPos;
     protected ShipSpawner spawner = null;
 
@@ -33,9 +43,12 @@ public class NpcController : ShipController
     float lastFrameVelocity;
     protected ShipController currentTarget;
     protected Vector2 targetPosition;
+    protected Vector2 retreatPosition;
     protected Rigidbody2D targetRb;
     protected float lastDistanceToTarget = 1000f;
 
+    protected float currentRetreatTime = 0f;
+    protected float timeSinceLastRetreat = 0f;
     private void Awake()
     {
         base.Awake();
@@ -43,6 +56,7 @@ public class NpcController : ShipController
         aggroTable.Initialize(this);
         if (shipAnimator == null)
             hasAnimator = false;
+
     }
 
     protected override void Update()
@@ -58,7 +72,7 @@ public class NpcController : ShipController
         }
 
         //if the ShipController has a target
-        if (currentTarget != null && TargetInWeaponRange() && weaponCooldown <= 0 && !isDead && TargetWithinShootAngle())
+        if (currentTarget != null && TargetInWeaponRange() && weaponCooldown <= 0 && !isDead && TargetWithinShootAngle() && timeSinceLastRetreat > .75f)
         {
             Shoot(currentTarget.gameObject, enemyFactions);
         }
@@ -80,13 +94,28 @@ public class NpcController : ShipController
             }
             if (currentTarget != null)
             {
-                if (usePrediction && targetRb != null)
+                //turn all of this into a function called ShipCanRetreat()
+                if(CanEnterRetreatMode())
+                {
+                    targetPosition = CalculateRetreatPosition();
+                    if (!isRetreating) //if we weren't already retreating, set the currentRetreatTime (time left) to retreatTime
+                        currentRetreatTime = retreatTime;
+                    currentRetreatTime -= Time.deltaTime;
+                    isRetreating = true;
+                    timeSinceLastRetreat = 0; //since we are retreating, time since last retreat is 0
+                   
+                }
+                else if (usePrediction && targetRb != null)
                 {
                     targetPosition = PredictTargetLocation();
                 }
-                else
+                else 
                 {
                     targetPosition = currentTarget.transform.position;
+                }
+                if(!isRetreating)
+                {
+                    timeSinceLastRetreat += Time.deltaTime;
                 }
             }
         }
@@ -199,7 +228,14 @@ public class NpcController : ShipController
     //Whether or not the target is in range to attack. Might do some more complicated calculations here later?
     protected virtual bool TargetInWeaponRange()
     {
-        return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.range;
+        try
+        {
+            return Vector2.Distance(currentTarget.transform.position, transform.position) <= shipWeapon.range;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     protected virtual bool TargetInAttackRange()
@@ -212,9 +248,51 @@ public class NpcController : ShipController
     {
         //going to do other stuff here later, like returning to patrol point
         currentTarget = null;
+        isRetreating = false;
         targetRb = null;
     }
     
+    protected bool CanEnterRetreatMode()
+    {
+        if (!canRetreat) //if the ship can't retreat ever
+            return false;
+        if (Vector2.Distance(currentTarget.transform.position, transform.position) < shipWeapon.npcFollowDistance * retreatRangePercentage && timeSinceLastRetreat >= timeBetweenRetreat) //if the target is within the retreat range
+        {
+            return true;
+        }
+        else if (health + shield <= (maxHealth + maxShield) * retreatHealthPercentage) //if the ships' health is too low
+        {
+            return true;
+        }
+        else if (isRetreating) //if the ship is already retreating
+        {
+            return true;
+        }
+        else //if none of these things are true, the ship should not retreat.
+            return false;
+        //canRetreat && (Vector2.Distance(currentTarget.transform.position, transform.position) < shipWeapon.npcFollowDistance * retreatRangePercentage || health + shield <= (maxHealth + maxShield) * retreatHealthPercentage || isRetreating)
+    }
+
+    protected bool CanExitRetreatMode(float currentDistance)
+    {
+        if((health + shield) > (maxHealth + maxShield) * retreatHealthPercentage) //the ship has enough health to rengage
+        {
+            if(currentRetreatTime < 0 || currentDistance >= shipWeapon.npcFollowDistance + 1) //if the retreat time is up or if the ship is outside of retreat range
+            {
+                return true;
+            }
+            else //the ship still has time to retreat and is not outside of retreat range
+            {
+                return false;
+            }
+        }
+        else //ship is still too low on health, so keep retreating
+        {
+            return false;
+        }
+    }
+
+
     protected void Leash()
     {
         aggroTable.DropAllAggro();
@@ -224,10 +302,34 @@ public class NpcController : ShipController
 
     protected virtual void Move()
     {
-        if (currentTarget != null)
+        if(isRetreating) //if the ship is retreating, it needs to check if its target is far enough away to stop retreating
         {
             Rotate();
             float distance = Vector2.Distance(currentTarget.transform.position, transform.position);
+            if(CanExitRetreatMode(distance))
+            {
+                isAccel = false;
+                thrusterPower = 0; //instant stop to prevent it from sailing back into retreat range (may be unnecessary)
+                isRetreating = false;
+                currentRetreatTime = 0;
+                timeSinceLastRetreat = 0;
+            }
+            else
+            {
+                Debug.Log("still retreating, distance: " + distance);
+                isAccel = true;
+                thrusterPower += acceleration * Time.deltaTime;
+                if (thrusterPower > 1)
+                    thrusterPower = 1;
+            }
+            lastDistanceToTarget = distance;
+            lastFrameThrusterPower = thrusterPower;
+            shipRb.AddForce((transform.up * speed * speedConst * shipRb.mass) * Time.deltaTime * thrusterPower);
+        }
+        else if (currentTarget != null)
+        {
+            Rotate();
+            float distance = Vector2.Distance(targetPosition, transform.position);
             if (!TargetInAttackRange()) //if the target is further away than half of the weapons range
             {
                 if (Mathf.Abs(lastDistanceToTarget - distance) < 1f && distance < 1f)
@@ -251,6 +353,7 @@ public class NpcController : ShipController
                 thrusterPower -= acceleration * 2 * Time.deltaTime;
                 if (thrusterPower < 0)
                     thrusterPower = 0;
+                thrusterPower = 0;
             }
 
             lastDistanceToTarget = distance;
@@ -305,6 +408,14 @@ public class NpcController : ShipController
         //transform.up = currentTarget.gameObject.transform.position - transform.position; //change rotation to face target
     }
 
+    protected Vector2 CalculateRetreatPosition()
+    {
+        Vector2 diff = transform.position - currentTarget.transform.position;
+        diff.x += transform.position.x;
+        diff.y += transform.position.y;
+        return diff;
+    }
+
     protected float AngleToTarget()
     {
         Vector2 direction = targetPosition - (Vector2)transform.position;
@@ -315,6 +426,8 @@ public class NpcController : ShipController
 
     protected bool TargetWithinShootAngle()
     {
+        if (isRetreating)
+            return false;
         Vector2 direction = targetPosition - (Vector2)transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

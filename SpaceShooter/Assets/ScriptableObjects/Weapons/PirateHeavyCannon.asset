@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56dfad2355f8dd74b956bfe524abac64, type: 3}
-  m_Name: EnemyPredictionTest
+  m_Name: PirateHeavyCannon
   m_EditorClassIdentifier: 
-  damage: 0.0001
+  damage: 20
   fireRate: 1
-  projectileSpeed: 8
-  projectileImage: {fileID: 7145968359262953003, guid: c7a59bdc6aa23d645973807ee9ec4501,
+  projectileSpeed: 15
+  projectileImage: {fileID: -931240730793808255, guid: 13b53ad6633655344b58f98929a76d96,
     type: 3}
   npcFollowDistance: 10
   range: 25
-  sound: {fileID: 0}
-  volume: 1
-  projectile: {fileID: 1293707857675163038, guid: bb60df3976c46984cb3b47884fb99bb7,
+  sound: {fileID: 8300000, guid: cbfd5650c63cd0f44a93713894d87390, type: 3}
+  volume: 0.5
+  projectile: {fileID: 8819101810938153031, guid: 6323de503592567488e5b8378c8a0393,
     type: 3}
-  scale: {x: 1, y: 1}
+  scale: {x: 5, y: 5}
   degreesOfAccuracy: 45
   canBeHitByProjectiles: 0
   damageBeforeDestroyed: 1
