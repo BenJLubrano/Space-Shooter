@@ -267,7 +267,7 @@ PrefabInstance:
     - target: {fileID: 8425060942357847168, guid: 52f118e363aed0b46a065b2051ea1b4a,
         type: 3}
       propertyPath: leashRange
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8425060942357847168, guid: 52f118e363aed0b46a065b2051ea1b4a,
         type: 3}

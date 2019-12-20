@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
         this.fadeSpeed = fadeSpeed;
     }
 
-    public void SceneTransition(float transitionTime, string sceneName, string newMusic = null, bool bossFight = false)
+    public void SceneTransition(float transitionTime, string sceneName, string newMusic = null, bool bossFight = false, bool spawnPlayer = false)
     {
         Debug.Log("calling scene transition with:" + sceneName);
         if (sceneName == SceneManager.GetActiveScene().name)
@@ -193,7 +193,7 @@ public class GameManager : MonoBehaviour
             DestroyPlayer();
         }
 
-        if (sceneName == "Center" && player == null)
+        if ((sceneName == "Center" || spawnPlayer) && player == null)
         {
             Debug.Log("spawning player");
             player = Instantiate(playerPrefab, new Vector3(0, -10, 0), Quaternion.identity, null).GetComponent<PlayerController>();
