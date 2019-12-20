@@ -256,7 +256,7 @@ public class NpcController : ShipController
     {
         if (!canRetreat) //if the ship can't retreat ever
             return false;
-        if (Vector2.Distance(currentTarget.transform.position, transform.position) < shipWeapon.npcFollowDistance * retreatRangePercentage) //if the target is within the retreat range
+        if (Vector2.Distance(currentTarget.transform.position, transform.position) < shipWeapon.npcFollowDistance * retreatRangePercentage && timeSinceLastRetreat >= timeBetweenRetreat) //if the target is within the retreat range
         {
             return true;
         }
@@ -277,7 +277,7 @@ public class NpcController : ShipController
     {
         if((health + shield) > (maxHealth + maxShield) * retreatHealthPercentage) //the ship has enough health to rengage
         {
-            if(currentRetreatTime >= retreatTime || currentDistance >= shipWeapon.npcFollowDistance + 1) //if the retreat time is up or if the ship is outside of retreat range
+            if(currentRetreatTime < 0 || currentDistance >= shipWeapon.npcFollowDistance + 1) //if the retreat time is up or if the ship is outside of retreat range
             {
                 return true;
             }

@@ -1645,7 +1645,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.099, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8465800629513638699}
+  - {fileID: 1838343172259217286}
   m_Father: {fileID: 1670886136389112699}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1713,7 +1713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 1670886137031074162}
-  scrollSpeed: 100
+  scrollSpeed: 10
   minSize: 1
   maxSize: 20
 --- !u!1 &1712298466776117283
@@ -5228,7 +5228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b289ad688cab977429c9974e96c6e265, type: 3}
---- !u!4 &8465800629513638699 stripped
+--- !u!4 &1838343172259217286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7854149869910764617, guid: b289ad688cab977429c9974e96c6e265,
     type: 3}

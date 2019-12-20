@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadOtherScene(string sceneName)
     {
-        gameManager.SceneTransition(1f, sceneName, "inPlay", false, true);
+        gameManager.SceneTransition(1f, sceneName, "InPlay", false, true);
     }
 
     public void QuitGame()
