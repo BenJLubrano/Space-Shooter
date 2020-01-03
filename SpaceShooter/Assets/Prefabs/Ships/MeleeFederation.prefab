@@ -217,10 +217,39 @@ MonoBehaviour:
   targetingController: {fileID: 3278985424437328009}
   usePrediction: 1
   hasAnimator: 1
+  wasSpawned: 0
+  leashRange: 15
+  canRetreat: 1
+  isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
+  retreatRangePercentage: 0.5
+  retreatHealthPercentage: 0.1
+  spawnPos: {x: 0, y: 0}
   dropsUnits: 1
   unitPrefab: {fileID: 3483762288426013979, guid: f2c8466ec3d1add439f6f7701640dc9f,
     type: 3}
-  aggroElements: []
+  aggroElements:
+  - ship: {fileID: 0}
+    aggro: 0
+  - ship: {fileID: 0}
+    aggro: 0
+  - ship: {fileID: 0}
+    aggro: 0
+  - ship: {fileID: 0}
+    aggro: 0
+  - ship: {fileID: 0}
+    aggro: 0
+  - ship: {fileID: 0}
+    aggro: 0
+  - ship: {fileID: 0}
+    aggro: 0
+  - ship: {fileID: 0}
+    aggro: 0
+  - ship: {fileID: 0}
+    aggro: 0
+  - ship: {fileID: 0}
+    aggro: 0
 --- !u!82 &2690012981022930434
 AudioSource:
   m_ObjectHideFlags: 0
