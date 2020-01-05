@@ -1467,6 +1467,7 @@ MonoBehaviour:
   - {fileID: 7854149869910764616, guid: b289ad688cab977429c9974e96c6e265, type: 3}
   - {fileID: 7854149869910764616, guid: 0149fdd79428f9e48b8f20b40b6eadd7, type: 3}
   - {fileID: 7854149869910764616, guid: 50cdb365389b6204ea8dc3f51fc8fdbb, type: 3}
+  - {fileID: 7854149869910764616, guid: 926bdfd50a3516c408136ee21ae328c6, type: 3}
   playerShield: {fileID: 6752734329798578712}
   shieldOnHit: {fileID: 891484481009247409}
   mouseMovement: 0

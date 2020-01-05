@@ -160,6 +160,10 @@ public class GameManager : MonoBehaviour
         {
             fadeInClip = boss3;
         }
+        else if (newClip == "boss3")
+        {
+            fadeInClip = boss3;
+        }
 
 
 
@@ -234,6 +238,11 @@ public class GameManager : MonoBehaviour
         else if (scene == "Boss 2 Scene")
         {
             player.ChangeBG(2);
+            player.SpawnAtPoint(new Vector3(-31, 53, 0));
+        }
+        else if (scene == "Boss 3 Scene")
+        {
+            player.ChangeBG(3);
             player.SpawnAtPoint(new Vector3(-31, 53, 0));
         }
         else if (scene == "Center")
