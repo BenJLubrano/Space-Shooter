@@ -15,7 +15,8 @@ public class Asteroid : MonoBehaviour
     Vector3 growth;
     private void Start()
     {
-        growth = new Vector3(growthSpeed, growthSpeed, growthSpeed);
+        growth = new Vector3(growthSpeed, growthSpeed, growthSpeed) * transform.localScale.x;
+        health = transform.localScale.x * 100;
     }
     // Update is called once per frame
     void Update()
@@ -40,6 +41,31 @@ public class Asteroid : MonoBehaviour
             hitBox.enabled = false;
             destroySound.Play();
             waitingForDestroy = true; //make sure that the gameobject doesn't destroy itself before the sound is done playing
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ShipController ship = collision.gameObject.GetComponent<ShipController>();
+        if(ship != null)
+        {
+            float velocity = collision.relativeVelocity.magnitude;
+            Debug.Log("Velocity: " + velocity);
+            if (velocity > 5)
+            {
+                if(ship.GetId() == 0)
+                {
+                    ship.TakeDamage(velocity * (velocity / 8), null);
+                    TakeDamage(velocity * (velocity / 8));
+                }
+                else
+                {
+                    ship.TakeDamage(velocity * (velocity / 16), null);
+                    TakeDamage(velocity * (velocity / 8));
+                }
+
+            }
+     
         }
     }
 }

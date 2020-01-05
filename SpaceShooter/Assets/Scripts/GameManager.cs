@@ -196,7 +196,10 @@ public class GameManager : MonoBehaviour
         if ((sceneName == "Center" || spawnPlayer) && player == null)
         {
             Debug.Log("spawning player");
-            player = Instantiate(playerPrefab, new Vector3(0, -10, 0), Quaternion.identity, null).GetComponent<PlayerController>();
+            if(player == null || player.GetStats().reputation >= 0)
+                player = Instantiate(playerPrefab, new Vector3(0, -10, 0), Quaternion.identity, null).GetComponent<PlayerController>();
+            else
+                player = Instantiate(playerPrefab, new Vector3(0, -50, 0), Quaternion.identity, null).GetComponent<PlayerController>();
         }
 
         StartCoroutine(FadeIn(transitionTime/2, sceneName));
@@ -287,7 +290,10 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            player.SpawnAtPoint(new Vector3(0, -10, 0));
+            if (player.GetStats().reputation >= 0)
+                player.SpawnAtPoint(new Vector3(0, -10, 0));
+            else
+                player.SpawnAtPoint(new Vector3(0, -50, 0));
         }
     }
 

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
 
 //Controller for all NPC ships, this script will act as a driver or central control unit for the ships
 //It will get the variables from NpcShip.cs and will call functions from that script.
@@ -511,21 +510,31 @@ public class NpcController : ShipController
         if (health <= 0)
         {
             health = 0;
-            damager.GetStats().AlterReputation(stats.reputation, true);
-            damager.RemoveDeadTarget(this);
+            if(damager != null)
+            {
+                damager.GetStats().AlterReputation(stats.reputation, true);
+                damager.RemoveDeadTarget(this);
+            }
             PrepareForDeath();
         }
         else
         {
-            damager.GetStats().AlterReputation(stats.reputation, false);
+            if (damager != null)
+            {
+                damager.GetStats().AlterReputation(stats.reputation, false);
+            }
         }
 
-        if (!aggroTable.IsInTable(damager))
-            aggroTable.AddShip(damager, damage);
-        else
-            aggroTable.UpdateEntry(damager, damage);
+        if(damager != null)
+        {
+            if (!aggroTable.IsInTable(damager))
+                aggroTable.AddShip(damager, damage);
+            else
+                aggroTable.UpdateEntry(damager, damage);
 
-        aggroElements = aggroTable.GetElements();
+            aggroElements = aggroTable.GetElements();
+        }
+
         try
         {
             UpdateBars();

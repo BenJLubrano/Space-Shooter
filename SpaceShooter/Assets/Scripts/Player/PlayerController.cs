@@ -347,20 +347,25 @@ public class PlayerController : ShipController
         if (health <= 0)
         {
             health = 0;
-            try
+            if(damager != null)
             {
-                damager.GetStats().AlterReputation(stats.reputation, true);
-                damager.RemoveDeadTarget(this);
-            }
-            catch
-            {
+                try
+                {
+                    damager.GetStats().AlterReputation(stats.reputation, true);
+                    damager.RemoveDeadTarget(this);
+                }
+                catch
+                {
+
+                }
                 Debug.LogWarning("Could not remove from aggroTable");
             }
             PrepareForDeath();
         }
         else
         {
-            damager.GetStats().AlterReputation(stats.reputation, false);
+            if(damager != null)
+                damager.GetStats().AlterReputation(stats.reputation, false);
         }
 
         try

@@ -236,7 +236,7 @@ MonoBehaviour:
   hitBox: {fileID: 1406626732426470995}
   renderer: {fileID: 3446042032827597880}
   animator: {fileID: 5494122766998898368}
-  growthSpeed: 2
+  growthSpeed: 4
 --- !u!95 &5494122766998898368
 Animator:
   serializedVersion: 3
