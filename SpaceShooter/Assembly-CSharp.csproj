@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Boss3Shielding.cs" />
     <Compile Include="Assets\Images\Space\Background\FollowUV.cs" />
     <Compile Include="Assets\Images\Space\Background\ScrollUV.cs" />
     <Compile Include="Assets\Images\Space\Background\SimpleSpaceShip.cs" />

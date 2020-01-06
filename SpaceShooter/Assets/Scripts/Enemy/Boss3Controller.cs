@@ -7,6 +7,8 @@ public class Boss3Controller : BossController
 
     Vector2 leftShipSpawner;
     Vector2 rightShipSpawner;
+
+    List<GameObject> spawnableShips = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +19,17 @@ public class Boss3Controller : BossController
     void Update()
     {
         
+    }
+
+    void SpawnShip(int side)
+    {
+        if(side == 0)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 }

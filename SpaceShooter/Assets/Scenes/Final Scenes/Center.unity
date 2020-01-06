@@ -79656,10 +79656,20 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5932112427796038458, guid: 22e15deaf02442f40ba3906604960043,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2011536443
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932112427796038458, guid: 22e15deaf02442f40ba3906604960043,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 5932112428211784127, guid: 22e15deaf02442f40ba3906604960043,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7670281567271855025, guid: 22e15deaf02442f40ba3906604960043,
         type: 3}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3210549f35f84f448fbec235ca29c4e, type: 3}
-  m_Name: Boss3
+  m_Name: Boss 3
   m_EditorClassIdentifier: 
   baseSprite: {fileID: 9117301545255221776, guid: dabcbfc0785e86b44a376fd3d2fd120f,
     type: 3}
@@ -23,8 +23,8 @@ MonoBehaviour:
   shieldRegenTime: 0
   weapons: []
   speed: 2
-  acceleration: 1
-  mass: 0
-  drag: 0
-  turnSpeed: 0
-  defaultReputation: 0
+  acceleration: 0.5
+  mass: 2500
+  drag: 1
+  turnSpeed: 1
+  defaultReputation: -100
