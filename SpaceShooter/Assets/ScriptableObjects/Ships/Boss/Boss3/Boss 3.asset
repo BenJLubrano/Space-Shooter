@@ -23,8 +23,8 @@ MonoBehaviour:
   shieldRegenTime: 0
   weapons: []
   speed: 2
-  acceleration: 0.5
+  acceleration: 0.25
   mass: 2500
   drag: 1
-  turnSpeed: 1
+  turnSpeed: 0
   defaultReputation: -100

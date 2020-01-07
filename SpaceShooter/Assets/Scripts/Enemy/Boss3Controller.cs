@@ -11,12 +11,26 @@ public class Boss3Controller : BossController
     float rightSpawnTimer;
     List<GameObject> spawnableShips = new List<GameObject>();
 
+    private void Start()
+    {
+    }
+
     private void Update()
     {
-        leftSpawnTimer 
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            SpawnShip(0);
+        }
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            SpawnShip(1);
+        }
     }
+
+
     void SpawnShip(int side)
     {
+        StallTime(7.5f);
         if(side == 0)
         {
             leftShielding.Open();

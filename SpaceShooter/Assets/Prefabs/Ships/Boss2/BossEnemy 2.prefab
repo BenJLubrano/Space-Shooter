@@ -428,6 +428,8 @@ MonoBehaviour:
   leashRange: 15
   canRetreat: 1
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}
@@ -1719,6 +1721,8 @@ MonoBehaviour:
   leashRange: 15
   canRetreat: 1
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}
@@ -2570,6 +2574,8 @@ MonoBehaviour:
   leashRange: 15
   canRetreat: 1
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}
@@ -3587,6 +3593,8 @@ MonoBehaviour:
   leashRange: 15
   canRetreat: 1
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}
@@ -4743,6 +4751,8 @@ MonoBehaviour:
   leashRange: 15
   canRetreat: 1
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}
@@ -6223,6 +6233,8 @@ MonoBehaviour:
   leashRange: 15
   canRetreat: 1
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}
@@ -7273,6 +7285,8 @@ MonoBehaviour:
   leashRange: 15
   canRetreat: 1
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}
@@ -8318,6 +8332,8 @@ MonoBehaviour:
   leashRange: 15
   canRetreat: 1
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}
@@ -8941,6 +8957,8 @@ MonoBehaviour:
   leashRange: 15
   canRetreat: 0
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}
@@ -9378,6 +9396,8 @@ MonoBehaviour:
   leashRange: 15
   canRetreat: 1
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}
@@ -9874,6 +9894,8 @@ MonoBehaviour:
   leashRange: 15
   canRetreat: 1
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}

@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Player\ShieldOnHit.cs" />
     <Compile Include="Assets\Scripts\PlayerStatsUI.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\Boss3Laser.cs" />
     <Compile Include="Assets\Scripts\Projectiles\GrowingProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectiles\GrowingWeapon.cs" />
     <Compile Include="Assets\Scripts\Projectiles\LaserProjectile.cs" />

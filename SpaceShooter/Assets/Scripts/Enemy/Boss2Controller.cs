@@ -33,6 +33,7 @@ public class Boss2Controller : BossController
         rotateTurnSpeed = rotateRatio * defaultTurnSpeed;
         outOfRangeTurnSpeed = outOfRangeRatio * defaultTurnSpeed;
     }
+
     protected override void DoUpdateChecks()
     {
         base.DoUpdateChecks();
