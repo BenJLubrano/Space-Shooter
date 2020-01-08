@@ -7,12 +7,15 @@ public class Boss3Controller : BossController
 
     [SerializeField] Boss3Shielding leftShielding;
     [SerializeField] Boss3Shielding rightShielding;
+    [SerializeField] LaserTurret leftLaser;
+    [SerializeField] LaserTurret rightLaser;
     float leftSpawnTimer;
     float rightSpawnTimer;
     List<GameObject> spawnableShips = new List<GameObject>();
 
     private void Start()
     {
+
     }
 
     private void Update()
@@ -24,6 +27,19 @@ public class Boss3Controller : BossController
         if(Input.GetKeyDown(KeyCode.X))
         {
             SpawnShip(1);
+        }
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            leftLaser.FireLaser(5);
+            rightLaser.FireLaser(5);
+            StallTime(10);
+        }
+        
+        if(currentTarget != null)
+        {
+            leftLaser.SetTarget(currentTarget);
+            rightLaser.SetTarget(currentTarget);
         }
     }
 

@@ -66,6 +66,8 @@
     <Compile Include="Assets\Images\Space\Background\FollowUV.cs" />
     <Compile Include="Assets\Images\Space\Background\ScrollUV.cs" />
     <Compile Include="Assets\Images\Space\Background\SimpleSpaceShip.cs" />
+    <Compile Include="Assets\LaserHitbox.cs" />
+    <Compile Include="Assets\LaserTurret.cs" />
     <Compile Include="Assets\Prefabs\Parallax\ParallaxFollow.cs" />
     <Compile Include="Assets\Scripts\Asteroid.cs" />
     <Compile Include="Assets\Scripts\BackgroundMover.cs" />
