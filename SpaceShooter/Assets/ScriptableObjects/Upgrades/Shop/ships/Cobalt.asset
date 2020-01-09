@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 4
   maxBuyCount: 1
   upgradeName: Cobalt
-  description: A slow but extremely durable ship.
+  description: Immense hull strength, but weak shields and slow speed.
   cost: 500
   increase: 0
   weapon: {fileID: 0}

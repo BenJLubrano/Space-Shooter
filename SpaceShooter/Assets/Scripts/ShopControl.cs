@@ -104,12 +104,15 @@ public class ShopControl : MonoBehaviour
         {
             ForceDescriptionUpdate("Not Enough Credits!");
         }
+        units = playerStats.GetUnits();
         unitsText.text = units.ToString();
     }
 
     public void SetPlayerStats(PlayerStats stats)
     {
         playerStats = stats;
+        units = playerStats.GetUnits();
+        unitsText.text = units.ToString();
     }
 
     public void ResetShops()

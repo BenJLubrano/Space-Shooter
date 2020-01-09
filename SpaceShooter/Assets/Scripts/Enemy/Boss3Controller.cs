@@ -54,8 +54,10 @@ public class Boss3Controller : BossController
         {
             StallTime(7);
             spawnedShip = false;
-            leftLaserCD += 7;
-            rightLaserCD += 7;
+            if(leftLaserCD < 7)
+                leftLaserCD = 7;
+            if(rightLaserCD < 7)
+                rightLaserCD += 7;
         }
 
         //fire lasers
@@ -80,7 +82,7 @@ public class Boss3Controller : BossController
 
         if (firedLaser)
         {
-            StallTime(10);
+            StallTime(4);
             firedLaser = false;
         }
 

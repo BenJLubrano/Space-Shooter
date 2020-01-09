@@ -10,6 +10,7 @@ TagManager:
   - WeakPoint
   - PlayerShield
   - Shop
+  - SectorContainer
   layers:
   - Default
   - TransparentFX

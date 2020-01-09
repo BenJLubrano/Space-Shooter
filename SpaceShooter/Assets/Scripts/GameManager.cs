@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject playerPrefab;
     [SerializeField] PlayerController player;
+    [SerializeField] List<GameObject> sectorContainers = new List<GameObject>();
+    [SerializeField] SectorContainer currentSector;
+    [SerializeField] SectorContainer previousSector;
 
     float playerRep = 0;
     int primaryPlayer = 0;
@@ -43,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(crossFading)
+        if (crossFading)
         {
             fadeAmount += fadeSpeed * Time.deltaTime;
             //if primary player is 0 we should fade that one in
@@ -57,7 +60,7 @@ public class GameManager : MonoBehaviour
                 musicPlayer.volume = 1 - fadeAmount;
                 musicPlayer2.volume = fadeAmount;
             }
-            if(fadeAmount >= 1)
+            if (fadeAmount >= 1)
             {
                 crossFading = false;
                 fadeAmount = 0;
@@ -127,7 +130,7 @@ public class GameManager : MonoBehaviour
         }
         AudioClip fadeInClip = null;
 
-        if(newClip == "intro")
+        if (newClip == "intro")
         {
             fadeInClip = introOutro;
         }
@@ -192,7 +195,7 @@ public class GameManager : MonoBehaviour
         if (sceneName == SceneManager.GetActiveScene().name)
             return;
 
-        if(sceneName == "MainMenu")
+        if (sceneName == "MainMenu")
         {
             DestroyPlayer();
         }
@@ -200,17 +203,17 @@ public class GameManager : MonoBehaviour
         if ((sceneName == "Center" || spawnPlayer) && player == null)
         {
             Debug.Log("spawning player");
-            if(player == null || player.GetStats().reputation >= 0)
+            if (player == null || player.GetStats().reputation >= 0)
                 player = Instantiate(playerPrefab, new Vector3(0, -10, 0), Quaternion.identity, null).GetComponent<PlayerController>();
             else
                 player = Instantiate(playerPrefab, new Vector3(0, -50, 0), Quaternion.identity, null).GetComponent<PlayerController>();
         }
 
-        StartCoroutine(FadeIn(transitionTime/2, sceneName));
+        StartCoroutine(FadeIn(transitionTime / 2, sceneName));
         if (newMusic != null)
         {
             CrossFadeAudio(newMusic, transitionTime);
-            if(bossFight)
+            if (bossFight)
             {
                 canChangeMusic = false;
             }
@@ -223,7 +226,7 @@ public class GameManager : MonoBehaviour
     {
         Color tempColor = whiteScreen.color;
         float elapsedTime = 0f;
-        while(elapsedTime < time)
+        while (elapsedTime < time)
         {
             elapsedTime += Time.deltaTime;
             tempColor.a = elapsedTime / time;
@@ -306,4 +309,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void EnterSector(SectorContainer sector)
+    {
+        Debug.Log("Entering sector with sector number:" + sector.GetSectorNumber());
+
+        if(currentSector != null && currentSector.GetSectorNumber() != sector.GetSectorNumber())
+        {
+            currentSector.Hide();
+        }
+
+        currentSector = sector;
+
+        currentSector.Show();
+
+    }
 }

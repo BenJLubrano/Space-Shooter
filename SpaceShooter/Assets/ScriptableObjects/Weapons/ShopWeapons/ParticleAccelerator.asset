@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   npcFollowDistance: 25
   range: 25
-  sound: {fileID: 8300000, guid: d1eb888b054ee5743a9ca872482c0c62, type: 3}
+  sound: {fileID: 8300000, guid: 821e56822337b1f42b858975f4c516cf, type: 3}
   volume: 1
   projectile: {fileID: 8819101810938153031, guid: e4090f24d0b69c04fb61d349eadda345,
     type: 3}
@@ -28,7 +28,7 @@ MonoBehaviour:
   canBeHitByProjectiles: 0
   damageBeforeDestroyed: 1
   startSize: 0.5
-  endSize: 15
+  endSize: 5
   growthSpeed: 5
-  endDamage: 50
-  damagegrowthSpeed: 15
+  endDamage: 150
+  damagegrowthSpeed: 25

@@ -23,8 +23,8 @@ MonoBehaviour:
   shieldRegenTime: 2
   weapons:
   - {fileID: 11400000, guid: 6fe3715d8c599d24d809ba842618d4ab, type: 2}
-  speed: 5
-  acceleration: 1
+  speed: 6.5
+  acceleration: 1.25
   mass: 15
   drag: 1
   turnSpeed: 5

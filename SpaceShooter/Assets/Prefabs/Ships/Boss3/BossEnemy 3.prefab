@@ -1586,7 +1586,7 @@ MonoBehaviour:
   shieldBar: {fileID: 1222161682275831805}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 8
+  explosionScale: 10
   chargingShield: 0
   owner: {fileID: 2369874143639439638}
   zone: {fileID: 7404416650184134712}
@@ -2501,7 +2501,7 @@ MonoBehaviour:
   shieldBar: {fileID: 4962587036882849813}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 1
+  explosionScale: 10
   chargingShield: 0
   owner: {fileID: 2369874143639439638}
   zone: {fileID: 7404416650184134712}
@@ -2945,7 +2945,7 @@ MonoBehaviour:
   shieldBar: {fileID: 5326589531446179225}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 8
+  explosionScale: 10
   chargingShield: 0
   owner: {fileID: 2369874143639439638}
   zone: {fileID: 7404416650184134712}
@@ -4145,7 +4145,7 @@ MonoBehaviour:
   shieldBar: {fileID: 2133546863233364410}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 15
+  explosionScale: 30
   chargingShield: 0
   targets: []
   enemyFactions: []
@@ -6642,7 +6642,7 @@ MonoBehaviour:
   shieldBar: {fileID: 8938608748908080026}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 1
+  explosionScale: 10
   chargingShield: 0
   owner: {fileID: 2369874143639439638}
   zone: {fileID: 7404416650184134712}
