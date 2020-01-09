@@ -9,51 +9,109 @@ public class Boss3Controller : BossController
     [SerializeField] Boss3Shielding rightShielding;
     [SerializeField] LaserTurret leftLaser;
     [SerializeField] LaserTurret rightLaser;
+
+    [SerializeField] float laserCD = 25;
+    [SerializeField] float spawnCD = 35;
+
     float leftSpawnTimer;
     float rightSpawnTimer;
+    float leftLaserCD;
+    float rightLaserCD;
+
+    bool firedLaser = false;
+    bool spawnedShip = false;
     List<GameObject> spawnableShips = new List<GameObject>();
 
     private void Start()
     {
-
+        leftSpawnTimer = 17f;
+        rightSpawnTimer = 17f;
+        leftLaserCD = 17f;
+        rightLaserCD = 17f;
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            SpawnShip(0);
-        }
-        if(Input.GetKeyDown(KeyCode.X))
-        {
-            SpawnShip(1);
-        }
+        rightLaserCD -= Time.deltaTime;
+        leftLaserCD -= Time.deltaTime;
+        leftSpawnTimer -= Time.deltaTime;
+        rightSpawnTimer -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.C))
+        //spawnships
+        if(leftSpawnTimer <= 0)
         {
-            leftLaser.FireLaser(5);
-            rightLaser.FireLaser(5);
-            StallTime(10);
+            spawnedShip = SpawnShip(0);
+            leftSpawnTimer = spawnCD + Random.Range(0f, .5f) * spawnCD;
         }
         
+        if(rightSpawnTimer <= 0)
+        {
+            spawnedShip = SpawnShip(1);
+            rightSpawnTimer = spawnCD + Random.Range(0f, .5f) * spawnCD;
+        }
+
+        if (spawnedShip)
+        {
+            StallTime(7);
+            spawnedShip = false;
+            leftLaserCD += 7;
+            rightLaserCD += 7;
+        }
+
+        //fire lasers
+        if (leftLaserCD <= 0)
+        {
+            if(leftLaser.FireLaser(5))
+            {
+                leftLaserCD = laserCD;
+                firedLaser = true;
+            }
+        }
+
+        if (rightLaserCD <= 0)
+        {
+            if (rightLaser.FireLaser(5))
+            {
+                rightLaserCD = laserCD;
+                firedLaser = true;
+            }
+        }
+
+
+        if (firedLaser)
+        {
+            StallTime(10);
+            firedLaser = false;
+        }
+
         if(currentTarget != null)
         {
             leftLaser.SetTarget(currentTarget);
             rightLaser.SetTarget(currentTarget);
         }
+
     }
 
 
-    void SpawnShip(int side)
+    bool SpawnShip(int side)
     {
-        StallTime(7.5f);
-        if(side == 0)
+        if (side == 0)
         {
-            leftShielding.Open();
+            if (!leftShielding.IsDestroyed())
+            {
+                leftShielding.Open();
+                return true;
+            }
         }
         else
         {
-            rightShielding.Open();
+            if (!rightShielding.IsDestroyed())
+            {
+                rightShielding.Open();
+                return true;
+            }
         }
+
+        return false;
     }
 }

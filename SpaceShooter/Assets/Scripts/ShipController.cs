@@ -163,7 +163,7 @@ public class ShipController : MonoBehaviour
     }
 
     //called by a projectile to inflict damage onto a ship
-    public virtual void TakeDamage(float damage, ShipController damager)
+    public virtual void TakeDamage(float damage, ShipController damager, bool enterCombat = true)
     {
         if (isDead)
             return;

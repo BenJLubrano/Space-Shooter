@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   health: 150
   shield: 50
-  shieldRegenRate: 5
+  shieldRegenRate: 10
   shieldRegenTime: 2
   weapons:
   - {fileID: 11400000, guid: 6fe3715d8c599d24d809ba842618d4ab, type: 2}

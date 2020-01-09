@@ -44,11 +44,19 @@ public class LaserTurret : TurretController
         }
     }
 
-    public void FireLaser(float cd = 15)
+    public bool IsFollowingTarget()
     {
+        return TargetWithinShootAngle();
+    }
+
+    public bool FireLaser(float cd = 15)
+    {
+        if (!TargetWithinShootAngle())
+            return false;
         firing = true;
         followTime = 1f;
         currentCd = cd;
         laser.EnableLaser();
+        return true;
     }
 }

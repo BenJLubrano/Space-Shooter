@@ -20,7 +20,7 @@ MonoBehaviour:
   health: 150
   shield: 150
   shieldRegenRate: 20
-  shieldRegenTime: 5
+  shieldRegenTime: 10
   weapons:
   - {fileID: 11400000, guid: 6fe3715d8c599d24d809ba842618d4ab, type: 2}
   speed: 6

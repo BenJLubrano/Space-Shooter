@@ -323,13 +323,13 @@ public class PlayerController : ShipController
         Instantiate(bgPrefabs[backgroundNum], camera.transform).transform.SetSiblingIndex(0);
     }
 
-    public override void TakeDamage(float damage, ShipController damager)
+    public override void TakeDamage(float damage, ShipController damager, bool enterCombat = true)
     {
         if (isDead)
             return;
 
         lastDamaged = 0f;
-        if(!inCombat)
+        if(!inCombat && enterCombat)
             EnterCombat();
         if (shield >= damage)
         {
@@ -407,6 +407,12 @@ public class PlayerController : ShipController
     public float GetCurrentShield()
     {
         return shield;
+    }
+
+    public void RepairHull()
+    {
+        health = maxHealth;
+        UpdateBars();
     }
 
 }

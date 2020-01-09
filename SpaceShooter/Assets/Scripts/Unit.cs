@@ -17,7 +17,7 @@ public class Unit : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
             if(distance < .5f)
             {
-                target.GetComponent<PlayerStats>().ModifyUnits(5);
+                target.GetComponent<PlayerStats>().ModifyUnits(10);
                 Destroy(gameObject);
             }
         }

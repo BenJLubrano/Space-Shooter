@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 4
   maxBuyCount: 1
   upgradeName: Bruteforce
-  description: You've got a thick skull... so smash it against the Federation.
+  description: You've got a thick skull.
   cost: 1000
   increase: 0
   weapon: {fileID: 0}

@@ -50,12 +50,11 @@ public class Asteroid : MonoBehaviour
         if(ship != null)
         {
             float velocity = collision.relativeVelocity.magnitude;
-            Debug.Log("Velocity: " + velocity);
             if (velocity > 5)
             {
                 if(ship.GetId() == 0)
                 {
-                    ship.TakeDamage(velocity * (velocity / 8), null);
+                    ship.TakeDamage(velocity * (velocity / 6), null, false);
                     TakeDamage(velocity * (velocity / 8));
                 }
                 else

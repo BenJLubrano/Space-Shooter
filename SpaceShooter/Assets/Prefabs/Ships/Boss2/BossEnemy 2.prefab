@@ -426,6 +426,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -1272,8 +1273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   speed: 0
-  maxHealth: 250
-  health: 250
+  maxHealth: 200
+  health: 200
   maxShield: 0
   shield: 0
   shieldRegenTime: 0
@@ -1308,8 +1309,8 @@ MonoBehaviour:
   damagedVersion: {fileID: -6892615318314010125, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 1
-  turnSpeedReduction: 0.2
+  speedReduction: 0.5
+  turnSpeedReduction: 0.4
   thrusterEffect: {fileID: 3694718819027259541}
 --- !u!1 &3694718818136323734
 GameObject:
@@ -1719,6 +1720,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -2065,8 +2067,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   speed: 0
-  maxHealth: 250
-  health: 250
+  maxHealth: 200
+  health: 200
   maxShield: 0
   shield: 0
   shieldRegenTime: 0
@@ -2101,8 +2103,8 @@ MonoBehaviour:
   damagedVersion: {fileID: -6892615318314010125, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 1
-  turnSpeedReduction: 0.2
+  speedReduction: 0.5
+  turnSpeedReduction: 0.4
   thrusterEffect: {fileID: 3694718819773259795}
 --- !u!1 &3694718818211234996
 GameObject:
@@ -2572,6 +2574,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -3591,6 +3594,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -3864,8 +3868,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   speed: 0
-  maxHealth: 250
-  health: 250
+  maxHealth: 200
+  health: 200
   maxShield: 0
   shield: 0
   shieldRegenTime: 0
@@ -3900,8 +3904,8 @@ MonoBehaviour:
   damagedVersion: {fileID: -6892615318314010125, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 4
-  turnSpeedReduction: 0.05
+  speedReduction: 1.5
+  turnSpeedReduction: 0.1
   thrusterEffect: {fileID: 3694718819301466684}
 --- !u!1 &3694718818777052905
 GameObject:
@@ -4749,6 +4753,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -6231,6 +6236,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -6682,8 +6688,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   speed: 0
-  maxHealth: 250
-  health: 250
+  maxHealth: 200
+  health: 200
   maxShield: 0
   shield: 0
   shieldRegenTime: 0
@@ -6718,8 +6724,8 @@ MonoBehaviour:
   damagedVersion: {fileID: -6892615318314010125, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 4
-  turnSpeedReduction: 0.05
+  speedReduction: 1.5
+  turnSpeedReduction: 0.1
   thrusterEffect: {fileID: 3694718819620281323}
 --- !u!1 &3694718819526079019
 GameObject:
@@ -7283,6 +7289,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -8330,6 +8337,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -8917,7 +8925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 3900467476695156580}
-  speed: 0
+  speed: 4
   maxHealth: 0
   health: 0
   maxShield: 0
@@ -8929,7 +8937,7 @@ MonoBehaviour:
   accuracy: 0
   strafePenalty: 0.6
   reversePenalty: 0.25
-  defaultTurnSpeed: 5
+  defaultTurnSpeed: 1
   turnSpeed: 5
   defaultDrag: 5
   brakeStrength: 1
@@ -8955,6 +8963,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 0
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -8981,9 +8990,6 @@ MonoBehaviour:
   moveRatio: 0.25
   rotateRatio: 0.25
   outOfRangeRatio: 5
-  moveTurnSpeed: 0
-  rotateTurnSpeed: 0
-  outOfRangeTurnSpeed: 0
   hyperDrivePiece: {fileID: 0}
   missileCD: 30
   forwardMissileL: {fileID: 992994806452721382}
@@ -9394,6 +9400,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -9892,6 +9899,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2

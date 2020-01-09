@@ -15,6 +15,7 @@ public class NpcController : ShipController
     [SerializeField] protected float leashRange = 15f;
 
     [Header("Retreat Options")]
+    [SerializeField] protected bool canLeash = true;
     [SerializeField] protected bool canRetreat = true;
     [SerializeField] protected bool isRetreating = false;
     [SerializeField] protected float timeBetweenRetreat = 2f;
@@ -87,7 +88,7 @@ public class NpcController : ShipController
         else
         {
             
-            if (Vector2.Distance(transform.position, spawnPos) >= leashRange + aggroTable.GetTopAggroAmount())
+            if (Vector2.Distance(transform.position, spawnPos) >= leashRange + aggroTable.GetTopAggroAmount() && canLeash)
             {
                 Leash();
             }
@@ -491,7 +492,7 @@ public class NpcController : ShipController
             return Mathf.Max(-b / (2f * a), 0f); //don't shoot back in time
     }
 
-    public override void TakeDamage(float damage, ShipController damager)
+    public override void TakeDamage(float damage, ShipController damager, bool enterCombat = true)
     {
         if (isDead)
             return;
@@ -574,10 +575,10 @@ public class NpcController : ShipController
         base.PrepareForDeath();
         if(dropsUnits)
         {
-            float tempUnits = (int)(maxHealth + maxShield) / 50;
+            float tempUnits = (int)(maxHealth + maxShield) / 25;
             if (tempUnits < 1)
                 tempUnits = 1;
-            int numUnits = (int)tempUnits;
+            int numUnits = (int)tempUnits + 1;
             for (int i = 0; i < numUnits; i++)
             {
                 Vector3 randomOffset = new Vector3(Random.Range(-1f - (.05f * numUnits), 1f + (.05f * numUnits)), Random.Range(-1f - (.05f * numUnits), 1f + (.05f * numUnits)), 0);

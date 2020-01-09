@@ -93,6 +93,20 @@ public class ShopControl : MonoBehaviour
         unitsText.text = units.ToString();
     }
 
+    public void RepairHull()
+    {
+        if (units >= 50)
+        {
+            playerStats.gameObject.GetComponent<PlayerController>().RepairHull();
+            playerStats.ModifyUnits(-50);
+        }
+        else
+        {
+            ForceDescriptionUpdate("Not Enough Credits!");
+        }
+        unitsText.text = units.ToString();
+    }
+
     public void SetPlayerStats(PlayerStats stats)
     {
         playerStats = stats;

@@ -17,14 +17,14 @@ MonoBehaviour:
   animatorController: {fileID: 22100000, guid: a86f97e87503248a091c20e61f49f6d7, type: 2}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  health: 50
-  shield: 25
+  health: 125
+  shield: 50
   shieldRegenRate: 0
   shieldRegenTime: 0
   weapons:
-  - {fileID: 11400000, guid: 47653cd744adba74caabe5a801c163ce, type: 2}
-  speed: 5
-  acceleration: 1
+  - {fileID: 11400000, guid: ba0bad5c7de42ef4f9c0c639a7267c59, type: 2}
+  speed: 7
+  acceleration: 0.25
   mass: 15
   drag: 1
   turnSpeed: 5

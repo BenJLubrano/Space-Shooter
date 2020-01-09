@@ -7,13 +7,14 @@ public class Boss3Laser : MonoBehaviour
     [SerializeField] float delayTime = 2f;
     [SerializeField] float lifeTime = 2f;
     [SerializeField] GameObject laser;
+    [SerializeField] LaserTurret turret;
     [SerializeField] GameObject guide;
 
     bool charging = false;
     bool activated = false;
     float chargeTime;
     float currentLifetime;
-    // Update is called once per frame
+    
     void Update()
     {
         if(charging)

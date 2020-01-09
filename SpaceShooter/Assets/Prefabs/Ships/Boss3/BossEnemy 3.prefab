@@ -47,7 +47,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 45
 --- !u!114 &5148757879819084513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   targetingZone: {fileID: 8005223552481081181}
-  radius: 10
+  radius: 45
   enemyFactions: []
 --- !u!1 &265438621301926315
 GameObject:
@@ -472,6 +472,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 0
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -620,6 +621,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 0
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -1205,6 +1207,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -2059,7 +2062,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 45
 --- !u!114 &5864977810299145713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2074,7 +2077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   targetingZone: {fileID: 8991800834547594184}
-  radius: 10
+  radius: 45
   enemyFactions: []
 --- !u!1 &2212727041413468950
 GameObject:
@@ -3437,6 +3440,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -4150,6 +4154,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -4181,15 +4186,14 @@ MonoBehaviour:
   moveRatio: 0.25
   rotateRatio: 0.25
   outOfRangeRatio: 3
-  moveTurnSpeed: 0.25
-  rotateTurnSpeed: 0.25
-  outOfRangeTurnSpeed: 2.5
   hyperDrivePiece: {fileID: 8827879893134495147, guid: 1b46b8faeca472a4f95b23e8783587bc,
     type: 3}
   leftShielding: {fileID: 4198420735116156362}
   rightShielding: {fileID: 5181880547784018935}
   leftLaser: {fileID: 8546360824117254634}
   rightLaser: {fileID: 5262266352126903525}
+  laserCD: 15
+  spawnCD: 25
 --- !u!114 &6338240107752152085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4738,6 +4742,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -5190,6 +5195,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -5674,6 +5680,7 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 1
   canRetreat: 1
   isRetreating: 0
   timeBetweenRetreat: 2
@@ -6404,7 +6411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7404416650184134713}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0019288827, y: 2.674, z: -4.8652344}
+  m_LocalPosition: {x: -0.0019288827, y: 4.06, z: -4.8652344}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
   m_Children: []
   m_Father: {fileID: 7118994089473568095}
@@ -6452,7 +6459,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 35, y: 15}
+  m_Size: {x: 35, y: 25}
   m_EdgeRadius: 0
 --- !u!1 &7404416650261604716
 GameObject:
@@ -7548,7 +7555,7 @@ MonoBehaviour:
   staticReputation: 1
   speed: 0
   acceleration: 0
-  maxHealth: 250
+  maxHealth: 15
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
@@ -7611,8 +7618,8 @@ MonoBehaviour:
   damagedVersion: {fileID: -6892615318314010125, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 150
-  turnSpeedReduction: 0.35
+  speedReduction: 0.5
+  turnSpeedReduction: 0.15
   thrusterEffect: {fileID: 8938608748762004518}
 --- !u!1 &8938608747493894127
 GameObject:
@@ -8443,7 +8450,7 @@ MonoBehaviour:
   staticReputation: 1
   speed: 0
   acceleration: 0
-  maxHealth: 250
+  maxHealth: 15
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
@@ -8506,8 +8513,8 @@ MonoBehaviour:
   damagedVersion: {fileID: 2677399852934806715, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 150
-  turnSpeedReduction: 0.35
+  speedReduction: 0.5
+  turnSpeedReduction: 0.15
   thrusterEffect: {fileID: 8938608747930775553}
 --- !u!1 &8938608748276312100
 GameObject:
@@ -8815,7 +8822,7 @@ MonoBehaviour:
   staticReputation: 1
   speed: 0
   acceleration: 0
-  maxHealth: 250
+  maxHealth: 15
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
@@ -8878,8 +8885,8 @@ MonoBehaviour:
   damagedVersion: {fileID: 3369694504406030392, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 100
-  turnSpeedReduction: 0.65
+  speedReduction: 0.125
+  turnSpeedReduction: 0.35
   thrusterEffect: {fileID: 8938608747707978931}
 --- !u!1 &8938608748345040019
 GameObject:
@@ -8907,7 +8914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8938608748345040019}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0019288827, y: -4.51, z: -4.8652344}
+  m_LocalPosition: {x: -0.0019288827, y: -4.2, z: -4.8652344}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
   m_Children: []
   m_Father: {fileID: 7118994089473568095}
@@ -8956,7 +8963,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 35, y: 25}
+  m_Size: {x: 40, y: 25}
   m_EdgeRadius: 0
 --- !u!1 &8938608748463247664
 GameObject:
@@ -9363,7 +9370,7 @@ MonoBehaviour:
   staticReputation: 1
   speed: 0
   acceleration: 0
-  maxHealth: 250
+  maxHealth: 15
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
@@ -9426,8 +9433,8 @@ MonoBehaviour:
   damagedVersion: {fileID: -1217656455536297705, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 100
-  turnSpeedReduction: 0.65
+  speedReduction: 0.125
+  turnSpeedReduction: 0.35
   thrusterEffect: {fileID: 8938608749364281891}
 --- !u!1 &8938608748762004515
 GameObject:
@@ -9835,7 +9842,7 @@ MonoBehaviour:
   staticReputation: 1
   speed: 0
   acceleration: 0
-  maxHealth: 250
+  maxHealth: 15
   maxShield: 0
   shieldRegenRate: 0
   shieldRegenTime: 0
@@ -9898,7 +9905,7 @@ MonoBehaviour:
   damagedVersion: {fileID: 4765989746980537666, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 250
+  speedReduction: 0.75
   turnSpeedReduction: 0
   thrusterEffect: {fileID: 8938608747367979518}
 --- !u!1 &8938608749064296077
@@ -10274,6 +10281,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossLaserWeapon
       objectReference: {fileID: 0}
+    - target: {fileID: 8068360536616488654, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
+      propertyPath: turret
+      value: 
+      objectReference: {fileID: 8546360824117254634}
+    - target: {fileID: 1556888088458262605, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068360535242733247, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662499933349403828, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629901922752878625, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
+      propertyPath: damage
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8068360536616488657, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10329,30 +10361,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1556888088458262605, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3662499933349403828, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+    - target: {fileID: 8068360535242733244, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7686872884366868539, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8068360535242733247, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+    - target: {fileID: 7686872884366868539, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8068360535242733244, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
+      propertyPath: m_Volume
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea6c4f5c7731c1c4d993e41e2b632ba4, type: 3}
@@ -10391,6 +10413,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossLaserWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068360536616488654, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
+      propertyPath: turret
+      value: 
+      objectReference: {fileID: 5262266352126903525}
+    - target: {fileID: 1556888088458262605, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068360535242733247, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662499933349403828, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629901922752878625, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
+      propertyPath: damage
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8068360536616488657, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
@@ -10447,30 +10494,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1556888088458262605, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3662499933349403828, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+    - target: {fileID: 8068360535242733244, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7686872884366868539, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8068360535242733247, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+    - target: {fileID: 7686872884366868539, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8068360535242733244, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
+      propertyPath: m_Volume
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea6c4f5c7731c1c4d993e41e2b632ba4, type: 3}

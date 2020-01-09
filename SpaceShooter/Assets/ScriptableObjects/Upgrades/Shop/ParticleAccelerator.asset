@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb831d302c8bdc041b4e6f58fd2089f0, type: 3}
-  m_Name: Phoenix
+  m_Name: ParticleAccelerator
   m_EditorClassIdentifier: 
-  type: 4
-  maxBuyCount: 0
-  upgradeName: Phoenix
-  description: A top of the line, all-around powerhouse.
-  cost: 1500
+  type: 3
+  maxBuyCount: 1
+  upgradeName: Particle Accelerator
+  description: Blasts a high powered, immensely unstable, and extremely fast projectile.
+  cost: 1000
   increase: 0
-  weapon: {fileID: 0}
-  ship: {fileID: 11400000, guid: 052d8c17f01243d4b89b27dd1c0ac87e, type: 2}
+  weapon: {fileID: 11400000, guid: 3065b496bb4d18f41a1a5f133a038ef4, type: 2}
+  ship: {fileID: 0}

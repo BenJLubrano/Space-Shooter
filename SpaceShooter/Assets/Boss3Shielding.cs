@@ -10,6 +10,7 @@ public class Boss3Shielding : WeakPoint
     [SerializeField] float targetRot = 90;
     [SerializeField] List<GameObject> spawnableShips = new List<GameObject>();
 
+    bool isDestroyed = false;
     bool isOpen = false;
     bool pivoting = false;
     float closeDelay = 0f;
@@ -32,7 +33,7 @@ public class Boss3Shielding : WeakPoint
                 {
                     if (pivotPoint.transform.localEulerAngles.z >= Mathf.Abs(targetRot) - 1)
                     {
-                        Debug.Log(pivotPoint.transform.localEulerAngles.z + " " + Mathf.Abs(targetRot) + " " + targetRot);
+                        //Debug.Log(pivotPoint.transform.localEulerAngles.z + " " + Mathf.Abs(targetRot) + " " + targetRot);
 
                         isOpen = true;
                         SpawnShip();
@@ -42,7 +43,7 @@ public class Boss3Shielding : WeakPoint
                 {
                     if (360 - pivotPoint.transform.localEulerAngles.z >= Mathf.Abs(targetRot) - 1)
                     {
-                        Debug.Log(pivotPoint.transform.localEulerAngles.z + " " + Mathf.Abs(targetRot) + " " + targetRot);
+                        //Debug.Log(pivotPoint.transform.localEulerAngles.z + " " + Mathf.Abs(targetRot) + " " + targetRot);
 
                         isOpen = true;
                         SpawnShip();
@@ -78,7 +79,13 @@ public class Boss3Shielding : WeakPoint
         spriteRenderer.enabled = false;
         healthBar.enabled = false;
         shieldBar.enabled = false;
+        isDestroyed = true;
         weakSpotShipUI.SetActive(true);
+    }
+
+    public bool IsDestroyed()
+    {
+        return isDestroyed;
     }
 
     public void Open()
