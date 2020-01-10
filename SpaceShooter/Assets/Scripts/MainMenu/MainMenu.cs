@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -51,5 +52,17 @@ public class MainMenu : MonoBehaviour
     public void ChangeSFXVolume(Slider slider)
     {
         gameManager.SetSFXVolume(slider.value);
+    }
+
+
+    public void SetMouseSensitivity(TMP_InputField slider)
+    {
+        Debug.Log("setting mouse sensitivity to: " + slider.text);
+        gameManager.SetMouseSensitivity(slider);
+    }
+
+    public void SetScrollSpeed(TMP_InputField slider)
+    {
+        gameManager.SetScrollSpeed(slider);
     }
 }

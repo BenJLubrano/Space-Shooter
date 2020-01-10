@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] SectorContainer currentSector;
     [SerializeField] SectorContainer previousSector;
 
+    float mouseSensitivity = 1;
+    float scrollSpeed = 10;
     float playerRep = 0;
     int primaryPlayer = 0;
     float fadeAmount = 0f;
@@ -203,8 +206,7 @@ public class GameManager : MonoBehaviour
         if ((sceneName == "Center" || spawnPlayer) && player == null)
         {
             Debug.Log("initial spawn player");
-            if (player == null || player.GetStats().reputation >= 0)
-                player = Instantiate(playerPrefab, new Vector3(0, -10, 0), Quaternion.identity, null).GetComponent<PlayerController>();
+            player = Instantiate(playerPrefab, new Vector3(0, -10, 0), Quaternion.identity, null).GetComponent<PlayerController>();
         }
 
         StartCoroutine(FadeIn(transitionTime / 2, sceneName));
@@ -250,9 +252,12 @@ public class GameManager : MonoBehaviour
         {
             player.ChangeBG(0);
             string currentScene = SceneManager.GetActiveScene().name;
-            Debug.Log("current Scene: " + currentScene);
             if (currentScene == "Boss Scene" || currentScene == "Boss 2 Scene" || currentScene == "Boss 3 Scene")
                 ResetPlayerReputation();
+            if (playerRep > -1)
+                player.SpawnAtPoint(new Vector3(0, -10, 0));
+            else
+                player.SpawnAtPoint(new Vector3(78, -280, 0));
         }
         SceneManager.LoadScene(scene);
         StartCoroutine(FadeOut(time));
@@ -303,7 +308,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (player.GetStats().reputation >= 0)
+            if (player.GetStats().reputation > -1)
                 player.SpawnAtPoint(new Vector3(0, -10, 0));
             else
                 player.SpawnAtPoint(new Vector3(78, -280, 0));
@@ -325,8 +330,23 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void StoreReputation()
+    public void SetMouseSensitivity(TMP_InputField sensitivity)
     {
+        mouseSensitivity = float.Parse(sensitivity.text);
+    }
 
+    public float GetMouseSensitivity()
+    {
+        return mouseSensitivity;
+    }
+
+    public void SetScrollSpeed(TMP_InputField speed)
+    {
+        scrollSpeed = float.Parse(speed.text);
+    }
+
+    public float GetScrollSpeed()
+    {
+        return scrollSpeed;
     }
 }

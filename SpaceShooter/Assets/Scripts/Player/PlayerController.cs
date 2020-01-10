@@ -181,18 +181,15 @@ public class PlayerController : ShipController
             else if (thrusterPower > 0)
                 thrusterPower = thrusterPower - 1 * Time.deltaTime < 0 ? 0 : thrusterPower - 1 * Time.deltaTime;
         }
+
         float verticalMove = thrusterPower * speed * (speedConst * shipRb.mass) * Time.deltaTime;
         verticalMove = (verticalMove < 0) ? verticalMove * reversePenalty : verticalMove;
         float horizontalMove = Input.GetAxis("Horizontal") * speed * (speedConst * shipRb.mass) * strafePenalty * Time.deltaTime;
 
         float rotationMove = 0;
+
         if(mouseMovement && Input.GetAxis("Rotation") == 0) //mouse rotate
         {
-            //Commented out code rotates towards a mouse position... but it felt jittery at times
-            /*Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);*/
             float mouseRotation = Input.GetAxis("Mouse X");
 
             //These lines clamp the rotation speed. Moving your mouse faster won't make it rotate faster.
@@ -201,7 +198,7 @@ public class PlayerController : ShipController
             else if (mouseRotation < -1)
                 mouseRotation = -1;
 
-            rotationMove = -1 * mouseRotation * TS * Time.deltaTime;
+            rotationMove += -1 * mouseRotation * TS * gameManager.GetMouseSensitivity() * Time.deltaTime;
         }
         else
         {
@@ -303,6 +300,7 @@ public class PlayerController : ShipController
 
     public void RespawnFunc()
     {
+        Debug.Log("calling respawnFunc");
         shipCollider.enabled = true;
         spriteRenderer.enabled = true;
         shipRb.velocity = Vector2.zero;
