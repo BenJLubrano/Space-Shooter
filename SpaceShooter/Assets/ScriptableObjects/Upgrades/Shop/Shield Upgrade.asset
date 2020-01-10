@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield Upgrade
   m_EditorClassIdentifier: 
   type: 1
-  maxBuyCount: 5
+  maxBuyCount: 150
   upgradeName: SHIELD
   description: Increases the strength of your shield by 15
   cost: 200

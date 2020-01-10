@@ -10,8 +10,8 @@ public class Boss3Controller : BossController
     [SerializeField] LaserTurret leftLaser;
     [SerializeField] LaserTurret rightLaser;
 
-    [SerializeField] float laserCD = 25;
-    [SerializeField] float spawnCD = 35;
+    [SerializeField] float laserCD = 35;
+    [SerializeField] float spawnCD = 45;
 
     float leftSpawnTimer;
     float rightSpawnTimer;

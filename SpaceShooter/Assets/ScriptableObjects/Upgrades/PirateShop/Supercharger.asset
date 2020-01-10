@@ -15,8 +15,8 @@ MonoBehaviour:
   type: 2
   maxBuyCount: 1
   upgradeName: Supercharger
-  description: Routes extra power to your thrusters to provide +3 speed.
+  description: Routes extra power to your thrusters to provide +2 speed.
   cost: 1000
-  increase: 3
+  increase: 2
   weapon: {fileID: 0}
   ship: {fileID: 0}

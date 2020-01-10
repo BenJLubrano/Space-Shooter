@@ -26,6 +26,7 @@ public class PlayerController : ShipController
     bool inCombat = false;
     bool respawning = false;
     PlayerStats pStats;
+
     public override void Initialize(ShipStats newStats)
     {
         base.Initialize(newStats);

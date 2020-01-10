@@ -148,8 +148,6 @@ public class ShopControl : MonoBehaviour
     {
         back();
         shop.gameObject.SetActive(false);
-        //PlayerPrefs.SetInt("Units", units);
-        //SceneManager.LoadScene("MidtermScene");
     }
 
     public void shipShop()

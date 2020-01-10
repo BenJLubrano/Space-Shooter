@@ -112,7 +112,7 @@ public class BossController : NpcController
         internalClock += Time.deltaTime;
         if (hitZone.ShipsInZone().Count > 0 && weaponCooldown <= 0)
         {
-            StallTime(10, true);
+            StallTime(5, true);
             Shoot(currentTarget.gameObject, enemyFactions);
             return; //Don't do anything else if the boss is shooting
         }
@@ -213,6 +213,7 @@ public class BossController : NpcController
         }
         return false;
     }
+
     protected override void PrepareForDeath()
     {
         base.PrepareForDeath();
@@ -227,6 +228,7 @@ public class BossController : NpcController
         Instantiate(hyperDrivePiece, transform.position, Quaternion.identity, null);
         Destroy(gameObject);
     }
+
     public void RemoveTurret(TurretController turret)
     {
         turrets.Remove(turret);

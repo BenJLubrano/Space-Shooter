@@ -21,7 +21,7 @@ public class HyperdriveComponent : MonoBehaviour
                 target.GetComponent<PlayerStats>().AquireHyperDrivePart(partNumber);
                 GameManager gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
                 gm.UnlockMusic();
-                gm.ResetPlayerReputation();
+                //gm.ResetPlayerReputation();
                 gm.SceneTransition(2, "Center", "inPlay", false);
                 Destroy(gameObject);
             }

@@ -54,7 +54,7 @@ public class LaserTurret : TurretController
         if (!TargetWithinShootAngle())
             return false;
         firing = true;
-        followTime = 1f;
+        followTime = 1.5f;
         currentCd = cd;
         laser.EnableLaser();
         return true;

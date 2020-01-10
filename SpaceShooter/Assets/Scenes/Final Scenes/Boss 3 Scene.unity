@@ -187,6 +187,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1006960637494008123, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: angleClamp.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 170620163328662322, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: angleClamp.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198420735116156362, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: shield
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198420735116156362, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: maxShield
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198420735116156362, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: shieldRegenTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198420735116156362, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: shieldRegenRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181880547784018935, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: shield
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181880547784018935, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: maxShield
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181880547784018935, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: shieldRegenTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181880547784018935, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: shieldRegenRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967420699763237318, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: delayTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754251277181456947, guid: 445497833aaf0a64a8ae60ccb96a9448,
+        type: 3}
+      propertyPath: delayTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 445497833aaf0a64a8ae60ccb96a9448, type: 3}
 --- !u!1001 &1704519548

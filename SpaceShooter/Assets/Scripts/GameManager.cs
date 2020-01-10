@@ -202,11 +202,9 @@ public class GameManager : MonoBehaviour
 
         if ((sceneName == "Center" || spawnPlayer) && player == null)
         {
-            Debug.Log("spawning player");
+            Debug.Log("initial spawn player");
             if (player == null || player.GetStats().reputation >= 0)
                 player = Instantiate(playerPrefab, new Vector3(0, -10, 0), Quaternion.identity, null).GetComponent<PlayerController>();
-            else
-                player = Instantiate(playerPrefab, new Vector3(0, -50, 0), Quaternion.identity, null).GetComponent<PlayerController>();
         }
 
         StartCoroutine(FadeIn(transitionTime / 2, sceneName));
@@ -251,7 +249,10 @@ public class GameManager : MonoBehaviour
         else if (scene == "Center")
         {
             player.ChangeBG(0);
-            player.SpawnAtPoint(new Vector3(0, -10, 0));
+            string currentScene = SceneManager.GetActiveScene().name;
+            Debug.Log("current Scene: " + currentScene);
+            if (currentScene == "Boss Scene" || currentScene == "Boss 2 Scene" || currentScene == "Boss 3 Scene")
+                ResetPlayerReputation();
         }
         SceneManager.LoadScene(scene);
         StartCoroutine(FadeOut(time));
@@ -287,9 +288,9 @@ public class GameManager : MonoBehaviour
 
     public void EnterBossFight(float transitionTime, string sceneName, string bossMusic, Vector3 spawnPos)
     {
-        SceneTransition(transitionTime, sceneName, bossMusic, true);
         PlayerStats stats = player.GetComponent<PlayerStats>();
         playerRep = stats.reputation;
+        SceneTransition(transitionTime, sceneName, bossMusic, true);
         stats.SetReputation(0);
     }
 
@@ -305,7 +306,7 @@ public class GameManager : MonoBehaviour
             if (player.GetStats().reputation >= 0)
                 player.SpawnAtPoint(new Vector3(0, -10, 0));
             else
-                player.SpawnAtPoint(new Vector3(0, -50, 0));
+                player.SpawnAtPoint(new Vector3(78, -280, 0));
         }
     }
 
@@ -321,6 +322,11 @@ public class GameManager : MonoBehaviour
         currentSector = sector;
 
         currentSector.Show();
+
+    }
+
+    public void StoreReputation()
+    {
 
     }
 }

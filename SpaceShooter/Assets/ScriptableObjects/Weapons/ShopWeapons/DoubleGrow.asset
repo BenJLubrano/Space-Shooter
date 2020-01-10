@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99ac17f532e65947ab837c5b36cf455, type: 3}
   m_Name: DoubleGrow
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 35
   fireRate: 0.75
   projectileSpeed: 8
   projectileImage: {fileID: 7305301340208738424, guid: 9f95539e075e8f549898b8d3f1132e83,
@@ -31,4 +31,4 @@ MonoBehaviour:
   endSize: 3
   growthSpeed: 4
   endDamage: 150
-  damagegrowthSpeed: 25
+  damagegrowthSpeed: 35
