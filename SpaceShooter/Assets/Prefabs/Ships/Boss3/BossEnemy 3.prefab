@@ -1560,10 +1560,10 @@ MonoBehaviour:
   speed: 0
   maxHealth: 500
   health: 500
-  maxShield: 250
-  shield: 250
-  shieldRegenTime: 15
-  shieldRegenRate: 15
+  maxShield: 0
+  shield: 0
+  shieldRegenTime: 0
+  shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
@@ -2919,10 +2919,10 @@ MonoBehaviour:
   speed: 0
   maxHealth: 500
   health: 500
-  maxShield: 250
-  shield: 250
-  shieldRegenTime: 15
-  shieldRegenRate: 15
+  maxShield: 0
+  shield: 0
+  shieldRegenTime: 0
+  shieldRegenRate: 0
   weaponCooldown: 0
   acceleration: 0
   accuracy: 0
@@ -3453,7 +3453,7 @@ MonoBehaviour:
     type: 3}
   aggroElements: []
   boss: {fileID: 2369874143639439638}
-  angleClamp: {x: 0, y: 210}
+  angleClamp: {x: 30, y: 210}
   defaultRotation: 45
 --- !u!1 &3248610270140906231
 GameObject:
@@ -5208,7 +5208,7 @@ MonoBehaviour:
     type: 3}
   aggroElements: []
   boss: {fileID: 2369874143639439638}
-  angleClamp: {x: 330, y: 180}
+  angleClamp: {x: 330, y: 150}
   defaultRotation: 135
 --- !u!1 &5965896426652217325
 GameObject:
@@ -10283,19 +10283,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8068360536616488654, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
+      propertyPath: delayTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068360536616488654, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
       propertyPath: turret
       value: 
       objectReference: {fileID: 8546360824117254634}
-    - target: {fileID: 1556888088458262605, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8068360535242733247, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3662499933349403828, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -10368,13 +10363,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7686872884366868539, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0
+      propertyPath: m_Volume
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7686872884366868539, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
-      propertyPath: m_Volume
-      value: 0.7
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea6c4f5c7731c1c4d993e41e2b632ba4, type: 3}
@@ -10416,19 +10411,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8068360536616488654, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
+      propertyPath: delayTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068360536616488654, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
+        type: 3}
       propertyPath: turret
       value: 
       objectReference: {fileID: 5262266352126903525}
-    - target: {fileID: 1556888088458262605, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8068360535242733247, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3662499933349403828, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -10501,13 +10491,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7686872884366868539, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0
+      propertyPath: m_Volume
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7686872884366868539, guid: ea6c4f5c7731c1c4d993e41e2b632ba4,
         type: 3}
-      propertyPath: m_Volume
-      value: 0.7
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea6c4f5c7731c1c4d993e41e2b632ba4, type: 3}

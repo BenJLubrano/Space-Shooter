@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Boss2RearGun
   m_EditorClassIdentifier: 
   damage: 25
-  fireRate: 1.2
+  fireRate: 0.8
   projectileSpeed: 15
   projectileImage: {fileID: -3347674708518003874, guid: 26e22e078f247034f80329c984899b83,
     type: 3}
