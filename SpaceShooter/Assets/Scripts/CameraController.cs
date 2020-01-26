@@ -5,16 +5,21 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] Camera playerCam;
+    [SerializeField] GameManager gameManager;
     [SerializeField] float scrollSpeed = 10f;
     [SerializeField] float minSize = 1f;
     [SerializeField] float maxSize = 5f;
 
+    private void Start()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    }
     // Update is called once per frame
     private void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         float kbScroll = Input.GetAxis("Zoom");
-
+        scrollSpeed = gameManager.GetScrollSpeed();
         playerCam.orthographicSize -= scroll * scrollSpeed * Time.deltaTime; //scroll the camera
         playerCam.orthographicSize -= kbScroll * scrollSpeed * Time.deltaTime;
         if (playerCam.orthographicSize < minSize)

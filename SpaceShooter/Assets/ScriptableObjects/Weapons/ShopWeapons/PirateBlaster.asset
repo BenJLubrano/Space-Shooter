@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56dfad2355f8dd74b956bfe524abac64, type: 3}
   m_Name: PirateBlaster
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 15
   fireRate: 3
   projectileSpeed: 20
   projectileImage: {fileID: -5504451366531638215, guid: 26e22e078f247034f80329c984899b83,

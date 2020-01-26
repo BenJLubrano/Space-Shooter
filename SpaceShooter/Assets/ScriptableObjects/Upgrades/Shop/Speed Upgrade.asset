@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Speed Upgrade
   m_EditorClassIdentifier: 
   type: 2
-  maxBuyCount: 5
+  maxBuyCount: 150
   upgradeName: SPEED
-  description: Increases the speed of your ship by 1
+  description: Increases the speed of your ship by 0.5
   cost: 200
-  increase: 1
+  increase: 0.5
   weapon: {fileID: 0}
   ship: {fileID: 0}

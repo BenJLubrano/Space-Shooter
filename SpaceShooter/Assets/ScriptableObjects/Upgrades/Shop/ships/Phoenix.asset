@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 4
   maxBuyCount: 0
   upgradeName: Phoenix
-  description: I'm you, but stronger.
+  description: A top of the line, all-around powerhouse.
   cost: 1500
   increase: 0
   weapon: {fileID: 0}

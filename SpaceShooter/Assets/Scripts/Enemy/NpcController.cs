@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
 
 //Controller for all NPC ships, this script will act as a driver or central control unit for the ships
 //It will get the variables from NpcShip.cs and will call functions from that script.
@@ -16,6 +15,7 @@ public class NpcController : ShipController
     [SerializeField] protected float leashRange = 15f;
 
     [Header("Retreat Options")]
+    [SerializeField] protected bool canLeash = true;
     [SerializeField] protected bool canRetreat = true;
     [SerializeField] protected bool isRetreating = false;
     [SerializeField] protected float timeBetweenRetreat = 2f;
@@ -88,7 +88,7 @@ public class NpcController : ShipController
         else
         {
             
-            if (Vector2.Distance(transform.position, spawnPos) >= leashRange + aggroTable.GetTopAggroAmount())
+            if (Vector2.Distance(transform.position, spawnPos) >= leashRange + aggroTable.GetTopAggroAmount() && canLeash)
             {
                 Leash();
             }
@@ -492,7 +492,7 @@ public class NpcController : ShipController
             return Mathf.Max(-b / (2f * a), 0f); //don't shoot back in time
     }
 
-    public override void TakeDamage(float damage, ShipController damager)
+    public override void TakeDamage(float damage, ShipController damager, bool enterCombat = true)
     {
         if (isDead)
             return;
@@ -511,21 +511,31 @@ public class NpcController : ShipController
         if (health <= 0)
         {
             health = 0;
-            damager.GetStats().AlterReputation(stats.reputation, true);
-            damager.RemoveDeadTarget(this);
+            if(damager != null)
+            {
+                damager.GetStats().AlterReputation(stats.reputation, true);
+                damager.RemoveDeadTarget(this);
+            }
             PrepareForDeath();
         }
         else
         {
-            damager.GetStats().AlterReputation(stats.reputation, false);
+            if (damager != null)
+            {
+                damager.GetStats().AlterReputation(stats.reputation, false);
+            }
         }
 
-        if (!aggroTable.IsInTable(damager))
-            aggroTable.AddShip(damager, damage);
-        else
-            aggroTable.UpdateEntry(damager, damage);
+        if(damager != null)
+        {
+            if (!aggroTable.IsInTable(damager))
+                aggroTable.AddShip(damager, damage);
+            else
+                aggroTable.UpdateEntry(damager, damage);
 
-        aggroElements = aggroTable.GetElements();
+            aggroElements = aggroTable.GetElements();
+        }
+
         try
         {
             UpdateBars();
@@ -565,10 +575,10 @@ public class NpcController : ShipController
         base.PrepareForDeath();
         if(dropsUnits)
         {
-            float tempUnits = (int)(maxHealth + maxShield) / 50;
+            float tempUnits = (int)(maxHealth + maxShield) / 25;
             if (tempUnits < 1)
                 tempUnits = 1;
-            int numUnits = (int)tempUnits;
+            int numUnits = (int)tempUnits + 1;
             for (int i = 0; i < numUnits; i++)
             {
                 Vector3 randomOffset = new Vector3(Random.Range(-1f - (.05f * numUnits), 1f + (.05f * numUnits)), Random.Range(-1f - (.05f * numUnits), 1f + (.05f * numUnits)), 0);

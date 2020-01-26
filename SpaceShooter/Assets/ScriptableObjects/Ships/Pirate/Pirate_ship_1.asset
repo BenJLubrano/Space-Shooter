@@ -16,8 +16,8 @@ MonoBehaviour:
   animatorController: {fileID: 22100000, guid: d3a090f80c1be40dd97baa41024c0aaf, type: 2}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  health: 100
-  shield: 100
+  health: 50
+  shield: 25
   shieldRegenRate: 10
   shieldRegenTime: 15
   weapons:

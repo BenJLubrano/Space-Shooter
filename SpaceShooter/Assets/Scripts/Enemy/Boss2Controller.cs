@@ -13,9 +13,6 @@ public class Boss2Controller : BossController
 
     public override void Initialize(ShipStats newStats)
     {
-        moveTurnSpeed = .125f;
-        rotateTurnSpeed = .125f;
-        outOfRangeTurnSpeed = 2.5f;
         base.Initialize(newStats);
         aggroTable.Initialize(this);
         UpdateBars();
@@ -29,10 +26,8 @@ public class Boss2Controller : BossController
         aggroTable.AddShip(GameObject.FindGameObjectWithTag("Player").GetComponent<ShipController>(), 100);
         aggroElements = aggroTable.GetElements();
         UpdateFactions();
-        moveTurnSpeed = moveRatio * defaultTurnSpeed;
-        rotateTurnSpeed = rotateRatio * defaultTurnSpeed;
-        outOfRangeTurnSpeed = outOfRangeRatio * defaultTurnSpeed;
     }
+
     protected override void DoUpdateChecks()
     {
         base.DoUpdateChecks();

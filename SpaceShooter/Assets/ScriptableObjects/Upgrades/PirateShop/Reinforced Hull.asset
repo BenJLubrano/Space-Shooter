@@ -15,9 +15,9 @@ MonoBehaviour:
   type: 0
   maxBuyCount: 1
   upgradeName: Titanium Hull
-  description: A hull so strong the Federation doesn't even want you to have it! +100
+  description: A hull so strong the Federation doesn't even want you to have it! +150
     ship health.
-  cost: 750
-  increase: 100
+  cost: 850
+  increase: 150
   weapon: {fileID: 0}
   ship: {fileID: 0}

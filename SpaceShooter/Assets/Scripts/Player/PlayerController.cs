@@ -26,6 +26,7 @@ public class PlayerController : ShipController
     bool inCombat = false;
     bool respawning = false;
     PlayerStats pStats;
+
     public override void Initialize(ShipStats newStats)
     {
         base.Initialize(newStats);
@@ -180,18 +181,15 @@ public class PlayerController : ShipController
             else if (thrusterPower > 0)
                 thrusterPower = thrusterPower - 1 * Time.deltaTime < 0 ? 0 : thrusterPower - 1 * Time.deltaTime;
         }
+
         float verticalMove = thrusterPower * speed * (speedConst * shipRb.mass) * Time.deltaTime;
         verticalMove = (verticalMove < 0) ? verticalMove * reversePenalty : verticalMove;
         float horizontalMove = Input.GetAxis("Horizontal") * speed * (speedConst * shipRb.mass) * strafePenalty * Time.deltaTime;
 
         float rotationMove = 0;
+
         if(mouseMovement && Input.GetAxis("Rotation") == 0) //mouse rotate
         {
-            //Commented out code rotates towards a mouse position... but it felt jittery at times
-            /*Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            Quaternion rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);*/
             float mouseRotation = Input.GetAxis("Mouse X");
 
             //These lines clamp the rotation speed. Moving your mouse faster won't make it rotate faster.
@@ -200,7 +198,7 @@ public class PlayerController : ShipController
             else if (mouseRotation < -1)
                 mouseRotation = -1;
 
-            rotationMove = -1 * mouseRotation * TS * Time.deltaTime;
+            rotationMove += -1 * mouseRotation * TS * gameManager.GetMouseSensitivity() * Time.deltaTime;
         }
         else
         {
@@ -302,6 +300,7 @@ public class PlayerController : ShipController
 
     public void RespawnFunc()
     {
+        Debug.Log("calling respawnFunc");
         shipCollider.enabled = true;
         spriteRenderer.enabled = true;
         shipRb.velocity = Vector2.zero;
@@ -323,13 +322,13 @@ public class PlayerController : ShipController
         Instantiate(bgPrefabs[backgroundNum], camera.transform).transform.SetSiblingIndex(0);
     }
 
-    public override void TakeDamage(float damage, ShipController damager)
+    public override void TakeDamage(float damage, ShipController damager, bool enterCombat = true)
     {
         if (isDead)
             return;
 
         lastDamaged = 0f;
-        if(!inCombat)
+        if(!inCombat && enterCombat)
             EnterCombat();
         if (shield >= damage)
         {
@@ -347,20 +346,25 @@ public class PlayerController : ShipController
         if (health <= 0)
         {
             health = 0;
-            try
+            if(damager != null)
             {
-                damager.GetStats().AlterReputation(stats.reputation, true);
-                damager.RemoveDeadTarget(this);
-            }
-            catch
-            {
+                try
+                {
+                    damager.GetStats().AlterReputation(stats.reputation, true);
+                    damager.RemoveDeadTarget(this);
+                }
+                catch
+                {
+
+                }
                 Debug.LogWarning("Could not remove from aggroTable");
             }
             PrepareForDeath();
         }
         else
         {
-            damager.GetStats().AlterReputation(stats.reputation, false);
+            if(damager != null)
+                damager.GetStats().AlterReputation(stats.reputation, false);
         }
 
         try
@@ -402,6 +406,12 @@ public class PlayerController : ShipController
     public float GetCurrentShield()
     {
         return shield;
+    }
+
+    public void RepairHull()
+    {
+        health = maxHealth;
+        UpdateBars();
     }
 
 }

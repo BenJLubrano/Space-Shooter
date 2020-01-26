@@ -23,9 +23,9 @@ public class BossController : NpcController
     [SerializeField] protected float moveRatio = .25f;
     [SerializeField] protected float rotateRatio = .25f;
     [SerializeField] protected float outOfRangeRatio = 3f;
-    [SerializeField] protected float moveTurnSpeed = .25f;
-    [SerializeField] protected float rotateTurnSpeed = .25f;
-    [SerializeField] protected float outOfRangeTurnSpeed = 2.5f;
+    //[SerializeField] protected float moveTurnSpeed = .25f;
+    //[SerializeField] protected float rotateTurnSpeed = .25f;
+    //[SerializeField] protected float outOfRangeTurnSpeed = 2.5f;
 
     [SerializeField] GameObject hyperDrivePiece;
     //intervalClock keeps track of the time of the boss.
@@ -38,9 +38,6 @@ public class BossController : NpcController
 
     private void Awake()
     {
-        moveTurnSpeed = .125f;
-        rotateTurnSpeed = .125f;
-        outOfRangeTurnSpeed = 2.5f;
         base.Awake();
     }
 
@@ -61,9 +58,9 @@ public class BossController : NpcController
         aggroTable.AddShip(GameObject.FindGameObjectWithTag("Player").GetComponent<ShipController>(), 100);
         aggroElements = aggroTable.GetElements();
 
-        moveTurnSpeed = moveRatio * defaultTurnSpeed;
-        rotateTurnSpeed = rotateRatio * defaultTurnSpeed;
-        outOfRangeTurnSpeed = outOfRangeRatio * defaultTurnSpeed;
+        //moveTurnSpeed = moveRatio * defaultTurnSpeed;
+        //rotateTurnSpeed = rotateRatio * defaultTurnSpeed;
+        //outOfRangeTurnSpeed = outOfRangeRatio * defaultTurnSpeed;
     }
 
     protected override void Update()
@@ -115,7 +112,7 @@ public class BossController : NpcController
         internalClock += Time.deltaTime;
         if (hitZone.ShipsInZone().Count > 0 && weaponCooldown <= 0)
         {
-            StallTime(10, true);
+            StallTime(5, true);
             Shoot(currentTarget.gameObject, enemyFactions);
             return; //Don't do anything else if the boss is shooting
         }
@@ -144,17 +141,17 @@ public class BossController : NpcController
         {
             if (!TurretsInRange() && canMove)
             {
-                turnSpeed = outOfRangeTurnSpeed;
+                turnSpeed = outOfRangeRatio * defaultTurnSpeed;
                 Move();
             }
             else if (canMove)
             {
-                turnSpeed = moveTurnSpeed;
+                turnSpeed = moveRatio * defaultTurnSpeed;
                 Move();
             }
             else if (canRotate)
             {
-                turnSpeed = rotateTurnSpeed;
+                turnSpeed = rotateRatio * defaultTurnSpeed;
                 Rotate();
             }
         }
@@ -216,6 +213,7 @@ public class BossController : NpcController
         }
         return false;
     }
+
     protected override void PrepareForDeath()
     {
         base.PrepareForDeath();
@@ -230,6 +228,7 @@ public class BossController : NpcController
         Instantiate(hyperDrivePiece, transform.position, Quaternion.identity, null);
         Destroy(gameObject);
     }
+
     public void RemoveTurret(TurretController turret)
     {
         turrets.Remove(turret);

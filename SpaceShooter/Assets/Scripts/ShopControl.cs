@@ -93,9 +93,26 @@ public class ShopControl : MonoBehaviour
         unitsText.text = units.ToString();
     }
 
+    public void RepairHull()
+    {
+        if (units >= 50)
+        {
+            playerStats.gameObject.GetComponent<PlayerController>().RepairHull();
+            playerStats.ModifyUnits(-50);
+        }
+        else
+        {
+            ForceDescriptionUpdate("Not Enough Credits!");
+        }
+        units = playerStats.GetUnits();
+        unitsText.text = units.ToString();
+    }
+
     public void SetPlayerStats(PlayerStats stats)
     {
         playerStats = stats;
+        units = playerStats.GetUnits();
+        unitsText.text = units.ToString();
     }
 
     public void ResetShops()
@@ -131,8 +148,6 @@ public class ShopControl : MonoBehaviour
     {
         back();
         shop.gameObject.SetActive(false);
-        //PlayerPrefs.SetInt("Units", units);
-        //SceneManager.LoadScene("MidtermScene");
     }
 
     public void shipShop()

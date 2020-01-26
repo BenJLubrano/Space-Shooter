@@ -311,7 +311,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   shieldRegenTime: 0
   overwriteValues: 1
-  useDefaultReputation: 1
+  useDefaultReputation: 0
   upgrades: []
   weapons: []
   currentWeapon: 0
@@ -361,7 +361,7 @@ MonoBehaviour:
   shieldBar: {fileID: 0}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 3
+  explosionScale: 4
   chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1407191420}
@@ -369,7 +369,7 @@ MonoBehaviour:
   damagedVersion: {fileID: 4765989746980537666, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 250
+  speedReduction: 1.5
   turnSpeedReduction: 0
   thrusterEffect: {fileID: 1774144532}
 --- !u!1 &208895599
@@ -1128,7 +1128,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   shieldRegenTime: 0
   overwriteValues: 1
-  useDefaultReputation: 1
+  useDefaultReputation: 0
   upgrades: []
   weapons: []
   currentWeapon: 0
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   shieldBar: {fileID: 0}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 3
+  explosionScale: 4
   chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1407191420}
@@ -1186,7 +1186,7 @@ MonoBehaviour:
   damagedVersion: {fileID: -1217656455536297705, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 100
+  speedReduction: 0.5
   turnSpeedReduction: 0.65
   thrusterEffect: {fileID: 278960073}
 --- !u!1 &1191524499
@@ -1626,7 +1626,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   shieldRegenTime: 0
   overwriteValues: 1
-  useDefaultReputation: 1
+  useDefaultReputation: 0
   upgrades: []
   weapons: []
   currentWeapon: 0
@@ -1676,7 +1676,7 @@ MonoBehaviour:
   shieldBar: {fileID: 0}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 3
+  explosionScale: 4
   chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1407191420}
@@ -1684,7 +1684,7 @@ MonoBehaviour:
   damagedVersion: {fileID: 3369694504406030392, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 100
+  speedReduction: 0.5
   turnSpeedReduction: 0.65
   thrusterEffect: {fileID: 1979400537}
 --- !u!1 &1407191417
@@ -1713,7 +1713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407191417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0019288827, y: -3.78, z: -4.8652344}
+  m_LocalPosition: {x: -0.0019288827, y: -5.51, z: -4.8652344}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
   m_Children: []
   m_Father: {fileID: 2218003181659715765}
@@ -1762,7 +1762,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 35, y: 15}
+  m_Size: {x: 35, y: 25}
   m_EdgeRadius: 0
 --- !u!1 &1469808078
 GameObject:
@@ -2075,7 +2075,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   shieldRegenTime: 0
   overwriteValues: 1
-  useDefaultReputation: 1
+  useDefaultReputation: 0
   upgrades: []
   weapons: []
   currentWeapon: 0
@@ -2125,7 +2125,7 @@ MonoBehaviour:
   shieldBar: {fileID: 0}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 3
+  explosionScale: 4
   chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1407191420}
@@ -2133,7 +2133,7 @@ MonoBehaviour:
   damagedVersion: {fileID: 2677399852934806715, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 150
+  speedReduction: 0.75
   turnSpeedReduction: 0.35
   thrusterEffect: {fileID: 1244849643}
 --- !u!1 &1574227805
@@ -2572,7 +2572,7 @@ MonoBehaviour:
   shieldRegenRate: 0
   shieldRegenTime: 0
   overwriteValues: 1
-  useDefaultReputation: 1
+  useDefaultReputation: 0
   upgrades: []
   weapons: []
   currentWeapon: 0
@@ -2622,7 +2622,7 @@ MonoBehaviour:
   shieldBar: {fileID: 0}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 3
+  explosionScale: 4
   chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1407191420}
@@ -2630,7 +2630,7 @@ MonoBehaviour:
   damagedVersion: {fileID: -6892615318314010125, guid: dd286c57009272d4ba8aba74f50365c3,
     type: 3}
   reducesSpeed: 1
-  speedReduction: 150
+  speedReduction: 0.75
   turnSpeedReduction: 0.35
   thrusterEffect: {fileID: 881224140}
 --- !u!1 &1774144529
@@ -3176,7 +3176,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3187,7 +3187,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 5}
+  m_Size: {x: 1, y: 8}
   m_EdgeRadius: 0
 --- !u!1 &1931363620170092310
 GameObject:
@@ -3283,7 +3283,7 @@ MonoBehaviour:
   shieldRegenRate: 10
   shieldRegenTime: 5
   overwriteValues: 1
-  useDefaultReputation: 1
+  useDefaultReputation: 0
   upgrades: []
   weapons: []
   currentWeapon: 0
@@ -3333,7 +3333,7 @@ MonoBehaviour:
   shieldBar: {fileID: 208895600}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 1
+  explosionScale: 6
   chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1931363620560078290}
@@ -3652,7 +3652,7 @@ MonoBehaviour:
   shieldRegenRate: 10
   shieldRegenTime: 5
   overwriteValues: 1
-  useDefaultReputation: 1
+  useDefaultReputation: 0
   upgrades: []
   weapons: []
   currentWeapon: 0
@@ -3702,7 +3702,7 @@ MonoBehaviour:
   shieldBar: {fileID: 1923472009}
   explosion: {fileID: 7544873323870647214, guid: 53d9383f43648e94285f6e2c033b4a6b,
     type: 3}
-  explosionScale: 1
+  explosionScale: 6
   chargingShield: 0
   owner: {fileID: 4912866718557121109}
   zone: {fileID: 1931363620560078290}
@@ -4521,17 +4521,17 @@ MonoBehaviour:
   shipId: 0
   shipName: Boss 1
   level: 10
-  faction: Pirate
+  faction: 
   reputation: -100
   staticReputation: 1
-  speed: 2
+  speed: 4
   acceleration: 1
   maxHealth: 350
   maxShield: 2000
   shieldRegenRate: 0
   shieldRegenTime: 0
   overwriteValues: 1
-  useDefaultReputation: 1
+  useDefaultReputation: 0
   upgrades: []
   weapons:
   - {fileID: 11400000, guid: 26a04a7330f4d8c45b302e1a18b9e15c, type: 2}
@@ -4553,7 +4553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
-  speed: 11
+  speed: 5
   maxHealth: 350
   health: 350
   maxShield: 2000
@@ -4591,8 +4591,11 @@ MonoBehaviour:
   hasAnimator: 1
   wasSpawned: 0
   leashRange: 15
+  canLeash: 0
   canRetreat: 0
   isRetreating: 0
+  timeBetweenRetreat: 2
+  retreatTime: 2
   retreatRangePercentage: 0.5
   retreatHealthPercentage: 0.1
   spawnPos: {x: 0, y: 0}
@@ -4600,7 +4603,14 @@ MonoBehaviour:
   unitPrefab: {fileID: 3483762288426013979, guid: f2c8466ec3d1add439f6f7701640dc9f,
     type: 3}
   aggroElements: []
-  turrets: []
+  turrets:
+  - {fileID: 2754707649169025429}
+  - {fileID: 1044462237526835809}
+  - {fileID: 2783740487184260492}
+  - {fileID: 5769980572082692367}
+  - {fileID: 792062173222724363}
+  - {fileID: 7048147460873915745}
+  - {fileID: 1246942236219290807}
   hitZone: {fileID: 7859233120537421824}
   canShoot: 0
   internalClock: 0
@@ -4612,13 +4622,11 @@ MonoBehaviour:
   waitTime: 1
   canPerformAction: 1
   isWaiting: 0
-  moveRatio: 0.25
+  moveRatio: 0.5
   rotateRatio: 0.25
   outOfRangeRatio: 3
-  moveTurnSpeed: 0
-  rotateTurnSpeed: 0
-  outOfRangeTurnSpeed: 0
-  hyperDrivePiece: {fileID: 0}
+  hyperDrivePiece: {fileID: 8827879893134495147, guid: 1344a824f8f902a41a3ab2a6030330a7,
+    type: 3}
 --- !u!60 &8988184937699154969
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5066,6 +5074,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.7071068
       objectReference: {fileID: 0}
@@ -5079,16 +5092,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
       objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: caf4e6f11bf7bba4fad6cfbc6e55d83c,
+        type: 3}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: hasAnimator
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: defaultRotation
+      propertyPath: canLeash
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canRetreat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: dropsUnits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 4912866718557121109}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: angleClamp.x
@@ -5099,6 +5143,11 @@ PrefabInstance:
       propertyPath: angleClamp.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: defaultRotation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: ship
@@ -5107,6 +5156,18 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
+--- !u!114 &1044462237526835809 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 16080362136842775}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47df402bb9892594b98844cf5dc5bade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8354027359744371330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
@@ -5205,11 +5266,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 155
       objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: caf4e6f11bf7bba4fad6cfbc6e55d83c,
+        type: 3}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: defaultRotation
-      value: 225
+      propertyPath: hasAnimator
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canLeash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canRetreat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: dropsUnits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 4912866718557121109}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: angleClamp.x
@@ -5220,6 +5317,11 @@ PrefabInstance:
       propertyPath: angleClamp.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: defaultRotation
+      value: 225
+      objectReference: {fileID: 0}
     - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: ship
@@ -5228,6 +5330,18 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
+--- !u!114 &792062173222724363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 340713946697208701}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47df402bb9892594b98844cf5dc5bade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8605291581879815144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
@@ -5313,6 +5427,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.9238796
       objectReference: {fileID: 0}
@@ -5326,16 +5445,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 225
       objectReference: {fileID: 0}
-    - target: {fileID: 3066599250552188629, guid: 4061014edf5b0d549b7855d382a753c2,
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: caf4e6f11bf7bba4fad6cfbc6e55d83c,
+        type: 3}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: hasAnimator
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: defaultRotation
-      value: 315
+      propertyPath: canLeash
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canRetreat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: dropsUnits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 4912866718557121109}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: angleClamp.x
@@ -5346,6 +5496,11 @@ PrefabInstance:
       propertyPath: angleClamp.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: defaultRotation
+      value: 315
+      objectReference: {fileID: 0}
     - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: ship
@@ -5354,6 +5509,18 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
+--- !u!114 &1246942236219290807 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2236470995635815617}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47df402bb9892594b98844cf5dc5bade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7845231085383703636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
@@ -5442,6 +5609,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: caf4e6f11bf7bba4fad6cfbc6e55d83c,
+        type: 3}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: hasAnimator
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canLeash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canRetreat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: dropsUnits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 4912866718557121109}
     - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: ship
@@ -5450,6 +5658,18 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
+--- !u!114 &2754707649169025429 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2917556153285810659}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47df402bb9892594b98844cf5dc5bade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6605491215127839094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
@@ -5533,11 +5753,47 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e17804fc5494564429869742b2070645,
+        type: 3}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: defaultRotation
-      value: 90
+      propertyPath: hasAnimator
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canLeash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canRetreat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: dropsUnits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 4912866718557121109}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: angleClamp.x
@@ -5548,6 +5804,11 @@ PrefabInstance:
       propertyPath: angleClamp.y
       value: 225
       objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: defaultRotation
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: ship
@@ -5556,6 +5817,18 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
+--- !u!114 &2783740487184260492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2947140757424958970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47df402bb9892594b98844cf5dc5bade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6570767769876329839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
@@ -5639,10 +5912,51 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e17804fc5494564429869742b2070645,
+        type: 3}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: defaultRotation
-      value: 90
+      propertyPath: hasAnimator
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canLeash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canRetreat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: dropsUnits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 4912866718557121109}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: angleClamp.x
+      value: 315
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
@@ -5651,8 +5965,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: angleClamp.x
-      value: 315
+      propertyPath: defaultRotation
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
@@ -5662,6 +5976,18 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
+--- !u!114 &5769980572082692367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6797228284049002873}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47df402bb9892594b98844cf5dc5bade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3279409437907421676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,
@@ -5750,11 +6076,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567615872356705138, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406468487159217436, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: caf4e6f11bf7bba4fad6cfbc6e55d83c,
+        type: 3}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
-      propertyPath: defaultRotation
-      value: 270
+      propertyPath: hasAnimator
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canLeash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: canRetreat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: dropsUnits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 4912866718557121109}
     - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: angleClamp.x
@@ -5765,6 +6127,11 @@ PrefabInstance:
       propertyPath: angleClamp.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+        type: 3}
+      propertyPath: defaultRotation
+      value: 270
+      objectReference: {fileID: 0}
     - target: {fileID: 8750180777982080044, guid: 4061014edf5b0d549b7855d382a753c2,
         type: 3}
       propertyPath: ship
@@ -5773,6 +6140,18 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4061014edf5b0d549b7855d382a753c2, type: 3}
+--- !u!114 &7048147460873915745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1028947024904351862, guid: 4061014edf5b0d549b7855d382a753c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8041037616850173207}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47df402bb9892594b98844cf5dc5bade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2036145475691472258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346954197399476373, guid: 4061014edf5b0d549b7855d382a753c2,

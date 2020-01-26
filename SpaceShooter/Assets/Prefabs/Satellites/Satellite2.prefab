@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4903787046170819849}
   - component: {fileID: -263263763666431483}
   - component: {fileID: 4472779297709909550}
+  - component: {fileID: 4747603004983193161}
   m_Layer: 9
   m_Name: Satellite2
   m_TagString: Asteroid
@@ -92,7 +93,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -699905497
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a5de8b1e994aef34b8f95538399e6470, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -217,6 +218,8 @@ MonoBehaviour:
   destroySound: {fileID: 4903787046170819849}
   hitBox: {fileID: 4472779297709909550}
   renderer: {fileID: 3446042032827597880}
+  animator: {fileID: 4747603004983193161}
+  growthSpeed: 5
 --- !u!60 &4472779297709909550
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -268,3 +271,22 @@ PolygonCollider2D:
       - {x: 0.0792984, y: -0.063057326}
       - {x: 0.2709488, y: -0.06282959}
       - {x: 0.27157974, y: 0.07128296}
+--- !u!95 &4747603004983193161
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722032132074069572}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 088806622b3f4f745a4f0290fd2b8fd4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

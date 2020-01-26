@@ -144,7 +144,7 @@ public class ShipController : MonoBehaviour
     //basic shoot function used by all ships
     protected virtual void Shoot(GameObject target = null, List<string> factions = null)
     {
-        if (weaponCooldown <= 0f)
+        if (weaponCooldown <= 0f && shipWeapon != null)
         {
             weaponCooldown = 1 / shipWeapon.fireRate;
             GameObject shot = Instantiate(shipWeapon.projectile, transform.up / 1.5f + transform.position, transform.rotation); //create the projectile
@@ -163,7 +163,7 @@ public class ShipController : MonoBehaviour
     }
 
     //called by a projectile to inflict damage onto a ship
-    public virtual void TakeDamage(float damage, ShipController damager)
+    public virtual void TakeDamage(float damage, ShipController damager, bool enterCombat = true)
     {
         if (isDead)
             return;

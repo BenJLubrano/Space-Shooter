@@ -43,11 +43,10 @@ public class TurretController : NpcController
 
     protected override void FixedUpdate()
     {
-      
         TurretRotate();
     }
 
-    void TurretRotate()
+    protected virtual void TurretRotate()
     {
         if (currentTarget == null || OutOfRange())
         {
@@ -104,7 +103,7 @@ public class TurretController : NpcController
         boss.RemoveTurret(this);
     }
 
-    void ResetRotation()
+    protected virtual void ResetRotation()
     {
         Quaternion rotation = transform.parent.rotation * Quaternion.Euler(0, 0, defaultRotation - 90);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);

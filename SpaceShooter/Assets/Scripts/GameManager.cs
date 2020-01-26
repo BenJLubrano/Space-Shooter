@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,7 +29,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject playerPrefab;
     [SerializeField] PlayerController player;
+    [SerializeField] List<GameObject> sectorContainers = new List<GameObject>();
+    [SerializeField] SectorContainer currentSector;
+    [SerializeField] SectorContainer previousSector;
 
+    float mouseSensitivity = 1;
+    float scrollSpeed = 10;
     float playerRep = 0;
     int primaryPlayer = 0;
     float fadeAmount = 0f;
@@ -43,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(crossFading)
+        if (crossFading)
         {
             fadeAmount += fadeSpeed * Time.deltaTime;
             //if primary player is 0 we should fade that one in
@@ -57,7 +63,7 @@ public class GameManager : MonoBehaviour
                 musicPlayer.volume = 1 - fadeAmount;
                 musicPlayer2.volume = fadeAmount;
             }
-            if(fadeAmount >= 1)
+            if (fadeAmount >= 1)
             {
                 crossFading = false;
                 fadeAmount = 0;
@@ -127,7 +133,7 @@ public class GameManager : MonoBehaviour
         }
         AudioClip fadeInClip = null;
 
-        if(newClip == "intro")
+        if (newClip == "intro")
         {
             fadeInClip = introOutro;
         }
@@ -155,6 +161,10 @@ public class GameManager : MonoBehaviour
         else if (newClip == "boss2")
         {
             fadeInClip = boss2;
+        }
+        else if (newClip == "boss3")
+        {
+            fadeInClip = boss3;
         }
         else if (newClip == "boss3")
         {
@@ -188,22 +198,22 @@ public class GameManager : MonoBehaviour
         if (sceneName == SceneManager.GetActiveScene().name)
             return;
 
-        if(sceneName == "MainMenu")
+        if (sceneName == "MainMenu")
         {
             DestroyPlayer();
         }
 
         if ((sceneName == "Center" || spawnPlayer) && player == null)
         {
-            Debug.Log("spawning player");
+            Debug.Log("initial spawn player");
             player = Instantiate(playerPrefab, new Vector3(0, -10, 0), Quaternion.identity, null).GetComponent<PlayerController>();
         }
 
-        StartCoroutine(FadeIn(transitionTime/2, sceneName));
+        StartCoroutine(FadeIn(transitionTime / 2, sceneName));
         if (newMusic != null)
         {
             CrossFadeAudio(newMusic, transitionTime);
-            if(bossFight)
+            if (bossFight)
             {
                 canChangeMusic = false;
             }
@@ -216,7 +226,7 @@ public class GameManager : MonoBehaviour
     {
         Color tempColor = whiteScreen.color;
         float elapsedTime = 0f;
-        while(elapsedTime < time)
+        while (elapsedTime < time)
         {
             elapsedTime += Time.deltaTime;
             tempColor.a = elapsedTime / time;
@@ -233,10 +243,21 @@ public class GameManager : MonoBehaviour
             player.ChangeBG(2);
             player.SpawnAtPoint(new Vector3(-31, 53, 0));
         }
+        else if (scene == "Boss 3 Scene")
+        {
+            player.ChangeBG(3);
+            player.SpawnAtPoint(new Vector3(-31, 53, 0));
+        }
         else if (scene == "Center")
         {
             player.ChangeBG(0);
-            player.SpawnAtPoint(new Vector3(0, -10, 0));
+            string currentScene = SceneManager.GetActiveScene().name;
+            if (currentScene == "Boss Scene" || currentScene == "Boss 2 Scene" || currentScene == "Boss 3 Scene")
+                ResetPlayerReputation();
+            if (playerRep > -1)
+                player.SpawnAtPoint(new Vector3(0, -10, 0));
+            else
+                player.SpawnAtPoint(new Vector3(78, -280, 0));
         }
         SceneManager.LoadScene(scene);
         StartCoroutine(FadeOut(time));
@@ -272,9 +293,9 @@ public class GameManager : MonoBehaviour
 
     public void EnterBossFight(float transitionTime, string sceneName, string bossMusic, Vector3 spawnPos)
     {
-        SceneTransition(transitionTime, sceneName, bossMusic, true);
         PlayerStats stats = player.GetComponent<PlayerStats>();
         playerRep = stats.reputation;
+        SceneTransition(transitionTime, sceneName, bossMusic, true);
         stats.SetReputation(0);
     }
 
@@ -287,8 +308,45 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            player.SpawnAtPoint(new Vector3(0, -10, 0));
+            if (player.GetStats().reputation > -1)
+                player.SpawnAtPoint(new Vector3(0, -10, 0));
+            else
+                player.SpawnAtPoint(new Vector3(78, -280, 0));
         }
     }
 
+    public void EnterSector(SectorContainer sector)
+    {
+        Debug.Log("Entering sector with sector number:" + sector.GetSectorNumber());
+
+        if(currentSector != null && currentSector.GetSectorNumber() != sector.GetSectorNumber())
+        {
+            currentSector.Hide();
+        }
+
+        currentSector = sector;
+
+        currentSector.Show();
+
+    }
+
+    public void SetMouseSensitivity(TMP_InputField sensitivity)
+    {
+        mouseSensitivity = float.Parse(sensitivity.text);
+    }
+
+    public float GetMouseSensitivity()
+    {
+        return mouseSensitivity;
+    }
+
+    public void SetScrollSpeed(TMP_InputField speed)
+    {
+        scrollSpeed = float.Parse(speed.text);
+    }
+
+    public float GetScrollSpeed()
+    {
+        return scrollSpeed;
+    }
 }

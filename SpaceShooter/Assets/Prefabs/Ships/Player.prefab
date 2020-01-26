@@ -1467,6 +1467,7 @@ MonoBehaviour:
   - {fileID: 7854149869910764616, guid: b289ad688cab977429c9974e96c6e265, type: 3}
   - {fileID: 7854149869910764616, guid: 0149fdd79428f9e48b8f20b40b6eadd7, type: 3}
   - {fileID: 7854149869910764616, guid: 50cdb365389b6204ea8dc3f51fc8fdbb, type: 3}
+  - {fileID: 7854149869910764616, guid: 926bdfd50a3516c408136ee21ae328c6, type: 3}
   playerShield: {fileID: 6752734329798578712}
   shieldOnHit: {fileID: 891484481009247409}
   mouseMovement: 0
@@ -1645,7 +1646,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.099, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1838343172259217286}
+  - {fileID: 8465800629513638691}
   m_Father: {fileID: 1670886136389112699}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1715,7 +1716,7 @@ MonoBehaviour:
   playerCam: {fileID: 1670886137031074162}
   scrollSpeed: 10
   minSize: 1
-  maxSize: 20
+  maxSize: 15
 --- !u!1 &1712298466776117283
 GameObject:
   m_ObjectHideFlags: 0
@@ -5228,7 +5229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b289ad688cab977429c9974e96c6e265, type: 3}
---- !u!4 &1838343172259217286 stripped
+--- !u!4 &8465800629513638691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7854149869910764617, guid: b289ad688cab977429c9974e96c6e265,
     type: 3}

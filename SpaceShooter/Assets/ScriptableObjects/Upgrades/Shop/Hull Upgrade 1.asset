@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Hull Upgrade 1
   m_EditorClassIdentifier: 
   type: 0
-  maxBuyCount: 5
+  maxBuyCount: 150
   upgradeName: HULL
-  description: Increases the health of your ship by 15
+  description: Increases the health of your ship by 30
   cost: 200
-  increase: 15
+  increase: 30
   weapon: {fileID: 0}
   ship: {fileID: 0}
